@@ -1,0 +1,233 @@
+/* header mobile */
+
+.header-nav-desk{
+    display: none;
+}
+
+.header-mobile {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background: none;
+
+}
+
+
+
+.header-mobile-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-logo {
+    width: 17%;
+    cursor: pointer;
+}
+
+.header-menu {
+    cursor: pointer;
+    transition: scale 0.3s ease;
+}
+
+.header-menu:active {
+    scale: 0.95;
+}
+
+
+
+/* Menu-header-mobile */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    border: 2px solid var(--background);
+    width: 90%;
+    border-radius: 50px 10px 10px 50px;
+    background-color: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 1001;
+  
+    height: 99.5dvh;
+  }
+  
+
+.menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary);
+    opacity: 0.3;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.menu-open {
+    transform: translateX(0);
+}
+
+
+.menu-cerrar{
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+    cursor: pointer;
+    color: var(--background);
+    font-weight: 600;
+}
+
+.menu-ul {
+    display: flex;
+    width: 100%;
+    height: 98dvh;    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+
+.menu-li {
+    cursor: pointer;
+    text-align: end;
+    padding-bottom: 1rem;
+    border-bottom: 0.3px solid var(--background);
+    font-size: 7.5vw;
+    transition: scale 0.4s ease;
+    color: var(--background);
+}
+
+.mobile-services-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.submenu-item {
+    font-size: 5vw;
+    border-bottom: 0.2px solid var(--background);
+    padding-bottom: 0.5rem;
+    color: var(--background);
+}
+
+.menu-li:active {
+    scale: 0.95;
+}
+
+
+.menu-privacy {
+    line-height: 1;
+    cursor: pointer;
+    transition: scale 0.4s ease;
+    color: var(--background);
+    font-weight: 600;
+}
+
+
+.menu-privacy:active {
+    scale: 0.95;
+}
+
+
+.menu-rrss{
+    
+    display: flex;
+    padding: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.icon{
+    font-size: 1.7rem;
+}
+
+@media (min-width: 1023px) {
+
+
+    .menu, .header-mobile-nav, .blur-overlay{
+        display: none;
+    }
+    
+
+
+    .header-nav-desk{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.3rem;
+        gap: 7rem;
+    }
+
+    .header-desk-ul{
+        display: flex;
+        gap: 2rem;
+
+    }
+
+    .header-desk-li{
+        cursor: pointer;
+
+    }
+
+
+
+    .desk-dropdown {
+        position: fixed;
+        top: 3rem;
+        left: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(20px);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 12px 0;
+        z-index: 999;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      }
+      
+      .desk-dropdown::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--primary);
+        opacity: 0.1;
+        border-radius: inherit;
+        z-index: -1;
+      }
+      
+      .desk-dropdown li {
+       padding: 0.5rem;
+       text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+        color: var(--background);
+        font-weight: 600;
+      }
+      
+      .desk-dropdown li:hover {
+        background: var(--background);
+      }
+      
+}

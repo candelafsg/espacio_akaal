@@ -1,0 +1,225 @@
+/* seccion imagen */
+
+.viajes{
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+}
+.viajes-imagen{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-img);
+    padding: 0.3rem;
+    opacity: 0.85;
+    filter: brightness(0.5);
+
+}
+
+.viajes-nombre{
+    color: var(--background);
+    font-size: 17vw;
+}
+
+.viajes-intro{
+    display: flex;
+    flex-direction: column;
+  
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 1rem;
+}
+   
+.viajes-subtitulo{
+    margin-top: 0.8rem;
+    color: var(--background);
+    width: 80%;
+}
+
+
+.viajes-fecha {
+    color: var(--background);
+  letter-spacing: 2px;
+}
+
+.viajes-contador {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+   
+
+  
+}
+
+.contador-texto {
+    color: var(--background);
+   
+  
+  
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contador-numero {
+    color: var(--background);
+   
+    margin: 0.5rem 0;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
+
+.viajes-intro-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 45%;
+    margin-top: 3rem;
+   
+}
+
+
+
+/* Seccion descripcion */
+
+.viajes-descripcion{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+
+.viajes-imag{
+  width: 100%;
+  height: 50vh;
+  margin-top: 1rem;
+}
+
+
+.viajes-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+
+
+/* Sección cards */
+
+
+
+.viajes-cards{
+
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    
+   
+}
+
+.cards-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-viajes {
+    color: var(--primary);
+    font-size: 10vw;
+    text-align: start;
+    width: 100%;
+    padding: 0 2rem;
+    font-weight: bold;
+}
+
+.viajes-titulo-seccion {
+    color: var(--primary);
+    font-size: 10vw;
+    text-align: start;
+    width: 100%;
+    padding: 0 2rem;
+    font-weight: bold;
+}
+
+
+
+.viajes-anteriores{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+
+
+/* Botón flotante - añade esto a tu viajes.css */
+.boton-flotante {
+    position: fixed;
+    width: 100%;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  .boton-flotante a {
+    display: block;
+    padding: 15px 30px;
+    background-color: var(--primary, #4CAF50);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .boton-flotante a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+
+
+  .anteriores-titulo{
+    font-size: 12vw;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .boton-flotante {
+      bottom: 15px;
+      right: 15px;
+    }
+    
+    .boton-flotante a {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  }

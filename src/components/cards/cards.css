@@ -1,0 +1,337 @@
+
+
+/* card productos */
+
+.card {
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    border: 2px solid var(--background);
+    padding: 0.6rem;
+    border-radius: 4px;
+    transition: border 0.4s ease, padding 0.1s ease;
+
+}
+
+
+.card {
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    transition: border 0.2s ease, transform 0.2s ease;
+}
+
+.card-seleccionada {
+    border: 2px solid var(--primary);
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+
+
+.card-img-container {
+    width: 100%;
+    height: 130px;
+    border-radius: 4px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.card-name{
+    width: 80%;
+}
+
+.card-info {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: palegoldenrod; */
+    height: auto;
+}
+
+
+/* -------------------- */
+/* Card resumen */
+/* -------------------- */
+
+.card-pedido{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+    border-bottom: var(--border);
+}
+
+.imagen-info{
+    display: flex;
+    align-items: center;
+    gap:2rem
+}
+
+.card-img-container-resumen{
+    width: 130px;
+}
+
+.card-img-resumen{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.card-info-resumen{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.prize{
+    font-size: 1.3rem;
+}
+
+
+
+
+
+/* -------------------- */
+/* Card inicio */
+/* -------------------- */
+
+
+.card-inicio {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: var(--border);
+    border-radius: 4px;
+}
+
+.card-text {
+    width: 50%;
+}
+
+
+.btn-icon-only{
+}
+
+
+
+
+
+
+/* -------------------- */
+/* Card viajes */
+/* -------------------- */
+
+
+
+.card-viajes{
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 350px;
+    border-radius: 4px;
+    padding: 1rem;
+    position: relative;
+}
+
+
+
+
+
+
+.viajes-texto{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 1.5rem;
+   
+}
+
+
+.viajes-icon{
+    font-size: 4rem;
+}
+
+.cards-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+  /* Ocultar scrollbar pero mantener funcionalidad */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.cards-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+.step-indicators {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+  }
+  
+  .step-dot {
+    width: 5px;
+    height: 5px;
+    border-radius:50px;
+    background-color: #d6b9c4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .step-dot.active {
+    width: 16px;
+    background-color: #671c3b;
+  }
+
+
+  .viajes-cta{
+    margin-top: 2.5rem;
+  }
+
+  .viajes-footer{
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0rem;
+  }
+  
+
+  
+
+
+
+/* -------------------- */
+/* Card viajes anteriores */
+/* -------------------- */
+
+.viajes-container{
+    width: 40%;
+    height: 50vh;
+    position: relative;
+}
+
+.viajes-img{
+
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-img);
+    object-fit: cover;
+    opacity: 0.85;
+    filter: brightness(0.8);
+   
+
+}
+
+.viajes-info{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.viajes-titulo{
+    color: var(--background);
+    font-size: 8vw;
+}
+
+
+@media (max-width: 600px) {
+   
+
+   
+
+   
+
+ .btn-icon-only {
+    font-size: 0.9rem;
+ }
+   
+
+
+    
+    
+
+    .btn-icon-only .btn-icon {
+        /* recupera tamaño del icono */
+    }
+
+
+
+
+
+
+}
+
+
+/* card horario */
+
+.card-horario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: var(--border);
+}
+
+
+
+
+@media (min-width: 600px) {
+
+
+    .card-inicio {
+        display: flex;
+        flex-direction: column;
+       
+        height: 250px;
+        gap: 1rem;
+        width: 300px;
+        border: var(--border);
+        border-radius: 4px;
+        padding: 0.6rem;
+
+    }
+
+    .card-text {
+        font-size: 2rem;
+        line-height: 1.3;
+        width: 100%;
+    }
+
+    /* botón alineado a la derecha */
+    .card-inicio .btn-icon-only {
+        align-self: flex-end;
+        font-size: inherit;
+        border: none;
+    }
+
+    .card-inicio .btn-icon-only .btn-icon {
+        font-size: inherit;
+    }
+}
