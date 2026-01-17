@@ -18,6 +18,7 @@ const AkaalViajes = () => {
   const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
   const [viajeActivo, setViajeActivo] = useState('AZORES');
   const [diasRestantes, setDiasRestantes] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const scrollRef = useRef(null);
 
 
@@ -89,16 +90,39 @@ const AkaalViajes = () => {
 
 
   const handleNext = () => {
-    const nextStep = (currentStep + 1) % steps.length;
-    setCurrentStep(nextStep);
+    setIsAnimating(true);
+    setTimeout(() => {
+      const nextStep = (currentStep + 1) % steps.length;
+      setCurrentStep(nextStep);
+      setIsAnimating(false);
 
-    // Scroll suave a la siguiente card
-    if (scrollRef.current) {
-      const cardWidth = scrollRef.current.offsetWidth;
-      scrollRef.current.scrollTo({
-        left: cardWidth * nextStep,
-        behavior: 'smooth'
-      });
+      // Scroll suave a la siguiente card
+      if (scrollRef.current) {
+        const cardWidth = scrollRef.current.offsetWidth;
+        scrollRef.current.scrollTo({
+          left: cardWidth * nextStep,
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
+  };
+
+  const handleStepClick = (index) => {
+    if (index !== currentStep) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentStep(index);
+        setIsAnimating(false);
+
+        // Scroll suave a la card seleccionada
+        if (scrollRef.current) {
+          const cardWidth = scrollRef.current.offsetWidth;
+          scrollRef.current.scrollTo({
+            left: cardWidth * index,
+            behavior: 'smooth'
+          });
+        }
+      }, 150);
     }
   };
 
@@ -213,7 +237,8 @@ const AkaalViajes = () => {
               description={steps[currentStep].description}
               totalSteps={steps.length}
               currentStep={currentStep}
-              onStepClick={setCurrentStep}
+              isAnimating={isAnimating}
+              onStepClick={handleStepClick}
               onNextClick={handleNext}
               cta={
                 isLastStep ? (

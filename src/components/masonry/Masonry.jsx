@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { X } from 'lucide-react';
 import './masonry.css';
 
 const useMedia = (queries, values, defaultValue) => {
@@ -66,6 +67,7 @@ const Masonry = ({
   const [imagesReady, setImagesReady] = useState(false);
   const [sliderOpen, setSliderOpen] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
+  const sliderRef = useRef(null);
 
   const getInitialPosition = item => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -187,6 +189,26 @@ const Masonry = ({
     }
   };
 
+  // Manejar scroll con debounce
+  let scrollTimeout;
+  const handleScroll = (e) => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const slider = e.target;
+      if (slider && items.length > 0) {
+        const scrollLeft = slider.scrollLeft;
+        const containerWidth = slider.offsetWidth;
+        
+        if (containerWidth > 0) {
+          const newIndex = Math.round(scrollLeft / containerWidth);
+          if (newIndex >= 0 && newIndex < items.length) {
+            setSliderIndex(newIndex);
+          }
+        }
+      }
+    }, 100);
+  };
+
   return (
     <>
       <div ref={containerRef} className="list">
@@ -209,6 +231,35 @@ const Masonry = ({
 
       {sliderOpen && (
         <div className="slider-overlay" onClick={() => setSliderOpen(false)}>
+          {/* Botón de cerrar blanco simple */}
+          <button 
+            className="slider-close-simple" 
+            onClick={(e) => {
+              e.stopPropagation();
+              setSliderOpen(false);
+            }}
+          >
+            <X size={24} />
+          </button>
+
+          {/* Imagen actual con contenedor de scroll */}
+          <div
+            className="slider-scroll-container"
+            ref={sliderRef}
+            onClick={e => e.stopPropagation()}
+            onScroll={handleScroll}
+          >
+            {items.map((item, index) => (
+              <img 
+                key={item.id}
+                src={item.img}
+                alt="Imagen ampliada"
+                className="slider-scroll-img"
+              />
+            ))}
+          </div>
+
+          {/* Imagen actual mostrada */}
           <img
             src={items[sliderIndex].img}
             alt="Imagen ampliada"

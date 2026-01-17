@@ -1,0 +1,87 @@
+{
+  "Div with class": {
+    "prefix": "div.",
+    "body": ["<div className=\"$1\">$2</div>"],
+    "description": "Create div with className"
+  },
+  "Section with class": {
+    "prefix": "section.",
+    "body": ["<section className=\"$1\">$2</section>"],
+    "description": "Create section with className"
+  },
+  "Image with class": {
+    "prefix": "img.",
+    "body": ["<img src=\"$1\" alt=\"$2\" className=\"$3\" />"],
+    "description": "Create img with className"
+  },
+  "H1 with class": {
+    "prefix": "h1.",
+    "body": ["<h1 className=\"$1\">$2</h1>"],
+    "description": "Create h1 with className"
+  },
+  "H2 with class": {
+    "prefix": "h2.",
+    "body": ["<h2 className=\"$1\">$2</h2>"],
+    "description": "Create h2 with className"
+  },
+  "H3 with class": {
+    "prefix": "h3.",
+    "body": ["<h3 className=\"$1\">$2</h3>"],
+    "description": "Create h3 with className"
+  },
+  "P with class": {
+    "prefix": "p.",
+    "body": ["<p className=\"$1\">$2</p>"],
+    "description": "Create p with className"
+  },
+  "Button with class": {
+    "prefix": "button.",
+    "body": ["<button className=\"$1\" onClick={$2}>$3</button>"],
+    "description": "Create button with className"
+  },
+  "Link with class": {
+    "prefix": "a.",
+    "body": ["<a href=\"$1\" className=\"$2\">$3</a>"],
+    "description": "Create a with className"
+  },
+  "Nav with class": {
+    "prefix": "nav.",
+    "body": ["<nav className=\"$1\">$2</nav>"],
+    "description": "Create nav with className"
+  },
+  "Header with class": {
+    "prefix": "header.",
+    "body": ["<header className=\"$1\">$2</header>"],
+    "description": "Create header with className"
+  },
+  "Footer with class": {
+    "prefix": "footer.",
+    "body": ["<footer className=\"$1\">$2</footer>"],
+    "description": "Create footer with className"
+  },
+  "Main with class": {
+    "prefix": "main.",
+    "body": ["<main className=\"$1\">$2</main>"],
+    "description": "Create main with className"
+  },
+  "Article with class": {
+    "prefix": "article.",
+    "body": ["<article className=\"$1\">$2</article>"],
+    "description": "Create article with className"
+  },
+  "Ul with class": {
+    "prefix": "ul.",
+    "body": ["<ul className=\"$1\">$2</ul>"],
+    "description": "Create ul with className"
+  },
+  "Li with class": {
+    "prefix": "li.",
+    "body": ["<li className=\"$1\">$2</li>"],
+    "description": "Create li with className"
+  },
+  "Span with class": {
+    "prefix": "span.",
+    "body": ["<span className=\"$1\">$2</span>"],
+    "description": "Create span with className"
+  }
+}

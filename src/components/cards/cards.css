@@ -124,6 +124,7 @@
 
 
 .btn-icon-only{
+    cursor: pointer;
 }
 
 
@@ -148,30 +149,72 @@
     border-radius: 4px;
     padding: 1rem;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.card-viajes.animating .viajes-icon {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+}
+
+.card-viajes.animating .viajes-texto {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.card-viajes.animating .viajes-h1 {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.card-viajes.animating .viajes-description {
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 
 
 
 
+
+.viajes-icon{
+    font-size: 4rem;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+.viajes-icon:hover {
+    transform: scale(1.1);
+}
 
 .viajes-texto{
     width: 100%;
     height: auto;
     text-align: center;
     margin-bottom: 1.5rem;
-   
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
+.viajes-h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
 
-.viajes-icon{
-    font-size: 4rem;
+.viajes-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
 .cards-scroll-container {
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+  max-width: 100vw;
   scroll-behavior: smooth;
   /* Ocultar scrollbar pero mantener funcionalidad */
   scrollbar-width: none; /* Firefox */
@@ -196,11 +239,18 @@
     background-color: #d6b9c4;
     transition: all 0.3s ease;
     cursor: pointer;
+    transform: scale(1);
   }
   
   .step-dot.active {
     width: 16px;
     background-color: #671c3b;
+    transform: scale(1.2);
+  }
+
+  .step-dot:hover {
+    transform: scale(1.3);
+    opacity: 0.8;
   }
 
 
@@ -278,7 +328,7 @@
     
 
     .btn-icon-only .btn-icon {
-        /* recupera tamaño del icono */
+        font-size: inherit;
     }
 
 

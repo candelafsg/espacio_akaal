@@ -116,13 +116,14 @@ export const CardViajes = ({
     description,
     totalSteps,
     currentStep,
+    isAnimating,
     onStepClick,
     onNextClick,
     cta
 }) => {
     return (
 
-        <div className="card-viajes">
+        <div className={`card-viajes ${isAnimating ? 'animating' : ''}`}>
 
 
             <div className="viajes-icon">{icon}</div>

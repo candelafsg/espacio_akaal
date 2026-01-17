@@ -10,6 +10,7 @@ export const Header = () => {
     const [openDeskMenu, setOpenDeskMenu] = useState(false);
     const [openMobileServices, setOpenMobileServices] = useState(false);
     const deskMenuRef = useRef(null);
+    const mobileMenuRef = useRef(null);
 
     const handleOpenMenu = () => {
         setMenu(!menu);
@@ -28,11 +29,14 @@ export const Header = () => {
             if (openDeskMenu && deskMenuRef.current && !deskMenuRef.current.contains(e.target)) {
                 setOpenDeskMenu(false);
             }
+            if (menu && mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+                setMenu(false);
+            }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [openDeskMenu]);
+    }, [openDeskMenu, menu]);
 
     return (
         <>
@@ -66,6 +70,7 @@ export const Header = () => {
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: '100%', opacity: 0 }}
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
+                                ref={mobileMenuRef}
                             >
                                 <div className="menu-cerrar" onClick={() => setMenu(false)}>CERRAR</div>
 

@@ -1,0 +1,146 @@
+.section-img {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+}
+
+.image-gong {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    filter: brightness(0.7);
+
+}
+
+
+
+.gong-texto {
+    text-align: center;
+
+}
+
+/* Slider de beneficios */
+.gong-beneficios {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+.slider-container {
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slider-content {
+
+    margin-top: 4rem;
+
+}
+
+.beneficio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.beneficio-item.animating .beneficio-icon {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+}
+
+.beneficio-item.animating .beneficio-texto {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.beneficio-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+.beneficio-icon-svg {
+    width: 100%;
+    height: 100%;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.beneficio-icon-svg:hover {
+    transform: scale(1.1);
+}
+
+.beneficio-texto {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.slider-controls {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.slider-btn {
+    border: none;
+    background: none;
+    color: var(--primary);
+    padding: 10px 20px;
+
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.dot.active {
+    transform: scale(1.5);
+    background-color: var(--primary);
+}
+
+.dot:hover {
+    transform: scale(1.3);
+    opacity: 0.8;
+}
