@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useRef, useState } from "react";
 import './css/detalle.css'
 import useFetchProductos from '../../hooks/useFetchProducts';
-import {HandHeart,} from 'lucide-react'
+import { HandHeart, } from 'lucide-react'
 import { Button } from "../../components/buttons/Button";
 
 
@@ -13,9 +13,11 @@ const DetalleProducto = () => {
 
     const sliderRef = useRef(null);
     const [imagenActiva, setImagenActiva] = useState(0);
+    const [mostrarNotificacion, setMostrarNotificacion] = useState(false);
 
     const productos = useFetchProductos();
-const producto = productos.find(p => p.id === Number(pid));
+    const producto = productos.find(p => p.id === Number(pid));
+    const navigate = useNavigate();
 
     const handleScroll = () => {
         const scrollLeft = sliderRef.current.scrollLeft;
@@ -37,18 +39,22 @@ const producto = productos.find(p => p.id === Number(pid));
     const seleccionarProducto = () => {
         // Obtener la lista actual desde localStorage
         const seleccionActual = JSON.parse(localStorage.getItem("seleccionados")) || [];
-    
+
         // Si no está ya seleccionado, lo añadimos
         if (!seleccionActual.includes(producto.id)) {
             const nuevaSeleccion = [...seleccionActual, producto.id];
             localStorage.setItem("seleccionados", JSON.stringify(nuevaSeleccion));
         }
-    
-        navigate(-1); // Volver a galería
-    };
-    
 
-    const navigate = useNavigate();
+        // Mostrar notificación personalizada
+        setMostrarNotificacion(true);
+        
+        // Ocultar notificación y navegar después de 2 segundos
+        setTimeout(() => {
+            setMostrarNotificacion(false);
+            navigate(-1); // Volver a galería
+        }, 2000);
+    };
 
 
     const handleBack = () => {
@@ -61,68 +67,67 @@ const producto = productos.find(p => p.id === Number(pid));
     if (!producto) return null;
 
     return (
+        <>
+            {/* Notificación personalizada */}
+            {mostrarNotificacion && (
+                <motion.div
+                    className="notificacion-seleccion"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                    <HandHeart size={20} />
+                    <span>¡Producto seleccionado!</span>
+                </motion.div>
+            )}
 
-        <div className="modal-overlay">
-            <motion.div
-                className="modal-content"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-                <button className="cerrar" onClick={handleBack}>✕</button>
-            
+            <div className="modal-overlay">
+                <motion.div
+                    className="modal-content"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                    <button className="cerrar" onClick={handleBack}>✕</button>
 
-                <div className="slider-container">
-                    <div className="slider" ref={sliderRef} onScroll={handleScroll}>
-                        {producto.imagenes.map((img, index) => (
-                            <img  key={index} src={img} alt={`imagen-${index}`} className="slide-img" />
-                        ))}
+                    <div className="slider-container">
+                        <div className="slider" ref={sliderRef} onScroll={handleScroll}>
+                            {producto.imagenes.map((img, index) => (
+                                <img key={index} src={img} alt={`imagen-${index}`} className="slide-img" />
+                            ))}
+                        </div>
+
+                        <div className="dots">
+                            {producto.imagenes.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={`dot ${index === imagenActiva ? "active" : ""}`}
+                                    onClick={() => scrollToImagen(index)}
+                                />
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="dots">
-                        {producto.imagenes.map((_, index) => (
-                            <span
-                                key={index}
-                                className={`dot ${index === imagenActiva ? "active" : ""}`}
-                                onClick={() => scrollToImagen(index)}
-                            />
-                        ))}
+                    <div className="producto-info">
+                        <h2>{producto.nombre}</h2>
+                        <p>{producto.descripcion}</p>
+                        <p className="precio">{producto.precio} €</p>
+
+                        <div className="producto-labels">
+                            <span className="label">{producto.filtro}</span>
+                            <span className="label">{producto.tipo}</span>
+                            {producto.piedra && <span className="label">{producto.piedra}</span>}
+                        </div>
+
+                        <div className="btn-seleccion">
+                            <Button onClick={seleccionarProducto}>SELECCIONAR PRODUCTO</Button>
+                        </div>
                     </div>
-                </div>
-
-                <div className="producto-info">
-                    <h2>{producto.nombre}</h2>
-                    <p>{producto.descripcion}</p>
-                    <h3>{producto.precio} </h3>
-                </div>
-
-
-                {/* <div className="producto-labels">
-                    <div className="label">
-                    <HandHeart strokeWidth={1} />
-
-                        <p className="label-p">Hecho a mano</p>
-                    </div>
-                    <div className="label">
-                        
-                        <p className="label-p"></p>
-                    </div>
-                    <div className="label">
-                        
-                        <p className="label-p"></p>
-                    </div>
-                </div> */}
-
-
-                <div className="btn-seleccion">
-                <Button onClick={seleccionarProducto}>SELECCIONAR PRODUCTO</Button>
-
-
-                </div>
-
-            </motion.div>
-        </div>
+                </motion.div>
+            </div>
+        </>
     );
 };
 

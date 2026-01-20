@@ -24,7 +24,7 @@
 
 .cerrar {
     position: absolute;
-    top: 1rem;
+    top: 3rem;
     right: 1rem;
     background: none;
     border: none;
@@ -62,6 +62,9 @@
     scroll-snap-align: center;
     object-fit: cover;
     border-radius: 20px 8px 0 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .dots {
@@ -103,4 +106,98 @@
 .btn-seleccion{
     display: flex;
     justify-content: center;
+}
+
+/* Notificación personalizada */
+.notificacion-seleccion {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-img);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2000;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos desktop para DetalleProducto */
+@media (min-width: 768px) {
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: var(--background);
+        width: 60%;
+        height: 90dvh;
+        border-radius: var(--radius-img);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 70vh; /* Más altura para la imagen */
+    }
+
+    .slider {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-img) var(--radius-img) 0 0;
+        height: 100%;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE/Edge */
+    }
+
+    .slide-img {
+        width: 100%;
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        object-fit: cover;
+        border-radius: var(--radius-img) var(--radius-img) 0 0;
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .producto-info {
+        padding: 1.5rem;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .producto-labels {
+        height: auto; /* Ajustar al contenido */
+        min-height: 15dvh;
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 0.5rem;
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
 }

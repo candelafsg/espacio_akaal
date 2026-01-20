@@ -71,7 +71,6 @@
     outline: none;
 }
 
-
 .footer-resumen{
     position: fixed;
 background-color: var(--background);    
@@ -82,4 +81,156 @@ background-color: var(--background);
     gap: 1rem;
     width: 100%;
 
+}
+
+/* Estilos para ResumenPedido dentro del menú lateral (desktop) */
+@media (min-width: 768px) {
+
+      .vioska-page.dimmed {
+    filter: brightness(0.8);
+  }
+
+  /* opcional: que también baje un pelín la opacidad */
+  .vioska-page.dimmed {
+    opacity: 0.95;
+  }
+    .resumen.menu-lateral {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 500px;
+        height: 100vh;
+        background: var(--background);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        overflow-y: auto;
+        border-radius: var(--radius-img);
+        margin-top: 0;
+        padding: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .resumen.menu-lateral.active {
+        transform: translateX(0);
+    }
+
+    .resumen.menu-lateral .resumen-back {
+        display: none;
+    }
+
+    .resumen.menu-lateral .resumen-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 4px;
+        transition: background 0.2s ease;
+        color: var(--primary);
+    }
+
+    .resumen.menu-lateral .resumen-close:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .resumen.menu-lateral .resumen-titulo {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+
+
+
+    .resumen.menu-lateral .footer-resumen {
+        position: static;
+        bottom: auto;
+        left: auto;
+        margin-top: auto;
+        padding: 1rem 0;
+        background: transparent;
+        width: 100%;
+    }
+
+    /* Overlay independiente para mejor control */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* negro translúcido */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+    /* Animación escalonada de elementos */
+    .resumen.menu-lateral .resumen-titulo {
+        opacity: 0;
+        transform: translateY(5px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: 0.1s;
+    }
+
+    .resumen.menu-lateral.active .resumen-titulo {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .resumen.menu-lateral .lista-productos {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: 0.2s;
+    }
+
+    .resumen.menu-lateral.active .lista-productos {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .resumen.menu-lateral .resumen-total {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: 0.3s;
+    }
+
+    .resumen.menu-lateral.active .resumen-total {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .resumen.menu-lateral .resumen-finalizar {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: 0.4s;
+    }
+
+    .resumen.menu-lateral.active .resumen-finalizar {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .resumen.menu-lateral .resumen-close {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition-delay: 0s;
+    }
+
+    .resumen.menu-lateral.active .resumen-close {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

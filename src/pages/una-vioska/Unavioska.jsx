@@ -14,8 +14,12 @@ import {
     PointerOff,
     ShoppingCart,
     HandHeart,
-    MessageCircleMore
+    MessageCircleMore,
+    ChevronLeft,
+    ChevronRight,
+    X
 } from "lucide-react";
+import ResumenPedido from './ResumenPedido';
 
 // 📝 Lista de pasos de instrucciones
 const pasosInstrucciones = [
@@ -76,8 +80,24 @@ const UnaVioska = () => {
     const [menu, setMenu] = useState(false);
     const [filtroActivo, setFiltroActivo] = useState("todo");
     const [tipoActivo, setTipoActivo] = useState("todo");
+    const [scrollPosition, setScrollPosition] = useState({
+        pendientes: 0,
+        colgantes: 0,
+        anillos: 0
+    });
+
+    const [canScrollPrevState, setCanScrollPrevState] = useState({
+        pendientes: false,
+        colgantes: false,
+        anillos: false
+    });
+
+    const [menuResumenAbierto, setMenuResumenAbierto] = useState(false);
 
     const menuRef = useRef(null);
+    const pendientesRef = useRef(null);
+    const colgantesRef = useRef(null);
+    const anillosRef = useRef(null);
 
     const productos = useFetchProductos();
     const navigate = useNavigate();
@@ -153,6 +173,60 @@ const UnaVioska = () => {
         setMenu(false);
     };
 
+    const scrollGallery = (tipo, direction) => {
+        const refs = {
+            pendientes: pendientesRef,
+            colgantes: colgantesRef,
+            anillos: anillosRef
+        };
+        
+        const ref = refs[tipo];
+        if (ref.current) {
+            const cardWidth = 200; // Ancho aproximado de cada tarjeta
+            const gap = 16; // Gap entre tarjetas
+            const scrollAmount = (cardWidth + gap) * 2; // Mover 2 tarjetas
+            
+            if (direction === 'next') {
+                ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                // Activar el botón ANT después de hacer scroll
+                setCanScrollPrevState(prev => ({
+                    ...prev,
+                    [tipo]: true
+                }));
+            } else {
+                ref.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                // Desactivar ANT si vuelve al inicio
+                setTimeout(() => {
+                    if (ref.current.scrollLeft <= scrollAmount) {
+                        setCanScrollPrevState(prev => ({
+                            ...prev,
+                            [tipo]: false
+                        }));
+                    }
+                }, 300);
+            }
+        }
+    };
+
+    const canScrollNext = (tipo) => {
+        const productosTipo = productos.filter(producto => producto.tipo === tipo);
+        const refs = {
+            pendientes: pendientesRef,
+            colgantes: colgantesRef,
+            anillos: anillosRef
+        };
+        
+        const ref = refs[tipo];
+        if (ref.current && productosTipo.length > 4) {
+            return ref.current.scrollLeft < (productosTipo.length - 4) * 216;
+        }
+        return false;
+    };
+
+    const canScrollPrev = (tipo) => {
+        return canScrollPrevState[tipo];
+    };
+
 
 
 
@@ -168,9 +242,19 @@ const UnaVioska = () => {
             seleccionados.includes(producto.id)
         );
 
-        navigate('/resumen-producto', {
-            state: { productos: productosSeleccionados }
-        });
+        // Verificar si es desktop (≥768px)
+        if (window.innerWidth >= 768) {
+            // En desktop abrir menú lateral directamente
+            setMenuResumenAbierto(true);
+        } else {
+            // En mobile navegar a página separada
+            navigate('/resumen-producto', {
+                state: { 
+                    productos: productosSeleccionados,
+                    esMenuLateral: false // Indicador para que sepa que es página normal
+                }
+            });
+        }
     };
 
     useEffect(() => {
@@ -184,6 +268,9 @@ const UnaVioska = () => {
 
     return (
         <>
+
+        <div className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
+
             <ImgContainer>
                 <img src="/img/colgante-mb.png" alt="colgante" className="vioska-portada" />
                 <div className="vioska-info">
@@ -191,7 +278,8 @@ const UnaVioska = () => {
                 </div>
             </ImgContainer>
 
-            <section className="vioska-instrucciones">
+            {/* Versión Mobile */}
+            <section className="vioska-instrucciones mobile-only">
                 <div className="artesania">
                     <Sparkles strokeWidth={0.7} />
                     <h3 className="instrucciones-texto">Cada pieza está hecha a mano, con mucho mimo y dedicación.</h3>
@@ -216,7 +304,9 @@ const UnaVioska = () => {
 
             </section>
 
-            <section id='galeria' className="vioska-galeria">
+
+
+            <section id='galeria' className="vioska-galeria mobile-only">
                 <h2 className="galeria-titulo">Galería de productos</h2>
 
                 <div className="galeria-header-sticky">
@@ -274,11 +364,222 @@ const UnaVioska = () => {
                 </div>
             </section>
 
+            {/* Versión Desktop */}
+            <section className="vioska-galeria-desktop desktop-only">
+                {/* Instrucciones en pequeño flex como inicio */}
+                <div className="instrucciones-compactas">
+                    <div className="artesania-compacto">
+                        <Sparkles strokeWidth={0.5} size={16} />
+                        <p className="instrucciones-texto-compacto">Cada pieza está hecha a mano, con mucho mimo y dedicación.</p>
+                        <Sparkles strokeWidth={0.5} size={16} />
+                    </div>
+                    
+                    <div className="pasos-compactos">
+                        {pasosInstrucciones.map((item, index) => (
+                            <div key={index} className="paso-compacto">
+                                {item.icono}
+                                <p className="paso-texto-compacto">{item.texto}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Controles de selección */}
+                <div className="controles-seleccion">
+                    <div className="modo-seleccion-container">
+                        <div className="seleccion-multiple-container">
+                            <p className="seleccion-titulo">
+                                {modoSeleccion
+                                    ? 'Estás en modo selección. Pulsa para volver a vista normal.'
+                                    : 'Estás en vista normal. ¿Quieres seleccionar varias piezas a la vez?'}
+                            </p>
+                            <Button onClick={toggleSeleccion}>
+                                {modoSeleccion ? 'DESACTIVAR' : 'ACTIVAR'}
+                            </Button>
+                        </div>
+                    </div>
+
+                    {modoSeleccion && (
+                        <div className="cantidad-productos">
+                            <p className="texto-productos">
+                                Productos seleccionados ({seleccionados.length})
+                            </p>
+                            <AiOutlineDelete onClick={borrarSeleccion} />
+                        </div>
+                    )}
+                </div>
+
+                {/* Filas para cada filtro */}
+                <div className="filtros-galeria">
+                    {/* Fila para PENDIENTES */}
+                    <div className="filtro-fila">
+                        <div className="imagen-contenedor">
+                            {/* Contenedor con fondo gris para imagen */}
+                        </div>
+                        <div className="galeria-scroll-container">
+                            <div className="galeria-scroll" ref={pendientesRef}>
+                                <div className="productos-scroll">
+                                    {productos.filter(producto => producto.tipo === "pendientes").map(producto => (
+                                        <ProductCard
+                                            key={producto.id}
+                                            producto={producto}
+                                            modoSeleccion={modoSeleccion}
+                                            seleccionado={seleccionados.includes(producto.id)}
+                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            {productos.filter(producto => producto.tipo === "pendientes").length > 4 && (
+                                <div className="navegacion-galeria">
+                                    <button 
+                                        className="nav-btn prev" 
+                                        onClick={() => scrollGallery('pendientes', 'prev')}
+                                        disabled={!canScrollPrev('pendientes')}
+                                    >
+                                        ANT.
+                                    </button>
+                                    <span className="scroll-indicator">→</span>
+                                    <button 
+                                        className="nav-btn next" 
+                                        onClick={() => scrollGallery('pendientes', 'next')}
+                                        disabled={!canScrollNext('pendientes')}
+                                    >
+                                        SIG.
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Fila para COLGANTES */}
+                    <div className="filtro-fila">
+                        <div className="imagen-contenedor">
+                            {/* Contenedor con fondo gris para imagen */}
+                        </div>
+                        <div className="galeria-scroll-container">
+                            <div className="galeria-scroll" ref={colgantesRef}>
+                                <div className="productos-scroll">
+                                    {productos.filter(producto => producto.tipo === "colgantes").map(producto => (
+                                        <ProductCard
+                                            key={producto.id}
+                                            producto={producto}
+                                            modoSeleccion={modoSeleccion}
+                                            seleccionado={seleccionados.includes(producto.id)}
+                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            {productos.filter(producto => producto.tipo === "colgantes").length > 4 && (
+                                <div className="navegacion-galeria">
+                                    <button 
+                                        className="nav-btn prev" 
+                                        onClick={() => scrollGallery('colgantes', 'prev')}
+                                        disabled={!canScrollPrev('colgantes')}
+                                    >
+                                        ANT.
+                                    </button>
+                                    <span className="scroll-indicator">→</span>
+                                    <button 
+                                        className="nav-btn next" 
+                                        onClick={() => scrollGallery('colgantes', 'next')}
+                                        disabled={!canScrollNext('colgantes')}
+                                    >
+                                        SIG.
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Fila para ANILLOS */}
+                    <div className="filtro-fila">
+                        <div className="imagen-contenedor">
+                            {/* Contenedor con fondo gris para imagen */}
+                        </div>
+                        <div className="galeria-scroll-container">
+                            <div className="galeria-scroll" ref={anillosRef}>
+                                <div className="productos-scroll">
+                                    {productos.filter(producto => producto.tipo === "anillos").map(producto => (
+                                        <ProductCard
+                                            key={producto.id}
+                                            producto={producto}
+                                            modoSeleccion={modoSeleccion}
+                                            seleccionado={seleccionados.includes(producto.id)}
+                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            {productos.filter(producto => producto.tipo === "anillos").length > 4 && (
+                                <div className="navegacion-galeria">
+                                    <button 
+                                        className="nav-btn prev" 
+                                        onClick={() => scrollGallery('anillos', 'prev')}
+                                        disabled={!canScrollPrev('anillos')}
+                                    >
+                                        ANT.
+                                    </button>
+                                    <span className="scroll-indicator">→</span>
+                                    <button 
+                                        className="nav-btn next" 
+                                        onClick={() => scrollGallery('anillos', 'next')}
+                                        disabled={!canScrollNext('anillos')}
+                                    >
+                                        SIG.
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {seleccionados.length > 0 && (
                 <footer className="pedido-footer">
                     <Button onClick={irAResumen}>VER PEDIDO</Button>
                 </footer>
             )}
+
+            {menuResumenAbierto && (
+    <div
+        className={`overlay ${menuResumenAbierto ? 'active' : ''}`}
+        onClick={() => setMenuResumenAbierto(false)}
+    />
+)}
+
+{/* Menú lateral para desktop */}
+<AnimatePresence>
+    {menuResumenAbierto && (
+        <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="menu-resumen-lateral desktop-only"
+        >
+            <div className="menu-resumen-header">
+                <h3>Resumen del Pedido</h3>
+                <button 
+                    className="btn-cerrar-menu"
+                    onClick={() => setMenuResumenAbierto(false)}
+                >
+                    <X size={20} />
+                </button>
+            </div>
+            <div className="menu-resumen-content">
+                {/* Aquí irá el contenido del resumen */}
+                <div style={{padding: '1rem'}}>
+                    <h3>Resumen del Pedido</h3>
+                    <p>Productos seleccionados: {seleccionados.length}</p>
+                    <Button onClick={() => setMenuResumenAbierto(false)}>Cerrar</Button>
+                </div>
+            </div>
+        </motion.div>
+    )}
+</AnimatePresence>
+</div>
         </>
     );
 };
