@@ -174,14 +174,14 @@ export const filtros = [
 
 export const espacioAkaalImgs = [
 
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img2_n8gal4.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img1_t3om3r.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img4_its4nr.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img5_mc6mw7.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img6_yqjara.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img7_zfajoi.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1768034681/img9_ieybnn.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1768034551/img8_lzki0q.png'
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501290/img2_yo27mp.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501261/akaal-1_jobcs5.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501231/img3_garup9.png', 
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501350/img9_gz2xvz.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501316/img5_hnchx1.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501333/img7_ba3dr9.png'
+
 
 
 

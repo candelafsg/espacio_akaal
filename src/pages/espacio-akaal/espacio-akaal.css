@@ -54,7 +54,7 @@
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
-  height: 100dvh;
+  min-height: 100dvh;
   margin-top: 0;
   padding: 1rem;
 }
@@ -96,14 +96,16 @@
 }
 
 
-.lista-clases{
-}
-
 .akaal-button{
-
   margin-top: 2rem;
   display: flex;
   justify-content:center;
+}
+
+.calendario-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 
@@ -111,12 +113,105 @@
 .galeria-titulo{
   font-size: 10vw;
   margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
 }
 
 
 .akaal-galeria{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100dvh;
+  padding: 2rem 1rem;
+}
+
+/* Estilos desktop */
+@media (min-width: 768px) {
+  .texto-provisional {
+    font-size: 4rem;
+  }
+
+  .akaal-titulo {
+    font-size: 3.5rem;
+  }
+
+  .galeria-titulo {
+    font-size: 2.5rem;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .akaal-subtitulo {
+    font-size: 1rem;
+  }
+
+  .akaal-horarios {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  }
+
+  .akaal-titulo-subtitulo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+   
+  }
+
+  .calendario-container {
+    width: 50%;
+  }
+
+  .akaal-galeria {
+    padding: 4rem 2rem;
+  }
+
+  /* Contenedor de la galería con ancho limitado */
+  .akaal-galeria .list {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 1024px) {
+  .texto-provisional {
+    font-size: 3.5rem;
+  }
+
+  .akaal-titulo {
+    font-size: 4rem;
+    width: 100%;
+  }
+
+  .galeria-titulo {
+    font-size: 4rem;
+    max-width: 1000px;
+    text-align: center;
+  }
+
+  .akaal-horarios {
+    gap: 4rem;
+    padding: 3rem;
+  }
+
+  .akaal-titulo-subtitulo {
+    width: 45%;
+  }
+
+  .akaal-galeria {
+    padding: 6rem 2rem;
+  }
+
+  /* Contenedor de la galería más centrado en pantallas grandes */
+  .akaal-galeria .list {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }

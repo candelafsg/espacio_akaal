@@ -191,6 +191,12 @@
     transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+    .viajes-icon {
+        font-size: 3rem;
+    }
+}
+
 .viajes-icon:hover {
     transform: scale(1.1);
 }
@@ -205,6 +211,12 @@
     transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+    .viajes-texto {
+        margin-bottom: 1rem;
+    }
+}
+
 .viajes-h1 {
     opacity: 1;
     transform: translateY(0);
@@ -217,19 +229,122 @@
     transition: all 0.3s ease;
 }
 
+.cards-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Slider horizontal para desktop */
+.cards-slider-desktop {
+  display: flex;
+  gap: 0;
+  padding: 0 2rem;
+  min-width: fit-content;
+  flex-direction: column;
+}
+
+/* Páginas de cards */
+.cards-page {
+  display: flex;
+  gap: 1rem;
+  min-width: 100vw;
+  padding: 0 1rem;
+  scroll-snap-align: start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .cards-scroll-container {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   width: 100%;
   max-width: 100vw;
   scroll-behavior: smooth;
+  scroll-snap-type: none;
   /* Ocultar scrollbar pero mantener funcionalidad */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
 }
 
-.cards-scroll-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+/* Contenedor del slider con scroll limitado */
+.cards-slider-desktop {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Contenedor para mobile */
+.cards-container-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+/* En desktop: mostrar slider horizontal sin controles */
+@media (min-width: 768px) {
+
+    .card-viajes-desktop {
+        width: 20%;
+        height: 350px;
+        flex: none;
+    }
+
+    .card-viajes{
+        width: 20% !important;
+        height: 350px !important;
+    }
+
+    .cards-slider-desktop .card-viajes{
+        width: 20% !important;
+        height: 350px !important;
+        flex: none !important;
+    }
+
+  .cards-slider-desktop {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  .cards-page .card-viajes {
+    width: 20% !important;
+    height: 350px !important;
+    scroll-snap-align: start;
+    flex: none !important;
+  }
+  
+  /* Ocultar controles de navegación en desktop */
+  .cards-slider-desktop .viajes-footer {
+    display: none !important;
+  }
+  
+  .cards-container-mobile {
+    display: none;
+  }
+}
+
+
+
+/* En mobile: mostrar solo la card actual */
+@media (max-width: 767px) {
+  .cards-slider-desktop {
+    display: none;
+  }
+  
+  .cards-container-mobile {
+    display: flex;
+  }
+  
+  .cards-container-mobile .card-viajes {
+    width: 80% !important;
+    height: 350px !important;
+  }
 }
 
 
@@ -261,9 +376,17 @@
   }
 
 
-  .viajes-cta{
+.viajes-cta{
     margin-top: 2.5rem;
-  }
+}
+
+@media (min-width: 768px) {
+    .viajes-cta {
+        position: relative;
+        top: 1.5rem;
+    }
+}
+
 
   .viajes-footer{
     width: 100%;
@@ -281,9 +404,88 @@
 
 
 
-/* -------------------- */
-/* Card viajes anteriores */
-/* -------------------- */
+/* Navegación del slider en desktop */
+.slider-navigation-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 20px;
+  background-color: #d6b9c4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  width: 20px;
+  background-color: #671c3b;
+  transform: scale(1.2);
+}
+
+.slider-dot:hover {
+  transform: scale(1.3);
+  opacity: 0.8;
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.nav-button:hover:not(.nav-disabled) {
+  background-color: var(--primary);
+  color: var(--background);
+  transform: translateY(-2px);
+}
+
+.nav-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+.nav-disabled:hover {
+  background-color: transparent;
+  transform: none;
+}
+
+/* Animaciones de páginas */
+.page-active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.page-inactive {
+  display: none;
+  opacity: 0;
+  transform: translateX(100px);
+}
 
 .viajes-container{
     width: 40%;
@@ -403,13 +605,46 @@
         border: var(--border);
         border-radius: 4px;
         padding: 0.6rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
 
+    .card-inicio::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(214,185,196,0.1), rgba(103,28,59,0.05));
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 0;
+    }
+
+    .card-inicio:hover::before {
+        opacity: 1;
+    }
+
+    .card-inicio:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px rgba(214,185,196,0.15);
+        border-color: rgba(214,185,196,0.3);
     }
 
     .card-text {
-        font-size: 2rem;
+        font-size: 1.2rem;
         line-height: 1.3;
         width: 100%;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-inicio:hover .card-text {
+        color: var(--primary);
+        transform: translateY(-2px);
     }
 
     /* botón alineado a la derecha */
@@ -417,6 +652,14 @@
         align-self: flex-end;
         font-size: inherit;
         border: none;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-inicio:hover .btn-icon-only {
+        transform: translateX(4px);
+        color: var(--primary);
     }
 
     .card-inicio .btn-icon-only .btn-icon {

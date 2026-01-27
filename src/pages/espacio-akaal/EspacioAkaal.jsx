@@ -7,6 +7,7 @@ import { ImgContainer } from "../../components/components/Components";
 import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
 import { espacioAkaalImgs } from "../../db/imagenes";
 import Masonry from "../../components/masonry/Masonry";
+import { Footer } from "../../components/footer/Footer";
 
 const diasSemana = ["LUN.", "MAR.", "MIER.", "JUE.", "VIE."];
 
@@ -44,15 +45,15 @@ const EspacioAkaal = () => {
     img,
     height: 300 + Math.floor(Math.random() * 100),
     url: img,
-    }));
+  }));
 
   return (
     <>
       <ImgContainer>
         <div className="imagen-provisional">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img4_its4nr.png" alt="" className="img-prov" />
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
           <h1 className="texto-provisional">
-           ESPACIO <br /> AKAAL
+            ESPACIO <br /> AKAAL
           </h1>
         </div>
       </ImgContainer>
@@ -61,14 +62,10 @@ const EspacioAkaal = () => {
         <div className="akaal-titulo-subtitulo">
           <h1 className="akaal-titulo">NUESTROS HORARIOS</h1>
           <p className="akaal-subtitulo">
-            Escucha tu cuerpo, respeta tus límites y disfruta de cada movimiento
-          </p>
+            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.          </p>
         </div>
 
-        {/* TÍTULO DE LA DISCIPLINA */}
-        {/* <div className="tipo-clase-titulo">
-          <h2 className="clase-titulo">YOGA</h2>
-        </div> */}
+       <div className="calendario-container">
 
         {/* DÍAS DE LA SEMANA */}
         <div className="calendario">
@@ -138,20 +135,24 @@ const EspacioAkaal = () => {
         </div>
 
         <div className="akaal-button">
-        <WhatsAppLink>MÁS INFORMACIÓN</WhatsAppLink>
-      </div>
+          <WhatsAppLink>MÁS INFORMACIÓN</WhatsAppLink>
+        </div>
+        </div>
       </section>
 
-      
+
 
       {/* SECCIÓN GALERÍA */}
 
       <section className="akaal-galeria">
 
         <h1 className="galeria-titulo">CONOCE <br /> ESPACIO AKAAL</h1>
-      <Masonry items={galeriaItems} />
+        <Masonry items={galeriaItems} />
 
       </section>
+
+      {/* Footer - solo visible en desktop */}
+      <Footer />
     </>
   );
 };

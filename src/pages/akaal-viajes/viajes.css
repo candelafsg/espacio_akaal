@@ -1,12 +1,273 @@
+/* Slider de secciones */
+.secciones-slider-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.seccion-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%) translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.seccion-active {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.seccion-inactive {
+  opacity: 0;
+  transform: translateX(-100%) translateY(30px);
+}
+
+/* Navegación del slider de secciones */
+.secciones-slider-navigation {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1000;
+  background-color: var(--background);
+  border: 1px solid var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.seccion-nav-button {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.9rem !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+.secciones-slider-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.seccion-slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 20px;
+  background: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.seccion-slider-dot.active {
+  background: var(--primary);
+  width: 20px;
+  height: 6px;
+  
+}
+
+.seccion-slider-dot:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Animación escalonada para elementos dentro de las secciones */
+.seccion-active .viajes-intro-nombre {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.seccion-active .viajes-contador {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.seccion-active .viajes-intro-buttons {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.seccion-active .descripcion-titulo {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.seccion-active .descripcion-parrafo:nth-child(2) {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.seccion-active .descripcion-parrafo:nth-child(3) {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.seccion-active .viajes-imag {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.seccion-active .header-viajes {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.seccion-active .cards-slider-desktop {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.seccion-active .cards-container-mobile {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive para navegación */
+@media (max-width: 768px) {
+  .secciones-slider-navigation {
+    bottom: 1rem;
+    padding: 0.8rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .seccion-nav-button {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .seccion-slider-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 /* seccion imagen */
 
-.viajes{
-    width: 100%;
-    min-height: 100dvh;
-    position: relative;
+.viajes {
+  width: 100%;
+  min-height: 100dvh;
+  position: relative;
 }
-.viajes-imagen{
 
+.viajes-imagen {
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-img);
+  padding: 0.3rem;
+  opacity: 0.85;
+  filter: brightness(0.5);
+
+}
+
+.viajes-nombre {
+  color: var(--background);
+  font-size: 14vw;
+}
+
+.viajes-descripcion-texto {
+  margin: 2rem 0;
+}
+
+.viajes-descripcion-texto .descripcion-parrafo {
+  color: var(--background);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .viajes-descripcion-texto {
+    margin: 2.5rem 0;
+  }
+
+  .viajes-descripcion-texto .descripcion-parrafo {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .viajes {
+    display: flex;
+    position: relative;
+
+    justify-content: space-between;
+
+
+  }
+
+
+  .viajes-imagen{
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .viajes-texto-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .viajes-intro {
+    position: static !important;
+    z-index: 1;
+    text-align: left;
+    align-items: flex-start;
+    top: auto !important;
+    left: auto !important;
+    margin-top: 10rem !important;
+    margin-left: 2rem !important;
+  }
+
+  .viajes-imagen-container {
+    width: 50%;
+    height: auto;
+  }
+
+  .viajes-imagen {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -14,212 +275,387 @@
     padding: 0.3rem;
     opacity: 0.85;
     filter: brightness(0.5);
+  }
 
+  .viajes-nombre {
+    font-size: 5rem;
+    color: var(--primary);
+  }
+
+  .viajes-nombre-dos {
+    color: var(--primary);
+  }
+
+  .viajes-subtitulo {
+    color: var(--primary);
+  }
+
+  .viajes-fecha {
+    color: var(--primary);
+    letter-spacing: 2px;
+  }
+
+  .contador-texto {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .viajes-intro-buttons {
+    align-items: flex-start;
+    margin-top: 0;
+  }
+
+  /* Forzar todos los textos a primary en desktop */
+  .viajes-texto-container * {
+    color: var(--primary) !important;
+  }
 }
 
-.viajes-nombre{
-    color: var(--background);
-    font-size: 17vw;
+.viajes-intro {
+  display: flex;
+  flex-direction: column;
+top: 15%;
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
 }
 
-.viajes-intro{
-    display: flex;
-    flex-direction: column;
-  
-    position: absolute;
-    z-index: 1;
-    top: 40%;
-    left: 1rem;
-}
-   
-.viajes-subtitulo{
-    margin-top: 0.8rem;
-    color: var(--background);
-    width: 80%;
+.viajes-subtitulo {
+  margin-top: 0.8rem;
+  color: var(--background);
+  width: 80%;
 }
 
 
 .viajes-fecha {
-    color: var(--background);
+  color: var(--background);
   letter-spacing: 2px;
 }
 
 .viajes-contador {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-   
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 
-  
+
+
 }
 
 .contador-texto {
-    color: var(--background);
-   
-  
-  
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: var(--background);
+
+
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .contador-numero {
-    color: var(--background);
-   
-    margin: 0.5rem 0;
-    font-weight: bold;
-    line-height: 1;
+  color: var(--background);
+
+  margin: 0.5rem 0;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 1rem;
 }
 
 
 
-.viajes-intro-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-    width: 45%;
-    margin-top: 3rem;
-   
+.viajes-intro-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 45%;
+  margin-bottom: 2rem;
+
 }
 
 
 
 /* Seccion descripcion */
 
-.viajes-descripcion{
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
+.viajes-descripcion {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 
-.viajes-imag{
+
+
+.viajes-imag {
   width: 100%;
   height: 50vh;
   margin-top: 1rem;
 }
 
 
-.viajes-image{
+.viajes-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
 
+.descripcion-titulo {
+  font-size: 8vw;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.descripcion-parrafo {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
 
 
 /* Sección cards */
 
+.viajes-cards {
+
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 
 
-.viajes-cards{
-
-    width: 100%;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    
-   
 }
 
-.cards-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .header-viajes {
-    color: var(--primary);
-    font-size: 10vw;
-    text-align: start;
-    width: 100%;
-    padding: 0 2rem;
-    font-weight: bold;
+  color: var(--primary);
+  font-size: 10vw;
+  text-align: start;
+  width: 100%;
+  padding: 0 2rem;
+  font-weight: bold;
 }
+
+.header-viajes-mobile {
+  display: block;
+}
+
+.header-viajes-desktop {
+  display: none;
+}
+
+
 
 .viajes-titulo-seccion {
-    color: var(--primary);
-    font-size: 10vw;
-    text-align: start;
-    width: 100%;
-    padding: 0 2rem;
-    font-weight: bold;
+  color: var(--primary);
+  font-size: 10vw;
+  text-align: start;
+  width: 100%;
+  padding: 0 2rem;
+  font-weight: bold;
 }
 
 
 
-.viajes-anteriores{
-    width: 100%;
-    height: 100dvh;
+.viajes-anteriores {
+  width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 1rem;
+ position: relative;
+  gap: 2rem; /* Gap adicional entre secciones */
+}
+
+
+.proximo-viaje-container {
+  width: 60%;
+  height: 30vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proximo-viaje-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Overlay con sombra para la imagen del próximo viaje */
+.proximo-viaje-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badge con el nombre INDIA */
+.proximo-viaje-badge {
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(10px);
+  z-index: 10;
+}
+
+
+.anteriores-titulo {
+  font-size: 12vw;
+  margin-bottom: 1rem;
+}
+
+
+.anteriores-container {
+  width: 100%;
+
+
+}
+
+/* Tablet y Desktop styles para sección 4 */
+@media (min-width: 768px) {
+  .anteriores-titulo {
+    font-size: 3.5rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto 2rem auto;
+    max-width: 800px;
+  }
+
+  .anteriores-container {
+    margin-top: 4rem;
+  }
+
+  .viajes-anteriores {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .viajes-anteriores-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .viajes-slider-container {
+    flex: 1;
+    max-width: 60%;
+  }
+
+ 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive para mobile */
+@media (max-width: 768px) {
+  .boton-flotante {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .boton-flotante a {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* Estilos mobile para próximo viaje */
+  .proximo-viaje-container {
+    width: 90%;
+    height: 40vh;
+    margin: 0 auto;
+  }
+
+  .proximo-viaje-badge {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .viajes-anteriores {
+    gap: 3rem; /* Más gap en mobile */
+  }
+}
+
+
+/* Tablet y Desktop styles */
+@media (min-width: 768px) {
+  .header-viajes {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  .header-viajes-mobile {
+    display: none !important;
+  }
+
+  .header-viajes-desktop {
+    display: block !important;
+  }
+}
+
+
+/* Tablet y Desktop styles */
+@media (min-width: 768px) {
+  .descripcion-titulo {
+    font-size: 3.5rem;
+  }
+}
+
+/* Tablet y Desktop styles */
+@media (min-width: 768px) {
+  
+  .viajes-descripcion {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .viajes-descripcion .descripcion-contenido {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    justify-content: center;
+  }
 
+  .viajes-imag {
+    flex: 1;
+    height: 60vh;
+    margin-top: 0;
+  }
 }
-
-
-/* Botón flotante - añade esto a tu viajes.css */
-.boton-flotante {
-    position: fixed;
-    width: 100%;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-in;
-  }
-  
-  .boton-flotante a {
-    display: block;
-    padding: 15px 30px;
-    background-color: var(--primary, #4CAF50);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  
-  .boton-flotante a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  }
-
-
-
-  .anteriores-titulo{
-    font-size: 12vw;
-    margin-bottom: 1rem;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .boton-flotante {
-      bottom: 15px;
-      right: 15px;
-    }
-    
-    .boton-flotante a {
-      padding: 12px 24px;
-      font-size: 14px;
-    }
-  }

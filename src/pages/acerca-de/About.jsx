@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
 import './About.css'
+import { Footer } from "../../components/footer/Footer"
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -145,15 +146,16 @@ const About = () => {
         <div className="final-content">
           <h2>Ven a experimentar tu propio viaje interior</h2>
           <p>
-            Desde aquí organizo viajes conscientes a la India y a las Islas Azores,
-            para explorar el mundo y al mismo tiempo explorarse a uno mismo.
+            Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje. Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior.
           </p>
           <p>
-            Cada propuesta nace de mi historia de vida, del yoga, la naturaleza
-            y las culturas locales como camino de vuelta a lo esencial.
+            Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal. Si quieres saber más de nuestros próximos viajes ponte en contacto conmigo.
           </p>
         </div>
       </section>
+
+      {/* Footer - solo visible en desktop */}
+      <Footer />
     </div>
   )
 }

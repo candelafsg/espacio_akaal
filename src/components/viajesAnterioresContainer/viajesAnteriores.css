@@ -3,9 +3,42 @@
     width: 100%;
 }
 
+.viajes-gallery-desktop {
+    display: none;
+}
 
 .gallery{
     width: 100%;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .viajes-gallery {
+        display: none;
+    }
+    
+    .viajes-gallery-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .viajes-gallery-desktop .viaje-container {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+    
+    .gallery-btn {
+        display: none;
+    }
+    
+    .viajes-gallery-desktop .viaje-portada {
+        height: 250px;
+    }
 }
 .viaje-container{
 
@@ -70,7 +103,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    z-index: 1000;
+    z-index: 9999;
   }
   
   .overlay-slider {
@@ -97,7 +130,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 10000;
   }
   
   .btn-prev { left: 10px; }

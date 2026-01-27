@@ -1,0 +1,22 @@
+
+
+
+.footer{display: none;}
+
+
+
+
+@media (min-width: 768px) {
+    
+    .footer{
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--background);
+    border-top: var(--border);
+}
+}
+

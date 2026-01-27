@@ -124,4 +124,95 @@
   .slider-close-simple:active {
     transform: scale(0.95);
   }
+
+  /* Flechas de navegación */
+  .slider-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .slider-nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .slider-nav-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .slider-nav-left {
+    left: 20px;
+  }
+
+  .slider-nav-right {
+    right: 20px;
+  }
+
+  /* Indicadores de posición */
+  .slider-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10001;
+  }
+
+  .slider-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .slider-indicator:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .slider-indicator.active {
+    background: white;
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* Ocultar flechas en móvil */
+  @media (max-width: 768px) {
+    .slider-nav-arrow {
+      display: none;
+    }
+    
+    .slider-indicators {
+      bottom: 20px;
+    }
+    
+    .slider-indicator {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .slider-indicator.active {
+      width: 18px;
+    }
+  }
   

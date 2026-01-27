@@ -54,7 +54,7 @@ const pasosInstrucciones = [
         icono: <MessageCircleMore strokeWidth={1} />,
         texto: (
             <>
-                <strong>"Escribe tu nombre"</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
+                <strong>Escribe tu nombre</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
             </>
         ),
         texto: 'Desde ahí, escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido',
@@ -63,7 +63,7 @@ const pasosInstrucciones = [
         icono: <HandHeart strokeWidth={1} />,
         texto: (
             <>
-                Recuerda que todo es <strong>"100% artesanal"</strong> , por lo que te llevarás <strong>una pieza única.</strong>
+                Recuerda que todo es <strong>100% artesanal</strong> , por lo que te llevarás <strong>una pieza única.</strong>
             </>
         ),
 

@@ -20,6 +20,20 @@ export const ViajesAnterioresGallery = () => {
 
   return (
     <div className="gallery">
+      {/* Versión Desktop: todas las cards en flex */}
+      <div className="viajes-gallery-desktop">
+        {ViajesAnteriores.map((viaje, index) => (
+          <ViajesAnterioresContainer
+            key={index}
+            nombre={viaje.nombre}
+            portada={viaje.portada}
+            imagenes={viaje.imagenes}
+            numberphotos={viaje.imagenes.length}
+          />
+        ))}
+      </div>
+
+      {/* Versión Mobile: slider */}
       <div className="viajes-gallery">
         <ViajesAnterioresContainer
           key={indiceActual}
@@ -28,24 +42,24 @@ export const ViajesAnterioresGallery = () => {
           imagenes={ViajesAnteriores[indiceActual].imagenes}
           numberphotos={ViajesAnteriores[indiceActual].imagenes.length}
         />
-      </div>
+        
+        <div className="gallery-btn">
+          <button
+            className="gallery-prev"
+            onClick={handlePrev}
+            disabled={indiceActual === 0}
+          >
+            ANT.
+          </button>
 
-      <div className="gallery-btn">
-        <button
-          className="gallery-prev"
-          onClick={handlePrev}
-          disabled={indiceActual === 0}
-        >
-          ANT.
-        </button>
-
-        <button
-          className="gallery-next"
-          onClick={handleNext}
-          disabled={indiceActual === ViajesAnteriores.length - 1}
-        >
-          SIG.
-        </button>
+          <button
+            className="gallery-next"
+            onClick={handleNext}
+            disabled={indiceActual === ViajesAnteriores.length - 1}
+          >
+            SIG.
+          </button>
+        </div>
       </div>
     </div>
   )

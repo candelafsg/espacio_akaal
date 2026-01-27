@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './masonry.css';
 
 const useMedia = (queries, values, defaultValue) => {
@@ -68,6 +68,9 @@ const Masonry = ({
   const [sliderOpen, setSliderOpen] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
   const sliderRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   const getInitialPosition = item => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -209,6 +212,59 @@ const Masonry = ({
     }, 100);
   };
 
+  // Navegación con flechas
+  const navigateImage = (direction) => {
+    if (direction === 'next') {
+      const nextIndex = (sliderIndex + 1) % items.length;
+      setSliderIndex(nextIndex);
+      scrollToImage(nextIndex);
+    } else {
+      const prevIndex = sliderIndex === 0 ? items.length - 1 : sliderIndex - 1;
+      setSliderIndex(prevIndex);
+      scrollToImage(prevIndex);
+    }
+  };
+
+  // Scroll a imagen específica
+  const scrollToImage = (index) => {
+    if (sliderRef.current) {
+      const containerWidth = sliderRef.current.offsetWidth;
+      sliderRef.current.scrollTo({
+        left: index * containerWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Manejar teclado
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!sliderOpen) return;
+      
+      switch(e.key) {
+        case 'ArrowLeft':
+          navigateImage('prev');
+          break;
+        case 'ArrowRight':
+          navigateImage('next');
+          break;
+        case 'Escape':
+          setSliderOpen(false);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [sliderOpen, sliderIndex, items.length]);
+
+  // Sincronizar scroll cuando cambia el índice
+  useEffect(() => {
+    if (sliderOpen && sliderRef.current) {
+      scrollToImage(sliderIndex);
+    }
+  }, [sliderIndex, sliderOpen]);
+
   return (
     <>
       <div ref={containerRef} className="list">
@@ -255,6 +311,44 @@ const Masonry = ({
                 src={item.img}
                 alt="Imagen ampliada"
                 className="slider-scroll-img"
+              />
+            ))}
+          </div>
+
+          {/* Flechas de navegación - solo visibles en desktop */}
+          <button
+            className="slider-nav-arrow slider-nav-left"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigateImage('prev');
+            }}
+            aria-label="Imagen anterior"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          
+          <button
+            className="slider-nav-arrow slider-nav-right"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigateImage('next');
+            }}
+            aria-label="Siguiente imagen"
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          {/* Indicadores de posición */}
+          <div className="slider-indicators">
+            {items.map((_, index) => (
+              <button
+                key={index}
+                className={`slider-indicator ${index === sliderIndex ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSliderIndex(index);
+                }}
+                aria-label={`Ir a imagen ${index + 1}`}
               />
             ))}
           </div>

@@ -2,33 +2,28 @@ import './viajes.css';
 import { ImgContainer } from '../../components/components/Components';
 import { useState, useEffect, useRef } from 'react';
 import { CardViajes } from '../../components/cards/Cards';
-import { ViajesGaleria } from '../../components/cards/Cards';
-import { ViajesAnteriores } from '../../db/imagenes';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucide-react';
 import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
-import Masonry from '../../components/masonry/Masonry';
+import { Footer } from '../../components/footer/Footer';
 
 const AkaalViajes = () => {
 
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [showGaleria, setShowGaleria] = useState(false);
-  const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [currentSection, setCurrentSection] = useState(0);
+ 
   const [viajeActivo, setViajeActivo] = useState('AZORES');
   const [diasRestantes, setDiasRestantes] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isSectionAnimating, setIsSectionAnimating] = useState(false);
   const scrollRef = useRef(null);
 
 
 
-  const galeriaMasonry = [
-    { id: 1, img: '/img/az1.jpg', height: 500 },
-    { id: 2, img: '/img/az2.jpg', height: 400 },
-    { id: 3, img: '/img/az3.jpg', height: 450 }
-   
-  ];
+
   
 
 
@@ -72,7 +67,58 @@ const AkaalViajes = () => {
     },
   ];
 
+  const totalPages = 2; // Tenemos 2 páginas de cards
+  const totalSections = 2; // Tenemos 2 secciones en el slider
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 300);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 300);
+    }
+  };
+
+  const handlePageDotClick = (pageIndex) => {
+    if (pageIndex !== currentPage) {
+      setCurrentPage(pageIndex);
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 300);
+    }
+  };
+
   const isLastStep = currentStep === steps.length - 1;
+  const isLastSection = currentSection === totalSections - 1;
+
+  // Navegación entre secciones
+  const handleNextSection = () => {
+    const nextSection = (currentSection + 1) % totalSections;
+    setCurrentSection(nextSection);
+    setIsSectionAnimating(true);
+    setTimeout(() => setIsSectionAnimating(false), 300);
+  };
+
+  const handlePrevSection = () => {
+    const prevSection = currentSection === 0 ? totalSections - 1 : currentSection - 1;
+    setCurrentSection(prevSection);
+    setIsSectionAnimating(true);
+    setTimeout(() => setIsSectionAnimating(false), 300);
+  };
+
+  const handleSectionDotClick = (sectionIndex) => {
+    if (sectionIndex !== currentSection) {
+      setCurrentSection(sectionIndex);
+      setIsSectionAnimating(true);
+      setTimeout(() => setIsSectionAnimating(false), 300);
+    }
+  };
 
 
 
@@ -90,51 +136,51 @@ const AkaalViajes = () => {
 
 
   const handleNext = () => {
+    const nextStep = (currentStep + 1) % steps.length;
+    setCurrentStep(nextStep);
     setIsAnimating(true);
-    setTimeout(() => {
-      const nextStep = (currentStep + 1) % steps.length;
-      setCurrentStep(nextStep);
-      setIsAnimating(false);
+    setTimeout(() => setIsAnimating(false), 150);
 
-      // Scroll suave a la siguiente card
-      if (scrollRef.current) {
-        const cardWidth = scrollRef.current.offsetWidth;
-        scrollRef.current.scrollTo({
-          left: cardWidth * nextStep,
-          behavior: 'smooth'
-        });
-      }
-    }, 150);
-  };
-
-  const handleStepClick = (index) => {
-    if (index !== currentStep) {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentStep(index);
-        setIsAnimating(false);
-
-        // Scroll suave a la card seleccionada
-        if (scrollRef.current) {
-          const cardWidth = scrollRef.current.offsetWidth;
-          scrollRef.current.scrollTo({
-            left: cardWidth * index,
-            behavior: 'smooth'
-          });
-        }
-      }, 150);
+    // Scroll suave a la siguiente card en desktop
+    if (scrollRef.current && window.innerWidth >= 768) {
+      const cardWidth = scrollRef.current.querySelector('.card-viajes')?.offsetWidth || 0;
+      scrollRef.current.scrollTo({
+        left: cardWidth * nextStep,
+        behavior: 'smooth'
+      });
     }
   };
 
-  // Añade también navegación por scroll
+
+
+  const handleStepClick = (index) => {
+    if (index !== currentStep) {
+      setCurrentStep(index);
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 150);
+
+      // Scroll suave a la card seleccionada en desktop
+      if (scrollRef.current && window.innerWidth >= 768) {
+        const cardWidth = scrollRef.current.querySelector('.card-viajes')?.offsetWidth || 0;
+        scrollRef.current.scrollTo({
+          left: cardWidth * index,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  
+
+  // Navegación por scroll solo en desktop
   useEffect(() => {
     const container = scrollRef.current;
 
     const handleScroll = () => {
-      if (container) {
-        const cardWidth = container.offsetWidth;
+      if (container && window.innerWidth >= 768) {
+        const cardWidth = container.querySelector('.card-viajes')?.offsetWidth || 0;
         const newStep = Math.round(container.scrollLeft / cardWidth);
-        if (newStep !== currentStep && newStep < steps.length) {
+        if (newStep !== currentStep && newStep >= 0 && newStep < steps.length) {
           setCurrentStep(newStep);
         }
       }
@@ -163,74 +209,148 @@ const AkaalViajes = () => {
 
   return (
     <>
-      <section className="viajes">
-        <ImgContainer>
-          <img src="/img/azores.jpg" alt="azores" className="viajes-imagen" />
-        </ImgContainer>
-
-
-        <div className="viajes-intro">
-
-          <div className="viajes-intro-nombre">
-            <h1 className="viajes-nombre">{viajeActivo}</h1>
-            <h2 className="viajes-nombre-dos">SAO MIGUEL</h2>
-            <p className="viajes-subtitulo">Practica yoga y conecta con la naturaleza más pura y salvaje</p>
-
-          </div>
-
-          <div className="viajes-contador">
-
-            <p className="viajes-fecha">2-10 ABRIL 2026 </p>
-            <p className="contador-texto">Quedan {diasRestantes} días</p>
-
-          </div>
-
-
-          <div className="viajes-intro-buttons">
-            <Button style={{ color: 'var(--background)', textAlign: 'start' }} variant='noOutlined'>VER ITINERARIO</Button>
-
-            <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
-              RESERVA TU PLAZA
-            </WhatsAppLink>
-
-          </div>
+      <div className="secciones-slider-container">
 
 
 
+        {/* Sección 1: AZORES - Unificada */}
+        <div className={`seccion-slide ${currentSection === 0 ? 'seccion-active' : 'seccion-inactive'}`}>
+          <section className="viajes">
+            <div className="viajes-texto-container">
+              <div className="viajes-intro">
+                <div className="viajes-intro-nombre">
+                  <h1 className="viajes-nombre">AZORES - SAO MIGUEL</h1>
+                  <p className="viajes-subtitulo">Un viaje para desconectar de la rutina y reconectar contigo</p>
+                </div>
+
+                <div className="viajes-descripcion-texto">
+                  <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico.</p>
+                  <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p>
+                </div>
+
+                <div className="viajes-contador">
+                  <p className="viajes-fecha">2-10 ABRIL 2026</p>
+                  <p className="contador-texto">Quedan {diasRestantes} días</p>
+                </div>
+
+                <div className="viajes-intro-buttons">
+                  <Button style={{ color: 'var(--primary)', textAlign: 'start' }} variant='noOutlined'>VER ITINERARIO</Button>
+
+                  <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+                    RESERVA TU PLAZA
+                  </WhatsAppLink>
+                </div>
+              </div>
+            </div>
+
+            <div className="viajes-imagen-container">
+              <ImgContainer>
+                <img src="/img/azores.jpg" alt="azores" className="viajes-imagen" />
+              </ImgContainer>
+            </div>
+          </section>
         </div>
 
-      </section>
+        {/* Sección 3: Cards */}
+        <div className={`seccion-slide ${currentSection === 1 ? 'seccion-active' : 'seccion-inactive'}`}>
+          <section className="viajes-cards">
 
-
-
-      <section className="viajes-descripcion">
-        <h1 className="descripcion-titulo">UN VIAJE PARA <br /> DESCONECTAR DE LA RUTINA <br /> Y RECONECTAR CONTIGO
+        <h1 className="header-viajes">
+          <span className="header-viajes-mobile">QUÉ VAS <br /> A VIVIR <br /> EN ESTE VIAJE</span>
+          <span className="header-viajes-desktop">QUÉ VAS A <br /> VIVIR EN ESTE VIAJE</span>
         </h1>
-        <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico </p>
-        <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p>
+
+        <div className="cards-scroll-container" ref={scrollRef}>
+          {/* En desktop: mostrar todas las cards en slider horizontal con navegación */}
+          <div className="cards-slider-desktop">
+            {/* Página 1: primeras 3 cards */}
+            <div className={`cards-page ${currentPage === 0 ? 'page-active' : 'page-inactive'}`}>
+              {steps.slice(0, 3).map((step, index) => (
+                <CardViajes
+                  key={index}
+                  icon={step.icon}
+                  title={step.title}
+                  description={step.description}
+                  totalSteps={steps.length}
+                  currentStep={currentStep}
+                  isAnimating={currentPage === 0 ? isAnimating : false}
+                  onStepClick={() => {}}
+                  onNextClick={() => {}}
+                  cta={
+                    index === 2 && steps.length <= 3 ? (
+                      <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+                        RESERVA TU PLAZA
+                      </WhatsAppLink>
+                    ) : null
+                  }
+                />
+              ))}
+            </div>
+            
+            {/* Página 2: últimas 3 cards */}
+            <div className={`cards-page ${currentPage === 1 ? 'page-active' : 'page-inactive'}`}>
+              {steps.slice(3, 6).map((step, index) => (
+                <CardViajes
+                  key={index + 3}
+                  icon={step.icon}
+                  title={step.title}
+                  description={step.description}
+                  totalSteps={steps.length}
+                  currentStep={currentStep}
+                  isAnimating={currentPage === 1 ? isAnimating : false}
+                  onStepClick={() => {}}
+                  onNextClick={() => {}}
+                  cta={
+                    index === 2 ? (
+                      <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+                        RESERVA TU PLAZA
+                      </WhatsAppLink>
+                    ) : null
+                  }
+                />
+              ))}
+            </div>
+
+            {/* Navegación del slider en desktop */}
+            <div className="slider-navigation-desktop">
+              {/* Botón anterior */}
+              <Button 
+                variant="noOutlined" 
+                onClick={handlePrevPage}
+                disabled={currentPage === 0}
+                className={`nav-button ${currentPage === 0 ? 'nav-disabled' : ''}`}
+              >
+                ANT.
+              </Button>
+
+              {/* Dots indicadores */}
+              <div className="slider-dots">
+                {Array.from({ length: totalPages }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={`slider-dot ${index === currentPage ? 'active' : ''}`}
+                    onClick={() => handlePageDotClick(index)}
+                  />
+                ))}
+              </div>
+
+              {/* Botón siguiente */}
+              <Button 
+                variant="noOutlined" 
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages - 1}
+                className={`nav-button ${currentPage === totalPages - 1 ? 'nav-disabled' : ''}`}
+              >
+                SIG.
+              </Button>
+            </div>
 
 
-        <div className="viajes-imag">
-          <img src="/img/az2.jpg" alt="viaje" className="viajes-image" />
-    
 
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-      <section className="viajes-cards">
-
-        <h1 className="header-viajes">QUÉ VAS<br /> A VIVIR  <br />EN ESTE VIAJE</h1>
-
-        <div className="cards-scroll-container" >
-
-          <div className="cards-container" ref={scrollRef}>
+          </div>
+          
+          {/* En mobile: mostrar solo la card actual */}
+          <div className="cards-container-mobile">
             <CardViajes
               icon={steps[currentStep].icon}
               title={steps[currentStep].title}
@@ -247,18 +367,71 @@ const AkaalViajes = () => {
                   </WhatsAppLink>
                 ) : null
               }
-
             />
           </div>
         </div>
       </section>
+        </div>
+
+
+
+
+
+        {/* Navegación del slider de secciones - solo visible en el slider */}
+        {currentSection < totalSections && (
+          <div className="secciones-slider-navigation">
+            {/* Botón anterior */}
+            <Button 
+              variant="noOutlined" 
+              onClick={handlePrevSection}
+              className="seccion-nav-button"
+            >
+              ANT.
+            </Button>
+
+            {/* Dots indicadores de secciones */}
+            <div className="secciones-slider-dots">
+              {Array.from({ length: totalSections }).map((_, index) => (
+                <span
+                  key={index}
+                  className={`seccion-slider-dot ${index === currentSection ? 'active' : ''}`}
+                  onClick={() => handleSectionDotClick(index)}
+                />
+              ))}
+            </div>
+
+            {/* Botón siguiente */}
+            <Button 
+              variant="noOutlined" 
+              onClick={handleNextSection}
+              className="seccion-nav-button"
+            >
+              SIG.
+            </Button>
+          </div>
+        )}
+      </div>
 
       <section className="viajes-anteriores">
-        <h1 className="anteriores-titulo">VIAJES ANTERIORES</h1>
-        <ViajesAnterioresGallery />
+
+        <div className="anteriores-container">
+          <h1 className="anteriores-titulo">PRÓXIMO VIAJE</h1>
+          <div className="proximo-viaje-container">
+            <img src="/img/india.jpg" alt="India" className="proximo-viaje-img" />
+            <div className="proximo-viaje-overlay">
+              <div className="proximo-viaje-badge">INDIA</div>
+            </div>
+          </div>
+        </div>
+       
+        <div className="anteriores-container">
+           <h1 className="anteriores-titulo">VIAJES ANTERIORES</h1>
+          <ViajesAnterioresGallery />
+        </div>
+      
       </section>
 
-
+  <Footer />
 
       {/* boton flotante */}
       {/* {currentStep > 0 && (
