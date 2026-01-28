@@ -58,7 +58,6 @@ const pasosInstrucciones = [
                 <strong>Escribe tu nombre</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
             </>
         ),
-     
     },
     {
         icono: <HandHeart strokeWidth={1} />,
