@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
-import './about.css'
+import './About.css'
 import { Footer } from "../../components/footer/Footer"
 
 const About = () => {
