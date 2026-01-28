@@ -4,9 +4,11 @@
 import { useState, useEffect } from 'react';
 import { Brain, Zap, Waves, Heart, Sparkles, ChevronLeft, ChevronRight, Users } from 'lucide-react';
 import './gong.css'
+import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
+import SesionGong from '../../components/sesiones-gong/SesionGong';
 
 const Gong = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [sesionIndex, setSesionIndex] = useState(0);
     const [isSesionAnimating, setIsSesionAnimating] = useState(false);
@@ -48,13 +50,24 @@ const Gong = () => {
         }
     ];
 
+    // Sistema para móvil: 5 páginas individuales
+    const mobilePages = beneficios;
+    const mobileTotalPages = mobilePages.length;
+    
+    // Sistema para desktop: 2 páginas con múltiples cards
+    const desktopPages = [
+        beneficios.slice(0, 3), // Primeros 3 beneficios
+        beneficios.slice(3, 5)  // Últimos 2 beneficios
+    ];
+    const desktopTotalPages = desktopPages.length;
+
     const sesiones = [
         {
             icon: <Heart strokeWidth={1} size={40} />,
             tipo: "SESIÓN INDIVIDUAL",
-            descripcion: "Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada  a ti.",
+            descripcion: "Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti.",
             duracion: "60 minutos",
-            inversion: "45€",
+            inversion: "60€",
             modalidad: "Presencial"
         },
         {
@@ -70,7 +83,7 @@ const Gong = () => {
             tipo: "SESIÓN EN GRUPO",
             descripcion: "Experiencia colectiva de sanación y transformación. Comparte vibraciones con otros seres en un espacio seguro y energético.",
             duracion: "120 minutos",
-            inversion: "35€ por persona",
+            inversion: "25€ por persona (mínimo 5 pers)",
             modalidad: "Cada dos meses"
         }
     ];
@@ -79,26 +92,33 @@ const Gong = () => {
     const nextSlide = () => {
         setIsAnimating(true);
         setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % beneficios.length);
+            setCurrentPage((prevPage) => {
+                // Para mobile: 5 páginas (0-4)
+                // Para desktop: 2 páginas (0-1)
+                const maxPage = window.innerWidth >= 1024 ? 1 : 4;
+                return (prevPage + 1) % (maxPage + 1);
+            });
             setIsAnimating(false);
         }, 150);
     };
-
 
     const prevSlide = () => {
         setIsAnimating(true);
         setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + beneficios.length) % beneficios.length);
+            setCurrentPage((prevPage) => {
+                const maxPage = window.innerWidth >= 1024 ? 1 : 4;
+                return (prevPage - 1 + (maxPage + 1)) % (maxPage + 1);
+            });
             setIsAnimating(false);
         }, 150);
     };
 
-
-    const goToSlide = (index) => {
-        if (index !== currentIndex) {
+    const goToSlide = (pageIndex) => {
+        const maxPage = window.innerWidth >= 1024 ? 1 : 4;
+        if (pageIndex !== currentPage && pageIndex <= maxPage) {
             setIsAnimating(true);
             setTimeout(() => {
-                setCurrentIndex(index);
+                setCurrentPage(pageIndex);
                 setIsAnimating(false);
             }, 150);
         }
@@ -174,47 +194,75 @@ const Gong = () => {
 
         <section className="gong-section">
 
-           
-           <h1 className='gong-titulo'>DESCUBRE <br /> EL MUNDO DE LAS VIBRACIONES</h1>   
-
-            <p className="gong-texto">Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido. Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma. Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser</p>
-
-            <img src="/img/gong-img.png" alt="gong" className="gong-imagen" />
+           <div className="gong-content-wrapper">
+               <div className="gong-text-content">
+                   <h1 className='gong-titulo'>DESCUBRE <br /> EL MUNDO DE LAS VIBRACIONES</h1>   
+                   <p className="gong-texto">Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido. Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma. Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser</p>
+               </div>
+               <div className="gong-image-content">
+                   <img src="/img/gong-img.png" alt="gong" className="gong-imagen" />
+               </div>
+           </div>
             
         </section>
 
 
 
         <section className="gong-beneficios">
-
+            <div className="simbolo-container">
+                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+            </div>
+            
             <h1 className='gong-titulo'>BENEFICIOS</h1>
 
             <div className="slider-container">
 
 
                 <div className="slider-content">
-                    <div className={`beneficio-item ${isAnimating ? 'animating' : ''}`}>
-                        <div className="beneficio-icon">{beneficios[currentIndex].icon}</div>
-                        <div className="beneficio-texto">{beneficios[currentIndex].texto}</div>
+                    {/* Versión móvil - slider individual */}
+                    <div className="mobile-only">
+                        {mobilePages[currentPage] && (
+                            <div className={`beneficio-item ${isAnimating ? 'animating' : ''}`}>
+                                <div className="beneficio-icon">{mobilePages[currentPage].icon}</div>
+                                <div className="beneficio-texto">{mobilePages[currentPage].texto}</div>
+                            </div>
+                        )}
+                    </div>
+                    
+                    {/* Versión desktop - grid de beneficios */}
+                    <div className="desktop-only">
+                        {desktopPages[currentPage] && (
+                            <div 
+                                className={`beneficios-grid ${isAnimating ? 'animating' : ''}`}
+                                data-page={currentPage}
+                            >
+                                {desktopPages[currentPage].map((beneficio, index) => (
+                                    <div key={index} className="beneficio-item">
+                                        <div className="beneficio-icon">{beneficio.icon}</div>
+                                        <div className="beneficio-texto">{beneficio.texto}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
                 
                 <div className="slider-controls">
-                    <button className="slider-btn prev-btn" onClick={prevSlide}>
+                    <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
                       
                         ANT.
                     </button>
 
                 <div className="slider-dots">
-                    {beneficios.map((_, index) => (
+                    {mobilePages.map((_, index) => (
                         <button
                             key={index}
-                            className={`dot ${index === currentIndex ? 'active' : ''}`}
+                            className={`dot ${index === currentPage ? 'active' : ''}`}
                             onClick={() => goToSlide(index)}
                         />
                     ))}
                 </div>
-                    <button className="slider-btn next-btn" onClick={nextSlide}>
+                    <button className="slider-btn next-btn" onClick={nextSlide} translate="no">
                         SIG.
                        
                     </button>
@@ -224,75 +272,93 @@ const Gong = () => {
 
 
             </div>
+
+            <div className="simbolo-container">
+                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+            </div>
+
+            {/* Versión desktop - controles externos */}
+            <div className="desktop-only">
+             <div className="slider-controls-desk">
+                    <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
+                      
+                        ANT.
+                    </button>
+
+                <div className="slider-dots">
+                    {desktopPages.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`dot ${index === currentPage ? 'active' : ''}`}
+                            onClick={() => goToSlide(index)}
+                        />
+                    ))}
+                </div>
+                    <button className="slider-btn next-btn" onClick={nextSlide} translate="no">
+                        SIG.
+                       
+                    </button>
+                </div>
+            </div>
+
+
         </section>
 
 
         <section className="gong-sesiones">
             <h1 className='gong-titulo'>VEN A VIBRAR <br /> TÚ SOLX  O CON QUIEN QUIERAS </h1>
             
-            <div className="sesiones-slider-container">
-                <div className="sesiones-slider">
-                    <div className="sesion-slide">
-                        <div className="sesion-card">
-                            <div className={`sesion-header ${textAnimationStep >= 1 ? 'animate-in' : ''}`}>
-                                <div className={`sesion-icon ${textAnimationStep >= 1 ? 'animate-in' : ''}`}>
-                                    {sesiones[sesionIndex].icon}
-                                </div>
-                                <h2 className={`sesion-tipo ${textAnimationStep >= 1 ? 'animate-in' : ''}`}>{sesiones[sesionIndex].tipo}</h2>
-                            </div>
-                            
-                            <div className="sesion-content">
-                                <p className={`sesion-descripcion ${textAnimationStep >= 2 ? 'animate-in' : ''}`}>
-                                    {sesiones[sesionIndex].descripcion}
-                                </p>
-                                
-                                <div className={`sesion-detalles ${textAnimationStep >= 3 ? 'animate-in' : ''}`}>
-                                    <div className="detalle-item">
-                                        <span className="detalle-label">Duración:</span>
-                                        <span className="detalle-valor">{sesiones[sesionIndex].duracion}</span>
-                                    </div>
-                                    <div className="detalle-item">
-                                        <span className="detalle-label">Inversión:</span>
-                                        <span className="detalle-valor">{sesiones[sesionIndex].inversion}</span>
-                                    </div>
-                                    <div className="detalle-item">
-                                        <span className="detalle-label">Modalidad:</span>
-                                        <span className="detalle-valor">{sesiones[sesionIndex].modalidad}</span>
-                                    </div>
-                                </div>
-                                
-                                <button className={`sesion-btn ${textAnimationStep >= 3 ? 'animate-in' : ''}`}>
-                                    RESERVAR SESIÓN
-                                </button>
-                            </div>
+            {/* Versión móvil - slider individual */}
+            <div className="mobile-only">
+                <div className="sesiones-slider-container">
+                    <div className="sesiones-slider">
+                        <div className="sesion-slide">
+                            <SesionGong 
+                                sesion={sesiones[sesionIndex]} 
+                                isAnimated={true}
+                                animationStep={textAnimationStep}
+                            />
                         </div>
                     </div>
-                </div>
 
-                <div className="sesiones-controls">
-                    <button className="sesion-slider-btn prev-btn" onClick={prevSesion}>
-                        
-                        ANT.
-                    </button>
+                    <div className="sesiones-controls">
+                        <button className="sesion-slider-btn prev-btn" onClick={prevSesion} translate="no">
+                            ANT.
+                        </button>
 
-                    <div className="sesiones-dots">
-                        {sesiones.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`sesion-dot ${index === sesionIndex ? 'active' : ''}`}
-                                onClick={() => goToSesion(index)}
-                            />
-                        ))}
+                        <div className="sesiones-dots">
+                            {sesiones.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`sesion-dot ${index === sesionIndex ? 'active' : ''}`}
+                                    onClick={() => goToSesion(index)}
+                                />
+                            ))}
+                        </div>
+
+                        <button className="sesion-slider-btn next-btn" onClick={nextSesion} translate="no">
+                            SIG.
+                        </button>
                     </div>
-
-                    <button className="sesion-slider-btn next-btn" onClick={nextSesion}>
-                        SIG.
-                       
-                    </button>
                 </div>
             </div>
-            
-           
+
+            {/* Versión desktop - 3 cards juntas en flex */}
+            <div className="desktop-only">
+                <div className="sesiones-slider-container">
+                    <div className="sesiones-slider">
+                        {sesiones.map((sesion, index) => (
+                            <div key={index} className="sesion-slide">
+                                <SesionGong 
+                                    sesion={sesion} 
+                                    isAnimated={true}
+                                    animationStep={3}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
         </>
     );

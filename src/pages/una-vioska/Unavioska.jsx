@@ -20,6 +20,7 @@ import {
     X
 } from "lucide-react";
 import ResumenPedido from './ResumenPedido';
+import Masonry from '../../components/masonry/Masonry';
 
 // 📝 Lista de pasos de instrucciones
 const pasosInstrucciones = [
@@ -68,6 +69,46 @@ const pasosInstrucciones = [
         ),
 
     },
+];
+
+// 📸 Imágenes para la galería masonry
+const masonryImages = [
+    {
+        id: 1,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613621/colgante-foto_3_r4i19m.jpg',
+        height: 300,
+    },
+    {
+        id: 2,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613543/DSC00197_1_ggpsxe.jpg',
+        height: 400,
+    },
+    {
+        id: 3,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png',
+        height: 350,
+    },
+    {
+        id: 4,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501547/Frame_2_mdpq44.png',
+        height: 450,
+    },
+    {
+        id: 5,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501608/Frame_6_m6rcop.png',
+        height: 380,
+    },
+    {
+        id: 6,
+        img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501475/Frame_4_sigg5c.png',
+        height: 320,
+    },
+   
+    {
+        id: 7,
+        img: '/img/colgante-mb.png',
+        height: 360,
+    }
 ];
 
 
@@ -272,9 +313,10 @@ const UnaVioska = () => {
         <div className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
             <ImgContainer>
-                <img src="/img/colgante-mb.png" alt="colgante" className="vioska-portada" />
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501542/Frame_1_rtnzwc.png" alt="colgante" className="vioska-portada" />
                 <div className="vioska-info">
-                    <h1 className="vioska-titulo">UNA VIOSKA.</h1>
+                    <h1 className="vioska-titulo">una vioska.</h1>
+                    <p className="vioska-subtitulo">Artesanía hecha con propósito.</p>
                 </div>
             </ImgContainer>
 
@@ -303,8 +345,6 @@ const UnaVioska = () => {
                     </Button></div>
 
             </section>
-
-
 
             <section id='galeria' className="vioska-galeria mobile-only">
                 <h2 className="galeria-titulo">Galería de productos</h2>
@@ -541,6 +581,22 @@ const UnaVioska = () => {
                     <Button onClick={irAResumen}>VER PEDIDO</Button>
                 </footer>
             )}
+
+            {/* Galería Masonry - Ahora al final */}
+            <section className="vioska-masonry-section mobile-only">
+                <h2 className="masonry-titulo">Nuestra esencia visual</h2>
+                <p className="masonry-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
+                <Masonry 
+                    items={masonryImages}
+                    ease="power3.out"
+                    duration={0.6}
+                    stagger={0.05}
+                    animateFrom="bottom"
+                    scaleOnHover={true}
+                    hoverScale={0.95}
+                    blurToFocus={true}
+                />
+            </section>
 
             {menuResumenAbierto && (
     <div

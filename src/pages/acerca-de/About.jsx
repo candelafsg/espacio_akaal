@@ -6,6 +6,7 @@ import { Footer } from "../../components/footer/Footer"
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [direction, setDirection] = useState(0) // 0 = no direction, 1 = forward, -1 = backward
 
   const timeline = [
     {
@@ -54,11 +55,15 @@ const About = () => {
     }
   ]
 
-  const nextSlide = () =>
+  const nextSlide = () => {
+    setDirection(1)
     setCurrentSlide((prev) => (prev + 1) % timeline.length)
+  }
 
-  const prevSlide = () =>
+  const prevSlide = () => {
+    setDirection(-1)
     setCurrentSlide((prev) => (prev - 1 + timeline.length) % timeline.length)
+  }
 
   return (
     <div className="about-container">
@@ -86,13 +91,14 @@ const About = () => {
 
         <div className="timeline-container">
           <div className="timeline-slider">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentSlide}
                 className="timeline-slide"
-                initial={{ opacity: 0, x: 100 }}
+                custom={direction}
+                initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
+                exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
                 transition={{ duration: 0.5 }}
               >
                 <div className="slide-image-container">
@@ -134,7 +140,10 @@ const About = () => {
               <button
                 key={index}
                 className={`dot ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => {
+                  setDirection(index > currentSlide ? 1 : -1)
+                  setCurrentSlide(index)
+                }}
               />
             ))}
           </div>

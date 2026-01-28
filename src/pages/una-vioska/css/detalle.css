@@ -31,13 +31,15 @@
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 99;
+    color: var(--primary);
+
 }
 
 
 
 
 
-.slider-container {
+.slider-container-product{
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -62,9 +64,7 @@
     scroll-snap-align: center;
     object-fit: cover;
     border-radius: 20px 8px 0 0;
-    border: none;
-    outline: none;
-    box-shadow: none;
+  
 }
 
 .dots {
@@ -73,7 +73,7 @@
     gap: 0.6rem;
     margin-top: 0.5rem;
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 1rem;
     left: 50%;
 }
 
@@ -96,16 +96,53 @@
 
 .producto-info{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(50dvh - 3rem);
 }
 
-.producto-labels{
-    height: 25dvh;
+.precio{
+    font-size:1.5rem;
+    margin-top: 0.5rem;
 }
 
+.producto-descripcion {
+    margin: auto 0;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.descripcion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.hand-icon {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.producto-descripcion p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--primary);
+    font-style: italic;
+    opacity: 0.8;
+    margin: 0;
+    text-align: center;
+    max-width: 300px;
+}
 
 .btn-seleccion{
     display: flex;
     justify-content: center;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 /* Notificación personalizada */
@@ -173,20 +210,25 @@
         scroll-snap-align: center;
         object-fit: cover;
         border-radius: var(--radius-img) var(--radius-img) 0 0;
-        border: none;
-        outline: none;
-        box-shadow: none;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-width: 0 !important;
     }
 
     .producto-info {
         padding: 1.5rem;
         flex: 1;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
-    .producto-labels {
-        height: auto; /* Ajustar al contenido */
-        min-height: 15dvh;
+    .btn-seleccion {
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+        padding-top: 1rem;
     }
 
     .dots {
@@ -195,7 +237,7 @@
         gap: 0.6rem;
         margin-top: 0.5rem;
         position: absolute;
-        bottom: 1rem;
+        bottom:1rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;

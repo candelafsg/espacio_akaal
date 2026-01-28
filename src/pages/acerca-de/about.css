@@ -205,27 +205,45 @@
 /* Navigation Buttons */
 .nav-button {
     position: absolute;
-    top: 48%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--background);
-    border: none;
- 
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 10;
-    color: var(--primary);
+    top: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 25px !important;
+    background: var(--background) !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    z-index: 10 !important;
+    color: #61253E !important;
+    /* Asegurar círculo perfecto */
+    box-sizing: border-box !important;
+    /* Evitar cualquier transformación por defecto */
+    transform: translateY(-50%) !important;
+   
+    /* Forzar forma redonda */
+    flex-shrink: 0 !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
 }
 
 .nav-button:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(97, 37, 62, 0.2);
+    box-shadow: 0 6px 20px rgba(97, 37, 62, 0.2) !important;
+    /* Mantener posición exacta */
+    transform: translateY(-50%) !important;
 }
+
+.nav-button:active {
+    /* Evitar desplazamiento al pulsar */
+    transform: translateY(-50%) !important;
+    box-shadow: 0 2px 8px rgba(97, 37, 62, 0.2) !important;
+}
+
+
 
 .nav-button.prev {
     left: 1rem;
@@ -320,6 +338,9 @@
     .nav-button {
         width: 40px;
         height: 40px;
+        /* Círculo perfecto en móvil */
+        aspect-ratio: 1/1;
+        box-sizing: border-box;
     }
     
     .nav-button.prev {

@@ -20,15 +20,11 @@ const Inicio = () => {
     const sectionY = useTransform(scrollYProgress, [0, 1], [0, 150]);
     const finalY = useTransform(scrollYProgress, [0, 1], [0, 300]);
     
-    // Opacidad para superposición
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.8, 0.3]);
-    const sectionOpacity = useTransform(scrollYProgress, [0.2, 0.4, 0.8], [0, 1, 0.8]);
-    const finalOpacity = useTransform(scrollYProgress, [0.4, 0.6, 1], [0, 1, 1]);
     
-    // Escala para efecto de profundidad (solo cuando desaparece)
-    const heroScale = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 1, 0.8]);
-    const sectionScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [1, 1, 0.9]);
-    const finalScale = useTransform(scrollYProgress, [0.4, 0.7, 1], [1, 1, 0.85]);
+    // Escala para efecto de profundidad (ahora con opacidad)
+    const heroScale = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 1, 1]);
+    const sectionScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [1, 1, 1]);
+    const finalScale = useTransform(scrollYProgress, [0.4, 0.7, 1], [1, 1, 1]);
     
     return (
         <div className="parallax-container">
@@ -36,7 +32,6 @@ const Inicio = () => {
                 className="parallax-layer hero-layer"
                 style={{
                     y: heroY,
-                    opacity: heroOpacity,
                     scale: heroScale,
                     zIndex: 30
                 }}
@@ -53,7 +48,6 @@ const Inicio = () => {
                 className='section-inicio parallax-layer section-layer'
                 style={{
                     y: sectionY,
-                    opacity: sectionOpacity,
                     scale: sectionScale,
                     zIndex: 20
                 }}
@@ -116,18 +110,7 @@ const Inicio = () => {
             >
                 <img src="/img/capa.png" alt="simbolo" className="simbolo" />
             </motion.div>
-            </motion.section>
-            
-            <motion.section 
-                className="section-final parallax-layer final-layer"
-                style={{
-                    y: finalY,
-                    opacity: finalOpacity,
-                    scale: finalScale,
-                    zIndex: 10
-                }}
-            >
-                <div className="section-content">
+              <div className="section-content">
                  <img src="/img/conecta.png" alt="conecta" className="section-contrnt-img" />
                 </div>
 
@@ -140,6 +123,17 @@ const Inicio = () => {
                 >
                     CONÓCENOS
                 </Button>
+            </motion.section>
+            
+            <motion.section 
+                className="section-final parallax-layer final-layer"
+                style={{
+                    y: finalY,
+                    scale: finalScale,
+                    zIndex: 10
+                }}
+            >
+              
 
                 {/* Footer solo visible en desktop */}
                 <div className="footer-desktop">

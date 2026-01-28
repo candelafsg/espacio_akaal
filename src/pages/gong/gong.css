@@ -28,6 +28,11 @@
     font-size: 9.5vw;
 }
 
+.gong-beneficios .gong-titulo {
+    text-align: center;
+    width: auto;
+}
+
 .gong-texto, .gong-titulo {
     text-align: start;
     width: 100%;
@@ -51,7 +56,7 @@
 .gong-beneficios {
    display: flex;
    flex-direction: column;
-   gap: 3rem;
+   gap: 4rem;
    align-items: center;
    justify-content: center;
    width: 100%;
@@ -65,25 +70,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: 300px;
     max-width:100%;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 6rem;
+    height: 300px;
 }
 
 .slider-content {
-
-    margin-top: 4rem;
-
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
+/* Estilos móviles - slider individual */
 .beneficio-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     transition: all 0.3s ease;
+    padding: 1rem;
+    height: auto;
+    max-height: 200px;
 }
 
 .beneficio-item.animating .beneficio-icon {
@@ -132,7 +142,8 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-top: 4rem;
+    padding: 1rem;
+    margin-top: 0;
 }
 
 .slider-btn {
@@ -464,6 +475,25 @@
     margin: 0 auto;
 }
 
+
+.sider-controls-desk{
+    display: none;
+}
+
+/* Clases responsive */
+.desktop-only {
+    display: none;
+}
+
+.mobile-only {
+    display: block;
+}
+
+/* Ocultar controles externos en mobile */
+.mobile-only .slider-controls-desk {
+    display: none !important;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
     .sesiones-slider-container {
@@ -504,5 +534,207 @@
     
     .sesion-descripcion {
         font-size: 1.2rem;
+    }
+
+    /* Estilos desktop para Gong */
+    .gong-titulo {
+        font-size: 4rem;
+        line-height: 1.1;
+    }
+
+    .gong-section {
+        height: 100vh;
+        padding: 2rem 4rem;
+    }
+
+    .gong-content-wrapper {
+        display: flex;
+        gap: 4rem;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gong-text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: left;
+    }
+
+    .gong-image-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gong-imagen {
+        width: 70%;
+      
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .gong-texto {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 500px;
+    }
+
+    .gong-beneficios {
+        padding: 4rem 2rem;
+    }
+
+    /* Estilos desktop - grid de beneficios */
+    .slider-container {
+      
+      
+      
+       
+    }
+
+    .desktop-only .beneficios-grid {
+        display: grid !important;
+        padding: 1rem;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2rem !important;
+        width: 100% !important;
+        max-width: 1000px !important;
+        margin: 0 auto !important;
+        transition: all 0.3s ease;
+        height: auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Para la segunda página con 2 cards - centrarlas */
+    .desktop-only .beneficios-grid[data-page="1"] {
+        grid-template-columns: 1fr 1fr !important;
+        justify-items: center;
+        max-width: 700px !important;
+    }
+
+    .beneficios-grid.animating {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    .beneficio-item {
+        padding: 1.5rem;
+        border-radius: 10px;
+      
+        border: 1px solid rgba(97, 37, 62, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .beneficio-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(97, 37, 62, 0.3);
+    }
+
+    .slider-controls{
+        display: none;
+    }
+
+    .slider-controls-desk{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Clases responsive para desktop */
+    .desktop-only {
+        display: block !important;
+    }
+
+    .mobile-only {
+        display: none !important;
+    }
+    
+    .gong-sesiones {
+    }
+    
+    /* Estilos desktop para sesiones - 3 cards en flex */
+    .desktop-only .sesiones-slider {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 2rem !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        max-width: none !important;
+        overflow: visible !important;
+    }
+    
+    .desktop-only .sesion-slide {
+        flex: 1 !important;
+        max-width: 350px !important;
+    }
+    
+    .desktop-only .sesion-card {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        gap: 1rem !important;
+    }
+    
+    .desktop-only .sesion-content {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .desktop-only .sesion-descripcion {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .desktop-only .sesion-detalles {
+        gap: 0.5rem !important;
+        margin-bottom: auto !important;
+    }
+    
+    .desktop-only .sesion-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        margin-top: auto !important;
+    }
+    
+    /* Reducir tipografías en desktop */
+    .desktop-only .sesion-tipo {
+        font-size: 1.4rem !important;
+    }
+    
+    .desktop-only .sesion-descripcion {
+        font-size: 0.95rem !important;
+    }
+    
+    .desktop-only .sesion-detalles {
+        gap: 0.5rem !important;
+    }
+    
+    .desktop-only .detalle-item {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .desktop-only .sesion-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .desktop-only .sesion-icon {
+        width: 60px !important;
+        height: 60px !important;
     }
 }

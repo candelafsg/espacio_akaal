@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router";
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from "react";
 import './css/detalle.css'
 import useFetchProductos from '../../hooks/useFetchProducts';
@@ -14,6 +14,7 @@ const DetalleProducto = () => {
     const sliderRef = useRef(null);
     const [imagenActiva, setImagenActiva] = useState(0);
     const [mostrarNotificacion, setMostrarNotificacion] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     const productos = useFetchProductos();
     const producto = productos.find(p => p.id === Number(pid));
@@ -58,76 +59,87 @@ const DetalleProducto = () => {
 
 
     const handleBack = () => {
-
-        navigate(-1)
-
+        setIsVisible(false);
+        setTimeout(() => {
+            navigate(-1);
+        }, 300);
     }
 
 
     if (!producto) return null;
 
     return (
-        <>
-            {/* Notificación personalizada */}
-            {mostrarNotificacion && (
-                <motion.div
-                    className="notificacion-seleccion"
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                    <HandHeart size={20} />
-                    <span>¡Producto seleccionado!</span>
-                </motion.div>
+        <AnimatePresence>
+            {isVisible && (
+                <>
+                    {/* Notificación personalizada */}
+                    {mostrarNotificacion && (
+                        <motion.div
+                            className="notificacion-seleccion"
+                            initial={{ opacity: 0, y: -50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -50 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                            <HandHeart size={20} />
+                            <span>¡Producto seleccionado!</span>
+                        </motion.div>
+                    )}
+
+                    <motion.div 
+                        className="modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                        <motion.div
+                            className="modal-content"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
+                            <button className="cerrar" onClick={handleBack}>✕</button>
+
+                            <div className="slider-container-product">
+                                <div className="slider" ref={sliderRef} onScroll={handleScroll}>
+                                    {producto.imagenes.map((img, index) => (
+                                        <img key={index} src={img} alt={`imagen-${index}`} className="slide-img" />
+                                    ))}
+                                </div>
+
+                                <div className="dots">
+                                    {producto.imagenes.map((_, index) => (
+                                        <span
+                                            key={index}
+                                            className={`dot ${index === imagenActiva ? "active" : ""}`}
+                                            onClick={() => scrollToImagen(index)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="producto-info">
+                                <h2>{producto.nombre}</h2>
+                                <p className="precio">{producto.precio} €</p>
+
+                                <div className="producto-descripcion">
+                                    <div className="descripcion-content">
+                                        <HandHeart size={24} className="hand-icon" />
+                                        <p>Estas piezas son de plata de ley, 100% artesanales, hechas con propósito. Llévate una pieza única.</p>
+                                    </div>
+                                </div>
+
+                                <div className="btn-seleccion">
+                                    <Button onClick={seleccionarProducto}>SELECCIONAR PRODUCTO</Button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </>
             )}
-
-            <div className="modal-overlay">
-                <motion.div
-                    className="modal-content"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                    <button className="cerrar" onClick={handleBack}>✕</button>
-
-                    <div className="slider-container">
-                        <div className="slider" ref={sliderRef} onScroll={handleScroll}>
-                            {producto.imagenes.map((img, index) => (
-                                <img key={index} src={img} alt={`imagen-${index}`} className="slide-img" />
-                            ))}
-                        </div>
-
-                        <div className="dots">
-                            {producto.imagenes.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`dot ${index === imagenActiva ? "active" : ""}`}
-                                    onClick={() => scrollToImagen(index)}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="producto-info">
-                        <h2>{producto.nombre}</h2>
-                        <p>{producto.descripcion}</p>
-                        <p className="precio">{producto.precio} €</p>
-
-                        <div className="producto-labels">
-                            <span className="label">{producto.filtro}</span>
-                            <span className="label">{producto.tipo}</span>
-                            {producto.piedra && <span className="label">{producto.piedra}</span>}
-                        </div>
-
-                        <div className="btn-seleccion">
-                            <Button onClick={seleccionarProducto}>SELECCIONAR PRODUCTO</Button>
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
-        </>
+        </AnimatePresence>
     );
 };
 

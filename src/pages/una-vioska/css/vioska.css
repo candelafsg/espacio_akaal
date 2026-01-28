@@ -10,6 +10,9 @@
 
 
 .vioska-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,25 +30,44 @@
 
 }
 
+.vioska-subtitulo{
+    color: var(--background);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 
 /* instrucciones */
 
 
 .vioska-instrucciones{
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
+   
+    min-height: 100vh;
     gap: 1rem;
     padding: 1rem;
     border-bottom: var(--border);
+    /* Asegurar centrado perfecto */
+    position: relative;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mobile-only {
+    display: block;
 }
 
 .artesania{
     display: flex;
     gap: 0.5rem;
     width: 90%;
+    max-width: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
 .instrucciones-texto{
@@ -57,8 +79,10 @@
     display: flex;
     flex-direction: column;
     width: 90%;
+    max-width: 400px;
     gap: 2rem;
     margin-top: 1rem;
+    align-items: center;
 }
 
 .instrucciones-li{
@@ -67,10 +91,13 @@
     align-items: center;
     width: 100%;
     gap: 0.4rem;
+    text-align: center;
 }
 
 .instrucciones-p{
     text-align: center;
+    margin: 0;
+    width: 100%;
 }
 
 
@@ -81,13 +108,41 @@
     width: 100%;
 }
 
+/* Galería Masonry */
+.vioska-masonry-section {
+    padding: 2rem 1rem;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.masonry-titulo {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: semi-bold, poppins;
+}
+
+.masonry-subtitulo {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-family: normal, poppins;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
 
 
 /* galería */
 
 .vioska-galeria {
     width: 100%;
-    min-height: 100dvh;
+    min-height: 60dvh;
     padding: 1rem;
     display: flex;
     flex-direction: column;
