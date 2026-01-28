@@ -58,7 +58,7 @@ const pasosInstrucciones = [
                 <strong>Escribe tu nombre</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
             </>
         ),
-        texto: 'Desde ahí, escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido',
+        texto: 'Desde ahí, escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido'
     },
     {
         icono: <HandHeart strokeWidth={1} />,
