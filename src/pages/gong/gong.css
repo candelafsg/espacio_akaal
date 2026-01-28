@@ -494,6 +494,11 @@
     display: none !important;
 }
 
+/* Asegurar que los controles mobile sean visibles en mobile */
+.mobile-only .slider-controls {
+    display: flex !important;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
     .sesiones-slider-container {
@@ -641,7 +646,7 @@
     }
 
     .slider-controls{
-        display: none;
+        display: flex;
     }
 
     .slider-controls-desk{

@@ -134,6 +134,7 @@ const UnaVioska = () => {
     });
 
     const [menuResumenAbierto, setMenuResumenAbierto] = useState(false);
+    const [imagenActual, setImagenActual] = useState(0);
 
     const menuRef = useRef(null);
     const pendientesRef = useRef(null);
@@ -199,6 +200,19 @@ const UnaVioska = () => {
 
 
     const handleMenu = () => setMenu(!menu);
+
+    // Funciones para el slider de imágenes
+    const imagenSiguiente = () => {
+        setImagenActual((prev) => (prev + 1) % masonryImages.length);
+    };
+
+    const imagenAnterior = () => {
+        setImagenActual((prev) => (prev - 1 + masonryImages.length) % masonryImages.length);
+    };
+
+    const irAImagen = (index) => {
+        setImagenActual(index);
+    };
 
   
     
@@ -313,7 +327,7 @@ const UnaVioska = () => {
         <div className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
             <ImgContainer>
-                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501542/Frame_1_rtnzwc.png" alt="colgante" className="vioska-portada" />
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
                 <div className="vioska-info">
                     <h1 className="vioska-titulo">una vioska.</h1>
                     <p className="vioska-subtitulo">Artesanía hecha con propósito.</p>
@@ -454,7 +468,7 @@ const UnaVioska = () => {
                     {/* Fila para PENDIENTES */}
                     <div className="filtro-fila">
                         <div className="imagen-contenedor">
-                            {/* Contenedor con fondo gris para imagen */}
+                            <h3 className="titulo-filtro">PENDIENTES</h3>
                         </div>
                         <div className="galeria-scroll-container">
                             <div className="galeria-scroll" ref={pendientesRef}>
@@ -495,7 +509,7 @@ const UnaVioska = () => {
                     {/* Fila para COLGANTES */}
                     <div className="filtro-fila">
                         <div className="imagen-contenedor">
-                            {/* Contenedor con fondo gris para imagen */}
+                            <h3 className="titulo-filtro">COLGANTES</h3>
                         </div>
                         <div className="galeria-scroll-container">
                             <div className="galeria-scroll" ref={colgantesRef}>
@@ -536,7 +550,7 @@ const UnaVioska = () => {
                     {/* Fila para ANILLOS */}
                     <div className="filtro-fila">
                         <div className="imagen-contenedor">
-                            {/* Contenedor con fondo gris para imagen */}
+                            <h3 className="titulo-filtro">ANILLOS</h3>
                         </div>
                         <div className="galeria-scroll-container">
                             <div className="galeria-scroll" ref={anillosRef}>
@@ -582,20 +596,47 @@ const UnaVioska = () => {
                 </footer>
             )}
 
-            {/* Galería Masonry - Ahora al final */}
-            <section className="vioska-masonry-section mobile-only">
-                <h2 className="masonry-titulo">Nuestra esencia visual</h2>
-                <p className="masonry-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
-                <Masonry 
-                    items={masonryImages}
-                    ease="power3.out"
-                    duration={0.6}
-                    stagger={0.05}
-                    animateFrom="bottom"
-                    scaleOnHover={true}
-                    hoverScale={0.95}
-                    blurToFocus={true}
-                />
+            {/* Galería Slider Minimalista - Ahora al final */}
+            <section className="vioska-slider-section mobile-only">
+                <h2 className="slider-titulo">Nuestra esencia visual</h2>
+                <p className="slider-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
+                
+                <div className="slider-container-galery">
+                    <div className="slider-imagen">
+                        <img 
+                            src={masonryImages[imagenActual].img} 
+                            alt={`Imagen ${imagenActual + 1}`}
+                            className="slider-img-galery"
+                        />
+                    </div>
+                    
+                    <button 
+                        className="slider-btn slider-btn-prev" 
+                        onClick={imagenAnterior}
+                        aria-label="Imagen anterior"
+                    >
+                        <ChevronLeft size={32} />
+                    </button>
+                    
+                    <button 
+                        className="slider-btn slider-btn-next" 
+                        onClick={imagenSiguiente}
+                        aria-label="Siguiente imagen"
+                    >
+                        <ChevronRight size={32} />
+                    </button>
+                </div>
+                
+                <div className="slider-dots">
+                    {masonryImages.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`slider-dot ${index === imagenActual ? 'slider-dot-active' : ''}`}
+                            onClick={() => irAImagen(index)}
+                            aria-label={`Ir a imagen ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </section>
 
             {menuResumenAbierto && (

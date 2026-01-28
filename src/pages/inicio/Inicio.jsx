@@ -5,7 +5,7 @@ import { ImgContainer } from "../../components/components/Components";
 import { MdOutlineNorthEast } from "react-icons/md";
 import { NavLink } from "react-router";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Footer } from "../../components/footer/Footer";
 
 const Inicio = () => {
@@ -14,6 +14,20 @@ const Inicio = () => {
     const cardsInView = useInView(cardsRef, { once: true, margin: "-100px" });
     const simboloRef = useRef();
     const simboloInView = useInView(simboloRef, { once: true, margin: "-100px" });
+    
+    // Estado para detectar si es desktop
+    const [isDesktop, setIsDesktop] = useState(false);
+    
+    useEffect(() => {
+        const checkDesktop = () => {
+            setIsDesktop(window.innerWidth >= 1024);
+        };
+        
+        checkDesktop();
+        window.addEventListener('resize', checkDesktop);
+        
+        return () => window.removeEventListener('resize', checkDesktop);
+    }, []);
     
     // Efectos parallax para cada sección
     const heroY = useTransform(scrollYProgress, [0, 1], [0, -200]);
@@ -37,7 +51,15 @@ const Inicio = () => {
                 }}
             >
                 <ImgContainer>
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501343/img8_kfiyrr.png" alt="inicio" className="inicio-imagen" />
+                    <img 
+                        src={
+                            isDesktop 
+                                ? "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769624540/Desktop_-_1_qur0pp.png"
+                                : "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501290/img2_yo27mp.png"
+                        } 
+                        alt="inicio" 
+                        className="inicio-imagen" 
+                    />
                     <div className="titulo-container-inicio">
                         <h1 className="espacioAkaal">Espacio AKAAL</h1>
                     </div>

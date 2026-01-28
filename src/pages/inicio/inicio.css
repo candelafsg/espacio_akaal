@@ -84,6 +84,13 @@
     font-size: 3rem;
 }
 
+/* Desktop - tipografía más grande para Espacio AKAAL */
+@media (min-width: 1024px) {
+    .espacioAkaal {
+        font-size: 7rem;
+    }
+}
+
 .titulo-container{
     display: flex;
     flex-direction: column;
