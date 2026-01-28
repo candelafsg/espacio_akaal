@@ -6,7 +6,7 @@ import "./espacio-akaal.css";
 import { ImgContainer } from "../../components/components/Components";
 import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
 import { espacioAkaalImgs } from "../../db/imagenes";
-import Masonry from "../../components/masonry/Masonry";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Footer } from "../../components/footer/Footer";
 
 const diasSemana = ["LUN.", "MAR.", "MIER.", "JUE.", "VIE."];
@@ -28,6 +28,12 @@ const EspacioAkaal = () => {
   );
   const [sliderOpen, setSliderOpen] = useState(false);
   const [sliderInitialIndex, setSliderInitialIndex] = useState(0);
+  const [imagenActual, setImagenActual] = useState(0);
+
+  // Preparar imágenes para el slider
+  const sliderImages = espacioAkaalImgs.map((img) => ({
+    img: img
+  }));
 
   const handleOpenSlider = (index) => {
     setSliderInitialIndex(index);
@@ -36,6 +42,19 @@ const EspacioAkaal = () => {
 
   const handleCloseSlider = () => {
     setSliderOpen(false);
+  };
+
+  // Funciones para el slider de imágenes
+  const imagenSiguiente = () => {
+    setImagenActual((prev) => (prev + 1) % sliderImages.length);
+  };
+
+  const imagenAnterior = () => {
+    setImagenActual((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+  };
+
+  const irAImagen = (index) => {
+    setImagenActual(index);
   };
 
   const dia = claseYoga?.dias.find((d) => d.dia === diaSeleccionado);
@@ -142,13 +161,46 @@ const EspacioAkaal = () => {
 
 
 
-      {/* SECCIÓN GALERÍA */}
-
-      <section className="akaal-galeria">
-
-        <h1 className="galeria-titulo">CONOCE <br /> ESPACIO AKAAL</h1>
-        <Masonry items={galeriaItems} />
-
+      {/* SECCIÓN GALERÍA SLIDER */}
+      <section className="akaal-slider-section">
+        <h1 className="slider-titulo">CONOCE <br /> ESPACIO AKAAL</h1>
+        
+        <div className="slider-container-galery">
+          <div className="slider-imagen">
+            <img 
+              src={sliderImages[imagenActual].img} 
+              alt={`Imagen ${imagenActual + 1}`}
+              className="slider-img-galery"
+            />
+          </div>
+          
+          <button 
+            className="slider-btn slider-btn-prev" 
+            onClick={imagenAnterior}
+            aria-label="Imagen anterior"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          
+          <button 
+            className="slider-btn slider-btn-next" 
+            onClick={imagenSiguiente}
+            aria-label="Siguiente imagen"
+          >
+            <ChevronRight size={32} />
+          </button>
+        </div>
+        
+        <div className="slider-dots">
+          {sliderImages.map((_, index) => (
+            <button
+              key={index}
+              className={`slider-dot ${index === imagenActual ? 'slider-dot-active' : ''}`}
+              onClick={() => irAImagen(index)}
+              aria-label={`Ir a imagen ${index + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Footer - solo visible en desktop */}

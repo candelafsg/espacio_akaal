@@ -111,6 +111,18 @@ export const Header = () => {
                                                     onClick={() => { setMenu(false); setOpenMobileServices(false); }}
                                                     initial={{ opacity: 0, x: -20 }}
                                                     animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.05 }}
+                                                    whileHover={{ x: 5 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <NavLink to="/espacio-akaal">ESPACIO AKAAL</NavLink>
+                                                </motion.li>
+
+                                                <motion.li 
+                                                    className="menu-li submenu-item" 
+                                                    onClick={() => { setMenu(false); setOpenMobileServices(false); }}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}

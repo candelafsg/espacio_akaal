@@ -166,10 +166,10 @@ height: 300px;    margin: 0 auto;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--background);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -179,14 +179,16 @@ height: 300px;    margin: 0 auto;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
-    color: white;
+    color: var(--background) !important;
 }
 
 .slider-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transform: translateY(-50%) scale(1.1);
+    color: var(--background) !important;
+    border: 1px solid var(--background);
 }
 
 .slider-btn-prev {
