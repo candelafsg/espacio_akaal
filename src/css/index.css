@@ -1,9 +1,58 @@
 
+/* Importar fuentes Yaldevi */
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Yaldevi';
+    src: url('/fonts/Yaldevi-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: normal, poppins;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
     letter-spacing: 1.5px;
 }
 
@@ -40,7 +89,8 @@ img, video, svg {
 
 h1, h2, h3, h4, h5, h6 , body{
     color: var(--primary);
-    font-family: semi-bold, poppins;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
+    font-weight: 600;
 }
 
 
@@ -51,17 +101,16 @@ html, body{
 }
 
 body{
-
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100dvh;
     color: var(--primary);
     background-color: var(--background);
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
+    font-weight: 400;
     scroll-behavior: smooth;
     overflow-x: hidden;
-
-    
 }
 
 a{
@@ -72,22 +121,20 @@ a{
 
 
 button{
-
-
-    font-family: normal, poppins;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
     cursor: pointer;
-
 }
-
 
 
 li{
     list-style: none;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
 }
 
 
 strong{
-    font-family: semi-bold;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
+    font-weight: 700;
 }
 
 
@@ -95,39 +142,22 @@ section{
     overflow-x: hidden;
 }
 
-
-/* tipografias */
-
-@font-face {
-    font-family: superlight;
- 
-    src: url('./fonts/Yaldevi-ExtraLight.ttf');
+/* Forzar tipografía en todos los elementos adicionales */
+p, span, div, section, article, header, footer, nav, main, aside, input, textarea, select, label, a, td, th {
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
 }
 
-
-@font-face {
-    font-family: light;
- 
-    src: url('./fonts/Yaldevi-Light.ttf');
+/* Forzar en pseudo-elementos */
+::before, ::after {
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
 }
 
-
-@font-face {
-    font-family: medium;
- 
-    src: url('./fonts/Yaldevi-Medium.ttf');
+/* Forzar en elementos de formulario */
+input, textarea, select, option {
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
 }
 
-
-@font-face {
-    font-family: normal;
-    
-    src: url('./fonts/Yaldevi-Regular.ttf');
-}
-
-
-@font-face {
-    font-family: semi-bold;
-    
-    src: url('./fonts/Yaldevi-SemiBold.ttf');
+/* Forzar en elementos de navegación */
+.nav-link, .menu-item, .submenu-item {
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
 }

@@ -50,7 +50,7 @@ const About = () => {
       content:
         "Tras muchos viajes y crecimiento interior, hoy todo ese camino toma forma en Espacio AKAAL: un proyecto que une viaje, yoga, artesanía y crecimiento personal.",
       image:
-        "https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img2_n8gal4.png",
+        "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769624540/Desktop_-_1_qur0pp.png",
       icon: <Heart size={24} />
     }
   ]
@@ -128,10 +128,10 @@ const About = () => {
             </AnimatePresence>
 
             <button className="nav-button prev" onClick={prevSlide}>
-              <ChevronLeft size={24} />
+              <ChevronLeft size={32} />
             </button>
             <button className="nav-button next" onClick={nextSlide}>
-              <ChevronRight size={24} />
+              <ChevronRight size={32} />
             </button>
           </div>
 
