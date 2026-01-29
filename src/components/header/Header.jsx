@@ -176,7 +176,7 @@ export const Header = () => {
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <NavLink to="/about">ACERCA DE</NavLink>
+                                        <NavLink to="/about">SOBRE MÍ</NavLink>
                                     </motion.li>
 
                                     <motion.li 

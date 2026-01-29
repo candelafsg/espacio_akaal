@@ -133,7 +133,7 @@ const Inicio = () => {
                 <img src="/img/capa.png" alt="simbolo" className="simbolo" />
             </motion.div>
               <div className="section-content">
-                 <img src="/img/conecta.png" alt="conecta" className="section-contrnt-img" />
+                 <img src="/img/conecta.png" alt="conecta" className="section-content-img" />
                 </div>
 
                 <Button

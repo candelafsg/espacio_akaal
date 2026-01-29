@@ -49,8 +49,19 @@ export const ViajesAnterioresGallery = () => {
             onClick={handlePrev}
             disabled={indiceActual === 0}
           >
-            ANT.
+            <span translate="no">ANT.</span>
           </button>
+
+          {/* Dots indicadores */}
+          <div className="gallery-dots">
+            {ViajesAnteriores.map((_, index) => (
+              <button
+                key={index}
+                className={`gallery-dot ${index === indiceActual ? 'active' : ''}`}
+                onClick={() => setIndiceActual(index)}
+              />
+            ))}
+          </div>
 
           <button
             className="gallery-next"

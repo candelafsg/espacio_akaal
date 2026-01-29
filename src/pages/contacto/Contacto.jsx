@@ -13,10 +13,15 @@ const Contacto = () => {
 
         <>
             <section className="contacto-section">
-
-                <h1 className="contacto-titulo">VISITA  AKAAL</h1>
+<div className="titulo-conecta-container">
+                <h1 className="contacto-titulo">VEN A <br/> VISITARNOS</h1>
                 <div className="contacto-imagen-texto">
                     <img src="/img/conecta.png" alt="conecta" className="contacto-texto-img" />
+                     <img src="/img/capa.png" alt="" className="capa-about" />
+                </div>
+
+               
+                
                 </div>
 
 

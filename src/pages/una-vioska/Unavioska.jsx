@@ -476,7 +476,7 @@ const UnaVioska = () => {
                                         onClick={() => scrollGallery('pendientes', 'prev')}
                                         disabled={!canScrollPrev('pendientes')}
                                     >
-                                        ANT.
+                                        <span translate="no">ANT.</span>
                                     </button>
                                     <span className="scroll-indicator">→</span>
                                     <button 
@@ -517,7 +517,7 @@ const UnaVioska = () => {
                                         onClick={() => scrollGallery('colgantes', 'prev')}
                                         disabled={!canScrollPrev('colgantes')}
                                     >
-                                        ANT.
+                                        <span translate="no">ANT.</span>
                                     </button>
                                     <span className="scroll-indicator">→</span>
                                     <button 
@@ -558,7 +558,7 @@ const UnaVioska = () => {
                                         onClick={() => scrollGallery('anillos', 'prev')}
                                         disabled={!canScrollPrev('anillos')}
                                     >
-                                        ANT.
+                                        <span translate="no">ANT.</span>
                                     </button>
                                     <span className="scroll-indicator">→</span>
                                     <button 

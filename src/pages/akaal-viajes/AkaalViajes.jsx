@@ -14,6 +14,8 @@ const AkaalViajes = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
+  const [activeAccordion, setActiveAccordion] = useState(null);
+  const [showAccordion, setShowAccordion] = useState(false);
  
   const [viajeActivo, setViajeActivo] = useState('AZORES');
   const [diasRestantes, setDiasRestantes] = useState(0);
@@ -68,7 +70,7 @@ const AkaalViajes = () => {
   ];
 
   const totalPages = 2; // Tenemos 2 páginas de cards
-  const totalSections = 2; // Tenemos 2 secciones en el slider
+  const totalSections = 5; // Tenemos 5 secciones en el slider: intro, azores, cards, india, viajes anteriores
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {
@@ -118,6 +120,10 @@ const AkaalViajes = () => {
       setIsSectionAnimating(true);
       setTimeout(() => setIsSectionAnimating(false), 300);
     }
+  };
+
+  const toggleAccordion = (index) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
   };
 
 
@@ -213,13 +219,78 @@ const AkaalViajes = () => {
 
 
 
-        {/* Sección 1: AZORES - Unificada */}
+        {/* Sección 0: Introducción a Viajes Akaal */}
         <div className={`seccion-slide ${currentSection === 0 ? 'seccion-active' : 'seccion-inactive'}`}>
+          <section className="viajes-intro-section">
+            <div className="viajes-intro-background">
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="Viajes Akaal" className="viajes-intro-img" />
+              <div className="viajes-intro-overlay"></div>
+            </div>
+            <div className="viajes-intro-content">
+              <div className="viajes-intro-text">
+                <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
+                <div className="viajes-akaal-boton">
+                  <button className="viajes-akaal-btn" onClick={() => setShowAccordion(!showAccordion)}>
+                    <span className="btn-texto">{showAccordion ? 'Ocultar información' : 'Pulsa para saber más'}</span>
+                    <span className={`btn-flecha ${showAccordion ? 'active' : ''}`}>↓</span>
+                  </button>
+                </div>
+                <div className={`viajes-akaal-descripcion ${showAccordion ? 'visible' : 'oculto'}`}>
+                  <div className="viajes-accordion">
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(0)}>
+                        <span>Viajes conscientes</span>
+                        <span className={`accordion-icon ${activeAccordion === 0 ? 'active' : ''}`}>+</span>
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 0 ? 'active' : ''}`}>
+                        <p>Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(1)}>
+                        <span>Nuestra experiencia</span>
+                        <span className={`accordion-icon ${activeAccordion === 1 ? 'active' : ''}`}>+</span>
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 1 ? 'active' : ''}`}>
+                        <p>Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(2)}>
+                        <span>Dónde viajamos</span>
+                        <span className={`accordion-icon ${activeAccordion === 2 ? 'active' : ''}`}>+</span>
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 2 ? 'active' : ''}`}>
+                        <p>Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item">
+                      <button className="accordion-header" onClick={() => toggleAccordion(3)}>
+                        <span>Quieres saber más</span>
+                        <span className={`accordion-icon ${activeAccordion === 3 ? 'active' : ''}`}>+</span>
+                      </button>
+                      <div className={`accordion-content ${activeAccordion === 3 ? 'active' : ''}`}>
+                        <p>Si quieres saber más de nuestros próximos viajes ponte en contacto conmigo.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Sección 1: AZORES - Unificada */}
+        <div className={`seccion-slide ${currentSection === 1 ? 'seccion-active' : 'seccion-inactive'}`}>
           <section className="viajes">
             <div className="viajes-texto-container">
               <div className="viajes-intro">
                 <div className="viajes-intro-nombre">
-                  <h1 className="viajes-nombre">AZORES - SAO MIGUEL</h1>
+                  <h1 className="viajes-nombre">AZORES</h1>
+                  <h2 className="viajes-subnombre">SAO MIGUEL</h2>
                   <p className="viajes-subtitulo">Un viaje para desconectar de la rutina y reconectar contigo</p>
                 </div>
 
@@ -234,7 +305,7 @@ const AkaalViajes = () => {
                 </div>
 
                 <div className="viajes-intro-buttons">
-                  <Button style={{ color: 'var(--primary)', textAlign: 'start' }} variant='noOutlined'>VER ITINERARIO</Button>
+                  <Button style={{ color: 'var(--background)', textAlign: 'start' }} variant='noOutlined'>VER ITINERARIO</Button>
 
                   <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
                     RESERVA TU PLAZA
@@ -245,14 +316,53 @@ const AkaalViajes = () => {
 
             <div className="viajes-imagen-container">
               <ImgContainer>
-                <img src="/img/azores.jpg" alt="azores" className="viajes-imagen" />
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769674722/47505_1_q03ssf.jpg" alt="azores" className="viajes-imagen" />
               </ImgContainer>
             </div>
           </section>
         </div>
 
-        {/* Sección 3: Cards */}
-        <div className={`seccion-slide ${currentSection === 1 ? 'seccion-active' : 'seccion-inactive'}`}>
+        {/* Sección 3: Próximo viaje India */}
+        <div className={`seccion-slide ${currentSection === 3 ? 'seccion-active' : 'seccion-inactive'}`}>
+          <section className="viajes-india-section">
+            <div className="viajes-india-background">
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" />
+              <div className="viajes-india-overlay"></div>
+            </div>
+            <div className="viajes-india-content">
+              <div className="viajes-india-text">
+                <h1 className="viajes-india-titulo">INDIA</h1>
+                <p className="viajes-india-subtitulo">Viaje espiritual al origen del yoga y la meditación</p>
+                <p className="viajes-india-proximamente">PRÓXIMAMENTE</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Sección 4: Experiencias anteriores */}
+        <div className={`seccion-slide ${currentSection === 4 ? 'seccion-active' : 'seccion-inactive'}`}>
+          <section className="viajes-anteriores-section">
+            <div className="viajes-anteriores-content">
+              <div className="viajes-anteriores-decoracion-top">
+                <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" />
+              </div>
+              
+              <h1 className="viajes-anteriores-titulo">Experiencias anteriores</h1>
+              <p className="viajes-anteriores-subtitulo">Recuerdos de nuestras aventuras juntos</p>
+              
+              <div className="viajes-anteriores-gallery">
+                <ViajesAnterioresGallery />
+              </div>
+              
+              <div className="viajes-anteriores-decoracion-bottom">
+                <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" />
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Sección 2: Cards */}
+        <div className={`seccion-slide ${currentSection === 2 ? 'seccion-active' : 'seccion-inactive'}`}>
           <section className="viajes-cards">
 
         <h1 className="header-viajes">
@@ -320,7 +430,7 @@ const AkaalViajes = () => {
                 disabled={currentPage === 0}
                 className={`nav-button ${currentPage === 0 ? 'nav-disabled' : ''}`}
               >
-                ANT.
+                <span translate="no">ANT.</span>
               </Button>
 
               {/* Dots indicadores */}
@@ -386,7 +496,7 @@ const AkaalViajes = () => {
               onClick={handlePrevSection}
               className="seccion-nav-button"
             >
-              ANT.
+              <span translate="no">ANT.</span>
             </Button>
 
             {/* Dots indicadores de secciones */}
@@ -411,25 +521,6 @@ const AkaalViajes = () => {
           </div>
         )}
       </div>
-
-      <section className="viajes-anteriores">
-
-        <div className="anteriores-container">
-          <h1 className="anteriores-titulo">PRÓXIMO VIAJE</h1>
-          <div className="proximo-viaje-container">
-            <img src="/img/india.jpg" alt="India" className="proximo-viaje-img" />
-            <div className="proximo-viaje-overlay">
-              <div className="proximo-viaje-badge">INDIA</div>
-            </div>
-          </div>
-        </div>
-       
-        <div className="anteriores-container">
-           <h1 className="anteriores-titulo">VIAJES ANTERIORES</h1>
-          <ViajesAnterioresGallery />
-        </div>
-      
-      </section>
 
   <Footer />
 

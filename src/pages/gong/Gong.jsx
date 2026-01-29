@@ -250,7 +250,7 @@ const Gong = () => {
                 <div className="slider-controls">
                     <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
                       
-                        ANT.
+                        <span translate="no">ANT.</span>
                     </button>
 
                 <div className="slider-dots">
@@ -282,7 +282,7 @@ const Gong = () => {
              <div className="slider-controls-desk">
                     <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
                       
-                        ANT.
+                        <span translate="no">ANT.</span>
                     </button>
 
                 <div className="slider-dots">
@@ -323,7 +323,7 @@ const Gong = () => {
 
                     <div className="sesiones-controls">
                         <button className="sesion-slider-btn prev-btn" onClick={prevSesion} translate="no">
-                            ANT.
+                            <span translate="no">ANT.</span>
                         </button>
 
                         <div className="sesiones-dots">
