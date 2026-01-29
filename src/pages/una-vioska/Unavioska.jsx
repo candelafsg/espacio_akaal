@@ -26,46 +26,32 @@ import Masonry from '../../components/masonry/Masonry';
 const pasosInstrucciones = [
     {
         icono: <Pointer strokeWidth={1} />,
-        texto: (
-            <>
-                Pulsa el botón <strong>"Seleccionar"</strong> para poder elegir las joyas que te hayan llegado al alma
-            </>
-        ),
+        texto:   'Pulsa el botón "Seleccionar" para poder elegir las joyas que te hayan llegado al alma.'
+     
     },
     {
         icono: <PointerOff strokeWidth={1} />,
 
-        texto: (
-            <>
-                <strong>"Desactiva"</strong> para volver a vista normal.
-            </>
-        ),
+        texto: 'Desactiva"para volver a vista normal.'
+          
+       
 
     },
     {
         icono: <ShoppingCart strokeWidth={1} />,
-        texto: (
-            <>
-                Pulsando  <strong>"Ver pedido"</strong>, verás el resumen de tus productos seleccionados.
-            </>
-        ),
-
+        texto:' Pulsando "Ver pedido", verás el resumen de tus productos seleccionados.'
+        
     },
     {
         icono: <MessageCircleMore strokeWidth={1} />,
-        texto: (
-            <>
-                <strong>Escribe tu nombre</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
-            </>
-        ),
+        texto:  'Escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.'
+           
+        
     },
     {
         icono: <HandHeart strokeWidth={1} />,
-        texto: (
-            <>
-                Recuerda que todo es <strong>100% artesanal</strong> , por lo que te llevarás <strong>una pieza única.</strong>
-            </>
-        ),
+        texto:'Recuerda que todo es 100% artesanal , por lo que te llevarás una pieza única.'
+        
 
     },
 ];
