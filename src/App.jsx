@@ -1,7 +1,7 @@
 
 
 
-import { Outlet, useLocation } from "react-router"
+import { Outlet, useLocation } from "react-router-dom"
 
 import './css/index.css'
 

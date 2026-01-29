@@ -1,10 +1,10 @@
 import './css/resumen.css';
 import { CardPedido } from '../../components/cards/Cards';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, X } from 'lucide-react';
 
 const ResumenPedido = ({ productos: productosProps, esMenuLateral: esMenuLateralProp, onClose }) => {

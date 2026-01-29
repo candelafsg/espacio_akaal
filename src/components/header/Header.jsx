@@ -2,7 +2,7 @@ import './header.css'
 import { useState, useEffect, useRef } from 'react';
 import { IoLogoInstagram } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 
 export const Header = () => {

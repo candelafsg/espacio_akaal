@@ -3,10 +3,10 @@
 
 import './cards.css'
 import { Button } from '../buttons/Button';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { MdOutlineNorthEast } from "react-icons/md";
 
-import { useNavigate, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccionar }) => {
     const navigate = useNavigate();

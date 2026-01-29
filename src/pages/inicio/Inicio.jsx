@@ -3,7 +3,7 @@ import { Button } from "../../components/buttons/Button";
 import './inicio.css';
 import { ImgContainer } from "../../components/components/Components";
 import { MdOutlineNorthEast } from "react-icons/md";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Footer } from "../../components/footer/Footer";

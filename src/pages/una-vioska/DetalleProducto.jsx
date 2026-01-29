@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from "react";
 import './css/detalle.css'

@@ -2,7 +2,7 @@
 
 import './privacidad.css'
 import { Button } from '../../components/buttons/Button';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
 const Privacidad = () => {

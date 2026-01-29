@@ -6,7 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '../../components/buttons/Button';
 import useFetchProductos from '../../hooks/useFetchProducts';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Sparkles,
