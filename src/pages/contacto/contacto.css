@@ -22,6 +22,12 @@
 .capa-about{
     width: 20px;
 }
+
+@media (min-width: 1024px) {
+    .capa-about{
+        width: 30px;
+    }
+}
 .contacto-imagen-texto{
     display: flex;
     flex-direction: column;

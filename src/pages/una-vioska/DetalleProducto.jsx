@@ -59,10 +59,8 @@ const DetalleProducto = () => {
 
 
     const handleBack = () => {
-        setIsVisible(false);
-        setTimeout(() => {
-            navigate(-1);
-        }, 300);
+        console.log('Botón cerrar presionado');
+        navigate(-1);
     }
 
 

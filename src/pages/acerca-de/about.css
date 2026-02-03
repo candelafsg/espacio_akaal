@@ -52,6 +52,15 @@
     font-family: light, poppins;
 }
 
+.hero-flower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    color: var(--background);
+    opacity: 0.7;
+}
+
 .titulo-hero{
     font-size: 16vw;
     color: var(--background) ;
@@ -72,6 +81,18 @@
 .timeline-header {
     text-align: center;
     margin-bottom: 1rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .timeline-header h2 {
@@ -80,6 +101,18 @@
     margin-bottom: 1rem;
     font-weight: 600;
     font-family: semi-bold, poppins;
+    animation: titleGlow 1s ease-out 0.3s both;
+}
+
+@keyframes titleGlow {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .timeline-header p {
@@ -88,10 +121,34 @@
     margin: 0 auto;
     line-height: 1.6;
     font-family: normal, poppins;
+    animation: textFadeIn 0.8s ease-out 0.6s both;
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .timeline-container {
     position: relative;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .timeline-slider {
@@ -101,7 +158,12 @@
     box-shadow: 0 20px 40px rgba(97, 37, 62, 0.15);
     overflow: hidden;
     min-height: 500px;
-   
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-slider:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(97, 37, 62, 0.25);
 }
 
 .timeline-slide {
@@ -113,8 +175,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   
     padding: 1rem;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .timeline-slide {
@@ -126,23 +199,90 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
-  }
+    transition: all 0.4s ease;
+}
 
-  .slide-image-container{
+.slide-image-container{
     width: 100%;
     height: 40vh;
-  }
-  
-  .slide-image {
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    animation: imageZoomIn 0.8s ease-out;
+}
+
+@keyframes imageZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slide-image-container:hover {
+    transform: scale(1.02);
+}
+
+.slide-image {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     object-fit: cover;
-  }
-  
-  .slide-text {
-  color: var(--background);
-  }
+    transition: transform 0.5s ease;
+}
+
+.slide-image:hover {
+    transform: scale(1.05);
+}
+
+.slide-text {
+    color: var(--background);
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-text h3 {
+    animation: titleSlide 0.6s ease-out 0.2s both;
+}
+
+@keyframes titleSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-text p {
+    animation: textSlide 0.6s ease-out 0.6s both;
+}
+
+@keyframes textSlide {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
   
 
 .slide-text-glass::before {
@@ -308,11 +448,47 @@
     font-family: semi-bold, poppins;
 }
 
+.final-decoracion-top,
+.final-decoracion-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.final-capa {
+    width: 20px;
+    height: auto;
+    opacity: 0.8;
+}
+
 .final-content p {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     font-family: normal, poppins;
+}
+
+.final-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.conecta-img-final {
+    max-width: 250px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.final-flower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    color: var(--primary);
+    opacity: 0.7;
 }
 
 /* Responsive Design */
@@ -344,6 +520,38 @@
     
     .final-content p {
         font-size: 1.1rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--primary);
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .final-capa {
+        width: 30px;
+    }
+    
+    .titulo-hero {
+        font-size: 4rem;
+        color: var(--background);
+        text-align: center;
+    }
+    
+    .hero-flower {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        color: var(--background);
+        opacity: 0.7;
     }
 }
 

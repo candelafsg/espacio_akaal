@@ -72,16 +72,40 @@ const EspacioAkaal = () => {
         <div className="imagen-provisional">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
           <h1 className="texto-provisional">
-            ESPACIO <br /> AKAAL
+            Espacio AKAAL
           </h1>
         </div>
       </ImgContainer>
 
+      {/* SECCIÓN 1: YOGA */}
+      <section className="akaal-yoga-section">
+        <div className="yoga-decoracion-top">
+          <img src="/img/capa.png" alt="Decoración" className="yoga-capa" />
+        </div>
+        
+        <h1 className="yoga-titulo">La práctica que compartimos</h1>
+        
+       
+        
+        <p className="yoga-texto">
+          En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.
+        </p>
+
+         <div className="yoga-decoracion-bottom">
+          <img src="/img/capa.png" alt="Decoración" className="yoga-capa" />
+        </div>
+      </section>
+
+      {/* SECCIÓN 2: HORARIOS */}
       <section className="akaal-horarios">
-        <div className="akaal-titulo-subtitulo">
-          <h1 className="akaal-titulo">NUESTROS HORARIOS</h1>
-          <p className="akaal-subtitulo">
-            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.          </p>
+        <div className="akaal-horarios-info">
+          <div className="akaal-titulo-subtitulo">
+            <h3  className="akaal-titulo">Elige <br />tu momento</h3>
+          </div>
+
+          <p className="akaal-horarios-texto-desktop">
+            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.
+          </p>
         </div>
 
        <div className="calendario-container">
@@ -154,7 +178,9 @@ const EspacioAkaal = () => {
         </div>
 
         <div className="akaal-button">
-          <WhatsAppLink>MÁS INFORMACIÓN</WhatsAppLink>
+          <WhatsAppLink message="¡Hola! Me gustaría que me dieras información sobre las clases de yoga. Muchas gracias">
+            MÁS INFORMACIÓN
+          </WhatsAppLink>
         </div>
         </div>
       </section>
@@ -163,7 +189,11 @@ const EspacioAkaal = () => {
 
       {/* SECCIÓN GALERÍA SLIDER */}
       <section className="akaal-slider-section">
-        <h1 className="slider-titulo">CONOCE <br /> ESPACIO AKAAL</h1>
+        <div className="slider-decoracion-top">
+          <img src="/img/capa.png" alt="Decoración" className="slider-capa" />
+        </div>
+        
+        <h1 className="slider-titulo">Conoce <br/> nuestro espacio</h1>
         
         <div className="slider-container-galery">
           <div className="slider-imagen">
@@ -200,6 +230,10 @@ const EspacioAkaal = () => {
               aria-label={`Ir a imagen ${index + 1}`}
             />
           ))}
+        </div>
+        
+        <div className="slider-decoracion-bottom">
+          <img src="/img/capa.png" alt="Decoración" className="slider-capa" />
         </div>
       </section>
 

@@ -582,7 +582,7 @@ const UnaVioska = () => {
             )}
 
             {/* Galería Slider Minimalista - Ahora al final */}
-            <section className="vioska-slider-section mobile-only">
+            <section className="vioska-slider-section">
                 <h2 className="slider-titulo">Nuestra esencia visual</h2>
                 <p className="slider-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
                 

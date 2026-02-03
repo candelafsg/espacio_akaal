@@ -74,7 +74,10 @@ const About = () => {
           <div className="hero-overlay">
             <div className="hero-content">
 
-           <h1 className="titulo-hero">UN VIAJE INTERIOR</h1>
+           <h1 className="titulo-hero">Un viaje interior</h1>
+           <div className="hero-flower">
+             <Flower size={32} />
+           </div>
               {/* <span className="hero-date">Desde 2013</span> */}
             
             </div>
@@ -153,13 +156,26 @@ const About = () => {
       {/* FINAL */}
       <section className="final-section">
         <div className="final-content">
-          <h2>Ven a experimentar tu propio viaje interior</h2>
+          <div className="final-decoracion-top">
+            <img src="/img/capa.png" alt="Decoración" className="final-capa" />
+          </div>
+          
+          <h1 style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, manos y alma </h1>
+          
+         
+          
           <p>
-            Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje. Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior.
+            Si quieres saber un poquito más de mí, y empaparte de mi recorrido, te espero en AKAAL. 
           </p>
           <p>
-            Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal. Si quieres saber más de nuestros próximos viajes ponte en contacto conmigo.
+            Ven a experimentar tu propio viaje interior.
           </p>
+          <div className="final-image">
+            <img src="/img/conecta.png" alt="Conecta" className="conecta-img-final" />
+          </div>
+           <div className="final-decoracion-bottom">
+            <img src="/img/capa.png" alt="Decoración" className="final-capa" />
+          </div>
         </div>
       </section>
 

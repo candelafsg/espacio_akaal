@@ -189,11 +189,16 @@
     opacity: 1;
     transform: scale(1) rotate(0deg);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
 }
 
 @media (min-width: 768px) {
     .viajes-icon {
         font-size: 3rem;
+        height: 80px;
     }
 }
 
@@ -405,17 +410,7 @@
 
 
 /* Navegación del slider en desktop */
-.slider-navigation-desktop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 3rem;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  text-align: center;
-}
+
 
 .slider-dots {
   display: flex;
@@ -425,16 +420,18 @@
 .slider-dot {
   width: 6px;
   height: 6px;
-  border-radius: 20px;
-  background-color: #d6b9c4;
+  border-radius: 10px;
+  background-color: var(--primary);
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0.35;
 }
 
 .slider-dot.active {
   width: 20px;
-  background-color: #671c3b;
+  background-color: var(--primary);
   transform: scale(1.2);
+  opacity: 1;
 }
 
 .slider-dot:hover {
@@ -442,9 +439,9 @@
   opacity: 0.8;
 }
 
-.nav-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 0.9rem;
+.viajes-cards-nav-button {
+  padding: 0.55rem 1.05rem;
+  font-size: 0.8rem;
   font-weight: 600;
   border: 2px solid var(--primary);
   color: var(--primary);
@@ -452,23 +449,24 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 80px;
+  min-width: 70px;
+  position: static;
 }
 
-.nav-button:hover:not(.nav-disabled) {
+.viajes-cards-nav-button:hover:not(.viajes-cards-nav-disabled) {
   background-color: var(--primary);
   color: var(--background);
   transform: translateY(-2px);
 }
 
-.nav-disabled {
+.viajes-cards-nav-disabled {
   opacity: 0.3;
   cursor: not-allowed;
   border-color: #ccc;
   color: #ccc;
 }
 
-.nav-disabled:hover {
+.viajes-cards-nav-disabled:hover {
   background-color: transparent;
   transform: none;
 }

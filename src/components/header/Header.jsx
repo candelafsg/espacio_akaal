@@ -163,7 +163,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    {/* <NavLink to="/gong">BAÑOS DE GONG</NavLink> */}
+                                                    <NavLink to="/gong">BAÑOS DE GONG</NavLink>
                                                 </motion.li>
                                             </motion.div>
                                         )}
@@ -324,7 +324,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.3 }}
                                                                 className="service-item"
                                                             >
-                                                                {/* <NavLink to="/gong">BAÑOS DE GONG</NavLink> */}
+                                                                <NavLink to="/gong">BAÑOS DE GONG</NavLink>
                                                             </motion.div>
                                                         </motion.div>
                                                     )}

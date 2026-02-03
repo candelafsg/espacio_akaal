@@ -1,51 +1,97 @@
 import './viajesAnteriores.css'
-import { Image } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Image, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 
 export const ViajesAnterioresContainer = ({ numberphotos, portada, imagenes, nombre }) => {
 
-
-
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [indiceActual, setIndiceActual] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const scrollContainerRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
+  const touchStartXRef = useRef(0);
+  const touchStartYRef = useRef(0);
+  const isSwipingRef = useRef(false);
 
-
-
+  // Detectar si es desktop
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   const abrirOverlay = () => {
-    setIndiceActual(0); // Puedes cambiar a otro índice si prefieres
+    setIndiceActual(0);
     setOverlayOpen(true);
   };
-
-
-
 
   const cerrarOverlay = () => {
     setOverlayOpen(false);
     setIndiceActual(0);
   };
 
-  
-
-
-
-
   const irIzquierda = () => {
-    setIndiceActual((prevIndex) =>
-      prevIndex === 0 ? imagenes.length - 1 : prevIndex - 1
-    );
+    setIndiceActual((prevIndex) => Math.max(0, prevIndex - 1));
   };
-
-
-
 
   const irDerecha = () => {
-    setIndiceActual((prevIndex) =>
-      prevIndex === imagenes.length - 1 ? 0 : prevIndex + 1
-    );
+    setIndiceActual((prevIndex) => Math.min(imagenes.length - 1, prevIndex + 1));
   };
 
+  const handleTouchStart = (e) => {
+    if (isDesktop) return;
+    const t = e.touches?.[0];
+    if (!t) return;
+    touchStartXRef.current = t.clientX;
+    touchStartYRef.current = t.clientY;
+    isSwipingRef.current = false;
+  };
 
+  const handleTouchMove = (e) => {
+    if (isDesktop) return;
+    const t = e.touches?.[0];
+    if (!t) return;
+    const dx = t.clientX - touchStartXRef.current;
+    const dy = t.clientY - touchStartYRef.current;
+
+    if (!isSwipingRef.current) {
+      if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+        isSwipingRef.current = true;
+      }
+    }
+
+    if (isSwipingRef.current) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (isDesktop) return;
+    if (!isSwipingRef.current) return;
+
+    const t = e.changedTouches?.[0];
+    if (!t) return;
+    const dx = t.clientX - touchStartXRef.current;
+
+    const threshold = 50;
+    if (dx <= -threshold) {
+      irDerecha();
+    } else if (dx >= threshold) {
+      irIzquierda();
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -77,20 +123,71 @@ export const ViajesAnterioresContainer = ({ numberphotos, portada, imagenes, nom
         </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay elegante */}
       {overlayOpen && (
-        <div className="overlay" onClick={cerrarOverlay}>
-          <div
-            className="overlay-slider"
-            onClick={(e) => e.stopPropagation()}
-            style={{ transform: `translateX(-${indiceActual * 100}%)` }}
+        <div className="overlay-elegante" onClick={cerrarOverlay}>
+          {/* Botón de cerrar */}
+          <button
+            className="overlay-close"
+            aria-label="Cerrar"
+            onClick={(e) => { e.stopPropagation(); cerrarOverlay(); }}
           >
-            {imagenes.map((img, index) => (
-              <img key={index} src={img} alt={`img-${index}`} className="overlay-img" />
-            ))}
+            <X size={22} strokeWidth={1.25} />
+          </button>
+          
+          {/* Contenedor principal */}
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <div 
+              className="overlay-scroll-container" 
+              ref={scrollContainerRef}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div 
+                className="overlay-scroll"
+                style={{
+                  transform: `translateX(-${indiceActual * 100}%)`,
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                {imagenes.map((img, index) => (
+                  <div key={index} className="overlay-item">
+                    <img src={img} alt={`img-${index}`} className="overlay-img-elegante" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Versión Desktop: botones de flecha */}
+            <button
+              className="overlay-arrow overlay-arrow-prev"
+              aria-label="Anterior"
+              onClick={(e) => { e.stopPropagation(); irIzquierda(); }}
+              disabled={indiceActual === 0}
+            >
+              <ChevronLeft size={28} strokeWidth={1.25} />
+            </button>
+            <button
+              className="overlay-arrow overlay-arrow-next"
+              aria-label="Siguiente"
+              onClick={(e) => { e.stopPropagation(); irDerecha(); }}
+              disabled={indiceActual === imagenes.length - 1}
+            >
+              <ChevronRight size={28} strokeWidth={1.25} />
+            </button>
+            
+            {/* Indicadores */}
+            <div className="overlay-indicators">
+              {imagenes.map((_, index) => (
+                <button
+                  key={index}
+                  className={`overlay-indicator ${index === indiceActual ? 'active' : ''}`}
+                  onClick={(e) => { e.stopPropagation(); setIndiceActual(index); }}
+                />
+              ))}
+            </div>
           </div>
-          <button className="btn-prev" onClick={(e) => { e.stopPropagation(); irIzquierda(); }}>‹</button>
-          <button className="btn-next" onClick={(e) => { e.stopPropagation(); irDerecha(); }}>›</button>
         </div>
       )}
     </>
