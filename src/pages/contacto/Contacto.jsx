@@ -43,14 +43,14 @@ const Contacto = () => {
         <>
             <section className="contacto-section animate-section">
                 <div className="contacto-background">
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501261/akaal-1_jobcs5.png" alt="espacio" className="contacto-bg-img" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501261/akaal-1_jobcs5.png" alt="espacio" className="contacto-bg-img" loading="lazy" />
                 </div>
                 <div className="contacto-content animate-child">
                     <div className="titulo-conecta-container">
-                        <h1 className="contacto-titulo">Ven a <br/> visitarnos</h1>
+                        <h1 className="contacto-titulo">Visita <br/> Espacio AKAAL</h1>
                         <div className="contacto-imagen-texto">
-                            <img src="/img/conecta.png" alt="conecta" className="contacto-texto-img" />
-                            <img src="/img/capa.png" alt="" className="capa-about" />
+                            <img src="/img/conecta.png" alt="conecta" className="contacto-texto-img" loading="lazy" />
+                            <img src="/img/capa.png" alt="" className="capa-about" loading="lazy" />
                         </div>
                     </div>
                     

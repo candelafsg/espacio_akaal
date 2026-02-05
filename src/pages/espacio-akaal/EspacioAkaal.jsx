@@ -159,6 +159,7 @@ const EspacioAkaal = () => {
                       nombre="YOGA"
                       hora={claseItem.hora}
                       instructor={claseItem.instructor}
+                      consultar={claseItem.consultar}
                     />
                   </motion.div>
                 ))}

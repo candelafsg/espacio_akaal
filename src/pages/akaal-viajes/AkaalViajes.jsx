@@ -89,12 +89,13 @@ const AkaalViajes = () => {
       {/* Sección 1: Introducción a Viajes Akaal */}
       <section className="viajes-intro-section">
         <div className="viajes-intro-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="Viajes Akaal" className="viajes-intro-img" />
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
           <div className="viajes-intro-overlay"></div>
         </div>
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
             <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
+            <p className="viajes-subtitulo">Cada viaje, una intención</p>
           </div>
         </div>
       </section>
@@ -103,7 +104,7 @@ const AkaalViajes = () => {
       <section className="viajes-accordion-section">
         <div className="viajes-accordion-container">
           <div className="viajes-accordion-decoracion-top">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
           
           <h2 className="viajes-accordion-titulo">Viajes AKAAL</h2>
@@ -117,7 +118,7 @@ const AkaalViajes = () => {
           </div>
           
           <div className="viajes-accordion-decoracion-bottom">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
         </div>
       </section>
@@ -125,7 +126,7 @@ const AkaalViajes = () => {
       {/* Sección 2: AZORES */}
       <section className="viajes">
         <div className="viajes-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" />
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
         </div>
         
@@ -167,7 +168,7 @@ const AkaalViajes = () => {
       {/* Sección 4: Cards */}
       <section className="viajes-cards">
         <div className="viajes-cards-decoracion-top">
-          <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" />
+          <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
 
         <h1 className="header-viajes">
@@ -312,14 +313,14 @@ const AkaalViajes = () => {
         </div>
 
         <div className="viajes-cards-decoracion-bottom">
-          <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" />
+          <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
       </section>
 
       {/* Sección 5: Próximo viaje India */}
       <section className="viajes-india-section">
         <div className="viajes-india-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" />
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" loading="lazy" />
           <div className="viajes-india-overlay"></div>
         </div>
         <div className="viajes-india-content">
@@ -335,7 +336,7 @@ const AkaalViajes = () => {
       <section className="viajes-anteriores-section">
         <div className="viajes-anteriores-content">
           <div className="viajes-anteriores-decoracion-top">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" loading="lazy" />
           </div>
           
           <h1 className="viajes-anteriores-titulo">Experiencias anteriores</h1>
@@ -346,7 +347,7 @@ const AkaalViajes = () => {
           </div>
           
           <div className="viajes-anteriores-decoracion-bottom">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" loading="lazy" />
           </div>
         </div>
       </section>

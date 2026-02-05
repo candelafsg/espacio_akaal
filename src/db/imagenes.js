@@ -78,7 +78,6 @@ export const ViajesAnteriores = [
 
 
 
-
 export const horarios = [
   {
     nombre: 'YOGA',
@@ -86,83 +85,38 @@ export const horarios = [
       {
         dia: 'Lunes',
         clases: [
-          { hora: '9:30 - 10:45', instructor: 'María' },
-          { hora: '11:30 - 12:45', instructor: 'María' },
-          { hora: '14:30 - 15:45', instructor: 'María' },
-          { hora: '18:00 - 19:15', instructor: 'María' },
-          { hora: '19:45 - 21:00', instructor: 'María' }
+          { hora: '9:30 - 10:45', consultar: true },
+          { hora: '11:30 - 12:45' },
+          { hora: '14:30 - 15:45', consultar: true },
+          { hora: '18:00 - 19:15' },
+          { hora: '19:45 - 21:00' }
+        ]
+      },
+      {
+        dia: 'Martes',
+        clases: [
+          { hora: '18:00 - 19:15' }
         ]
       },
       {
         dia: 'Miércoles',
         clases: [
-          { hora: '9:30 - 10:45', instructor: 'Carlos' },
-          { hora: '11:30 - 12:45', instructor: 'Carlos' },
-          { hora: '14:30 - 15:45', instructor: 'Carlos' },
-          { hora: '18:00 - 19:15', instructor: 'Carlos' },
-          { hora: '19:45 - 21:00', instructor: 'Carlos' }
+          { hora: '9:30 - 10:45', consultar: true },
+          { hora: '11:30 - 12:45' },
+          { hora: '14:30 - 15:45', consultar: true },
+          { hora: '18:00 - 19:15' },
+          { hora: '19:45 - 21:00' }
         ]
       },
       {
         dia: 'Jueves',
         clases: [
-          { hora: '9:30 - 10:45', instructor: 'Ana' },
-          { hora: '14:30 - 15:45', instructor: 'Ana' },
-          { hora: '18:00 - 19:15', instructor: 'Ana' },
-          { hora: '19:45 - 21:00', instructor: 'Ana' }
-        ]
-      },
-      {
-        dia: 'Viernes',
-        clases: [
-          { hora: '9:30 - 10:45', instructor: 'Julia' },
-          { hora: '18:00 - 19:15', instructor: 'Julia' },
-          { hora: '19:45 - 21:00', instructor: 'Julia' }
+          { hora: '18:00 - 19:15' }
         ]
       }
+      // Viernes no tiene yoga según el cartel
     ]
-  },
-
-  // {
-  //   nombre: 'TERAPIAS HOLÍSTICAS',
-  //   dias: [
-  //     {
-  //       dia: 'Lunes',
-  //       clases: [
-  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-  //       ]
-  //     },
-  //     {
-  //       dia: 'Martes',
-  //       clases: [
-  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-  //       ]
-  //     },
-  //     {
-  //       dia: 'Miércoles',
-  //       clases: [
-  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-  //       ]
-  //     },
-  //     {
-  //       dia: 'Jueves',
-  //       clases: [
-  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-  //       ]
-  //     },
-  //     {
-  //       dia: 'Viernes',
-  //       clases: [
-  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-  //       ]
-  //     }
-  //   ]
-  // },
- 
- 
+  }
 ];
 
 
@@ -198,7 +152,8 @@ export const espacioAkaalImgs = [
   'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501350/img9_gz2xvz.png',
   'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501316/img5_hnchx1.png',
   'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png',
-  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501333/img7_ba3dr9.png'
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501333/img7_ba3dr9.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png'
 
 
 

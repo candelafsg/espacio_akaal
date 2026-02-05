@@ -137,10 +137,7 @@ const About = () => {
       {/* HERO */}
       <section className="hero-section animate-section scroll-section">
         <div className="hero-image">
-          <picture>
-            <source media="(max-width: 767px)" srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770130606/Frame_15_tpqt8v.png" />
-            <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770283060/Frame_16_khzflz.png" alt="Espacio AKAAL" className='image-hero'/>
-          </picture>
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300788/ChatGPT_Image_3_feb_2026_16_33_41_1_t6irit.png" alt="Espacio AKAAL" className='image-hero' loading="lazy"/>
           <div className="hero-overlay">
             <div className="hero-content animate-child">
 
@@ -225,7 +222,7 @@ const About = () => {
       <section className="final-section animate-section scroll-section">
         <div className="final-content">
           <div className="final-decoracion-top">
-            <img src="/img/capa.png" alt="Decoración" className="final-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />
           </div>
           
           <h1 className="animate-child" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, manos y alma </h1>
@@ -237,10 +234,10 @@ const About = () => {
             Ven a experimentar tu propio viaje interior.
           </p>
           <div className="final-image animate-child">
-            <img src="/img/conecta.png" alt="Conecta" className="conecta-img-final" />
+            <img src="/img/conecta.png" alt="Conecta" className="conecta-img-final" loading="lazy" />
           </div>
            <div className="final-decoracion-bottom">
-            <img src="/img/capa.png" alt="Decoración" className="final-capa" />
+            <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />
           </div>
         </div>
       </section>

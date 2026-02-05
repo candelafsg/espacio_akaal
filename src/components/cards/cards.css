@@ -457,6 +457,17 @@
     border-bottom: var(--border);
 }
 
+.horario-info {
+    flex: 1;
+}
+
+.consultar-texto {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
 /* ==================== */
 /* MEDIA QUERIES */
 /* ==================== */

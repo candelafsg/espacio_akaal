@@ -62,6 +62,7 @@ const Inicio = () => {
                     />
                     <div className="titulo-container-inicio">
                         <h1 className="espacioAkaal">Espacio AKAAL</h1>
+                        <p className="espacioAkaal-subtitulo" style={{color:'var(--background)'}}>Un refugio para el movimiento, la pausa y la intención</p>
                     </div>
                 </ImgContainer>
             </motion.div>
@@ -81,7 +82,7 @@ const Inicio = () => {
                 animate={simboloInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
             </motion.div>
                 <div className="titulo-container">
                     <h1 className="titulo-linea-izquierda">MANERAS DE</h1>
@@ -92,23 +93,23 @@ const Inicio = () => {
                     {[
                         {
                             text: 'Sesiones que conectan y equilibran el cuerpo y la mente',
-                            buttonText: 'ESPACIO AKAAL',
+                            buttonText: 'Espacio AKAAL',
                             to: '/espacio-akaal',
                         },
                         {
                             text: 'Piezas hechas a mano, con propósito',
-                            buttonText: 'UNA VIOSKA',
+                            buttonText: 'una vioska.',
                             to: '/una-vioska',
                         },
                         {
                             text: 'Experiencias pensadas para desconectar y renovarte',
-                            buttonText: 'AKAAL VIAJES',
+                            buttonText: 'Viajes Akaal',
                             to: '/akaal-viajes',
                         },
                         {
-                            text: 'Reconecta contigo lejos del ruido',
-                            buttonText: 'AKAAL RETIROS',
-                            to: '/akaal-retiros',
+                            text: 'Frecuencias para volver al centro',
+                            buttonText: 'Baños de gong',
+                            to: '/gong',
                         }
                     ].map((card, index) => (
                         <motion.div
@@ -130,10 +131,10 @@ const Inicio = () => {
                 animate={simboloInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
             </motion.div>
               <div className="section-content">
-                 <img src="/img/conecta.png" alt="conecta" className="section-content-img" />
+                 <img src="/img/conecta.png" alt="conecta" className="section-content-img" loading="lazy" />
                 </div>
 
                 <Button

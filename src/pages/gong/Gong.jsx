@@ -15,7 +15,7 @@ const Gong = () => {
     const [textAnimationStep, setTextAnimationStep] = useState(0);
     const [beneficioIndex, setBeneficioIndex] = useState(0);
     const [isBeneficioAnimating, setIsBeneficioAnimating] = useState(false);
-
+    const [isSesionAnimating, setIsSesionAnimating] = useState(false);
     // Initialize animation on component mount
     useEffect(() => {
         setTimeout(() => {
@@ -134,7 +134,7 @@ const Gong = () => {
         {
             icon: <Sparkles strokeWidth={1} size={40} />,
             tipo: "SESIÓN EN PAREJA",
-            descripcion: "Comparte una experiencia de conexión profunda con tu pareja. Armonizan sus energías y fortalecen su vínculo.",
+            descripcion: "Comparte una experiencia de conexión profunda con otra persona, de una manera más privada.",
             duracion: "120 minutos",
             inversion: "80€",
             modalidad: "Presencial"
@@ -142,7 +142,7 @@ const Gong = () => {
         {
             icon: <Users strokeWidth={1} size={40} />,
             tipo: "SESIÓN EN GRUPO",
-            descripcion: "Experiencia colectiva de sanación y transformación. Comparte vibraciones con otros seres en un espacio seguro y energético.",
+            descripcion: "Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.",
             duracion: "120 minutos",
             inversion: "25€ por persona (mínimo 5 pers)",
             modalidad: "Cada dos meses"
@@ -237,11 +237,11 @@ const Gong = () => {
             <section className="section-img scroll-section">
                 <div className="desktop-only">
                     <div className="gong-hero-container">
-                        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770280011/Desktop_-_2_z7tqbr.png" alt="gong" className="desktop-gong-img" />
+                        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png" alt="gong" className="desktop-gong-img" loading="lazy" />
                     </div>
                 </div>
                 <div className="mobile-only">
-                    <img src="/img/gong-img.png" alt="gong" className="image-gong" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png" alt="gong" className="image-gong" loading="lazy" />
                 </div>
                 <div className="gong-hero-overlay">
                     <h1 className="gong-hero-title">Baños <br /> de gong</h1>
@@ -261,7 +261,7 @@ const Gong = () => {
                 <div className="gong-texto-container animate-child">
 
                     <div className="desktop-only simbolo-container-title">
-                        <img src="/img/capa.png" alt="simbolo" className="simbolo-title" />
+                        <img src="/img/capa.png" alt="simbolo" className="simbolo-title" loading="lazy" />
                     </div>
 
                     <h1 className='gong-titulo'>Habitar <br />en el sonido.</h1>
@@ -304,7 +304,7 @@ const Gong = () => {
                 </div>
 
                 <div className="simbolo-container">
-                    <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
                 </div>
 
             </section>
@@ -365,7 +365,7 @@ const Gong = () => {
                     </div>
                 </div>
                 <div className="simbolo-container">
-                    <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
                 </div>
             </section>
 
