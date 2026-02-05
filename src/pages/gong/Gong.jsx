@@ -145,7 +145,7 @@ const Gong = () => {
             tipo: "SESIÓN EN GRUPO",
             descripcion: "Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.",
             duracion: "120 minutos",
-            inversion: "25€ por persona (mínimo 5 pers)",
+            inversion: "25€/pers. (mín 5 pers)",
             modalidad: "Cada dos meses"
         }
     ];
