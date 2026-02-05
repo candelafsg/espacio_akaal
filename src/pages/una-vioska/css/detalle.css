@@ -106,6 +106,7 @@
     display: flex;
     flex-direction: column;
     height: calc(50dvh - 3rem);
+    min-height: 300px;
 }
 
 .precio{
@@ -150,6 +151,10 @@
     justify-content: center;
     margin-top: auto;
     padding-top: 1rem;
+    position: sticky;
+    bottom: 0;
+    background: var(--background);
+    padding-bottom: 1rem;
 }
 
 /* Notificación personalizada */
@@ -236,6 +241,11 @@
         justify-content: center;
         margin-top: auto;
         padding-top: 1rem;
+        position: sticky;
+        bottom: 0;
+        background: var(--background);
+        padding-bottom: 1rem;
+        z-index: 10;
     }
 
     .dots {

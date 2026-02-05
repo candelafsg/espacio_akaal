@@ -1,5 +1,5 @@
 // hooks/useFetchProductos.js
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 const useFetchProductos = () => {
   const [productos, setProductos] = useState([]);
@@ -46,7 +46,7 @@ const useFetchProductos = () => {
       });
   }, []);
 
-  return productos;
+  return useMemo(() => productos, [productos]);
 };
 
 export default useFetchProductos;

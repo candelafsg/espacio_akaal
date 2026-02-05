@@ -106,20 +106,23 @@ const UnaVioska = () => {
     const [menu, setMenu] = useState(false);
     const [filtroActivo, setFiltroActivo] = useState("todo");
     const [tipoActivo, setTipoActivo] = useState("todo");
-    const [scrollPosition, setScrollPosition] = useState({
-        pendientes: 0,
-        colgantes: 0,
-        anillos: 0
-    });
-
-    const [canScrollPrevState, setCanScrollPrevState] = useState({
-        pendientes: false,
-        colgantes: false,
-        anillos: false
-    });
-
-    const [menuResumenAbierto, setMenuResumenAbierto] = useState(false);
     const [imagenActual, setImagenActual] = useState(0);
+    
+    // Combinar estados de scroll para reducir hooks
+    const [scrollState, setScrollState] = useState({
+        position: {
+            pendientes: 0,
+            colgantes: 0,
+            anillos: 0
+        },
+        canScrollPrev: {
+            pendientes: false,
+            colgantes: false,
+            anillos: false
+        }
+    });
+    
+    const [menuResumenAbierto, setMenuResumenAbierto] = useState(false);
 
     const menuRef = useRef(null);
     const pendientesRef = useRef(null);
@@ -229,18 +232,24 @@ const UnaVioska = () => {
             if (direction === 'next') {
                 ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 // Activar el botón ANT después de hacer scroll
-                setCanScrollPrevState(prev => ({
+                setScrollState(prev => ({
                     ...prev,
-                    [tipo]: true
+                    canScrollPrev: {
+                        ...prev.canScrollPrev,
+                        [tipo]: true
+                    }
                 }));
             } else {
                 ref.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                 // Desactivar ANT si vuelve al inicio
                 setTimeout(() => {
                     if (ref.current.scrollLeft <= scrollAmount) {
-                        setCanScrollPrevState(prev => ({
+                        setScrollState(prev => ({
                             ...prev,
-                            [tipo]: false
+                            canScrollPrev: {
+                                ...prev.canScrollPrev,
+                                [tipo]: false
+                            }
                         }));
                     }
                 }, 300);
@@ -264,7 +273,7 @@ const UnaVioska = () => {
     };
 
     const canScrollPrev = (tipo) => {
-        return canScrollPrevState[tipo];
+        return scrollState.canScrollPrev[tipo];
     };
 
 
@@ -586,7 +595,7 @@ const UnaVioska = () => {
 
             {/* Galería Slider Minimalista - Ahora al final */}
             <section className="vioska-slider-section">
-                <h2 className="slider-titulo">Nuestra esencia visual</h2>
+                <h2 className="slider-titulo">Creación consciente</h2>
                 <p className="slider-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
                 
                 <div className="slider-container-galery">

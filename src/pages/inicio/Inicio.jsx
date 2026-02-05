@@ -103,7 +103,7 @@ const Inicio = () => {
                         },
                         {
                             text: 'Experiencias pensadas para desconectar y renovarte',
-                            buttonText: 'Viajes Akaal',
+                            buttonText: 'Viajes AKAAL',
                             to: '/akaal-viajes',
                         },
                         {

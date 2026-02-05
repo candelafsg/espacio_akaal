@@ -71,9 +71,13 @@ const EspacioAkaal = () => {
       <ImgContainer>
         <div className="imagen-provisional">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
+
+          <div className="container-titulo">
           <h1 className="texto-provisional">
             Espacio AKAAL
           </h1>
+          <p className="subtitulo-yoga">Un refugio para el cuerpo</p>
+          </div>
         </div>
       </ImgContainer>
 
@@ -194,7 +198,7 @@ const EspacioAkaal = () => {
           <img src="/img/capa.png" alt="Decoración" className="slider-capa" />
         </div>
         
-        <h1 className="slider-titulo">Conoce <br/> nuestro espacio</h1>
+        <h1 className="slider-titulo">Un refugio <br /> para el cuerpo</h1>
         
         <div className="slider-container-galery">
           <div className="slider-imagen">
