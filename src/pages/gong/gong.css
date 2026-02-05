@@ -664,14 +664,17 @@
 /* Asegurar que las secciones tengan suficiente altura para el efecto */
 .section-img {
     min-height: 100vh;
+    padding-top: 80px; /* Compensar header fijo */
 }
 
 .gong-beneficios {
     min-height: 100vh;
+    padding-top: 80px; /* Compensar header fijo */
 }
 
 .gong-sesiones {
     min-height: 100vh;
+    padding-top: 80px; /* Compensar header fijo */
 }
 
 /* Animaciones de secciones */

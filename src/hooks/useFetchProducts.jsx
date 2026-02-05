@@ -21,8 +21,8 @@ const useFetchProductos = () => {
           return;
         }
 
-        const formateados = data.map((item) => ({
-          id: Number(item.id),
+        const formateados = data.map((item, index) => ({
+          id: Number(item.id) || index + 1000, // Usar index + 1000 si id es 0 o inválido
           nombre: item.nombre || "",
           precio: Number(item.precio) || 0,
           descripcion: item.descripcion || "",

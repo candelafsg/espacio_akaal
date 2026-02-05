@@ -10,16 +10,22 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccionar }) => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleClick = () => {
         if (modoSeleccion) {
             onSeleccionar();
         } else {
-            navigate(`/producto/${producto.id}`);
-            state: { background: location }
-
+            navigate(`/producto/${producto.id}`, {
+                state: { background: location }
+            });
         }
     };
+
+    // Evitar renderizar si no hay imagen válida
+    if (!producto.imagen || producto.imagen.trim() === '') {
+        return null;
+    }
 
     return (
         <div
@@ -31,6 +37,9 @@ export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccion
                     src={producto.imagen}
                     alt={producto.nombre}
                     className="card-img"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                    }}
                 />
             </div>
 

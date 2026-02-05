@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
 import './about.css'
@@ -7,6 +7,73 @@ import { Footer } from "../../components/footer/Footer"
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0) // 0 = no direction, 1 = forward, -1 = backward
+
+  // Intersection Observer para animaciones de secciones
+  useEffect(() => {
+    const observerOptions = {
+      threshold: [0, 0.1, 0.5, 1],
+      rootMargin: '0px 0px -100px 0px'
+    }
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const sections = document.querySelectorAll('.scroll-section');
+      
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calcular qué tan centrada está la sección en la vista
+        const sectionCenter = rect.top + rect.height / 2;
+        const viewportCenter = windowHeight / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+        const maxDistance = windowHeight / 2 + rect.height / 2;
+        
+        // Progreso basado en qué tan lejos está del centro
+        const progress = Math.max(0, Math.min(1, distance / maxDistance));
+        
+        // La sección actual está al 100% cuando está centrada
+        if (distance < windowHeight / 3) {
+          // Sección activa: opacidad completa
+          section.style.opacity = 1;
+          section.style.transform = 'translateY(0) scale(1)';
+        } else {
+          // Sección inactiva: menos opacidad según la distancia
+          section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
+          section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          
+          // Animar elementos hijos uno a uno
+          const children = entry.target.querySelectorAll('.animate-child');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-in');
+            }, index * 200);
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observar secciones
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => observer.observe(section));
+
+    // Añadir listener de scroll
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Ejecutar una vez al inicio
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const timeline = [
     {
@@ -68,19 +135,17 @@ const About = () => {
   return (
     <div className="about-container">
       {/* HERO */}
-      <section className="hero-section">
+      <section className="hero-section animate-section scroll-section">
         <div className="hero-image">
           <picture>
             <source media="(max-width: 767px)" srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770130606/Frame_15_tpqt8v.png" />
-            <img src="/img/manos.png" alt="Espacio AKAAL" className='image-hero'/>
+            <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770283060/Frame_16_khzflz.png" alt="Espacio AKAAL" className='image-hero'/>
           </picture>
           <div className="hero-overlay">
-            <div className="hero-content">
+            <div className="hero-content animate-child">
 
            <h1 className="titulo-hero">Un viaje interior</h1>
-           <div className="hero-flower">
-             <Flower size={32} />
-           </div>
+           <p className="subtitulo-hero animate-child">Este camino empezó conmigo, y hoy lo comparto contigo</p>
               {/* <span className="hero-date">Desde 2013</span> */}
             
             </div>
@@ -89,13 +154,13 @@ const About = () => {
       </section>
 
       {/* TIMELINE */}
-      <section className="timeline-section">
-        <div className="timeline-header">
+      <section className="timeline-section animate-section scroll-section">
+        <div className="timeline-header animate-child">
           <h2>Mi Camino</h2>
           <p>Una historia de transformación a través del viaje, el yoga y la artesanía</p>
         </div>
 
-        <div className="timeline-container">
+        <div className="timeline-container animate-child">
           <div className="timeline-slider">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -157,23 +222,21 @@ const About = () => {
       </section>
 
       {/* FINAL */}
-      <section className="final-section">
+      <section className="final-section animate-section scroll-section">
         <div className="final-content">
           <div className="final-decoracion-top">
             <img src="/img/capa.png" alt="Decoración" className="final-capa" />
           </div>
           
-          <h1 style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, manos y alma </h1>
+          <h1 className="animate-child" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, manos y alma </h1>
           
-         
-          
-          <p>
+          <p className="animate-child">
             Si quieres saber un poquito más de mí, y empaparte de mi recorrido, te espero en AKAAL. 
           </p>
-          <p>
+          <p className="animate-child">
             Ven a experimentar tu propio viaje interior.
           </p>
-          <div className="final-image">
+          <div className="final-image animate-child">
             <img src="/img/conecta.png" alt="Conecta" className="conecta-img-final" />
           </div>
            <div className="final-decoracion-bottom">

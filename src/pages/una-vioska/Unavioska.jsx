@@ -331,7 +331,7 @@ const UnaVioska = () => {
 
                 <ul className="instrucciones-ul">
                     {pasosInstrucciones.map((item, index) => (
-                        <li key={index} className="instrucciones-li">
+                        <li key={`instruccion-${index}`} className="instrucciones-li">
                             {item.icono}
                             <p className="instrucciones-p">{item.texto}</p>
                         </li>
@@ -393,7 +393,7 @@ const UnaVioska = () => {
                 <div className="productos">
                     {productosFiltrados.map(producto => (
                         <ProductCard
-                            key={producto.id}
+                            key={`mobile-${producto.id}`}
                             producto={producto}
                             modoSeleccion={modoSeleccion}
                             seleccionado={seleccionados.includes(producto.id)}
@@ -415,7 +415,7 @@ const UnaVioska = () => {
                     
                     <div className="pasos-compactos">
                         {pasosInstrucciones.map((item, index) => (
-                            <div key={index} className="paso-compacto">
+                            <div key={`paso-compacto-${index}`} className="paso-compacto">
                                 {item.icono}
                                 <p className="paso-texto-compacto">{item.texto}</p>
                             </div>
@@ -462,7 +462,7 @@ const UnaVioska = () => {
                                 <div className="productos-scroll">
                                     {productos.filter(producto => producto.tipo === "pendientes").map(producto => (
                                         <ProductCard
-                                            key={producto.id}
+                                            key={`pendientes-${producto.id}`}
                                             producto={producto}
                                             modoSeleccion={modoSeleccion}
                                             seleccionado={seleccionados.includes(producto.id)}
@@ -504,7 +504,7 @@ const UnaVioska = () => {
                                 <div className="productos-scroll">
                                     {productos.filter(producto => producto.tipo === "colgantes").map(producto => (
                                         <ProductCard
-                                            key={producto.id}
+                                            key={`colgantes-${producto.id}`}
                                             producto={producto}
                                             modoSeleccion={modoSeleccion}
                                             seleccionado={seleccionados.includes(producto.id)}
@@ -545,7 +545,7 @@ const UnaVioska = () => {
                                 <div className="productos-scroll">
                                     {productos.filter(producto => producto.tipo === "anillos").map(producto => (
                                         <ProductCard
-                                            key={producto.id}
+                                            key={`anillos-${producto.id}`}
                                             producto={producto}
                                             modoSeleccion={modoSeleccion}
                                             seleccionado={seleccionados.includes(producto.id)}
@@ -618,7 +618,7 @@ const UnaVioska = () => {
                 <div className="slider-dots">
                     {masonryImages.map((_, index) => (
                         <button
-                            key={index}
+                            key={`slider-dot-${index}`}
                             className={`slider-dot ${index === imagenActual ? 'slider-dot-active' : ''}`}
                             onClick={() => irAImagen(index)}
                             aria-label={`Ir a imagen ${index + 1}`}

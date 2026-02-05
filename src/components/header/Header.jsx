@@ -212,11 +212,164 @@ export const Header = () => {
                 {/* --- NAV DESKTOP --- */}
                 <nav className="header-nav-desk">
 
-                    <NavLink to="/" className="logo">INICIO</NavLink>
+                    {/* Símbolo izquierdo */}
+                    <div className="header-symbol-left">
+                        <img src="/img/capa.png" alt="símbolo" className="header-symbol-img" />
+                    </div>
 
-                    <button className="menu-desktop-toggle" onClick={handleOpenDesk}>
-                        MENÚ
-                    </button>
+                    {/* Navegación central */}
+                    <div className="header-nav-center">
+                        <ul className="header-nav-list">
+                            <li>
+                                <NavLink to="/" className="header-nav-link">INICIO</NavLink>
+                            </li>
+                            
+                            <li className="header-nav-dropdown" ref={deskMenuRef}>
+                                <button className="header-nav-link services-toggle" onClick={handleOpenDesk}>
+                                    SERVICIOS +
+                                </button>
+                                
+                                <AnimatePresence>
+                                    {openDeskMenu && (
+                                        <>
+                                            <motion.div
+                                                className="services-fullscreen-overlay"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                                onClick={handleOpenDesk}
+                                            />
+                                            
+                                            <motion.div
+                                                className="services-fullscreen-menu"
+                                                initial={{ clipPath: 'inset(0 0 100% 0)' }}
+                                                animate={{ clipPath: 'inset(0 0 0 0)' }}
+                                                exit={{ clipPath: 'inset(0 0 100% 0)' }}
+                                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                                ref={deskMenuRef}
+                                            >
+                                                <button className="services-menu-close" onClick={handleOpenDesk}>
+                                                    <X size={24} />
+                                                    CERRAR
+                                                </button>
+
+                                                <div className="services-menu-content">
+                                                    <ul className="services-menu-list">
+                                                        <motion.li 
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.1 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
+                                                        </motion.li>
+
+                                                        <motion.li 
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.2 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/una-vioska">una vioska.</NavLink>
+                                                        </motion.li>
+
+                                                        <motion.li 
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.3 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
+                                                        </motion.li>
+
+                                                        <motion.li 
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.4 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
+                                                        </motion.li>
+
+                                                        <motion.li 
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.5 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/gong">Baños de Gong</NavLink>
+                                                        </motion.li>
+                                                    </ul>
+
+                                                    <div className="services-menu-footer">
+                                                        <motion.div
+                                                            initial={{ opacity: 0, y: 20 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.6 }}
+                                                            className="services-menu-privacy"
+                                                        >
+                                                            <NavLink to="/privacidad" onClick={() => setOpenDeskMenu(false)}>
+                                                                POLÍTICA <br /> DE PRIVACIDAD
+                                                            </NavLink>
+                                                        </motion.div>
+
+                                                        <motion.a
+                                                            href="https://www.instagram.com/espacio.akaal/"
+                                                            target="_blank"
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            initial={{ opacity: 0, y: 20 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.7 }}
+                                                            className="services-menu-instagram"
+                                                        >
+                                                            <IoLogoInstagram />
+                                                        </motion.a>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        </>
+                                    )}
+                                </AnimatePresence>
+                            </li>
+                            
+                            <li>
+                                <NavLink to="/about" className="header-nav-link">SOBRE MÍ</NavLink>
+                            </li>
+                            
+                            <li>
+                                <NavLink to="/contacto" className="header-nav-link">CONTACTO</NavLink>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Símbolo derecho */}
+                    <div className="header-symbol-right">
+                        <img src="/img/capa.png" alt="símbolo" className="header-symbol-img" />
+                    </div>
+
+                    {/* MENÚ DESKTOP ANTIGuo (oculto) */}
+                    <div style={{display: 'none'}}>
+                        <NavLink to="/" className="logo">INICIO</NavLink>
+                        <button className="menu-desktop-toggle" onClick={handleOpenDesk}>
+                            MENÚ
+                        </button>
+                    </div>
 
                     {/* MENÚ DESKTOP COMPLETO */}
                     <AnimatePresence>
