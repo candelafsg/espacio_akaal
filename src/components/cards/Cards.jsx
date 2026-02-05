@@ -169,6 +169,44 @@ export const CardViajes = ({
 
 
 
+// CardBeneficios - similar a CardViajes para slider mobile
+export const CardBeneficios = ({
+    icon,
+    title,
+    description,
+    totalSteps,
+    currentStep,
+    isAnimating,
+    onStepClick,
+    onNextClick
+}) => {
+    return (
+        <div className={`card-viajes ${isAnimating ? 'animating' : ''}`}>
+            <div className="viajes-icon">{icon}</div>
+            <div className="viajes-texto">
+                <h1 className="viajes-h1">{title}</h1>
+                <p className="viajes-description">{description}</p>
+            </div>
+            <div className="viajes-footer">
+                {/* Indicadores */}
+                <div className="step-indicators">
+                    {Array.from({ length: totalSteps }).map((_, index) => (
+                        <span
+                            key={index}
+                            className={`step-dot ${index === currentStep ? 'active' : ''}`}
+                            onClick={() => onStepClick(index)}
+                        />
+                    ))}
+                </div>
+                {/* Botón "SIG." */}
+                <Button variant='noOutlined' onClick={onNextClick}>
+                    SIG.
+                </Button>
+            </div>
+        </div>
+    );
+};
+
 // ViajesGaleria Component (va en Cards.jsx)
 export const ViajesGaleria = ({ nombre, src, onClick }) => {
     return (

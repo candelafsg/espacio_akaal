@@ -171,7 +171,7 @@ const AkaalViajes = () => {
         </div>
 
         <h1 className="header-viajes">
-          No te pierdas lo que vamos a vivir 
+         El ritmo <br />de nuestros días 
         </h1>
 
         {/* En desktop: mostrar todas las cards en slider horizontal con navegación */}

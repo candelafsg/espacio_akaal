@@ -70,7 +70,10 @@ const About = () => {
       {/* HERO */}
       <section className="hero-section">
         <div className="hero-image">
-          <img src="/img/manos.png" alt="Espacio AKAAL" className='image-hero'/>
+          <picture>
+            <source media="(max-width: 767px)" srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770130606/Frame_15_tpqt8v.png" />
+            <img src="/img/manos.png" alt="Espacio AKAAL" className='image-hero'/>
+          </picture>
           <div className="hero-overlay">
             <div className="hero-content">
 
@@ -118,7 +121,7 @@ const About = () => {
                       </div>
                       <div>
                         <span className="slide-year">{timeline[currentSlide].year}</span>
-                        <h3 className="slide-title">{timeline[currentSlide].title}</h3>
+                        <p className="slide-title">{timeline[currentSlide].title}</p>
                       </div>
                     </div>
                     <p className="slide-description">

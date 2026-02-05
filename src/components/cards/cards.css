@@ -3,22 +3,13 @@
 /* card productos */
 
 .card {
-
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 100%;
-    border: 2px solid var(--background);
-    padding: 0.6rem;
-    border-radius: 4px;
-    transition: border 0.4s ease, padding 0.1s ease;
-
-}
-
-
-.card {
     border: 2px solid transparent;
     border-radius: 1rem;
+    padding: 0.6rem;
     transition: border 0.2s ease, transform 0.2s ease;
 }
 
@@ -30,8 +21,6 @@
     transform: scale(0.98);
 }
 
-
-
 .card-img-container {
     width: 100%;
     height: 130px;
@@ -42,11 +31,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-
 }
 
-
-.card-name{
+.card-name {
     width: 80%;
     font-size: 0.9rem;
     line-height: 1.2;
@@ -195,13 +182,6 @@
     height: 80px;
 }
 
-@media (min-width: 768px) {
-    .viajes-icon {
-        font-size: 3rem;
-        height: 80px;
-    }
-}
-
 .viajes-icon:hover {
     transform: scale(1.1);
 }
@@ -214,12 +194,6 @@
     opacity: 1;
     transform: translateY(0);
     transition: all 0.3s ease;
-}
-
-@media (min-width: 768px) {
-    .viajes-texto {
-        margin-bottom: 1rem;
-    }
 }
 
 .viajes-h1 {
@@ -287,72 +261,6 @@
   justify-content: center;
 }
 
-/* En desktop: mostrar slider horizontal sin controles */
-@media (min-width: 768px) {
-
-    .card-viajes-desktop {
-        width: 20%;
-        height: 350px;
-        flex: none;
-    }
-
-    .card-viajes{
-        width: 20% !important;
-        height: 350px !important;
-    }
-
-    .cards-slider-desktop .card-viajes{
-        width: 20% !important;
-        height: 350px !important;
-        flex: none !important;
-    }
-
-  .cards-slider-desktop {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-  }
-  
-  .cards-page .card-viajes {
-    width: 20% !important;
-    height: 350px !important;
-    scroll-snap-align: start;
-    flex: none !important;
-  }
-  
-  /* Ocultar controles de navegación en desktop */
-  .cards-slider-desktop .viajes-footer {
-    display: none !important;
-  }
-  
-  .cards-container-mobile {
-    display: none;
-  }
-}
-
-
-
-/* En mobile: mostrar solo la card actual */
-@media (max-width: 767px) {
-  .cards-slider-desktop {
-    display: none;
-  }
-  
-  .cards-container-mobile {
-    display: flex;
-  }
-  
-  .cards-container-mobile .card-viajes {
-    width: 80% !important;
-    height: 350px !important;
-  }
-}
-
-
 .step-indicators {
     display: flex;
     gap: 0.3rem;
@@ -383,13 +291,6 @@
 
 .viajes-cta{
     margin-top: 2.5rem;
-}
-
-@media (min-width: 768px) {
-    .viajes-cta {
-        position: relative;
-        top: 1.5rem;
-    }
 }
 
 
@@ -514,7 +415,7 @@
 
 .viajes-titulo{
     color: var(--background);
-    font-size: 8vw;
+    font-size: 4vw;
 }
 
 
@@ -556,10 +457,109 @@
     border-bottom: var(--border);
 }
 
+/* ==================== */
+/* MEDIA QUERIES */
+/* ==================== */
 
+/* Mobile styles */
+@media (max-width: 600px) {
+    .btn-icon-only {
+        font-size: 0.9rem;
+    }
 
+    .btn-icon-only .btn-icon {
+        font-size: inherit;
+    }
+}
 
+/* Mobile cards container */
+@media (max-width: 767px) {
+    .cards-slider-desktop {
+        display: none;
+    }
+    
+    .cards-container-mobile {
+        display: flex;
+    }
+    
+    .cards-container-mobile .card-viajes {
+        width: 80% !important;
+        height: 350px !important;
+    }
+}
+
+/* Desktop styles */
 @media (min-width: 768px) {
+    /* Viajes icon */
+    .viajes-icon {
+        height: 100px;
+    }
+
+    /* Viajes texto */
+    .viajes-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 20vh;
+       
+    }
+
+    .viajes-h1{
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Viajes CTA */
+    .viajes-cta {
+        position: relative;
+        
+    }
+
+    /* Desktop card viajes */
+    .card-viajes-desktop {
+        width: 20%;
+        height: 350px;
+        flex: none;
+    }
+
+    .card-viajes {
+        width: 20% !important;
+        height: 350px !important;
+    }
+
+    .cards-slider-desktop .card-viajes {
+        width: 20% !important;
+        height: 350px !important;
+        flex: none !important;
+    }
+
+    .cards-slider-desktop {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    .cards-page .card-viajes {
+        width: 20% !important;
+        height: 350px !important;
+        scroll-snap-align: start;
+        flex: none !important;
+    }
+    
+    /* Ocultar controles de navegación en desktop */
+    .cards-slider-desktop .viajes-footer {
+        display: none !important;
+    }
+    
+    .cards-container-mobile {
+        display: none;
+    }
+
     /* Estilos desktop para ProductCard */
     .card {
         height: 220px; /* Altura fija para todas las cards */
@@ -596,7 +596,6 @@
     .card-inicio {
         display: flex;
         flex-direction: column;
-       
         height: 250px;
         gap: 1rem;
         width: 300px;

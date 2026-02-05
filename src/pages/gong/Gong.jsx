@@ -6,13 +6,15 @@ import { Brain, Zap, Waves, Heart, Sparkles, ChevronLeft, ChevronRight, Users } 
 import './gong.css'
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import SesionGong from '../../components/sesiones-gong/SesionGong';
+import { CardBeneficios } from '../../components/cards/Cards';
+import { Footer } from '../../components/footer/Footer';
 
 const Gong = () => {
-    const [currentPage, setCurrentPage] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
+   
     const [sesionIndex, setSesionIndex] = useState(0);
-    const [isSesionAnimating, setIsSesionAnimating] = useState(false);
     const [textAnimationStep, setTextAnimationStep] = useState(0);
+    const [beneficioIndex, setBeneficioIndex] = useState(0);
+    const [isBeneficioAnimating, setIsBeneficioAnimating] = useState(false);
 
     // Initialize animation on component mount
     useEffect(() => {
@@ -27,46 +29,105 @@ const Gong = () => {
         }, 500);
     }, []);
 
+    // Intersection Observer para animaciones de secciones
+    useEffect(() => {
+        const observerOptions = {
+            threshold: [0, 0.1, 0.5, 1],
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const handleScroll = () => {
+            const scrolled = window.scrollY;
+            const sections = document.querySelectorAll('.scroll-section');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calcular qué tan centrada está la sección en la vista
+                const sectionCenter = rect.top + rect.height / 2;
+                const viewportCenter = windowHeight / 2;
+                const distance = Math.abs(sectionCenter - viewportCenter);
+                const maxDistance = windowHeight / 2 + rect.height / 2;
+                
+                // Progreso basado en qué tan lejos está del centro
+                const progress = Math.max(0, Math.min(1, distance / maxDistance));
+                
+                // La sección actual está al 100% cuando está centrada
+                if (distance < windowHeight / 3) {
+                    // Sección activa: opacidad completa
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0) scale(1)';
+                } else {
+                    // Sección inactiva: menos opacidad según la distancia
+                    section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
+                    section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Animar elementos hijos uno a uno
+                    const children = entry.target.querySelectorAll('.animate-child');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.classList.add('animate-in');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observar secciones
+        const sections = document.querySelectorAll('.animate-section');
+        sections.forEach(section => observer.observe(section));
+
+        // Añadir listener de scroll
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Ejecutar una vez al inicio
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     const beneficios = [
         {
-            icon: <Heart className="beneficio-icon-svg" strokeWidth={1}/>,
+            icon: <Heart className="beneficio-icon-svg" strokeWidth={1} />,
             texto: "Reduce el estrés y la ansiedad"
         },
         {
-            icon: <Waves className="beneficio-icon-svg" strokeWidth={1}/>,
+            icon: <Waves className="beneficio-icon-svg" strokeWidth={1} />,
             texto: "Mejora la calidad del sueño"
         },
         {
-            icon: <Sparkles className="beneficio-icon-svg" strokeWidth={1}/>,
+            icon: <Sparkles className="beneficio-icon-svg" strokeWidth={1} />,
             texto: "Libera tensiones físicas"
         },
         {
-            icon: <Brain className="beneficio-icon-svg" strokeWidth={1}/>,
+            icon: <Brain className="beneficio-icon-svg" strokeWidth={1} />,
             texto: "Aumenta la claridad mental"
         },
         {
-            icon: <Zap className="beneficio-icon-svg" strokeWidth={1}/>,
+            icon: <Zap className="beneficio-icon-svg" strokeWidth={1} />,
             texto: "Energiza el cuerpo y la mente"
         }
     ];
 
-    // Sistema para móvil: 5 páginas individuales
-    const mobilePages = beneficios;
-    const mobileTotalPages = mobilePages.length;
-    
-    // Sistema para desktop: 2 páginas con múltiples cards
-    const desktopPages = [
-        beneficios.slice(0, 3), // Primeros 3 beneficios
-        beneficios.slice(3, 5)  // Últimos 2 beneficios
-    ];
-    const desktopTotalPages = desktopPages.length;
 
+
+  
     const sesiones = [
         {
             icon: <Heart strokeWidth={1} size={40} />,
             tipo: "SESIÓN INDIVIDUAL",
             descripcion: "Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti.",
-            duracion: "60 minutos",
+            duracion: "120 minutos",
             inversion: "60€",
             modalidad: "Presencial"
         },
@@ -74,7 +135,7 @@ const Gong = () => {
             icon: <Sparkles strokeWidth={1} size={40} />,
             tipo: "SESIÓN EN PAREJA",
             descripcion: "Comparte una experiencia de conexión profunda con tu pareja. Armonizan sus energías y fortalecen su vínculo.",
-            duracion: "90 minutos",
+            duracion: "120 minutos",
             inversion: "80€",
             modalidad: "Presencial"
         },
@@ -89,37 +150,26 @@ const Gong = () => {
     ];
 
 
-    const nextSlide = () => {
-        setIsAnimating(true);
+
+
+
+    // Funciones para slider de beneficios (mobile)
+    const nextBeneficio = () => {
+        setIsBeneficioAnimating(true);
         setTimeout(() => {
-            setCurrentPage((prevPage) => {
-                // Para mobile: 5 páginas (0-4)
-                // Para desktop: 2 páginas (0-1)
-                const maxPage = window.innerWidth >= 1024 ? 1 : 4;
-                return (prevPage + 1) % (maxPage + 1);
-            });
-            setIsAnimating(false);
+            setBeneficioIndex((prevIndex) => (prevIndex + 1) % beneficios.length);
+            setIsBeneficioAnimating(false);
         }, 150);
     };
 
-    const prevSlide = () => {
-        setIsAnimating(true);
-        setTimeout(() => {
-            setCurrentPage((prevPage) => {
-                const maxPage = window.innerWidth >= 1024 ? 1 : 4;
-                return (prevPage - 1 + (maxPage + 1)) % (maxPage + 1);
-            });
-            setIsAnimating(false);
-        }, 150);
-    };
 
-    const goToSlide = (pageIndex) => {
-        const maxPage = window.innerWidth >= 1024 ? 1 : 4;
-        if (pageIndex !== currentPage && pageIndex <= maxPage) {
-            setIsAnimating(true);
+
+    const goToBeneficio = (index) => {
+        if (index !== beneficioIndex) {
+            setIsBeneficioAnimating(true);
             setTimeout(() => {
-                setCurrentPage(pageIndex);
-                setIsAnimating(false);
+                setBeneficioIndex(index);
+                setIsBeneficioAnimating(false);
             }, 150);
         }
     };
@@ -182,186 +232,149 @@ const Gong = () => {
     };
 
 
-    return (  
+    return (
         <>
-        <section className="section-img">
-            <img src="/img/gong-img.png" alt="gong" className="image-gong" />
-            
-        </section>
-
-
-
-
-        <section className="gong-section">
-
-           <div className="gong-content-wrapper">
-               <div className="gong-text-content">
-                   <h1 className='gong-titulo'>DESCUBRE <br /> EL MUNDO DE LAS VIBRACIONES</h1>   
-                   <p className="gong-texto">Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido. Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma. Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser</p>
-               </div>
-               <div className="gong-image-content">
-                   <img src="/img/gong-img.png" alt="gong" className="gong-imagen" />
-               </div>
-           </div>
-            
-        </section>
-
-
-
-        <section className="gong-beneficios">
-            <div className="simbolo-container">
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
-            </div>
-            
-            <h1 className='gong-titulo'>BENEFICIOS</h1>
-
-            <div className="slider-container">
-
-
-                <div className="slider-content">
-                    {/* Versión móvil - slider individual */}
-                    <div className="mobile-only">
-                        {mobilePages[currentPage] && (
-                            <div className={`beneficio-item ${isAnimating ? 'animating' : ''}`}>
-                                <div className="beneficio-icon">{mobilePages[currentPage].icon}</div>
-                                <div className="beneficio-texto">{mobilePages[currentPage].texto}</div>
-                            </div>
-                        )}
-                    </div>
-                    
-                    {/* Versión desktop - grid de beneficios */}
-                    <div className="desktop-only">
-                        {desktopPages[currentPage] && (
-                            <div 
-                                className={`beneficios-grid ${isAnimating ? 'animating' : ''}`}
-                                data-page={currentPage}
-                            >
-                                {desktopPages[currentPage].map((beneficio, index) => (
-                                    <div key={index} className="beneficio-item">
-                                        <div className="beneficio-icon">{beneficio.icon}</div>
-                                        <div className="beneficio-texto">{beneficio.texto}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+            <section className="section-img scroll-section">
+                <div className="desktop-only">
+                    <div className="gong-hero-container">
+                        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770280011/Desktop_-_2_z7tqbr.png" alt="gong" className="desktop-gong-img" />
                     </div>
                 </div>
-                
-                <div className="slider-controls">
-                    <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
-                      
-                        <span translate="no">ANT.</span>
-                    </button>
-
-                <div className="slider-dots">
-                    {mobilePages.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`dot ${index === currentPage ? 'active' : ''}`}
-                            onClick={() => goToSlide(index)}
-                        />
-                    ))}
+                <div className="mobile-only">
+                    <img src="/img/gong-img.png" alt="gong" className="image-gong" />
                 </div>
-                    <button className="slider-btn next-btn" onClick={nextSlide} translate="no">
-                        SIG.
-                       
-                    </button>
+                <div className="gong-hero-overlay">
+                    <h1 className="gong-hero-title">Baños <br /> de gong</h1>
+                    <h6 className="gong-subtitulo">Un viaje de frecuencias y vibraciones</h6>
+
                 </div>
-                
-               
+            </section>
 
 
-            </div>
-
-            <div className="simbolo-container">
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" />
-            </div>
-
-            {/* Versión desktop - controles externos */}
-            <div className="desktop-only">
-             <div className="slider-controls-desk">
-                    <button className="slider-btn prev-btn" onClick={prevSlide} translate="no">
-                      
-                        <span translate="no">ANT.</span>
-                    </button>
-
-                <div className="slider-dots">
-                    {desktopPages.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`dot ${index === currentPage ? 'active' : ''}`}
-                            onClick={() => goToSlide(index)}
-                        />
-                    ))}
-                </div>
-                    <button className="slider-btn next-btn" onClick={nextSlide} translate="no">
-                        SIG.
-                       
-                    </button>
-                </div>
-            </div>
 
 
-        </section>
 
 
-        <section className="gong-sesiones">
-            <h1 className='gong-titulo'>VEN A VIBRAR <br /> TÚ SOLX  O CON QUIEN QUIERAS </h1>
-            
-            {/* Versión móvil - slider individual */}
-            <div className="mobile-only">
-                <div className="sesiones-slider-container">
-                    <div className="sesiones-slider">
-                        <div className="sesion-slide">
-                            <SesionGong 
-                                sesion={sesiones[sesionIndex]} 
-                                isAnimated={true}
-                                animationStep={textAnimationStep}
-                            />
+
+            <section className="gong-beneficios animate-section scroll-section">
+
+                <div className="gong-texto-container animate-child">
+
+                    <div className="desktop-only simbolo-container-title">
+                        <img src="/img/capa.png" alt="simbolo" className="simbolo-title" />
+                    </div>
+
+                    <h1 className='gong-titulo'>Habitar <br />en el sonido.</h1>
+
+                    <div className="gong-txt">
+
+                        <div className="gong-txt">
+                            <p className="gong-texto">Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido.  </p>
+
+                            <p className="gong-texto">Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma.</p>
+                            <p className="gong-texto">Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser.</p>
                         </div>
                     </div>
-
-                    <div className="sesiones-controls">
-                        <button className="sesion-slider-btn prev-btn" onClick={prevSesion} translate="no">
-                            <span translate="no">ANT.</span>
-                        </button>
-
-                        <div className="sesiones-dots">
-                            {sesiones.map((_, index) => (
-                                <button
-                                    key={index}
-                                    className={`sesion-dot ${index === sesionIndex ? 'active' : ''}`}
-                                    onClick={() => goToSesion(index)}
-                                />
-                            ))}
-                        </div>
-
-                        <button className="sesion-slider-btn next-btn" onClick={nextSesion} translate="no">
-                            SIG.
-                        </button>
-                    </div>
                 </div>
-            </div>
 
-            {/* Versión desktop - 3 cards juntas en flex */}
-            <div className="desktop-only">
-                <div className="sesiones-slider-container">
-                    <div className="sesiones-slider">
-                        {sesiones.map((sesion, index) => (
-                            <div key={index} className="sesion-slide">
-                                <SesionGong 
-                                    sesion={sesion} 
-                                    isAnimated={true}
-                                    animationStep={3}
-                                />
+                {/* Versión desktop - grid de beneficios */}
+                <div className="beneficios-container animate-child">
+                    <div className="beneficios-grid-completo">
+                        {beneficios.map((beneficio, index) => (
+                            <div key={index} className="beneficio-item animate-child">
+                                <div className="beneficio-icon">{beneficio.icon}</div>
+                                <div className="beneficio-texto">{beneficio.texto}</div>
                             </div>
                         ))}
                     </div>
                 </div>
+
+                {/* Versión mobile - slider de beneficios */}
+                <div className="beneficios-mobile-container">
+                    <CardBeneficios
+                        icon={beneficios[beneficioIndex].icon}
+                        title="Beneficio"
+                        description={beneficios[beneficioIndex].texto}
+                        totalSteps={beneficios.length}
+                        currentStep={beneficioIndex}
+                        isAnimating={isBeneficioAnimating}
+                        onStepClick={goToBeneficio}
+                        onNextClick={nextBeneficio}
+                    />
+                </div>
+
+                <div className="simbolo-container">
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                </div>
+
+            </section>
+
+
+            <section className="gong-sesiones animate-section scroll-section">
+                <h1 className='gong-titulo animate-child'>Sesiones <br /> de conexión </h1>
+
+                {/* Versión móvil - slider individual */}
+                <div className="mobile-only animate-child">
+                    <div className="sesiones-slider-container">
+                        <div className="sesiones-slider">
+                            <div className="sesion-slide">
+                                <SesionGong
+                                    sesion={sesiones[sesionIndex]}
+                                    isAnimated={true}
+                                    animationStep={textAnimationStep}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="sesiones-controls">
+                            <button className="sesion-slider-btn prev-btn" onClick={prevSesion} translate="no">
+                                <span translate="no">ANT.</span>
+                            </button>
+
+                            <div className="sesiones-dots">
+                                {sesiones.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        className={`sesion-dot ${index === sesionIndex ? 'active' : ''}`}
+                                        onClick={() => goToSesion(index)}
+                                    />
+                                ))}
+                            </div>
+
+                            <button className="sesion-slider-btn next-btn" onClick={nextSesion} translate="no">
+                                SIG.
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Versión desktop - 3 cards juntas en flex */}
+                <div className="desktop-only animate-child">
+                    <div className="sesiones-slider-container">
+                        <div className="sesiones-slider">
+                            {sesiones.map((sesion, index) => (
+                                <div key={index} className="sesion-slide animate-child">
+                                    <SesionGong
+                                        sesion={sesion}
+                                        isAnimated={true}
+                                        animationStep={3}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="simbolo-container">
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                </div>
+            </section>
+
+            {/* Footer solo visible en desktop */}
+            <div className="desktop-only">
+                <Footer />
             </div>
-        </section>
         </>
     );
 }
- 
+
 export default Gong;

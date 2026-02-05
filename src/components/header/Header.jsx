@@ -115,7 +115,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/espacio-akaal">ESPACIO AKAAL</NavLink>
+                                                    <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -127,7 +127,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/una-vioska">UNA VIOSKA</NavLink>
+                                                    <NavLink to="/una-vioska">una vioska.</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -139,7 +139,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/akaal-viajes">AKAAL VIAJES</NavLink>
+                                                    <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -151,7 +151,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/akaal-retiros">AKAAL RETIROS</NavLink>
+                                                    <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -163,7 +163,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/gong">BAÑOS DE GONG</NavLink>
+                                                    <NavLink to="/gong">Baños de Gong</NavLink>
                                                 </motion.li>
                                             </motion.div>
                                         )}
@@ -284,7 +284,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.1 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/espacio-akaal">ESPACIO AKAAL</NavLink>
+                                                                <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -294,7 +294,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.15 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/una-vioska">UNA VIOSKA</NavLink>
+                                                                <NavLink to="/una-vioska">una vioska.</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -304,7 +304,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.2 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/akaal-viajes">AKAAL VIAJES</NavLink>
+                                                                <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -314,7 +314,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.25 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/akaal-retiros">AKAAL RETIROS</NavLink>
+                                                                <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -324,7 +324,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.3 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/gong">BAÑOS DE GONG</NavLink>
+                                                                <NavLink to="/gong">Baños de Gong</NavLink>
                                                             </motion.div>
                                                         </motion.div>
                                                     )}

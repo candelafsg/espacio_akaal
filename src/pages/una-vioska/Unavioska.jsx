@@ -452,7 +452,9 @@ const UnaVioska = () => {
                 <div className="filtros-galeria">
                     {/* Fila para PENDIENTES */}
                     <div className="filtro-fila">
+                        
                         <div className="imagen-contenedor">
+                              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613543/DSC00197_1_ggpsxe.jpg" alt="pendientes" className="img" />
                             <h3 className="titulo-filtro">PENDIENTES</h3>
                         </div>
                         <div className="galeria-scroll-container">
@@ -494,6 +496,7 @@ const UnaVioska = () => {
                     {/* Fila para COLGANTES */}
                     <div className="filtro-fila">
                         <div className="imagen-contenedor">
+                            <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770115867/Frame_13_ffldmd.png" alt="" className="img" />
                             <h3 className="titulo-filtro">COLGANTES</h3>
                         </div>
                         <div className="galeria-scroll-container">

@@ -490,16 +490,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.imagen-contenedor .img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .titulo-filtro {
-    font-size: 1.5rem;
+    font-size: 1rem !important;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--background);
     text-align: center;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+section .filtro-fila .imagen-contenedor h3.titulo-filtro {
+    font-size: 1rem !important;
 }
 
 .galeria-scroll-container {

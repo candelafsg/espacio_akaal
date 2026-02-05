@@ -14,9 +14,33 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: var(--background);
-    border-top: var(--border);
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, rgba(97, 37, 62, 0.8) 100%);
+    color: var(--background);
+    margin-top: 4rem;
 }
+
+    .footer a {
+        color: var(--background);
+        text-decoration: none;
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
+    }
+
+    .footer a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+
+    .footer .logo p,
+    .footer .logo h3 {
+        color: var(--background);
+        margin: 0;
+    }
+
+    .footer .footer-ul li,
+    .footer .footer-contacto-ul li {
+        color: var(--background);
+    }
 }
 

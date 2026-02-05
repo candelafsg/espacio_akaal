@@ -2,7 +2,40 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    position: relative;
+}
 
+/* Overlay para el título */
+.gong-hero-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+
+
+.gong-hero-title {
+    color: var(--background);
+    font-size: 6rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-family: semi-bold, poppins;
+}
+.gong-subtitulo{
+    color: var(--background);
+    font-size: 1rem;
+    text-align: center;
 }
 
 .image-gong {
@@ -10,33 +43,50 @@
     height: 100%;
     object-fit: cover;
     opacity: 0.9;
-    filter: brightness(0.7);
-
+    filter: brightness(0.6);
+    object-position: 35% center;
 }
 
-.gong-section{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .gong-titulo{
-    font-size: 9.5vw;
+    font-size: 8vw;
+    margin-top: 2rem;
 }
 
-.gong-beneficios .gong-titulo {
-    text-align: center;
-    width: auto;
+.gong-titulo-pequeño{
+    font-size: 2.5rem;
+    text-align: start !important;
 }
+
+
+
 
 .gong-texto, .gong-titulo {
-    text-align: start;
+    text-align: center;
     width: 100%;
 
+}
+
+.gong-texto-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.desktop-only .gong-texto {
+    text-align: start !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
+.gong-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .gong-imagen {
@@ -49,22 +99,81 @@
 
 .gong-section, .gong-beneficios{
     padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 
 /* Slider de beneficios */
-.gong-beneficios {
-   display: flex;
-   flex-direction: column;
-   gap: 4rem;
-   align-items: center;
-   justify-content: center;
+/* Grid completo de beneficios - ahora es flex en desktop */
+.beneficios-grid-completo {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1rem;
    width: 100%;
-   height: 100vh;
+    margin: 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Contenedor de beneficios mobile - slider tipo CardViajes */
+.beneficios-mobile-container {
+    display: none; /* Oculto en desktop */
+}
+
+/* Responsive para mobile - mostrar slider de beneficios */
+@media (max-width: 767px) {
+    .beneficios-grid-completo {
+        display: none; /* Ocultar grid en mobile */
+    }
+    
+    .beneficios-mobile-container {
+        display: flex; /* Mostrar slider en mobile */
+        justify-content: center;
+        padding: 2rem 0;
+    }
+}
+
+/* Responsive para tablet - 2 columnas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .beneficios-grid-completo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Estilos desktop para cards de beneficios */
+@media (min-width: 768px) {
+    .beneficio-item {
+        flex-direction: row; /* Icono y texto alineados horizontalmente */
+        align-items: center;
+        justify-content: flex-start;
+       gap: 0 !important;
+        padding: 1.5rem;
+       
+    }
+    
+    .beneficio-icon {
+     font-size: 2rem !important;
+    }
+    
+    .beneficio-icon-svg {
+        width: 28px !important; /* Icono más pequeño */
+       
+    }
+    
+    .beneficio-texto {
+        font-size: 0.7rem !important; /* Texto más pequeño en desktop */
+        line-height: 1.3;
+        text-align: center;
+        flex: 1; /* Ocupa el resto del espacio */
+    }
 }
 
 .slider-container {
-    border: 1px solid var(--primary);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -110,15 +219,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+   width: 30px;
     opacity: 1;
     transform: scale(1) rotate(0deg);
     transition: all 0.3s ease;
 }
 
 .beneficio-icon-svg {
-    width: 100%;
+    width: 50%;
     height: 100%;
     color: var(--primary);
     transition: all 0.3s ease;
@@ -499,6 +607,20 @@
     display: flex !important;
 }
 
+/* Responsive para el título */
+@media (max-width: 768px) {
+    .gong-hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gong-hero-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+}
+
 /* Responsive */
 @media (min-width: 768px) {
     .sesiones-slider-container {
@@ -527,7 +649,137 @@
     }
 }
 
+/* Efecto de empuje entre secciones con scroll */
+.scroll-section {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-out;
+    will-change: opacity, transform;
+}
+
+.scroll-section:nth-child(1) { z-index: 3; }
+.scroll-section:nth-child(2) { z-index: 2; }
+.scroll-section:nth-child(3) { z-index: 1; }
+
+/* Asegurar que las secciones tengan suficiente altura para el efecto */
+.section-img {
+    min-height: 100vh;
+}
+
+.gong-beneficios {
+    min-height: 100vh;
+}
+
+.gong-sesiones {
+    min-height: 100vh;
+}
+
+/* Animaciones de secciones */
+.animate-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-child {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-child.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retrasos progresivos para elementos hijos */
+.animate-child:nth-child(1) { transition-delay: 0.1s; }
+.animate-child:nth-child(2) { transition-delay: 0.2s; }
+.animate-child:nth-child(3) { transition-delay: 0.3s; }
+.animate-child:nth-child(4) { transition-delay: 0.4s; }
+.animate-child:nth-child(5) { transition-delay: 0.5s; }
+.animate-child:nth-child(6) { transition-delay: 0.6s; }
+
+/* Footer desktop */
+.gong-footer {
+    width: 100%;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, rgba(97, 37, 62, 0.8) 100%);
+    color: var(--background);
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.footer-subtext {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 0;
+    opacity: 0.7;
+}
+
 @media (min-width: 1024px) {
+    /* Portada desktop - imagen a pantalla completa */
+    .section-img {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .gong-hero-container {
+        width: 100vw;
+        height: 100vh;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    /* Forzar posición de imagen desktop */
+@media (min-width: 1024px) {
+    section.section-img div.desktop-only div.gong-hero-container img.desktop-gong-img {
+        object-position: 0% center !important;
+    }
+}
+
+.desktop-gong-img {
+       width: 100%;
+       height: 100%;
+       filter: brightness(0.6);
+        object-fit: cover;
+        object-position: 0% center !important;
+        border-radius: 0;
+
+    }
+    
+    .image-gong {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+    
     .sesion-slider-btn {
         width: 60px;
         height: 60px;
@@ -550,6 +802,11 @@
     .gong-section {
         height: 100vh;
         padding: 2rem 4rem;
+    }
+
+
+    .gong-texto{
+        font-size: 0.8rem !important;
     }
 
     .gong-content-wrapper {
@@ -587,56 +844,98 @@
     .gong-texto {
         font-size: 1.2rem;
         line-height: 1.8;
-        max-width: 500px;
+      
     }
 
     .gong-beneficios {
-        padding: 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
     }
 
-    /* Estilos desktop - grid de beneficios */
-    .slider-container {
-      
-      
-      
-       
+    .gong-titulo,.gong-texto{
+        text-align: center;
     }
 
-    .desktop-only .beneficios-grid {
-        display: grid !important;
-        padding: 1rem;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 2rem !important;
-        width: 100% !important;
-        max-width: 1000px !important;
-        margin: 0 auto !important;
-        transition: all 0.3s ease;
-        height: auto !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+    .gong-titulo{
+        font-size: 6vw !important;
     }
 
-    /* Para la segunda página con 2 cards - centrarlas */
-    .desktop-only .beneficios-grid[data-page="1"] {
-        grid-template-columns: 1fr 1fr !important;
-        justify-items: center;
-        max-width: 700px !important;
+    .gong-texto-container{
+        align-items: center;
     }
 
-    .beneficios-grid.animating {
-        opacity: 0;
-        transform: scale(0.95);
+    /* Estructura desktop para beneficios - contenedor de cards */
+    .beneficios-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
+    .desktop-only .beneficios-texto-container {
+        flex: 0 0 35%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: start;
+        max-width: 350px;
+        
+    }
+
+    /* Mostrar los nuevos contenedores de símbolos en desktop */
+    .simbolo-container-top,
+    .simbolo-container-bottom,
+    .simbolo-container-title {
+        display: flex !important;
+    }
+
+    .simbolo-title {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    .desktop-only .beneficios-slider-container {
+        flex: 0 0 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+
+    .slider-dots{
+        display: none;
+    }
+    
+
+  
+
+    .general-container{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        align-items: flex-start;
+    }
+    
     .beneficio-item {
-        padding: 1.5rem;
-        border-radius: 10px;
+        padding: 1rem;
+        border-radius: 8px;
       
         border: 1px solid rgba(97, 37, 62, 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .beneficio-item:hover {
@@ -645,16 +944,7 @@
         border-color: rgba(97, 37, 62, 0.3);
     }
 
-    .slider-controls{
-        display: flex;
-    }
-
-    .slider-controls-desk{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
+  
     /* Clases responsive para desktop */
     .desktop-only {
         display: block !important;
