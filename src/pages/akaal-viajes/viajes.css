@@ -1,7 +1,7 @@
 /* Sección de introducción a Viajes Akaal */
 .viajes-intro-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@
 /* Sección del acordeón */
 .viajes-accordion-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,7 +146,7 @@
 /* Sección de India */
 .viajes-india-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
@@ -225,7 +225,7 @@
 /* Sección de viajes anteriores */
 .viajes-anteriores-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
@@ -521,7 +521,7 @@
 
 .viajes-descripcion {
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;

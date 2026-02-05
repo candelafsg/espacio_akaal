@@ -18,17 +18,17 @@
 
 /* Asegurar que las secciones tengan suficiente altura para el efecto */
 .hero-section {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
 .timeline-section {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
 .final-section {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
@@ -65,7 +65,7 @@
 
 /* Hero Section */
 .hero-section {
-    height: 100vh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
 }
@@ -519,7 +519,7 @@
 .final-section {
     padding: 4rem 2rem;
     width: 100%;
-    height: 100dvh;
+    min-height: 100dvh;
 }
 
 .final-content {

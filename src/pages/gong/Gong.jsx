@@ -8,7 +8,6 @@ import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import SesionGong from '../../components/sesiones-gong/SesionGong';
 import { CardBeneficios } from '../../components/cards/Cards';
 import { Footer } from '../../components/footer/Footer';
-import { ImgContainer } from '../../components/components/Components';
 
 const Gong = () => {
    
@@ -235,20 +234,33 @@ const Gong = () => {
 
     return (
         <>
-            <ImgContainer>
-                <section className="section-img scroll-section">
-                    <div className="desktop-only">
-                        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png" alt="gong" className="desktop-gong-img" loading="lazy" />
-                    </div>
-                    <div className="mobile-only">
-                        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png" alt="gong" className="image-gong" loading="lazy" />
-                    </div>
-                    <div className="gong-hero-overlay">
-                        <h1 className="gong-hero-title">Baños <br /> de gong</h1>
-                        <h6 className="gong-subtitulo">Un viaje de frecuencias y vibraciones</h6>
-                    </div>
-                </section>
-            </ImgContainer>
+            <section className="section-img scroll-section">
+                <div className="desktop-only">
+                    <img
+                        src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
+                        alt="gong"
+                        className="desktop-gong-img"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div className="mobile-only">
+                    <img
+                        src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png"
+                        alt="gong"
+                        className="image-gong"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div className="gong-hero-overlay">
+                    <h1 className="gong-hero-title">Baños <br /> de gong</h1>
+                    <h6 className="gong-subtitulo">
+                        Un viaje de frecuencias y vibraciones
+                    </h6>
+                </div>
+            </section>
+         
 
 
 

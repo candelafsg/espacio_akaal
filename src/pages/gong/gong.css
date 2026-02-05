@@ -1,8 +1,19 @@
 .section-img {
     width: 100%;
-    height: 100vh;
+    min-height: 100dvh;
     display: flex;
     position: relative;
+    overflow: hidden;
+}
+
+/* Ocultar scrollbar para todos los navegadores */
+.section-img::-webkit-scrollbar {
+    display: none;
+}
+
+.section-img {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Overlay para el título */
@@ -663,17 +674,17 @@
 
 /* Asegurar que las secciones tengan suficiente altura para el efecto */
 .section-img {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
 .gong-beneficios {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
 .gong-sesiones {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 80px; /* Compensar header fijo */
 }
 
@@ -745,13 +756,13 @@
     /* Portada desktop - imagen a pantalla completa */
     .section-img {
         width: 100vw;
-        height: 100vh;
+        min-height: 100dvh;
         overflow: hidden;
     }
     
     .gong-hero-container {
         width: 100vw;
-        height: 100vh;
+        min-height: 100dvh;
     
         display: flex;
         align-items: center;
@@ -803,7 +814,7 @@
     }
 
     .gong-section {
-        height: 100vh;
+        min-height: 100dvh;
         padding: 2rem 4rem;
     }
 

@@ -53,7 +53,7 @@
     justify-content: center;
     align-items: center;
    
-    min-height: 100vh;
+    min-height: 100dvh;
     gap: 1rem;
     padding: 1rem;
     border-bottom: var(--border);
@@ -119,7 +119,7 @@
 .vioska-slider-section {
     padding: 2rem 1rem;
     text-align: center;
-    min-height: 60vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,7 +236,7 @@
 
 @media (min-width: 1024px) {
     .vioska-slider-section {
-        min-height: 80vh;
+        min-height: 100dvh;
         padding: 4rem 2rem;
         justify-content: center;
     }
@@ -252,7 +252,7 @@
 .vioska-masonry-section {
     padding: 2rem 1rem;
     text-align: center;
-    min-height: 60vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -282,7 +282,7 @@
 
 .vioska-galeria {
     width: 100%;
-    min-height: 60dvh;
+    min-height: 100dvh;
     padding: 1rem;
     display: flex;
     flex-direction: column;
