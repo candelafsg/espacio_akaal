@@ -135,34 +135,35 @@ const Inicio = () => {
             </motion.div>
               <div className="section-content">
                  <img src="/img/conecta.png" alt="conecta" className="section-content-img" loading="lazy" />
-                </div>
-
-                <Button
+                   <Button
                     icon={<MdOutlineNorthEast />}
                     iconPosition="right"
                     as={NavLink}
                     to='/about'
                     // variant="noOutlined"
                 >
-                    CONÓCENOS
+                    CONÓCEME
                 </Button>
+                </div>
+
+              
             </motion.section>
             
-            <motion.section 
+            {/* <motion.section 
                 className="section-final parallax-layer final-layer"
                 style={{
                     y: finalY,
                     scale: finalScale,
                     zIndex: 10
                 }}
-            >
+            > */}
               
 
                 {/* Footer solo visible en desktop */}
                 <div className="footer-desktop">
                     <Footer />
                 </div>
-            </motion.section>
+            
         </div>
     );
 };

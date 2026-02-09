@@ -589,7 +589,7 @@ const UnaVioska = () => {
 
             {seleccionados.length > 0 && (
                 <footer className="pedido-footer">
-                    <Button onClick={irAResumen}>VER PEDIDO</Button>
+                    <Button onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
                 </footer>
             )}
 

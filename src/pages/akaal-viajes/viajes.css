@@ -24,20 +24,7 @@
   object-position: left center;
 }
 
-.viajes-intro-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  z-index: 2;
-}
+
 
 .viajes-intro-content {
   position: relative;
@@ -120,19 +107,7 @@
   margin-bottom: 0;
 }
 
-.viajes-intro-desliza {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  animation: pulse 2s infinite;
-}
 
-.desliza-texto {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--background);
-}
 
 @keyframes pulse {
   0%, 100% {

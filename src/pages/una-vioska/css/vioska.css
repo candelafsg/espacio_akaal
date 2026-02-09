@@ -5,15 +5,10 @@
     border-radius: var(--radius-img);
     opacity: 0.9;
     filter: brightness(0.7);
-    padding: 0.2rem;
+    object-position: 70% 60%;
 }
 
-/* Mobile - ajustar posición de la imagen menos a la derecha y más abajo */
-@media (max-width: 767px) {
-    .vioska-portada {
-        object-position: 70% 60%;
-    }
-}
+
 
 
 .vioska-info {
@@ -47,6 +42,25 @@
 /* instrucciones */
 
 
+.vioska-hero-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    min-height: 100dvh;
+    gap: 1rem;
+    padding: 0; /* Quitado padding para que la imagen ocupe toda la pantalla */
+    padding-top: 80px; /* Compensar header fijo */
+    border-bottom: var(--border);
+    /* Asegurar centrado perfecto */
+    position: relative;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .vioska-instrucciones{
     display: flex !important;
     flex-direction: column;
@@ -56,6 +70,7 @@
     min-height: 100dvh;
     gap: 1rem;
     padding: 1rem;
+    padding-top: 80px; /* Compensar header fijo */
     border-bottom: var(--border);
     /* Asegurar centrado perfecto */
     position: relative;
@@ -123,6 +138,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 80px; /* Compensar header fijo */
     align-items: center;
 }
 
@@ -239,6 +255,7 @@
         min-height: 100dvh;
         padding: 4rem 2rem;
         justify-content: center;
+        padding-top: 80px; /* Compensar header fijo */
     }
 
     .vioska-slider-section .slider-container-galery {
@@ -256,6 +273,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding-top: 80px; /* Compensar header fijo */
     align-items: center;
 }
 
@@ -278,17 +296,25 @@
 
 
 
+/* Contenedor principal para layout flexible */
+.vioska-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    padding-top: 80px; /* Compensar header fijo */
+}
+
 /* galería */
 
 .vioska-galeria {
     width: 100%;
-    min-height: 100dvh;
+    flex: 1; /* Ocupar el espacio restante automáticamente */
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     position: relative;
-
+    min-height: 0; /* Permitir que flex controle la altura */
 }
 
 .galeria-header-sticky {
@@ -398,15 +424,20 @@
 }
 
 .pedido-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative; /* Cambiado de fixed a relative */
+    bottom: auto; /* Resetear bottom */
+    left: auto; /* Resetear left */
     width: 100%;
-    background: var(--background);
+    background: var(--background); /* Restaurar color normal */
     padding: 1rem;
     display: flex;
     justify-content: center;
-    z-index: 999;
+    z-index: auto; /* Resetear z-index */
+    margin-top: auto; /* Empujar hacia abajo */
+    margin-bottom: 2rem; /* Espacio adicional */
+    border: none; /* Quitar borde de depuración */
+    color: var(--primary); /* Restaurar color */
+    font-size: 1rem; /* Restaurar tamaño */
 }
 
 /* Desktop gallery styles */
@@ -416,6 +447,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    padding-top: 80px; /* Compensar header fijo */
     gap: 2rem;
 }
 

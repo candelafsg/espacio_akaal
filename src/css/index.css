@@ -52,7 +52,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Yaldevi', 'Times New Roman', serif !important;
+    font-family: 'Yaldevi', 'poppins', serif !important;
     letter-spacing: 1.5px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -130,7 +130,7 @@ body{
     color: var(--primary);
     background-color: var(--background);
     font-family: 'Yaldevi', 'Times New Roman', serif !important;
-    font-weight: 400;
+   
     scroll-behavior: smooth;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
@@ -169,6 +169,8 @@ strong{
 section{
     overflow-x: hidden;
     min-height: 100dvh;
+    position: relative;
+    z-index: 1; /* Asegurar que el contenido pase detrás del header */
 }
 
 /* Ocultar scrollbars no deseadas globalmente */
@@ -203,16 +205,18 @@ body {
     scrollbar-width: none !important;
 }
 
-/* Excepción: permitir scroll en body y html */
+/* Excepción: permitir scroll en body, html y overlays específicos */
 html::-webkit-scrollbar,
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.overlay-elegante::-webkit-scrollbar {
     display: auto !important;
     width: auto !important;
     height: auto !important;
 }
 
 html,
-body {
+body,
+.overlay-elegante {
     -ms-overflow-style: auto !important;
     scrollbar-width: auto !important;
 }

@@ -20,12 +20,14 @@
   z-index: 20;
   margin-top: -10vh;
   padding-top: 10vh;
+  padding-top: 80px; /* Compensar header fijo */
 }
 
 .final-layer {
   z-index: 10;
   margin-top: -10vh;
   padding-top: 10vh;
+  padding-top: 80px; /* Compensar header fijo */
 }
 
 /* Ajustes para las secciones con parallax */
@@ -148,8 +150,11 @@
 
 .section-content{
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     justify-content: center;
     align-items:center;
+    margin-bottom: 3rem;
 }
 
 .section-content-img {

@@ -86,6 +86,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  padding-top: 80px; /* Compensar header fijo */
   text-align: center;
 }
 
@@ -361,6 +362,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 80px; /* Compensar header fijo */
 }
 
 .slider-decoracion-top,

@@ -1,11 +1,184 @@
-/* header mobile */
+/* ========================================
+   ESTILOS BASE DEL HEADER - MOBILE FIRST
+   ======================================== */
 
-.header-nav-desk{
+/* Ocultar navegación desktop por defecto (mobile first) */
+.header-nav-desk {
     display: none;
 }
 
-/* Nuevo header desktop */
+/* Header móvil - estilos base */
+.header-mobile {
+    width: 100%;
+    padding: 2rem 1rem;
+   position: sticky;
+   top: 1rem;
+   background: transparent;
+   z-index: 999;
+}
+
+/* Navegación móvil */
+.header-mobile-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo del header móvil */
+.header-logo {
+    width: 17%;
+    cursor: pointer;
+}
+
+/* Botón de menú móvil */
+.header-menu {
+    cursor: pointer;
+    transition: scale 0.3s ease;
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 1rem;
+    border-radius: 50px;
+}
+
+.header-menu:active {
+    scale: 0.95;
+}
+
+/* ========================================
+   MENÚ LATERAL MÓVIL
+   ======================================== */
+
+/* Contenedor principal del menú móvil */
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid var(--background);
+    width: 90%;
+    border-radius: 50px 10px 10px 50px;
+    background-color: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 99999; /* Igual que el header */
+    height: 99.5dvh;
+}
+
+/* Efecto de fondo del menú móvil */
+.menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary);
+    opacity: 0.3;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+/* Estado del menú cuando está abierto */
+.menu-open {
+    transform: translateX(0);
+}
+
+/* Botón de cerrar menú móvil */
+.menu-cerrar {
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+    cursor: pointer;
+    color: var(--background);
+    font-weight: 600;
+}
+
+/* Lista de navegación del menú móvil */
+.menu-ul {
+    display: flex;
+    width: 100%;
+    height: 98dvh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+/* Items del menú móvil */
+.menu-li {
+    cursor: pointer;
+    text-align: end;
+    padding-bottom: 1rem;
+    border-bottom: 0.3px solid var(--background);
+    font-size: 7.5vw;
+    transition: scale 0.4s ease;
+    color: var(--background);
+}
+
+.menu-li:active {
+    scale: 0.95;
+}
+
+/* Submenú de servicios móvil */
+.mobile-services-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+/* Items del submenú móvil */
+.submenu-item {
+    font-size: 5vw;
+    border-bottom: 0.2px solid var(--background);
+    padding-bottom: 0.5rem;
+    color: var(--background);
+}
+
+/* Sección de privacidad del menú móvil */
+.menu-privacy {
+    line-height: 1;
+    cursor: pointer;
+    transition: scale 0.4s ease;
+    color: var(--background);
+    font-weight: 600;
+}
+
+.menu-privacy:active {
+    scale: 0.95;
+}
+
+/* Sección de redes sociales del menú móvil */
+.menu-rrss {
+    display: flex;
+    padding: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Iconos de redes sociales */
+.icon {
+    font-size: 1.7rem;
+}
+
+/* ========================================
+   MEDIA QUERIES - ESCRITORIO (1024px+)
+   ======================================== */
+
 @media (min-width: 1024px) {
+    /* Ocultar elementos móviles en escritorio */
+    .menu, 
+    .header-mobile-nav, 
+    .blur-overlay {
+        display: none;
+    }
+    
+    /* Mostrar navegación desktop */
     .header-nav-desk {
         display: flex;
         justify-content: space-between;
@@ -15,12 +188,14 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 9999;
+        right: 0;
+        z-index: 99999; /* z-index mucho más alto que cualquier elemento */
         background: transparent;
         backdrop-filter: none;
         border-bottom: none;
     }
 
+    /* Símbolos decorativos del header desktop */
     .header-symbol-left,
     .header-symbol-right {
         display: flex;
@@ -34,6 +209,7 @@
         object-fit: contain;
     }
 
+    /* Contenedor central de navegación desktop */
     .header-nav-center {
         flex: 1;
         display: flex;
@@ -41,6 +217,7 @@
         align-items: center;
     }
 
+    /* Lista de navegación principal desktop */
     .header-nav-list {
         display: flex;
         list-style: none;
@@ -54,6 +231,7 @@
         position: relative;
     }
 
+    /* Links de navegación desktop */
     .header-nav-link {
         color: var(--primary);
         text-decoration: none;
@@ -73,16 +251,19 @@
         transform: translateY(-2px);
     }
 
+    /* Toggle de servicios desktop */
     .services-toggle {
         display: flex;
         align-items: center;
         gap: 0.3rem;
     }
 
+    /* Contenedor del dropdown de servicios */
     .header-nav-dropdown {
         position: relative;
     }
 
+    /* Menú dropdown de servicios */
     .header-dropdown-menu {
         position: absolute;
         top: 100%;
@@ -98,6 +279,7 @@
         margin-top: 0.5rem;
     }
 
+    /* Items del dropdown */
     .dropdown-item {
         padding: 0.8rem 1.5rem;
         transition: all 0.3s ease;
@@ -120,7 +302,11 @@
         color: rgba(97, 37, 62, 0.8);
     }
 
-    /* Menú de servicios a pantalla completa */
+    /* ========================================
+       MENÚ DE SERVICIOS A PANTALLA COMPLETA
+       ======================================== */
+
+    /* Overlay oscuro para menú de servicios */
     .services-fullscreen-overlay {
         position: fixed;
         top: 0;
@@ -128,9 +314,10 @@
         width: 100vw;
         height: 100vh;
         background: rgba(0, 0, 0, 0.8);
-        z-index: 9998;
+        z-index: 99998; /* Justo debajo del header */
     }
 
+    /* Menú de servicios pantalla completa */
     .services-fullscreen-menu {
         position: fixed;
         top: 0;
@@ -138,11 +325,12 @@
         width: 100vw;
         height: 100vh;
         background: linear-gradient(135deg, var(--primary) 0%, rgba(97, 37, 62, 0.9) 100%);
-        z-index: 9999;
+        z-index: 99999; /* Igual que el header */
         display: flex;
         flex-direction: column;
     }
 
+    /* Botón de cerrar menú de servicios */
     .services-menu-close {
         position: absolute;
         top: 2rem;
@@ -166,6 +354,7 @@
         opacity: 0.8;
     }
 
+    /* Contenido del menú de servicios */
     .services-menu-content {
         flex: 1;
         display: flex;
@@ -174,6 +363,7 @@
         padding: 2rem;
     }
 
+    /* Lista de servicios */
     .services-menu-list {
         list-style: none;
         margin: 0;
@@ -184,6 +374,7 @@
         text-align: center;
     }
 
+    /* Items de la lista de servicios */
     .services-menu-item {
         opacity: 0;
         transform: translateY(30px);
@@ -206,6 +397,7 @@
         opacity: 0.9;
     }
 
+    /* Footer del menú de servicios */
     .services-menu-footer {
         position: absolute;
         bottom: 2rem;
@@ -217,6 +409,7 @@
         padding: 0 4rem;
     }
 
+    /* Enlace de privacidad en menú servicios */
     .services-menu-privacy {
         opacity: 0;
         transform: translateY(20px);
@@ -238,6 +431,7 @@
         transform: translateY(-2px);
     }
 
+    /* Icono de Instagram en menú servicios */
     .services-menu-instagram {
         color: var(--background);
         font-size: 1.5rem;
@@ -252,169 +446,13 @@
     }
 }
 
-.header-mobile {
-    width: 100%;
-    padding: 2rem 1rem;
-    position: fixed;
-    z-index: 9999;
-    background: none;
-
-}
-
-
-
-.header-mobile-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.header-logo {
-    width: 17%;
-    cursor: pointer;
-}
-
-.header-menu {
-    cursor: pointer;
-    transition: scale 0.3s ease;
-}
-
-.header-menu:active {
-    scale: 0.95;
-}
-
-
-
-/* Menu-header-mobile */
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  
-    border: 2px solid var(--background);
-    width: 90%;
-    border-radius: 50px 10px 10px 50px;
-    background-color: var(--primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    z-index: 1001;
-  
-    height: 99.5dvh;
-  }
-  
-
-.menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--primary);
-    opacity: 0.3;
-    border-radius: inherit;
-    z-index: -1;
-}
-
-.menu-open {
-    transform: translateX(0);
-}
-
-
-.menu-cerrar{
-    display: flex;
-    justify-content: end;
-    padding: 1rem;
-    cursor: pointer;
-    color: var(--background);
-    font-weight: 600;
-}
-
-.menu-ul {
-    display: flex;
-    width: 100%;
-    height: 98dvh;    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 1rem;
-}
-
-
-.menu-li {
-    cursor: pointer;
-    text-align: end;
-    padding-bottom: 1rem;
-    border-bottom: 0.3px solid var(--background);
-    font-size: 7.5vw;
-    transition: scale 0.4s ease;
-    color: var(--background);
-}
-
-.mobile-services-submenu {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    overflow: hidden;
-}
-
-.submenu-item {
-    font-size: 5vw;
-    border-bottom: 0.2px solid var(--background);
-    padding-bottom: 0.5rem;
-    color: var(--background);
-}
-
-.menu-li:active {
-    scale: 0.95;
-}
-
-
-.menu-privacy {
-    line-height: 1;
-    cursor: pointer;
-    transition: scale 0.4s ease;
-    color: var(--background);
-    font-weight: 600;
-}
-
-
-.menu-privacy:active {
-    scale: 0.95;
-}
-
-
-.menu-rrss{
-    
-    display: flex;
-    padding: 1.5rem;
-    align-items: center;
-    justify-content: space-between;
-    
-}
-
-.icon{
-    font-size: 1.7rem;
-}
+/* ========================================
+   MEDIA QUERY ADICIONAL - ESCRITORIO (1023px+)
+   ======================================== */
 
 @media (min-width: 1023px) {
-
-
-    .menu, .header-mobile-nav, .blur-overlay{
-        display: none;
-    }
-    
-
-
-    .header-nav-desk{
+    /* Ocultar navegación desktop antigua */
+    .header-nav-desk {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -425,6 +463,7 @@
         width: auto;
     }
 
+    /* Logo desktop */
     .logo {
         color: var(--primary);
         text-decoration: none;
@@ -432,6 +471,7 @@
         font-size: 1.2rem;
     }
 
+    /* Toggle menú desktop */
     .menu-desktop-toggle {
         background: none;
         border: none;
@@ -449,6 +489,10 @@
     .menu-desktop-toggle:active {
         transform: scale(0.95);
     }
+
+    /* ========================================
+       MENÚ DESKTOP COMPLETO
+       ======================================== */
 
     /* Overlay del menú desktop */
     .desktop-menu-overlay {
@@ -474,6 +518,7 @@
         flex-direction: column;
     }
 
+    /* Efecto de fondo menú desktop */
     .desktop-menu-full::before {
         content: '';
         position: absolute;
@@ -486,6 +531,7 @@
         z-index: -1;
     }
 
+    /* Botón cerrar menú desktop */
     .desktop-menu-close {
         position: absolute;
         top: 2rem;
@@ -512,6 +558,7 @@
         transform: scale(0.95);
     }
 
+    /* Contenido del menú desktop */
     .desktop-menu-content {
         display: flex;
         flex-direction: column;
@@ -522,6 +569,7 @@
         padding: 2rem;
     }
 
+    /* Navegación del menú desktop */
     .desktop-menu-nav {
         display: flex;
         flex-direction: column;
@@ -555,6 +603,7 @@
         transform: scale(0.95);
     }
 
+    /* Sección redes sociales menú desktop */
     .desktop-menu-rrss {
         position: absolute;
         bottom: 2rem;
@@ -566,6 +615,7 @@
         padding: 0 2rem;
     }
 
+    /* Enlace privacidad menú desktop */
     .desktop-menu-privacy {
         color: var(--background);
         text-decoration: none;
@@ -579,6 +629,7 @@
         transform: translateX(5px);
     }
 
+    /* Iconos redes sociales menú desktop */
     .desktop-menu-icon {
         color: var(--background);
         font-size: 1.5rem;
@@ -589,7 +640,10 @@
         transform: scale(1.1);
     }
 
-    /* Submenú de servicios dentro del menú desktop */
+    /* ========================================
+       SUBMENÚ DE SERVICIOS DESKTOP
+       ======================================== */
+
     .desktop-services-submenu {
         display: flex;
         flex-direction: column;
@@ -638,5 +692,4 @@
     .desk-dropdown {
         display: none !important;
     }
-      
 }
