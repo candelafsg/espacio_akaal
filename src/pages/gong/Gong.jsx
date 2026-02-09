@@ -18,8 +18,6 @@ const Gong = () => {
     const [isSesionAnimating, setIsSesionAnimating] = useState(false);
     // Initialize animation on component mount
     useEffect(() => {
-        // Comentado temporalmente
-        /*
         setTimeout(() => {
             setTextAnimationStep(1);
             setTimeout(() => {
@@ -29,13 +27,10 @@ const Gong = () => {
                 }, 200);
             }, 200);
         }, 500);
-        */
     }, []);
 
     // Intersection Observer para animaciones de secciones
     useEffect(() => {
-        // Comentado temporalmente
-        /*
         const observerOptions = {
             threshold: [0, 0.1, 0.5, 1],
             rootMargin: '0px 0px -100px 0px'
@@ -99,7 +94,6 @@ const Gong = () => {
             observer.disconnect();
             window.removeEventListener('scroll', handleScroll);
         };
-        */
     }, []);
 
     const beneficios = [
@@ -161,20 +155,16 @@ const Gong = () => {
 
     // Funciones para slider de beneficios (mobile)
     const nextBeneficio = () => {
-        // Comentado temporalmente
-        /*
         setIsBeneficioAnimating(true);
         setTimeout(() => {
             setBeneficioIndex((prevIndex) => (prevIndex + 1) % beneficios.length);
             setIsBeneficioAnimating(false);
         }, 150);
-        */
     };
 
 
+
     const goToBeneficio = (index) => {
-        // Comentado temporalmente
-        /*
         if (index !== beneficioIndex) {
             setIsBeneficioAnimating(true);
             setTimeout(() => {
@@ -182,13 +172,10 @@ const Gong = () => {
                 setIsBeneficioAnimating(false);
             }, 150);
         }
-        */
     };
 
     // Funciones para el slider de sesiones
     const nextSesion = () => {
-        // Comentado temporalmente
-        /*
         setIsSesionAnimating(true);
         setTextAnimationStep(0);
         setTimeout(() => {
@@ -204,12 +191,9 @@ const Gong = () => {
                 }, 200);
             }, 200);
         }, 150);
-        */
     };
 
     const prevSesion = () => {
-        // Comentado temporalmente
-        /*
         setIsSesionAnimating(true);
         setTextAnimationStep(0);
         setTimeout(() => {
@@ -225,12 +209,9 @@ const Gong = () => {
                 }, 200);
             }, 200);
         }, 150);
-        */
     };
 
     const goToSesion = (index) => {
-        // Comentado temporalmente
-        /*
         if (index !== sesionIndex) {
             setIsSesionAnimating(true);
             setTextAnimationStep(0);
@@ -248,7 +229,6 @@ const Gong = () => {
                 }, 200);
             }, 150);
         }
-        */
     };
 
 

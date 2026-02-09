@@ -413,6 +413,7 @@
     width: 100%;
     height: 70vh;
     overflow-y: auto;
+    position: relative;
 }
 
 
@@ -422,22 +423,24 @@
 }
 
 .pedido-footer {
-    position: relative; /* Cambiado de fixed a relative */
-    bottom: auto; /* Resetear bottom */
+    position: absolute; /* Cambiado de fixed a relative */
+    bottom: 1rem; /* Resetear bottom */
     left: auto; /* Resetear left */
     width: 100%;
-    background: var(--background); /* Restaurar color normal */
+    background:var(--background); /* Restaurar color normal */
     padding: 1rem;
     display: flex;
     justify-content: center;
-    z-index: auto; /* Resetear z-index */
-    margin-top: auto; /* Empujar hacia abajo */
+   
     margin-bottom: 2rem; /* Espacio adicional */
     border: none; /* Quitar borde de depuración */
     color: var(--primary); /* Restaurar color */
     font-size: 1rem; /* Restaurar tamaño */
 }
 
+.pedido-footer-desktop{
+    display: none;
+}
 /* Desktop gallery styles */
 .vioska-galeria-desktop {
     width: 100%;

@@ -382,6 +382,7 @@ const UnaVioska = () => {
                                 <li className="filtro-li" onClick={() => handleTipo("pendientes")}>PENDIENTES</li>
                                 <li className="filtro-li" onClick={() => handleTipo("colgantes")}>COLGANTES</li>
                                 <li className="filtro-li" onClick={() => handleTipo("anillos")}>ANILLOS</li>
+                                  <li className="filtro-li" onClick={() => handleTipo("macrame")}>MACRAMÉ</li>
                                 {/* <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
                                 <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li> */}
                             </ul>
@@ -410,6 +411,12 @@ const UnaVioska = () => {
                         />
                     ))}
                 </div>
+                   {seleccionados.length > 0 && (
+                <footer className="pedido-footer">
+                    <Button onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
+                </footer>
+            )}
+
             </section>
 
             {/* Versión Desktop */}
@@ -588,7 +595,7 @@ const UnaVioska = () => {
             </section>
 
             {seleccionados.length > 0 && (
-                <footer className="pedido-footer">
+                <footer className="pedido-footer-desktop">
                     <Button onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
                 </footer>
             )}
