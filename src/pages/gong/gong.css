@@ -1,1049 +1,327 @@
-.section-img {
-    width: 100%;
-    min-height: 100dvh;
-    display: flex;
-    position: relative;
-    overflow: hidden;
+/* ---------- HERO ---------- */
+
+.gong-introduccion {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
 }
 
-/* Ocultar scrollbar para todos los navegadores */
-.section-img::-webkit-scrollbar {
-    display: none;
-}
-
-.section-img {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Overlay para el título */
-.gong-hero-overlay {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-
-
-.gong-hero-title {
-    color: var(--background);
-    font-size: 6rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    margin-bottom: 1rem;
-    font-family: semi-bold, poppins;
-}
-.gong-subtitulo{
-    color: var(--background);
-    font-size: 1rem;
-    text-align: center;
-}
-
-.image-gong {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    filter: brightness(0.6);
-    object-position: 35% center;
-}
-
-
-
-.gong-titulo{
-    font-size: 8vw;
-    margin-top: 2rem;
-}
-
-.gong-titulo-pequeño{
-    font-size: 2.5rem;
-    text-align: start !important;
-}
-
-
-
-
-.gong-texto, .gong-titulo {
-    text-align: center;
-    width: 100%;
-
-}
-
-.gong-texto-container{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.desktop-only .gong-texto {
-    text-align: start !important;
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-}
-
-.gong-txt {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+.gong-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .gong-imagen {
-    width: 100%;
-    height: 45%;
-    border-radius: 4px;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0.3rem;
+  border-radius: var(--radius-img);
+  filter: brightness(0.7);
 }
 
-
-.gong-section, .gong-beneficios{
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 1rem;
+.gong-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--background);
+  text-align: center;
 }
 
-
-/* Slider de beneficios */
-/* Grid completo de beneficios - ahora es flex en desktop */
-.beneficios-grid-completo {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    padding: 1rem;
-   width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-    flex-wrap: wrap;
+.gong-titulo {
+  font-size: 2.5rem;
+  color: var(--background);
 }
 
-/* Contenedor de beneficios mobile - slider tipo CardViajes */
-.beneficios-mobile-container {
-    display: none; /* Oculto en desktop */
+.gong-subtitulo {
+  opacity: 0.9;
 }
 
-/* Responsive para mobile - mostrar slider de beneficios */
-@media (max-width: 767px) {
-    .beneficios-grid-completo {
-        display: none; /* Ocultar grid en mobile */
-    }
-    
-    .beneficios-mobile-container {
-        display: flex; /* Mostrar slider en mobile */
-        justify-content: center;
-        padding: 2rem 0;
-    }
+/* ---------- DESCRIPCIÓN ---------- */
+
+.gong-descripcion {
+  min-height: 100dvh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Responsive para tablet - 2 columnas */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .beneficios-grid-completo {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.gong-titulo-desc,
+.gong-txt {
+  text-align: center;
 }
 
-/* Estilos desktop para cards de beneficios */
-@media (min-width: 768px) {
-    .beneficio-item {
-        flex-direction: row; /* Icono y texto alineados horizontalmente */
-        align-items: center;
-        justify-content: flex-start;
-       gap: 0 !important;
-        padding: 1.5rem;
-       
-    }
-    
-    .beneficio-icon {
-     font-size: 2rem !important;
-    }
-    
-    .beneficio-icon-svg {
-        width: 28px !important; /* Icono más pequeño */
-       
-    }
-    
-    .beneficio-texto {
-        font-size: 0.7rem !important; /* Texto más pequeño en desktop */
-        line-height: 1.3;
-        text-align: center;
-        flex: 1; /* Ocupa el resto del espacio */
-    }
+.svg-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.slider-container {
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width:100%;
-    margin: 0 auto;
-    text-align: center;
-    height: 300px;
+.svg-img {
+  width: 20px;
 }
 
-.slider-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+/* ---------- SLIDER BENEFICIOS ---------- */
+
+.gong-sesiones {
+  padding: 2rem 1rem;
 }
 
-/* Estilos móviles - slider individual */
-.beneficio-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.3s ease;
-    padding: 1rem;
-    height: auto;
-    max-height: 200px;
+.beneficios-container {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.beneficio-item.animating .beneficio-icon {
-    opacity: 0;
-    transform: scale(0.8) rotate(-10deg);
+.beneficios-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.beneficio-item.animating .beneficio-texto {
-    opacity: 0;
-    transform: translateY(10px);
+.beneficios-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.beneficios-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.beneficios-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.beneficios-slide {
+  flex: 0 0 100%;
+  padding: 0.5rem;
+}
+
+.gong-beneficio {
+  border: var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
 }
 
 .beneficio-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   width: 30px;
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-    transition: all 0.3s ease;
-}
-
-.beneficio-icon-svg {
-    width: 60%;
-    height: 100%;
-    color: var(--primary);
-    transition: all 0.3s ease;
-}
-
-.beneficio-icon-svg:hover {
-    transform: scale(1.1);
+  display: flex;
+  justify-content: center;
 }
 
 .beneficio-texto {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.4;
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.3s ease;
+  margin: 0;
 }
 
-.slider-controls {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-top: 0;
-}
+/* ---------- DOTS ---------- */
 
-.slider-btn {
-    border: none;
-    background: none;
-    color: var(--primary);
-    padding: 10px 20px;
-
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-
-
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
+.beneficios-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
 }
 
 .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50px;
-    background-color: rgba(97, 37, 62, 0.3);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: scale(1);
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  border: none;
+  background: var(--primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .dot.active {
-    width: 16px;
-    background-color: var(--primary);
-    transform: scale(1.2);
+  width: 16px;
 }
 
-.dot:hover {
-    transform: scale(1.3);
-    background-color: rgba(97, 37, 62, 0.6);
-}
 
-/* Sección de sesiones */
-.gong-sesiones {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, var(--background) 0%, rgba(245, 235, 222, 0.8) 100%);
-}
+/* ---------- SESIONES SLIDER ---------- */
 
-.sesiones-slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem 0;
-    position: relative;
-}
-
-.sesiones-slider {
-    flex: 1;
-    max-width: 600px;
-    overflow: hidden;
-}
-
-.sesion-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sesiones-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-}
-
-.sesion-slider-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: inherit;
-    letter-spacing: 1.5px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.sesion-slider-btn:hover {
-    transform: scale(1.05);
-    opacity: 0.8;
-}
-
-.sesion-slider-btn:active {
-    transform: scale(0.95);
+.gong-titulo-sesiones {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .sesiones-container {
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sesiones-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sesiones-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.sesiones-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.sesiones-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.sesiones-slide {
+    background-color: var(--primary);
+  flex: 0 0 100%;
+  padding: 0.3rem;
+  border-radius: var(--radius-img);
+}
+
+/* ---------- GRID DESKTOP ---------- */
+
+.beneficios-grid {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "benef1 benef2 benef3"
+        ". benef4 benef5";
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.beneficios-grid .gong-beneficio:nth-child(1) { grid-area: benef1; }
+.beneficios-grid .gong-beneficio:nth-child(2) { grid-area: benef2; }
+.beneficios-grid .gong-beneficio:nth-child(3) { grid-area: benef3; }
+.beneficios-grid .gong-beneficio:nth-child(4) { grid-area: benef4; justify-self: end; }
+.beneficios-grid .gong-beneficio:nth-child(5) { grid-area: benef5; justify-self: start; }
+
+.sesiones-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     width: 100%;
     max-width: 1200px;
-    margin: 2rem 0;
-}
-
-.sesion-card {
-    background: var(--background);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-img);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(97, 37, 62, 0.1);
-}
-
-.sesion-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), rgba(97, 37, 62, 0.6));
-}
-
-.sesion-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(97, 37, 62, 0.15);
-    border-color: var(--primary);
-}
-
-.sesion-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.sesion-icon {
-    display: flex;
-    align-items: center;
+    margin: 0 auto 2rem auto;
     justify-content: center;
-    width: 80px;
-    height: 80px;
-    background: var(--primary);
-    border-radius: 50%;
-    color: var(--background);
-    flex-shrink: 0;
 }
 
-.sesion-icon svg {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.5s ease-out;
-}
+/* ---------- MEDIA QUERIES ---------- */
 
-.sesion-icon.animate-in svg {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.sesion-tipo {
-    color: var(--primary);
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin: 0;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.6s ease-out 0.2s;
-}
-
-.sesion-tipo.animate-in {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.sesion-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.sesion-descripcion {
-    color: var(--primary);
-    line-height: 1.6;
-    font-size: 1.1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
-}
-
-.sesion-descripcion.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.sesion-detalles {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
-}
-
-.sesion-detalles.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.detalle-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    background: rgba(97, 37, 62, 0.05);
-    border-radius: 8px;
-    border: 1px solid rgba(97, 37, 62, 0.1);
-}
-
-.detalle-label {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.detalle-valor {
-    color: var(--primary);
-    font-weight: 500;
-}
-
-.sesion-btn {
-    background: var(--primary);
-    color: var(--background);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    font-family: inherit;
-    letter-spacing: 1.5px;
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-    transition: all 0.6s ease-out 0.2s;
-}
-
-.sesion-btn.animate-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.sesion-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(97, 37, 62, 0.3);
-    background: rgba(97, 37, 62, 0.9);
-}
-
-.sesion-btn:active {
-    transform: translateY(0);
-}
-
-.sesiones-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    margin: 0;
-}
-
-.sesion-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50px;
-    background-color: rgba(97, 37, 62, 0.3);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: scale(1);
-}
-
-.sesion-dot.active {
-    width: 16px;
-    background-color: var(--primary);
-    transform: scale(1.2);
-}
-
-.sesion-dot:hover {
-    transform: scale(1.3);
-    background-color: rgba(97, 37, 62, 0.6);
-}
-
-.sesiones-info {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.info-texto {
-    color: var(--primary);
-    font-size: 1rem;
-    font-style: italic;
-    opacity: 0.8;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-
-.sider-controls-desk{
-    display: none;
-}
-
-/* Clases responsive */
-.desktop-only {
-    display: none;
-}
-
-.mobile-only {
-    display: block;
-}
-
-/* Ocultar controles externos en mobile */
-.mobile-only .slider-controls-desk {
-    display: none !important;
-}
-
-/* Asegurar que los controles mobile sean visibles en mobile */
-.mobile-only .slider-controls {
-    display: flex !important;
-}
-
-/* Responsive para el título */
-@media (max-width: 768px) {
-    .gong-hero-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .gong-hero-title {
-        font-size: 2rem;
-        padding: 0 1rem;
-    }
-}
-
-/* Responsive */
 @media (min-width: 768px) {
-    .sesiones-slider-container {
-        gap: 3rem;
+    /* Mostrar grids en desktop */
+    .beneficios-grid {
+        display: grid;
     }
     
-    .sesion-card {
-        padding: 2.5rem;
+    .sesiones-grid {
+        display: grid;
     }
     
-    .sesion-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .sesion-detalles {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    
-    .detalle-item {
-        flex: 1;
-        min-width: 150px;
-    }
-}
-
-/* Efecto de empuje entre secciones con scroll */
-.scroll-section {
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease-out;
-    will-change: opacity, transform;
-}
-
-.scroll-section:nth-child(1) { z-index: 3; }
-.scroll-section:nth-child(2) { z-index: 2; }
-.scroll-section:nth-child(3) { z-index: 1; }
-
-/* Asegurar que las secciones tengan suficiente altura para el efecto */
-.section-img {
-    min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
-}
-
-.gong-beneficios {
-    min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
-}
-
-.gong-sesiones {
-    min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
-}
-
-/* Animaciones de secciones */
-.animate-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-
-.animate-section.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.animate-child {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.animate-child.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Retrasos progresivos para elementos hijos */
-.animate-child:nth-child(1) { transition-delay: 0.1s; }
-.animate-child:nth-child(2) { transition-delay: 0.2s; }
-.animate-child:nth-child(3) { transition-delay: 0.3s; }
-.animate-child:nth-child(4) { transition-delay: 0.4s; }
-.animate-child:nth-child(5) { transition-delay: 0.5s; }
-.animate-child:nth-child(6) { transition-delay: 0.6s; }
-
-/* Footer desktop */
-.gong-footer {
-    width: 100%;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, var(--primary) 0%, rgba(97, 37, 62, 0.8) 100%);
-    color: var(--background);
-    text-align: center;
-    margin-top: 4rem;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.footer-text {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
-    opacity: 0.9;
-}
-
-.footer-subtext {
-    font-size: 0.9rem;
-    font-style: italic;
-    margin: 0;
-    opacity: 0.7;
-}
-
-@media (min-width: 1024px) {
-    /* Portada desktop - imagen a pantalla completa */
-    .section-img {
-        width: 100vw;
-        min-height: 100dvh;
-        overflow: hidden;
-    }
-    
-    .gong-hero-container {
-        width: 100vw;
-        min-height: 100dvh;
-    
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-    
-    /* Forzar posición de imagen desktop */
-@media (min-width: 1024px) {
-    section.section-img div.desktop-only div.gong-hero-container img.desktop-gong-img {
-        object-position: 0% center !important;
-    }
-}
-
-.desktop-gong-img {
-       width: 100%;
-       height: 100%;
-       filter: brightness(0.6);
-        object-fit: cover;
-        object-position: 0% center !important;
-        border-radius: 0;
-
-    }
-    
-    .image-gong {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    .sesion-slider-btn {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .sesion-tipo {
-        font-size: 2.2rem;
-    }
-    
-    .sesion-descripcion {
-        font-size: 1.2rem;
-    }
-
-    /* Estilos desktop para Gong */
-    .gong-titulo {
-        font-size: 4rem;
-        line-height: 1.1;
-    }
-
-    .gong-section {
-        min-height: 100dvh;
-        padding: 2rem 4rem;
-    }
-
-
-    .gong-texto{
-        font-size: 0.8rem !important;
-    }
-
-    .gong-content-wrapper {
-        display: flex;
-        gap: 4rem;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .gong-text-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        text-align: left;
-    }
-
-    .gong-image-content {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .gong-imagen {
-        width: 70%;
-      
-        height: auto;
-        border-radius: 4px;
-    }
-
-    .gong-texto {
-        font-size: 1.2rem;
-        line-height: 1.8;
-      
-    }
-
-    .gong-beneficios {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-    }
-
-    .gong-titulo,.gong-texto{
-        text-align: center;
-    }
-
-    .gong-titulo{
-        font-size: 6vw !important;
-    }
-
-    .gong-texto-container{
-        align-items: center;
-    }
-
-    /* Estructura desktop para beneficios - contenedor de cards */
-    .beneficios-container {
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .desktop-only .beneficios-texto-container {
-        flex: 0 0 35%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: start;
-        max-width: 350px;
-        
-    }
-
-    /* Mostrar los nuevos contenedores de símbolos en desktop */
-    .simbolo-container-top,
-    .simbolo-container-bottom,
-    .simbolo-container-title {
-        display: flex !important;
-    }
-
-    .simbolo-title {
-        width: 30px;
-        height: 30px;
-        object-fit: contain;
-    }
-
-    .desktop-only .beneficios-slider-container {
-        flex: 0 0 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-  
-
-    .slider-dots{
+    /* Ocultar sliders en desktop */
+    .beneficios-header,
+    .beneficios-dots,
+    .sesiones-viewport,
+    .sesiones-controls {
         display: none;
     }
     
-
-  
-
-    .general-container{
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-        align-items: flex-start;
+    /* Ajustes adicionales para desktop */
+    .gong-introduccion {
+        height: 100vh;
     }
     
-    .beneficio-item {
-        padding: 1rem;
-        border-radius: 8px;
-      
-        border: 1px solid rgba(97, 37, 62, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
+    .gong-titulo {
+        font-size: 3.5rem;
     }
-
-    .beneficio-item:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(97, 37, 62, 0.3);
+    
+    .gong-subtitulo {
+        font-size: 1.2rem;
     }
-
-  
-    /* Clases responsive para desktop */
-    .desktop-only {
-        display: block !important;
+    
+    .gong-descripcion {
+        padding: 3rem;
     }
-
-    .mobile-only {
-        display: none !important;
+    
+    .gong-titulo-desc {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .gong-txt {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto 1rem auto;
+        line-height: 1.7;
     }
     
     .gong-sesiones {
+        padding: 3rem 2rem;
     }
     
-    /* Estilos desktop para sesiones - 3 cards en flex */
-    .desktop-only .sesiones-slider {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 2rem !important;
-        justify-content: center !important;
-        align-items: stretch !important;
-        max-width: none !important;
-        overflow: visible !important;
+    .gong-titulo-sesiones {
+        font-size: 2rem;
+        margin-bottom: 3rem;
     }
-    
-    .desktop-only .sesion-slide {
-        flex: 1 !important;
-        max-width: 350px !important;
-    }
-    
-    .desktop-only .sesion-card {
-        height: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 1.5rem !important;
-        gap: 1rem !important;
-    }
-    
-    .desktop-only .sesion-content {
-        flex: 1 !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    
-    .desktop-only .sesion-descripcion {
-        font-size: 0.95rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-    
-    .desktop-only .sesion-detalles {
-        gap: 0.5rem !important;
-        margin-bottom: auto !important;
-    }
-    
-    .desktop-only .sesion-btn {
-        padding: 0.8rem 1.5rem !important;
-        font-size: 0.9rem !important;
-        margin-top: auto !important;
-    }
-    
-    /* Reducir tipografías en desktop */
-    .desktop-only .sesion-tipo {
-        font-size: 1.4rem !important;
-    }
-    
-    .desktop-only .sesion-descripcion {
-        font-size: 0.95rem !important;
-    }
-    
-    .desktop-only .sesion-detalles {
-        gap: 0.5rem !important;
-    }
-    
-    .desktop-only .detalle-item {
-        padding: 0.5rem 0.8rem !important;
-        font-size: 0.9rem !important;
-    }
-    
-    .desktop-only .sesion-btn {
-        padding: 0.8rem 1.5rem !important;
-        font-size: 0.9rem !important;
-        margin-top: auto !important;
-        margin-bottom: 0 !important;
-    }
-    
-    .desktop-only .sesion-icon {
-        width: 60px !important;
-        height: 60px !important;
+
+    .sesiones-controls{
+        display: none;
     }
 }
+
+@media (min-width: 1024px) {
+    .gong-titulo {
+        font-size: 4rem;
+    }
+    
+    .gong-subtitulo {
+        font-size: 1.3rem;
+    }
+    
+    .beneficios-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1000px;
+    }
+    
+    .sesiones-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Asegurar que solo se vean los sliders en móvil */
+    .beneficios-grid,
+    .sesiones-grid {
+        display: none;
+    }
+    
+    
+}
+

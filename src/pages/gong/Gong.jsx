@@ -1,392 +1,344 @@
+import { useState, useRef } from 'react';
+import {
+    Brain,
+    Zap,
+    Waves,
+    Heart,
+    Sparkles,
+    ChevronLeft,
+    ChevronRight,
+    Users
+} from 'lucide-react';
 
-
-
-import { useState, useEffect } from 'react';
-import { Brain, Zap, Waves, Heart, Sparkles, ChevronLeft, ChevronRight, Users } from 'lucide-react';
-import './gong.css'
-import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
-import SesionGong from '../../components/sesiones-gong/SesionGong';
-import { CardBeneficios } from '../../components/cards/Cards';
+import './gong.css';
 import { Footer } from '../../components/footer/Footer';
+import { GongCard } from '../../components/gongcard/GongCard';
 
 const Gong = () => {
-   
-    const [sesionIndex, setSesionIndex] = useState(0);
-    const [textAnimationStep, setTextAnimationStep] = useState(0);
     const [beneficioIndex, setBeneficioIndex] = useState(0);
-    const [isBeneficioAnimating, setIsBeneficioAnimating] = useState(false);
-    const [isSesionAnimating, setIsSesionAnimating] = useState(false);
-    // Initialize animation on component mount
-    useEffect(() => {
-        setTimeout(() => {
-            setTextAnimationStep(1);
-            setTimeout(() => {
-                setTextAnimationStep(2);
-                setTimeout(() => {
-                    setTextAnimationStep(3);
-                }, 200);
-            }, 200);
-        }, 500);
-    }, []);
+    const [sesionIndex, setSesionIndex] = useState(0);
 
-    // Intersection Observer para animaciones de secciones
-    useEffect(() => {
-        const observerOptions = {
-            threshold: [0, 0.1, 0.5, 1],
-            rootMargin: '0px 0px -100px 0px'
-        };
 
-        const handleScroll = () => {
-            const scrolled = window.scrollY;
-            const sections = document.querySelectorAll('.scroll-section');
-            
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                // Calcular qué tan centrada está la sección en la vista
-                const sectionCenter = rect.top + rect.height / 2;
-                const viewportCenter = windowHeight / 2;
-                const distance = Math.abs(sectionCenter - viewportCenter);
-                const maxDistance = windowHeight / 2 + rect.height / 2;
-                
-                // Progreso basado en qué tan lejos está del centro
-                const progress = Math.max(0, Math.min(1, distance / maxDistance));
-                
-                // La sección actual está al 100% cuando está centrada
-                if (distance < windowHeight / 3) {
-                    // Sección activa: opacidad completa
-                    section.style.opacity = 1;
-                    section.style.transform = 'translateY(0) scale(1)';
-                } else {
-                    // Sección inactiva: menos opacidad según la distancia
-                    section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
-                    section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    
-                    // Animar elementos hijos uno a uno
-                    const children = entry.target.querySelectorAll('.animate-child');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.classList.add('animate-in');
-                        }, index * 200);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observar secciones
-        const sections = document.querySelectorAll('.animate-section');
-        sections.forEach(section => observer.observe(section));
-
-        // Añadir listener de scroll
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Ejecutar una vez al inicio
-
-        return () => {
-            observer.disconnect();
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const touchStartX = useRef(null);
+    const touchEndX = useRef(null);
 
     const beneficios = [
         {
-            icon: <Heart className="beneficio-icon-svg" strokeWidth={1} />,
-            texto: "Reduce el estrés y la ansiedad"
+            icon: <Heart strokeWidth={1} />,
+            texto: 'Reduce el estrés y la ansiedad'
         },
         {
-            icon: <Waves className="beneficio-icon-svg" strokeWidth={1} />,
-            texto: "Mejora la calidad del sueño"
+            icon: <Waves strokeWidth={1} />,
+            texto: 'Mejora la calidad del sueño'
         },
         {
-            icon: <Sparkles className="beneficio-icon-svg" strokeWidth={1} />,
-            texto: "Libera tensiones físicas"
+            icon: <Sparkles strokeWidth={1} />,
+            texto: 'Libera tensiones físicas'
         },
         {
-            icon: <Brain className="beneficio-icon-svg" strokeWidth={1} />,
-            texto: "Aumenta la claridad mental"
+            icon: <Brain strokeWidth={1} />,
+            texto: 'Aumenta la claridad mental'
         },
         {
-            icon: <Zap className="beneficio-icon-svg" strokeWidth={1} />,
-            texto: "Energiza el cuerpo y la mente"
+            icon: <Zap strokeWidth={1} />,
+            texto: 'Energiza el cuerpo y la mente'
         }
     ];
 
 
-
-  
     const sesiones = [
         {
-            icon: <Heart strokeWidth={1} size={40} />,
-            tipo: "SESIÓN INDIVIDUAL",
-            descripcion: "Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti.",
-            duracion: "120 minutos",
-            inversion: "60€",
-            modalidad: "Presencial"
+            nombre: 'Sesión individual',
+            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            texto: 'Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti',
+            duracion: '120 minutos',
+            precio: '60€'
         },
         {
-            icon: <Sparkles strokeWidth={1} size={40} />,
-            tipo: "SESIÓN EN PAREJA",
-            descripcion: "Comparte una experiencia de conexión profunda con otra persona, de una manera más privada.",
-            duracion: "120 minutos",
-            inversion: "80€",
-            modalidad: "Presencial"
+            nombre: 'Sesión en pareja',
+            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            texto: 'Comparte una experiencia de conexión profunda con otra persona, de una manera más privada.',
+            duracion: '120 minutos',
+            precio: '80€'
         },
-        {
-            icon: <Users strokeWidth={1} size={40} />,
-            tipo: "SESIÓN EN GRUPO",
-            descripcion: "Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.",
-            duracion: "120 minutos",
-            inversion: "25€/pers. (mín 5 pers)",
-            modalidad: "Cada dos meses"
+           {
+            nombre: 'Sesión en grupo',
+            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            texto: 'Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.',
+            duracion: '120 minutos',
+            precio: '25€/per (min. 5 pers)'
         }
-    ];
+    ]
 
-
-
-
-
-    // Funciones para slider de beneficios (mobile)
     const nextBeneficio = () => {
-        setIsBeneficioAnimating(true);
-        setTimeout(() => {
-            setBeneficioIndex((prevIndex) => (prevIndex + 1) % beneficios.length);
-            setIsBeneficioAnimating(false);
-        }, 150);
+        setBeneficioIndex((prev) => (prev + 1) % beneficios.length);
     };
 
-
+    const prevBeneficio = () => {
+        setBeneficioIndex(
+            (prev) => (prev - 1 + beneficios.length) % beneficios.length
+        );
+    };
 
     const goToBeneficio = (index) => {
-        if (index !== beneficioIndex) {
-            setIsBeneficioAnimating(true);
-            setTimeout(() => {
-                setBeneficioIndex(index);
-                setIsBeneficioAnimating(false);
-            }, 150);
-        }
+        setBeneficioIndex(index);
     };
 
-    // Funciones para el slider de sesiones
+    /* --- Swipe handlers --- */
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchEndX.current = null;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX.current === null || touchEndX.current === null) return;
+
+        const distance = touchStartX.current - touchEndX.current;
+
+        if (distance > 50) nextBeneficio();
+        if (distance < -50) prevBeneficio();
+
+        touchStartX.current = null;
+        touchEndX.current = null;
+    };
+
+
     const nextSesion = () => {
-        setIsSesionAnimating(true);
-        setTextAnimationStep(0);
-        setTimeout(() => {
-            setSesionIndex((prevIndex) => (prevIndex + 1) % sesiones.length);
-            setTimeout(() => {
-                setTextAnimationStep(1);
-                setTimeout(() => {
-                    setTextAnimationStep(2);
-                    setTimeout(() => {
-                        setTextAnimationStep(3);
-                        setIsSesionAnimating(false);
-                    }, 200);
-                }, 200);
-            }, 200);
-        }, 150);
+        setSesionIndex((prev) => (prev + 1) % sesiones.length);
     };
 
     const prevSesion = () => {
-        setIsSesionAnimating(true);
-        setTextAnimationStep(0);
-        setTimeout(() => {
-            setSesionIndex((prevIndex) => (prevIndex - 1 + sesiones.length) % sesiones.length);
-            setTimeout(() => {
-                setTextAnimationStep(1);
-                setTimeout(() => {
-                    setTextAnimationStep(2);
-                    setTimeout(() => {
-                        setTextAnimationStep(3);
-                        setIsSesionAnimating(false);
-                    }, 200);
-                }, 200);
-            }, 200);
-        }, 150);
+        setSesionIndex((prev) => (prev - 1 + sesiones.length) % sesiones.length);
     };
 
     const goToSesion = (index) => {
-        if (index !== sesionIndex) {
-            setIsSesionAnimating(true);
-            setTextAnimationStep(0);
-            setTimeout(() => {
-                setSesionIndex(index);
-                setTimeout(() => {
-                    setTextAnimationStep(1);
-                    setTimeout(() => {
-                        setTextAnimationStep(2);
-                        setTimeout(() => {
-                            setTextAnimationStep(3);
-                            setIsSesionAnimating(false);
-                        }, 200);
-                    }, 200);
-                }, 200);
-            }, 150);
-        }
+        setSesionIndex(index);
+    };
+
+
+    const handleSesionTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchEndX.current = null;
+    };
+
+    const handleSesionTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleSesionTouchEnd = () => {
+        if (touchStartX.current === null || touchEndX.current === null)
+            return;
+
+        const distance = touchStartX.current - touchEndX.current;
+
+        if (distance > 50) nextSesion();
+        if (distance < -50) prevSesion();
+
+        touchStartX.current = null;
+        touchEndX.current = null;
     };
 
 
     return (
         <>
-            <section className="section-img scroll-section">
-                <div className="desktop-only">
-                    <img
-                        src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
-                        alt="gong"
-                        className="desktop-gong-img"
-                        loading="lazy"
+            {/* HERO */}
+            <section className="gong-introduccion">
+                <picture className="gong-wrapper">
+                    <source
+                        srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
+                        media="(min-width: 768px)"
+                        type="image/webp"
                     />
-                </div>
-
-                <div className="mobile-only">
                     <img
                         src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png"
-                        alt="gong"
-                        className="image-gong"
-                        loading="lazy"
+                        alt="portada"
+                        className="gong-imagen"
                     />
-                </div>
+                </picture>
 
-                <div className="gong-hero-overlay">
-                    <h1 className="gong-hero-title">Baños <br /> de gong</h1>
-                    <h6 className="gong-subtitulo">
+                <div className="gong-texto">
+                    <h1 className="gong-titulo">Baños de Gong</h1>
+                    <p className="gong-subtitulo">
                         Un viaje de frecuencias y vibraciones
-                    </h6>
+                    </p>
                 </div>
             </section>
-         
 
-
-
-
-
-
-
-            <section className="gong-beneficios animate-section scroll-section">
-
-                <div className="gong-texto-container animate-child">
-
-                    <div className="desktop-only simbolo-container-title">
-                        <img src="/img/capa.png" alt="simbolo" className="simbolo-title" loading="lazy" />
-                    </div>
-
-                    <h1 className='gong-titulo'>Habitar <br />en el sonido.</h1>
-
-                    <div className="gong-txt">
-
-                        <div className="gong-txt">
-                            <p className="gong-texto">Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido.  </p>
-
-                            <p className="gong-texto">Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma.</p>
-                            <p className="gong-texto">Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser.</p>
-                        </div>
-                    </div>
+            {/* DESCRIPCIÓN */}
+            <section className="gong-descripcion">
+                <div className="svg-container">
+                    <img src="/img/capa.png" alt="" className="svg-img" />
                 </div>
 
-                {/* Versión desktop - grid de beneficios */}
-                <div className="beneficios-container animate-child">
-                    <div className="beneficios-grid-completo">
+                <h2 className="gong-titulo-desc">Habitar en el sonido</h2>
+
+                <p className="gong-txt">
+                    Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la
+                    mente, creando una sensación de paz que se expande con cada sonido.
+                </p>
+                <p className="gong-txt">
+                    Entre resonancias y silencios, la energía se armoniza, invitando a
+                    soltar tensiones y abrir espacio para la calma.
+                </p>
+                <p className="gong-txt">
+                    Es una experiencia de renovación suave y profunda, un retorno al
+                    equilibrio natural de tu Ser.
+                </p>
+                <div className="beneficios-container">
+                    {/* DESKTOP: Grid de beneficios */}
+                    <div className="beneficios-grid">
                         {beneficios.map((beneficio, index) => (
-                            <div key={index} className="beneficio-item animate-child">
+                            <div className="gong-beneficio" key={index}>
                                 <div className="beneficio-icon">{beneficio.icon}</div>
-                                <div className="beneficio-texto">{beneficio.texto}</div>
+                                <p className="beneficio-texto">{beneficio.texto}</p>
                             </div>
                         ))}
                     </div>
-                </div>
 
-                {/* Versión mobile - slider de beneficios */}
-                <div className="beneficios-mobile-container">
-                    <CardBeneficios
-                        icon={beneficios[beneficioIndex].icon}
-                        title="Beneficio"
-                        description={beneficios[beneficioIndex].texto}
-                        totalSteps={beneficios.length}
-                        currentStep={beneficioIndex}
-                        isAnimating={isBeneficioAnimating}
-                        onStepClick={goToBeneficio}
-                        onNextClick={nextBeneficio}
-                    />
-                </div>
+                    {/* MÓVIL: Slider de beneficios */}
+                    <div className="beneficios-header">
+                        <button
+                            className="beneficios-arrow"
+                            onClick={prevBeneficio}
+                            aria-label="Anterior"
+                        >
+                            <ChevronLeft />
+                        </button>
 
-                <div className="simbolo-container">
-                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
-                </div>
-
-            </section>
-
-
-            <section className="gong-sesiones animate-section scroll-section">
-                <h1 className='gong-titulo animate-child'>Sesiones <br /> de conexión </h1>
-
-                {/* Versión móvil - slider individual */}
-                <div className="mobile-only animate-child">
-                    <div className="sesiones-slider-container">
-                        <div className="sesiones-slider">
-                            <div className="sesion-slide">
-                                <SesionGong
-                                    sesion={sesiones[sesionIndex]}
-                                    isAnimated={true}
-                                    animationStep={textAnimationStep}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="sesiones-controls">
-                            <button className="sesion-slider-btn prev-btn" onClick={prevSesion} translate="no">
-                                <span translate="no">ANT.</span>
-                            </button>
-
-                            <div className="sesiones-dots">
-                                {sesiones.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        className={`sesion-dot ${index === sesionIndex ? 'active' : ''}`}
-                                        onClick={() => goToSesion(index)}
-                                    />
+                        <div
+                            className="beneficios-viewport"
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                        >
+                            <div
+                                className="beneficios-track"
+                                style={{
+                                    transform: `translate3d(-${beneficioIndex * 100}%,0,0)`
+                                }}
+                            >
+                                {beneficios.map((beneficio, index) => (
+                                    <div className="beneficios-slide" key={index}>
+                                        <div className="gong-beneficio">
+                                            <div className="beneficio-icon">{beneficio.icon}</div>
+                                            <p className="beneficio-texto">{beneficio.texto}</p>
+                                        </div>
+                                    </div>
                                 ))}
                             </div>
-
-                            <button className="sesion-slider-btn next-btn" onClick={nextSesion} translate="no">
-                                SIG.
-                            </button>
                         </div>
+
+                        <button
+                            className="beneficios-arrow"
+                            onClick={nextBeneficio}
+                            aria-label="Siguiente"
+                        >
+                            <ChevronRight />
+                        </button>
+                    </div>
+
+                    <div className="beneficios-dots">
+                        {beneficios.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`dot ${index === beneficioIndex ? 'active' : ''
+                                    }`}
+                                onClick={() => goToBeneficio(index)}
+                            />
+                        ))}
                     </div>
                 </div>
-
-                {/* Versión desktop - 3 cards juntas en flex */}
-                <div className="desktop-only animate-child">
-                    <div className="sesiones-slider-container">
-                        <div className="sesiones-slider">
-                            {sesiones.map((sesion, index) => (
-                                <div key={index} className="sesion-slide animate-child">
-                                    <SesionGong
-                                        sesion={sesion}
-                                        isAnimated={true}
-                                        animationStep={3}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="simbolo-container">
-                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
+                <div className="svg-container">
+                    <img src="/img/capa.png" alt="" className="svg-img" />
                 </div>
             </section>
 
-            {/* Footer solo visible en desktop */}
+            {/* BENEFICIOS SLIDER */}
+           <section className="gong-sesiones">
+  <h2 className="gong-titulo-sesiones">Sesiones de conexión</h2>
+
+  {/* DESKTOP: Grid de sesiones */}
+  <div className="sesiones-grid">
+    {sesiones.map((sesion, index) => (
+      <GongCard
+        key={index}
+        nombre={sesion.nombre}
+        icono={sesion.icono}
+        texto={sesion.texto}
+        duracion={sesion.duracion}
+        precio={sesion.precio}
+      />
+    ))}
+  </div>
+
+  {/* MÓVIL: Slider de sesiones */}
+  <div
+    className="sesiones-viewport"
+    onTouchStart={handleSesionTouchStart}
+    onTouchMove={handleSesionTouchMove}
+    onTouchEnd={handleSesionTouchEnd}
+  >
+    <div
+      className="sesiones-track"
+      style={{
+        transform: `translate3d(-${sesionIndex * 100}%, 0, 0)`
+      }}
+    >
+      {sesiones.map((sesion, index) => (
+        <div className="sesiones-slide" key={index}>
+          <GongCard
+            nombre={sesion.nombre}
+            icono={sesion.icono}
+            texto={sesion.texto}
+            duracion={sesion.duracion}
+            precio={sesion.precio}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* CONTROLES MÓVIL */}
+  <div className="sesiones-controls">
+    <button
+      className="sesiones-arrow"
+      onClick={prevSesion}
+      aria-label="Anterior"
+    >
+      <ChevronLeft />
+    </button>
+
+    <div className="sesiones-dots">
+      {sesiones.map((_, index) => (
+        <button
+          key={index}
+          className={`dot ${index === sesionIndex ? 'active' : ''}`}
+          onClick={() => goToSesion(index)}
+        />
+      ))}
+    </div>
+
+    <button
+      className="sesiones-arrow"
+      onClick={nextSesion}
+      aria-label="Siguiente"
+    >
+      <ChevronRight />
+    </button>
+  </div>
+</section>
+
+
+
             <div className="desktop-only">
                 <Footer />
             </div>
         </>
     );
-}
+};
 
 export default Gong;

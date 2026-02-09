@@ -19,17 +19,15 @@
 /* Asegurar que las secciones tengan suficiente altura para el efecto */
 .hero-section {
     min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
+   
 }
 
 .timeline-section {
     min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
 }
 
 .final-section {
     min-height: 100dvh;
-    padding-top: 80px; /* Compensar header fijo */
 }
 
 /* Animaciones de secciones */

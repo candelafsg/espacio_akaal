@@ -11,7 +11,7 @@
 .header-mobile {
     width: 100%;
     padding: 2rem 1rem;
-   position: sticky;
+   position: fixed;
    top: 1rem;
    background: transparent;
    z-index: 999;
@@ -90,7 +90,7 @@
 .menu-cerrar {
     display: flex;
     justify-content: end;
-    padding: 1rem;
+    padding: 2rem 1rem;
     cursor: pointer;
     color: var(--background);
     font-weight: 600;
@@ -159,6 +159,7 @@
     padding: 1.5rem;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 /* Iconos de redes sociales */
@@ -459,7 +460,6 @@
         padding: 0.3rem;
         gap: 7rem;
         background: none;
-        position: static;
         width: auto;
     }
 

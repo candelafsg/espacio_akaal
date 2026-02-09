@@ -103,10 +103,7 @@ h1, h2, h3, h4, h5, h6 , body{
     font-weight: 600;
 }
 
-section :is(h1, h2, h3, h4)[class*="titulo"],
-section :is(h1, h2, h3, h4)[class*="title"] {
-    font-size: 3rem !important;
-}
+
 
 
 html, body{
@@ -115,12 +112,7 @@ html, body{
     overflow-x: hidden;
 }
 
-@media (min-width: 1024px) {
-    section :is(h1, h2, h3, h4)[class*="titulo"],
-    section :is(h1, h2, h3, h4)[class*="title"] {
-        font-size: 4rem !important;
-    }
-}
+
 
 body{
     display: flex;
