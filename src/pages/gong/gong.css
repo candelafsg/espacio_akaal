@@ -91,6 +91,7 @@
   border: none;
   cursor: pointer;
   display: flex;
+  color: var(--primary);
 }
 
 .beneficios-viewport {
@@ -178,6 +179,7 @@
   border: none;
   cursor: pointer;
   display: flex;
+  color: var(--primary);
 }
 
 .sesiones-viewport {
@@ -228,6 +230,12 @@
     max-width: 1200px;
     margin: 0 auto 2rem auto;
     justify-content: center;
+}
+
+.sesiones-dots{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 /* ---------- MEDIA QUERIES ---------- */

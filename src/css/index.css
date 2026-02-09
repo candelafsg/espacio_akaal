@@ -52,7 +52,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Yaldevi', 'poppins', serif !important;
+    font-family: 'Yaldevi', 'Times New Roman', serif !important;
     letter-spacing: 1.5px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -161,8 +161,6 @@ strong{
 section{
     overflow-x: hidden;
     min-height: 100dvh;
-    position: relative;
-    z-index: 1; /* Asegurar que el contenido pase detrás del header */
 }
 
 /* Ocultar scrollbars no deseadas globalmente */
