@@ -94,14 +94,14 @@
 
 /* Overlay elegante */
 .overlay-elegante {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(18px) saturate(120%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(18px);
+ 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,12 +112,12 @@
 
 .overlay-close {
   position: absolute;
-  top: 5rem;
+  top: 6rem;
   right: 2rem;
   width: 40px;
   height: 40px;
   border: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.3);
   color: white;
   cursor: pointer;
   border-radius: 50%;
@@ -125,7 +125,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  z-index: 10001;
+  z-index: 1;
   opacity: 0.85;
 }
 
@@ -171,10 +171,10 @@
 
 .overlay-img-elegante {
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 70vh;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+ 
   /* Mejorar calidad de renderizado para fotografías */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: auto;
@@ -185,7 +185,7 @@
   backface-visibility: hidden;
   perspective: 1000px;
   /* Mejorar nitidez */
-  filter: contrast(1.05) brightness(1.02);
+  
 }
 
 /* Desktop: botones de flecha */
@@ -315,6 +315,62 @@
 
 
 
+/* ========================================
+   FLECHAS LATERALES PARA MOBILE
+   ======================================== */
+
+.gallery-arrow {
+  position: absolute;
+  bottom: 40%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+border: none;  
+cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0.9;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+
+
+
+
+
+.gallery-arrow-prev {
+  left: 1rem;
+}
+
+.gallery-arrow-next {
+  right: 1rem;
+}
+
+/* Ocultar flechas en desktop */
+@media (min-width: 768px) {
+  .gallery-arrow {
+    display: none;
+  }
+}
+
+/* Mejorar posicionamiento en mobile */
+@media (max-width: 767px) {
+  .gallery-arrow-prev {
+    left: 0.5rem;
+  }
+  
+  .gallery-arrow-next {
+    right: 0.5rem;
+  }
+}
+
 .gallery-btn{
     display: flex;
     padding: 0.5rem;
@@ -326,6 +382,9 @@
 .gallery-dots {
     display: flex;
     gap: 0.3rem;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .gallery-dot {

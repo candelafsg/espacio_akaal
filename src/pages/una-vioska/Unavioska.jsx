@@ -20,7 +20,7 @@ import {
     X
 } from "lucide-react";
 import ResumenPedido from './ResumenPedido';
-import Masonry from '../../components/masonry/Masonry';
+
 
 // 📝 Lista de pasos de instrucciones
 const pasosInstrucciones = [

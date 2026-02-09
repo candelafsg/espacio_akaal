@@ -157,7 +157,7 @@ const AkaalViajes = () => {
               <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
                 RESERVA TU PLAZA
               </WhatsAppLink>
-               <Button variant='secondary' style={{color: 'var(--background)'}}>VER ITINERARIO</Button>
+               {/* <Button variant='secondary' style={{color: 'var(--background)'}}>VER ITINERARIO</Button> */}
             </div>
           </div>
         </div>
@@ -229,9 +229,9 @@ const AkaalViajes = () => {
 
           {/* Navegación del slider en desktop */}
           <div className="slider-navigation-desktop">
-            {/* Botón anterior */}
-            <Button 
-              variant="noOutlined" 
+            {/* Flecha anterior */}
+            <button
+              className={`cards-arrow cards-arrow-prev ${currentPage === 0 ? 'disabled' : ''}`}
               onClick={() => {
                 if (currentPage > 0) {
                   setCurrentPage(currentPage - 1);
@@ -240,10 +240,12 @@ const AkaalViajes = () => {
                 }
               }}
               disabled={currentPage === 0}
-              className={`viajes-cards-nav-button ${currentPage === 0 ? 'viajes-cards-nav-disabled' : ''}`}
+              aria-label="Anterior"
             >
-              <span translate="no">ANT.</span>
-            </Button>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
 
             {/* Dots indicadores */}
             <div className="slider-dots">
@@ -262,9 +264,9 @@ const AkaalViajes = () => {
               ))}
             </div>
 
-            {/* Botón siguiente */}
-            <Button 
-              variant="noOutlined" 
+            {/* Flecha siguiente */}
+            <button
+              className={`cards-arrow cards-arrow-next ${currentPage === totalPages - 1 ? 'disabled' : ''}`}
               onClick={() => {
                 if (currentPage < totalPages - 1) {
                   setCurrentPage(currentPage + 1);
@@ -273,10 +275,12 @@ const AkaalViajes = () => {
                 }
               }}
               disabled={currentPage === totalPages - 1}
-              className={`viajes-cards-nav-button ${currentPage === totalPages - 1 ? 'viajes-cards-nav-disabled' : ''}`}
+              aria-label="Siguiente"
             >
-              SIG.
-            </Button>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
         </div>
         

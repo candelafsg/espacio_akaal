@@ -219,6 +219,7 @@
   align-items: center;
   height: 100%;
   gap: 1rem;
+ 
 }
 
 .viajes-anteriores-decoracion-top,
@@ -484,6 +485,7 @@
 
 .viajes-intro-buttons {
   display: flex;
+  justify-content: center;
   gap: 1.4rem;
   width: 100%;
   margin-bottom: 2rem;
@@ -768,6 +770,7 @@
   .viajes-intro-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: start;
     width: 100% !important;
     align-items: flex-start;
     gap: 1rem;
@@ -835,9 +838,45 @@
   .slider-navigation-desktop{
     display: flex;
     gap: 3rem;
-    align-items: first baseline;
+    align-items: center;
   }
 
+  .cards-arrow {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: none;
+  
+
+    color: var(--primary);
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0.9;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+  }
+
+
+
+
+  .cards-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+
+
+  .cards-arrow:active:not(:disabled) {
+    transform: scale(0.95);
+  }
 }
 
 /* Tablet y Desktop styles */

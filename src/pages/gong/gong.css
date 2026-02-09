@@ -689,6 +689,7 @@
 }
 
 /* Animaciones de secciones */
+/*
 .animate-section {
     opacity: 0;
     transform: translateY(50px);
@@ -699,6 +700,7 @@
     opacity: 1;
     transform: translateY(0);
 }
+*/
 
 .animate-child {
     opacity: 0;
@@ -968,8 +970,7 @@
         display: none !important;
     }
     
-    .gong-sesiones {
-    }
+    /* .gong-sesiones - Estilos comentados temporalmente */
     
     /* Estilos desktop para sesiones - 3 cards en flex */
     .desktop-only .sesiones-slider {
