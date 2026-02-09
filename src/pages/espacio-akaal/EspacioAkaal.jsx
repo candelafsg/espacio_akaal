@@ -91,9 +91,14 @@ const EspacioAkaal = () => {
         
        
         
-        <p className="yoga-texto">
-          En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.
-        </p>
+       <p className="yoga-texto">
+            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. </p>
+             <p className="yoga-texto"> A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa.</p>
+             <p className="yoga-texto"> Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal.</p>
+              
+              
+              <p className="yoga-texto"> Ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente.</p>
+              <p className="yoga-texto"> Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.</p>
 
          <div className="yoga-decoracion-bottom">
           <img src="/img/capa.png" alt="Decoración" className="yoga-capa" />
@@ -108,8 +113,14 @@ const EspacioAkaal = () => {
           </div>
 
           <p className="akaal-horarios-texto-desktop">
-            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa. Es un yoga terapéutico, ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente. Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.
-          </p>
+            En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. </p>
+             <p className="akaal-horarios-texto-desktop"> A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa.</p>
+             <p className="akaal-horarios-texto-desktop"> Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal.</p>
+              
+              
+              <p className="akaal-horarios-texto-desktop"> Ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente.</p>
+              <p className="akaal-horarios-texto-desktop"> Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.</p>
+          
         </div>
 
        <div className="calendario-container">
