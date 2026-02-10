@@ -7,6 +7,7 @@ export const ViajesAnterioresGallery = () => {
   const [indiceActual, setIndiceActual] = useState(0)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
+  const [overlayOpen, setOverlayOpen] = useState(false) // Nuevo estado
   const galleryRef = useRef(null)
 
   const handleNext = () => {
@@ -23,15 +24,18 @@ export const ViajesAnterioresGallery = () => {
 
   // Funciones para manejo táctil
   const handleTouchStart = (e) => {
+    if (overlayOpen) return // No hacer touch si overlay está abierto
     setTouchEnd(0)
     setTouchStart(e.targetTouches[0].clientX)
   }
 
   const handleTouchMove = (e) => {
+    if (overlayOpen) return // No hacer touch si overlay está abierto
     setTouchEnd(e.targetTouches[0].clientX)
   }
 
   const handleTouchEnd = () => {
+    if (overlayOpen) return // No hacer touch si overlay está abierto
     if (!touchStart || !touchEnd) return
     
     const distance = touchStart - touchEnd
@@ -90,6 +94,7 @@ export const ViajesAnterioresGallery = () => {
           portada={ViajesAnteriores[indiceActual].portada}
           imagenes={ViajesAnteriores[indiceActual].imagenes}
           numberphotos={ViajesAnteriores[indiceActual].imagenes.length}
+          onOverlayChange={setOverlayOpen} // Nueva prop
         />
         
         {/* Flechas laterales */}

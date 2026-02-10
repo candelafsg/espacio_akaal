@@ -1,44 +1,31 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { OverlayModal } from './OverlayModal'
 import './viajesAnteriores.css'
 
 export const ViajesAnterioresContainer = ({
   numberphotos,
   portada,
   imagenes,
-  nombre
+  nombre,
+  onOverlayChange // Nueva prop
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const touchStartX = useRef(0)
-  const touchEndX = useRef(0)
-  const containerRef = useRef(null)
-
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const handleTouchMoveNonPassive = (e) => {
-      e.preventDefault()
-      touchEndX.current = e.touches[0].clientX
-    }
-
-    container.addEventListener('touchmove', handleTouchMoveNonPassive, { passive: false })
-
-    return () => {
-      container.removeEventListener('touchmove', handleTouchMoveNonPassive)
-    }
-  }, [])
+  const touchStartX = useRef(null)
+  const touchCurrentX = useRef(null)
 
   const openModal = () => {
     setCurrentIndex(0)
     setIsOpen(true)
+    if (onOverlayChange) onOverlayChange(true) // Notificar al gallery
   }
 
   const closeModal = () => {
     setIsOpen(false)
     setCurrentIndex(0)
+    if (onOverlayChange) onOverlayChange(false) // Notificar al gallery
   }
 
   const goNext = () => {
@@ -51,23 +38,36 @@ export const ViajesAnterioresContainer = ({
     setCurrentIndex((prev) => Math.max(prev - 1, 0))
   }
 
+  /* ---------- DRAG ---------- */
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX
+    touchCurrentX.current = null
   }
 
   const handleTouchMove = (e) => {
-    // Este handler ya no se usa, manejamos touchmove con event listener nativo
+    touchCurrentX.current = e.touches[0].clientX
   }
 
   const handleTouchEnd = () => {
-    const distance = touchStartX.current - touchEndX.current
+    if (
+      touchStartX.current === null ||
+      touchCurrentX.current === null
+    )
+      return
+
+    const distance =
+      touchStartX.current - touchCurrentX.current
+
     if (distance > 50) goNext()
     if (distance < -50) goPrev()
+
+    touchStartX.current = null
+    touchCurrentX.current = null
   }
 
   return (
     <>
-      {/* card preview */}
+      {/* CARD */}
       <div className="viaje-container" onClick={openModal}>
         <div className="viaje-portada">
           <img
@@ -76,6 +76,7 @@ export const ViajesAnterioresContainer = ({
             className="viaje-portada-img"
           />
         </div>
+
         <div className="viaje-footer">
           <h2 className="viaje-nombre">{nombre}</h2>
           <div className="viaje-icon-image">
@@ -84,69 +85,72 @@ export const ViajesAnterioresContainer = ({
         </div>
       </div>
 
-      {/* overlay */}
-      {isOpen && (
-        <div className="overlay-elegante" onClick={closeModal}>
-          <button
-            className="overlay-close"
-            onClick={(e) => { e.stopPropagation(); closeModal(); }}
+      {/* OVERLAY */}
+      <OverlayModal isOpen={isOpen} onClose={closeModal}>
+        {/* cerrar */}
+        <button
+          className="overlay-close"
+          onClick={closeModal}
+        >
+          <X size={22} strokeWidth={1.25} />
+        </button>
+
+        {/* slider */}
+        <div
+          className="overlay-scroll-container"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="overlay-scroll"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+              transition: 'transform 0.3s ease'
+            }}
           >
-            <X size={22} strokeWidth={1.25} />
-          </button>
-          
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <div 
-              className="overlay-scroll-container"
-              ref={containerRef}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div 
-                className="overlay-scroll"
-                style={{
-                  transform: `translateX(-${currentIndex * 100}%)`,
-                  transition: 'transform 0.3s ease'
-                }}
-              >
-                {imagenes.map((img, i) => (
-                  <div key={i} className="overlay-item">
-                    <img
-                      src={img}
-                      alt={`img-${i}`}
-                      className="overlay-img-elegante"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <button
-              className="overlay-arrow overlay-arrow-prev"
-              onClick={(e) => { e.stopPropagation(); goPrev(); }}
-              disabled={currentIndex === 0}
-            >
-              <ChevronLeft size={28} strokeWidth={1.25} />
-            </button>
-            <button
-              className="overlay-arrow overlay-arrow-next"
-              onClick={(e) => { e.stopPropagation(); goNext(); }}
-              disabled={currentIndex === imagenes.length - 1}
-            >
-              <ChevronRight size={28} strokeWidth={1.25} />
-            </button>
-            
-            <div className="overlay-indicators">
-              {imagenes.map((_, i) => (
-                <button
-                  key={i}
-                  className={`overlay-indicator ${i === currentIndex ? 'active' : ''}`}
-                  onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
+            {imagenes.map((img, i) => (
+              <div key={i} className="overlay-item">
+                <img
+                  src={img}
+                  alt={`img-${i}`}
+                  className="overlay-img-elegante"
                 />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
+
+        {/* flechas */}
+        <button
+          className="overlay-arrow overlay-arrow-prev"
+          onClick={goPrev}
+          disabled={currentIndex === 0}
+        >
+          <ChevronLeft size={28} strokeWidth={1.25} />
+        </button>
+
+        <button
+          className="overlay-arrow overlay-arrow-next"
+          onClick={goNext}
+          disabled={currentIndex === imagenes.length - 1}
+        >
+          <ChevronRight size={28} strokeWidth={1.25} />
+        </button>
+
+        {/* indicadores */}
+        <div className="overlay-indicators">
+          {imagenes.map((_, i) => (
+            <button
+              key={i}
+              className={`overlay-indicator ${
+                i === currentIndex ? 'active' : ''
+              }`}
+              onClick={() => setCurrentIndex(i)}
+            />
+          ))}
+        </div>
+      </OverlayModal>
     </>
   )
 }

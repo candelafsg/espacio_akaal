@@ -1,75 +1,23 @@
-/* Contenedor parallax con Framer Motion */
-.parallax-container {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-}
+/* ==========================================================================
+   ESTILOS PÁGINA DE INICIO - ESPACIO AKAAL
+   ========================================================================== */
 
-.parallax-layer {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  will-change: transform, opacity, scale;
-}
-
-.hero-layer {
-  z-index: 30;
-}
-
-.section-layer {
-  z-index: 20;
-  margin-top: -10vh;
-  padding-top: 10vh;
-}
-
-.final-layer {
-  z-index: 10;
-  margin-top: -10vh;
-  padding-top: 10vh;
-}
-
-/* Ajustes para las secciones con parallax */
-.section-inicio {
-  background: linear-gradient(to bottom, 
-    rgba(var(--background, 255,255,255), 0.95) 0%, 
-    var(--background) 100%
-  );
-  border-radius: 20px 20px 0 0;
-  padding: 2rem 1rem;
-}
-
-.section-final {
-  background: linear-gradient(to bottom, 
-    rgba(var(--background, 255,255,255), 0.95) 0%, 
-    var(--background) 100%
-  );
-  border-radius: 20px 20px 0 0;
-  padding: 2rem 1rem;
-}
-
-.inicio-imagen{
+/* ==========================================================================
+   COMPONENTE PRINCIPAL - IMAGEN DE INICIO
+   ========================================================================== */
+.inicio-imagen {
     width: 100%;
     height: 100%;
     object-fit: cover;
     padding: 0.3rem;
-    border-radius: var(--radius-img) ;
-   
+    border-radius: var(--radius-img);
     filter: brightness(0.7);
 }
 
-
-.section-inicio{
-    width: 100%;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.titulo-container-inicio{
+/* ==========================================================================
+   CONTENEDOR DEL TÍTULO PRINCIPAL
+   ========================================================================== */
+.titulo-container-inicio {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,7 +27,7 @@
     width: 80%;
 }
 
-.espacioAkaal{
+.espacioAkaal {
     color: var(--background);
     font-size: 3rem;
 }
@@ -91,103 +39,107 @@
     }
 }
 
-.titulo-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.titulo-linea-izquierda{
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--primary);
-    text-align: left;
-    width: 100%;
-    line-height: 0.9;
-        text-align: center;
-
-}
-
-.titulo-linea-derecha{
-    font-size: 3.5rem;
-    font-weight: 600;
-    color: var(--primary);
-    text-align: left;
-    width: 100%;
-        text-align: center;
-
-}
-
-.cards-galeria{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  
-}
-
-
-.section-final{
+/* ==========================================================================
+   SECCIÓN MANERAS DE PENSAR EN TI
+   ========================================================================== */
+.inicio-maneras {
     width: 100%;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     justify-content: center;
     padding: 1rem;
 }
 
+/* ==========================================================================
+   SÍMBOLOS DECORATIVOS
+   ========================================================================== */
+.simbolo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.simbolo {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   TÍTULOS DE SECCIÓN
+   ========================================================================== */
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-linea-izquierda {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+    width: 100%;
+    line-height: 0.9;
+}
+
+.titulo-linea-derecha {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+    width: 100%;
+}
+
+/* ==========================================================================
+   GALERÍA DE TARJETAS
+   ========================================================================== */
+.cards-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   SECCIÓN DE CONTENIDO FINAL
+   ========================================================================== */
+.section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.section-content-img {
+    width: 75%;
+    height: auto;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 .footer-desktop {
     display: none;
     width: 100%;
     margin-top: 2rem;
 }
 
-
-.section-content{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: center;
-    align-items:center;
-    margin-bottom: 3rem;
-}
-
-.section-content-img {
-   width: 75%;
-    height: auto;
-   
-}
-
-
-.titulo-final{
-    font-size: 3rem;
-}
-
-.simbolo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.simbolo{
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-}
-
-
-
-
-@media (min-width:600px) {
-
+/* ==========================================================================
+   MEDIA QUERIES - TABLET Y ESCRITORIO
+   ========================================================================== */
+@media (min-width: 600px) {
     .footer-desktop {
         display: block;
     }
 
-    .cards-galeria{
+    .cards-galeria {
         display: flex;
         flex-direction: row;
         gap: 1.5rem;
@@ -195,23 +147,21 @@
         flex-wrap: wrap;
     }
 
-    .titulo-linea-izquierda{
+    .titulo-linea-izquierda {
         font-size: 3rem;
     }
 
-    .titulo-linea-derecha{
+    .titulo-linea-derecha {
         font-size: 6rem;
     }
 
-    .titulo-final{
-        font-size: 3rem;
-    }
-
-    .section-content{
+    .section-content {
         display: flex;
         justify-content: space-around;
     }
-    
 
-   
+    .simbolo{
+        width: 30px;
+        height: 30px;
+    }
 }

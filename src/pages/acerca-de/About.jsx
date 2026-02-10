@@ -9,71 +9,71 @@ const About = () => {
   const [direction, setDirection] = useState(0) // 0 = no direction, 1 = forward, -1 = backward
 
   // Intersection Observer para animaciones de secciones
-  useEffect(() => {
-    const observerOptions = {
-      threshold: [0, 0.1, 0.5, 1],
-      rootMargin: '0px 0px -100px 0px'
-    }
+  // useEffect(() => {
+  //   const observerOptions = {
+  //     threshold: [0, 0.1, 0.5, 1],
+  //     rootMargin: '0px 0px -100px 0px'
+  //   }
 
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const sections = document.querySelectorAll('.scroll-section');
+  //   const handleScroll = () => {
+  //     const scrolled = window.scrollY;
+  //     const sections = document.querySelectorAll('.scroll-section');
       
-      sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+  //     sections.forEach((section, index) => {
+  //       const rect = section.getBoundingClientRect();
+  //       const windowHeight = window.innerHeight;
         
-        // Calcular qué tan centrada está la sección en la vista
-        const sectionCenter = rect.top + rect.height / 2;
-        const viewportCenter = windowHeight / 2;
-        const distance = Math.abs(sectionCenter - viewportCenter);
-        const maxDistance = windowHeight / 2 + rect.height / 2;
+  //       // Calcular qué tan centrada está la sección en la vista
+  //       const sectionCenter = rect.top + rect.height / 2;
+  //       const viewportCenter = windowHeight / 2;
+  //       const distance = Math.abs(sectionCenter - viewportCenter);
+  //       const maxDistance = windowHeight / 2 + rect.height / 2;
         
-        // Progreso basado en qué tan lejos está del centro
-        const progress = Math.max(0, Math.min(1, distance / maxDistance));
+  //       // Progreso basado en qué tan lejos está del centro
+  //       const progress = Math.max(0, Math.min(1, distance / maxDistance));
         
-        // La sección actual está al 100% cuando está centrada
-        if (distance < windowHeight / 3) {
-          // Sección activa: opacidad completa
-          section.style.opacity = 1;
-          section.style.transform = 'translateY(0) scale(1)';
-        } else {
-          // Sección inactiva: menos opacidad según la distancia
-          section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
-          section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
-        }
-      });
-    };
+  //       // La sección actual está al 100% cuando está centrada
+  //       if (distance < windowHeight / 3) {
+  //         // Sección activa: opacidad completa
+  //         section.style.opacity = 1;
+  //         section.style.transform = 'translateY(0) scale(1)';
+  //       } else {
+  //         // Sección inactiva: menos opacidad según la distancia
+  //         section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
+  //         section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
+  //       }
+  //     });
+  //   };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add('animate-in');
           
-          // Animar elementos hijos uno a uno
-          const children = entry.target.querySelectorAll('.animate-child');
-          children.forEach((child, index) => {
-            setTimeout(() => {
-              child.classList.add('animate-in');
-            }, index * 200);
-          });
-        }
-      });
-    }, observerOptions);
+  //         // Animar elementos hijos uno a uno
+  //         const children = entry.target.querySelectorAll('.animate-child');
+  //         children.forEach((child, index) => {
+  //           setTimeout(() => {
+  //             child.classList.add('animate-in');
+  //           }, index * 200);
+  //         });
+  //       }
+  //     });
+  //   }, observerOptions);
 
-    // Observar secciones
-    const sections = document.querySelectorAll('.animate-section');
-    sections.forEach(section => observer.observe(section));
+  //   // Observar secciones
+  //   const sections = document.querySelectorAll('.animate-section');
+  //   sections.forEach(section => observer.observe(section));
 
-    // Añadir listener de scroll
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Ejecutar una vez al inicio
+  //   // Añadir listener de scroll
+  //   window.addEventListener('scroll', handleScroll);
+  //   handleScroll(); // Ejecutar una vez al inicio
 
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     observer.disconnect();
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const timeline = [
     {
@@ -159,8 +159,8 @@ const About = () => {
 
         <div className="timeline-container animate-child">
           <div className="timeline-slider">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
+            {/* <AnimatePresence mode="wait" custom={direction}> */}
+              {/* <motion.div
                 key={currentSlide}
                 className="timeline-slide"
                 custom={direction}
@@ -168,32 +168,34 @@ const About = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
                 transition={{ duration: 0.5 }}
-              >
-                <div className="slide-image-container">
-                <img
-                  src={timeline[currentSlide].image}
-                  alt={timeline[currentSlide].title}
-                  className="slide-image"
-                /></div>
-                <div className="slide-content">
-                  <div className="slide-text">
-                    <div className="slide-header">
-                      <div className="slide-icon">
-                        {timeline[currentSlide].icon}
+              > */}
+                <div className="timeline-slide">
+                  <div className="slide-image-container">
+                    <img
+                      src={timeline[currentSlide].image}
+                      alt={timeline[currentSlide].title}
+                      className="slide-image"
+                    />
+                  </div>
+                  <div className="slide-content">
+                    <div className="slide-text">
+                      <div className="slide-header">
+                        <div className="slide-icon">
+                          {timeline[currentSlide].icon}
+                        </div>
+                        <div>
+                          <span className="slide-year">{timeline[currentSlide].year}</span>
+                          <p className="slide-title">{timeline[currentSlide].title}</p>
+                        </div>
                       </div>
-                      <div>
-                        <span className="slide-year">{timeline[currentSlide].year}</span>
-                        <p className="slide-title">{timeline[currentSlide].title}</p>
-                      </div>
+                      <p className="slide-description">
+                        {timeline[currentSlide].content}
+                      </p>
                     </div>
-                    <p className="slide-description">
-                      {timeline[currentSlide].content}
-                    </p>
                   </div>
                 </div>
-              </motion.div>
-
-            </AnimatePresence>
+              {/* </motion.div> */}
+            {/* </AnimatePresence> */}
 
             <button className="nav-button prev" onClick={prevSlide}>
               <ChevronLeft size={32} />
