@@ -7,7 +7,10 @@ import {
     Sparkles,
     ChevronLeft,
     ChevronRight,
-    Users
+    Users,
+    Flower,
+    HeartHandshake
+    
 } from 'lucide-react';
 
 import './gong.css';
@@ -49,23 +52,23 @@ const Gong = () => {
     const sesiones = [
         {
             nombre: 'Sesión individual',
-            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            icono: <Heart strokeWidth={1} color='var(--background)'/>,
             texto: 'Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti',
-            duracion: '120 minutos',
+            duracion: '120 min.',
             precio: '60€'
         },
         {
             nombre: 'Sesión en pareja',
-            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            icono: <HeartHandshake strokeWidth={1} color='var(--background)'/>,
             texto: 'Comparte una experiencia de conexión profunda con otra persona, de una manera más privada.',
-            duracion: '120 minutos',
+            duracion: '120 min.',
             precio: '80€'
         },
            {
             nombre: 'Sesión en grupo',
-            icono: <Users strokeWidth={1} color='var(--background)'/>,
+            icono: <Flower strokeWidth={1} color='var(--background)'/>,
             texto: 'Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.',
-            duracion: '120 minutos',
+            duracion: '120 min.',
             precio: '25€/per (min. 5 pers)'
         }
     ]
@@ -171,7 +174,7 @@ const Gong = () => {
             {/* DESCRIPCIÓN */}
             <section className="gong-descripcion">
                 <div className="svg-container">
-                    <img src="/img/capa.png" alt="" className="svg-img" />
+                    <img src="/img/capa.png" alt="simbolo" className="svg-img" />
                 </div>
 
                 <h2 className="gong-titulo-desc">Habitar en el sonido</h2>
@@ -259,7 +262,10 @@ const Gong = () => {
 
             {/* BENEFICIOS SLIDER */}
            <section className="gong-sesiones">
-  <h2 className="gong-titulo-sesiones">Sesiones de conexión</h2>
+            <div className="svg-container" style={{marginBottom:'2rem'}}>
+                <img src="/img/capa.png" alt="simbolo" className="svg-img" />
+            </div>
+            <h2 className="gong-titulo-sesiones">Sesiones de conexión</h2>
 
   {/* DESKTOP: Grid de sesiones */}
   <div className="sesiones-grid">
@@ -329,6 +335,9 @@ const Gong = () => {
     >
       <ChevronRight />
     </button>
+  </div>
+  <div className="svg-container" style={{marginTop:'2rem'}}>
+    <img src="/img/capa.png" alt="simbolo" className="svg-img" />
   </div>
 </section>
 

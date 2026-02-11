@@ -78,7 +78,7 @@ img, video, svg {
     --background:#F5EBDE;
     --text: #303030;
 
-
+--font-size-h2: 3rem;
 
     --border-width: 0.3px;
     --border-style: solid;
@@ -229,4 +229,15 @@ input, textarea, select, option {
 /* Forzar en elementos de navegación */
 .nav-link, .menu-item, .submenu-item {
     font-family: 'Yaldevi', 'Times New Roman', serif !important;
+}
+
+/* Estilos para h2 de secciones */
+.gong-titulo-desc,
+.gong-titulo-sesiones,
+.galeria-titulo,
+.slider-titulo,
+.viajes-accordion-titulo,
+.viajes-subnombre,
+.timeline-section h2 {
+    font-size: var(--font-size-h2);
 }

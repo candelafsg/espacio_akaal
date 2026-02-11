@@ -1,38 +1,46 @@
-
-
-
 .card-gong {
- display: flex;
- flex-direction: column;
- justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--background);
-    height: 420px;
+    height: 440px;
     border-radius: var(--radius-img);
     border: var(--border);
-   
+
     backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
 }
 
+.icon {
+    background-color: var(--primary);
+    padding: 0.8rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
-.gong-card-texto, .gong-card-descripcion, .gong-card-footer, .gong-card-titulo{
+.gong-card-texto,
+.gong-card-descripcion,
+.gong-card-footer,
+.gong-card-titulo {
     color: var(--primary);
 }
 
-.header-card-gong{
+.header-card-gong {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     height: 90px;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-bottom: var(--border);
+    margin: 1rem
 }
 
 
-.gong-card-descripcion{
+.gong-card-descripcion {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,25 +48,41 @@
     padding: 1.5rem;
 }
 
-.gong-card-descrp{
+.gong-card-descrp {
     font-size: 0.95rem;
     line-height: 1.6;
     opacity: 0.9;
     margin-bottom: 1rem;
 }
-.gong-card-info{
+
+.gong-card-info {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 0 1.5rem;
+    margin-bottom: 1rem;
 }
-.gong-card-texto{
-    padding-bottom: 0.75rem;
+
+.gong-card-texto {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.2s ease;
 }
+
+
+.info-container {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    border: var(--border);
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.info-resultado {
+    font-size: 1.2rem;
+}
+
 
 .gong-card-texto:hover {
     opacity: 0.8;
@@ -66,7 +90,7 @@
 }
 
 
-.gong-card-footer{
+.gong-card-footer {
     display: flex;
     justify-content: center;
     padding: 1.5rem;
@@ -74,7 +98,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sesiones-controls{
+.sesiones-controls {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -109,7 +133,37 @@
 
 
 @media (min-width: 768px) {
-    .gong-card-titulo{
-        font-size: 1.5rem;
+    .gong-card-titulo {
+        font-size: 1.3rem;
+    }
+
+
+    .icon{
+        padding: 0.7rem;
+    }
+
+    .card-gong{
+        height: 500px;
+    }
+
+    .header-card-gong{
+        padding-bottom: 0.7rem;
+    }
+
+
+    .gong-card-descrp{
+        font-size: 0.9rem;
+    }
+
+    .info-resultado{
+        font-size: 0.9rem;
+    }
+
+    .info-container{
+        padding: 0.8rem;
+    }
+
+    .sesiones-controls{
+        display: none;
     }
 }

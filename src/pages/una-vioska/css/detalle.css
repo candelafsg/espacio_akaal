@@ -31,9 +31,13 @@
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
-    color: var(--primary);
-    padding: 0.5rem;
-    border-radius: 50%;
+    color: var(--background);
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    border-radius: 100%;
     transition: all 0.3s ease;
 }
 
@@ -115,9 +119,8 @@
 }
 
 .producto-descripcion {
-    margin: auto 0;
+    margin-top: 3rem;
     text-align: center;
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,9 +154,11 @@
     justify-content: center;
     margin-top: auto;
     padding-top: 1rem;
-    position: sticky;
-    bottom: 0;
-    background: var(--background);
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
     padding-bottom: 1rem;
 }
 
