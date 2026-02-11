@@ -125,7 +125,7 @@ const DetalleProducto = () => {
                                 <div className="producto-descripcion">
                                     <div className="descripcion-content">
                                         <HandHeart size={24} className="hand-icon" />
-                                        <p>Estas piezas son de plata de ley, 100% artesanales, hechas con propósito. Llévate una pieza única.</p>
+                                        <p>Piezas elaboradas en plata de ley 925. <br/> Creadas mano a mano, una a una. Con intención y cuidando cada detalle. <br/> Haz tuya una joya única, pensada para acompañarte.</p>
                                     </div>
                                 </div>
 

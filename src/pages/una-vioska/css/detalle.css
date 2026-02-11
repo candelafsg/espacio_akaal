@@ -15,9 +15,11 @@
     width: 96%;
     height: 96dvh;
     
-   
     border-radius: var(--radius-img);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -109,8 +111,8 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    height: calc(50dvh - 3rem);
-    min-height: 300px;
+    height: 60%;
+  
 }
 
 .precio{
@@ -119,8 +121,9 @@
 }
 
 .producto-descripcion {
-    margin-top: 3rem;
+   
     text-align: center;
+    height: 65%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,14 +155,7 @@
 .btn-seleccion{
     display: flex;
     justify-content: center;
-    margin-top: auto;
-    padding-top: 1rem;
-    position: absolute;
-    bottom: 3rem;
-    width: 100%;
-    left: 50%;
-    transform: translate(-50%);
-    padding-bottom: 1rem;
+
 }
 
 /* Notificación personalizada */
