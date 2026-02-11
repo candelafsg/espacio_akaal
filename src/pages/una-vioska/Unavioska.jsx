@@ -579,17 +579,19 @@ const UnaVioska = () => {
 
                                         <div className="fila">
 
-                                            <div className="cont"> <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
-                                                <div className="cont-title">
-                                                    PENDIENTES
-                                                </div>
-                                            </div>
+                                           
 
 
                                             <div className="cont">
                                                 <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770799131/Frame_38_2_zavngq.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">
                                                     ANILLOS
+                                                </div>
+                                            </div>
+
+                                             <div className="cont"> <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
+                                                <div className="cont-title">
+                                                    PENDIENTES
                                                 </div>
                                             </div>
                                         </div>
@@ -623,13 +625,176 @@ const UnaVioska = () => {
                 </section>
 
 
-                <section className="desktop-productos">
+                <section className="desktop-productos" id='gallery'>
 
-                    <h1 className="titulo-desk">Galería de productos</h1>
+                    <h1 className="titulo-galeria">Galería <br/> de productos</h1>
+                    <p className="subtitulo-galeria">Explora cada pieza con calma. <br/> Activa el modo selección para marcar tus favoritas y crear tu propia colección. <br/> Desactívalo cuando quieras volver a mirar sin compromiso</p>
 
                     <div className="galeria-contenedor">
+                           <div className="filtros-header">
+                                <ul className="filtro-ul-galeria">
+                                    <li className={`filtro-li ${tipoActivo === "todo" ? "activo" : ""}`} onClick={() => handleTipo("todo")}>TODO</li>
+                                    <li className={`filtro-li ${tipoActivo === "macrame" ? "activo" : ""}`} onClick={() => handleTipo("macrame")}>MACRAMÉ</li>
+                                    <li className={`filtro-li ${tipoActivo === "colgantes" ? "activo" : ""}`} onClick={() => handleTipo("colgantes")}>COLGANTES</li>
+                                    <li className={`filtro-li ${tipoActivo === "anillos" ? "activo" : ""}`} onClick={() => handleTipo("anillos")}>ANILLOS</li>
+                                    <li className={`filtro-li ${tipoActivo === "pendientes" ? "activo" : ""}`} onClick={() => handleTipo("pendientes")}>PENDIENTES</li>
+                                    {/* <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
+                                <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li> */}
+                                </ul>
+                                <Button onClick={toggleSeleccion}>
+                                    {modoSeleccion ? 'VISTA' : 'SELECCIÓN'}
+                                </Button>
+                           </div>
+                           {seleccionados.length > 0 && (
+                                <div className="pedido-header-desktop">
+                                    <Button variant='noOutlined' onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
+                                    <AiOutlineDelete onClick={borrarSeleccion} />
+                                </div>
+                            )}
+
+
+                                <div className="galeria">
+
+                                    {/* Fila MACRAMÉ */}
+                                    {tipoActivo === "todo" || tipoActivo === "macrame" ? (
+                                        <div className="producto-titulo">
+                                            <div className="producto-titulo">
+                                                <h2>MACRAMÉ</h2>
+                                            </div>
+                                            <div className="galeria-scroll-container">
+                                                <div className="galeria-scroll-desk">
+                                                    <div className="productos-scroll">
+                                                        {productos
+                                                            .filter(producto => producto.tipo === 'macrame')
+                                                            .map(producto => (
+                                                                <ProductCard
+                                                                    key={`desktop-macrame-${producto.id}`}
+                                                                    producto={producto}
+                                                                    modoSeleccion={modoSeleccion}
+                                                                    seleccionado={seleccionados.includes(producto.id)}
+                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
+                                                                />
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {/* Fila COLGANTES */}
+                                    {tipoActivo === "todo" || tipoActivo === "colgantes" ? (
+                                        <div className="producto-titulo">
+                                            <div className="producto-titulo">
+                                                <h2>COLGANTES</h2>
+                                            </div>
+                                            <div className="galeria-scroll-container">
+                                                {canScrollPrev('colgantes') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'prev')}>
+                                                        <ChevronLeft size={20} />
+                                                    </button>
+                                                )}
+                                                <div className="galeria-scroll-desk">
+                                                    <div className="productos-scroll" ref={colgantesRef}>
+                                                        {productos
+                                                            .filter(producto => producto.tipo === 'colgantes')
+                                                            .map(producto => (
+                                                                <ProductCard
+                                                                    key={`desktop-colgantes-${producto.id}`}
+                                                                    producto={producto}
+                                                                    modoSeleccion={modoSeleccion}
+                                                                    seleccionado={seleccionados.includes(producto.id)}
+                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
+                                                                />
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                                {canScrollNext('colgantes') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'next')}>
+                                                        <ChevronRight size={20} />
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {/* Fila ANILLOS */}
+                                    {tipoActivo === "todo" || tipoActivo === "anillos" ? (
+                                        <div className="producto-titulo">
+                                            <div className="producto-titulo">
+                                                <h2>ANILLOS</h2>
+                                            </div>
+                                            <div className="galeria-scroll-container">
+                                                {canScrollPrev('anillos') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('anillos', 'prev')}>
+                                                        <ChevronLeft size={20} />
+                                                    </button>
+                                                )}
+                                                <div className="galeria-scroll-desk">
+                                                    <div className="productos-scroll" ref={anillosRef}>
+                                                        {productos
+                                                            .filter(producto => producto.tipo === 'anillos')
+                                                            .map(producto => (
+                                                                <ProductCard
+                                                                    key={`desktop-anillos-${producto.id}`}
+                                                                    producto={producto}
+                                                                    modoSeleccion={modoSeleccion}
+                                                                    seleccionado={seleccionados.includes(producto.id)}
+                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
+                                                                />
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                                {canScrollNext('anillos') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('anillos', 'next')}>
+                                                        <ChevronRight size={20} />
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {/* Fila PENDIENTES */}
+                                    {tipoActivo === "todo" || tipoActivo === "pendientes" ? (
+                                        <div className="producto-titulo">
+                                            <div className="producto-titulo">
+                                                <h2>PENDIENTES</h2>
+                                            </div>
+                                            <div className="galeria-scroll-container">
+                                                {canScrollPrev('pendientes') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'prev')}>
+                                                        <ChevronLeft size={20} />
+                                                    </button>
+                                                )}
+                                                <div className="galeria-scroll-desk">
+                                                    <div className="productos-scroll" ref={pendientesRef}>
+                                                        {productos
+                                                            .filter(producto => producto.tipo === 'pendientes')
+                                                            .map(producto => (
+                                                                <ProductCard
+                                                                    key={`desktop-pendientes-${producto.id}`}
+                                                                    producto={producto}
+                                                                    modoSeleccion={modoSeleccion}
+                                                                    seleccionado={seleccionados.includes(producto.id)}
+                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
+                                                                />
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                                {canScrollNext('pendientes') && (
+                                                    <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'next')}>
+                                                        <ChevronRight size={20} />
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                </div>
                         
                     </div>
+
+
+                  
 
                 </section>
             </main>

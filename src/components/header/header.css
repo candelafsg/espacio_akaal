@@ -190,7 +190,7 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 9; /* z-index mucho más alto que cualquier elemento */
+        z-index: 9999;
         background: transparent;
         backdrop-filter: none;
         border-bottom: none;
