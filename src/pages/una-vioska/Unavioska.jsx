@@ -318,7 +318,7 @@ const UnaVioska = () => {
     return (
         <>
 
-            <div className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
+            <main className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
                 <ImgContainer>
                     <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
@@ -389,13 +389,13 @@ const UnaVioska = () => {
                             )}
                         </div>
 
-                     
-                          {seleccionados.length > 0 && (
-                        <div className="pedido-header">
-                            <Button variant='noOutlined' onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
-                               <AiOutlineDelete onClick={borrarSeleccion} />
-                        </div>
-                    )}
+
+                        {seleccionados.length > 0 && (
+                            <div className="pedido-header">
+                                <Button variant='noOutlined' onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
+                                <AiOutlineDelete onClick={borrarSeleccion} />
+                            </div>
+                        )}
                     </div>
 
 
@@ -411,190 +411,25 @@ const UnaVioska = () => {
                         ))}
                     </div>
 
-                        {seleccionados.length > 0 && (
+                    {seleccionados.length > 0 && (
                         <div className="pedido-footer">
-                            <Button  onClick={irAResumen}>IR A MI PEDIDO ({seleccionados.length})</Button>
-                              
+                            <Button onClick={irAResumen}>IR A PEDIDO ({seleccionados.length})</Button>
+
                         </div>
                     )}
-                  
+
 
                 </section>
 
-                {/* Versión Desktop */}
-                <section className="vioska-galeria-desktop desktop-only">
-                    {/* Instrucciones en pequeño flex como inicio */}
-                    <div className="instrucciones-compactas">
-                        <div className="artesania-compacto">
-                            <Sparkles strokeWidth={0.5} size={16} />
-                            <p className="instrucciones-texto-compacto">Cada pieza está hecha a mano, con mucho mimo y dedicación.</p>
-                            <Sparkles strokeWidth={0.5} size={16} />
-                        </div>
 
-                        <div className="pasos-compactos">
-                            {pasosInstrucciones.map((item, index) => (
-                                <div key={`paso-compacto-${index}`} className="paso-compacto">
-                                    {item.icono}
-                                    <p className="paso-texto-compacto">{item.texto}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
 
-                    {/* Controles de selección */}
-                    <div className="controles-seleccion">
-                        <div className="modo-seleccion-container">
-                            <div className="seleccion-multiple-container">
-                                <p className="seleccion-titulo">
-                                    {modoSeleccion
-                                        ? 'Estás en modo selección. Pulsa para volver a vista normal.'
-                                        : 'Estás en vista normal. ¿Quieres seleccionar varias piezas a la vez?'}
-                                </p>
-                                <Button onClick={toggleSeleccion}>
-                                    {modoSeleccion ? 'DESACTIVAR' : 'ACTIVAR'}
-                                </Button>
-                            </div>
-                        </div>
 
-                        {modoSeleccion && (
-                            <div className="cantidad-productos">
-                                <p className="texto-productos">
-                                    Productos seleccionados ({seleccionados.length})
-                                </p>
-                                <AiOutlineDelete onClick={borrarSeleccion} />
-                            </div>
-                        )}
-                    </div>
 
-                    {/* Filas para cada filtro */}
-                    <div className="filtros-galeria">
-                        {/* Fila para PENDIENTES */}
-                        <div className="filtro-fila">
 
-                            <div className="imagen-contenedor">
-                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613543/DSC00197_1_ggpsxe.jpg" alt="pendientes" className="img" />
-                                <h3 className="titulo-filtro">PENDIENTES</h3>
-                            </div>
-                            <div className="galeria-scroll-container">
-                                <div className="galeria-scroll" ref={pendientesRef}>
-                                    <div className="productos-scroll">
-                                        {productos.filter(producto => producto.tipo === "pendientes").map(producto => (
-                                            <ProductCard
-                                                key={`pendientes-${producto.id}`}
-                                                producto={producto}
-                                                modoSeleccion={modoSeleccion}
-                                                seleccionado={seleccionados.includes(producto.id)}
-                                                onSeleccionar={() => handleSeleccion(producto.id)}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                                {productos.filter(producto => producto.tipo === "pendientes").length > 4 && (
-                                    <div className="navegacion-galeria">
-                                        <button
-                                            className="nav-btn prev"
-                                            onClick={() => scrollGallery('pendientes', 'prev')}
-                                            disabled={!canScrollPrev('pendientes')}
-                                        >
-                                            <span translate="no">ANT.</span>
-                                        </button>
-                                        <span className="scroll-indicator">→</span>
-                                        <button
-                                            className="nav-btn next"
-                                            onClick={() => scrollGallery('pendientes', 'next')}
-                                            disabled={!canScrollNext('pendientes')}
-                                        >
-                                            SIG.
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
 
-                        {/* Fila para COLGANTES */}
-                        <div className="filtro-fila">
-                            <div className="imagen-contenedor">
-                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770115867/Frame_13_ffldmd.png" alt="" className="img" />
-                                <h3 className="titulo-filtro">COLGANTES</h3>
-                            </div>
-                            <div className="galeria-scroll-container">
-                                <div className="galeria-scroll" ref={colgantesRef}>
-                                    <div className="productos-scroll">
-                                        {productos.filter(producto => producto.tipo === "colgantes").map(producto => (
-                                            <ProductCard
-                                                key={`colgantes-${producto.id}`}
-                                                producto={producto}
-                                                modoSeleccion={modoSeleccion}
-                                                seleccionado={seleccionados.includes(producto.id)}
-                                                onSeleccionar={() => handleSeleccion(producto.id)}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                                {productos.filter(producto => producto.tipo === "colgantes").length > 4 && (
-                                    <div className="navegacion-galeria">
-                                        <button
-                                            className="nav-btn prev"
-                                            onClick={() => scrollGallery('colgantes', 'prev')}
-                                            disabled={!canScrollPrev('colgantes')}
-                                        >
-                                            <span translate="no">ANT.</span>
-                                        </button>
-                                        <span className="scroll-indicator">→</span>
-                                        <button
-                                            className="nav-btn next"
-                                            onClick={() => scrollGallery('colgantes', 'next')}
-                                            disabled={!canScrollNext('colgantes')}
-                                        >
-                                            SIG.
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
 
-                        {/* Fila para ANILLOS */}
-                        <div className="filtro-fila">
-                            <div className="imagen-contenedor">
-                                <h3 className="titulo-filtro">ANILLOS</h3>
-                            </div>
-                            <div className="galeria-scroll-container">
-                                <div className="galeria-scroll" ref={anillosRef}>
-                                    <div className="productos-scroll">
-                                        {productos.filter(producto => producto.tipo === "anillos").map(producto => (
-                                            <ProductCard
-                                                key={`anillos-${producto.id}`}
-                                                producto={producto}
-                                                modoSeleccion={modoSeleccion}
-                                                seleccionado={seleccionados.includes(producto.id)}
-                                                onSeleccionar={() => handleSeleccion(producto.id)}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                                {productos.filter(producto => producto.tipo === "anillos").length > 4 && (
-                                    <div className="navegacion-galeria">
-                                        <button
-                                            className="nav-btn prev"
-                                            onClick={() => scrollGallery('anillos', 'prev')}
-                                            disabled={!canScrollPrev('anillos')}
-                                        >
-                                            <span translate="no">ANT.</span>
-                                        </button>
-                                        <span className="scroll-indicator">→</span>
-                                        <button
-                                            className="nav-btn next"
-                                            onClick={() => scrollGallery('anillos', 'next')}
-                                            disabled={!canScrollNext('anillos')}
-                                        >
-                                            SIG.
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
+
 
                 {seleccionados.length > 0 && (
                     <footer className="pedido-footer-desktop">
@@ -682,7 +517,122 @@ const UnaVioska = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </main>
+
+
+
+
+            {/* version desk */}
+            <main className="desk">
+                <section className="desktop">
+
+
+
+
+
+
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="portada" className="desktop-image" />
+
+                    <div className="title-container">
+
+
+
+
+                        <div className="contenedor">
+                            <h1 className="title-intr">una vioska.</h1>
+
+
+                            <div className="subtitulo-imgs">
+
+                                <div className="subtitulo">
+                                    <h2 className="h2-titulo">Creación consciente</h2>
+                                    <p className="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, rerum sed quibusdam unde nesciunt suscipit possimus, soluta accusantium blanditiis adipisci molestiae quae labore illo quidem laborum voluptatem modi recusandae reprehenderit.</p>
+                                </div>
+
+
+                                <div className="imgs-cont">
+
+                                    <div className="imgs">
+                                        <div className="fila">
+
+                                            <div className="cont">
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770793446/Frame_30_vi0u0x.png" alt="portada" className='cont-img' />
+
+                                                <div className="cont-title">
+                                                    MACRAMÉ
+                                                </div>
+                                            </div>
+                                            <div className="cont ">
+
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770798652/Frame_31_rqpupa.png" alt="portada" className='cont-img' />
+
+                                                <div className="cont-title">
+                                                    COLGANTES
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div className="fila">
+
+                                            <div className="cont"> <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
+                                                <div className="cont-title">
+                                                    PENDIENTES
+                                                </div>
+                                            </div>
+
+
+                                            <div className="cont">
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770799131/Frame_38_2_zavngq.png" alt="portada" className='cont-img' />
+                                                <div className="cont-title">
+                                                    ANILLOS
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div className=" cont-btn">
+
+                                        <Button variant='noOutlined' style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'center', fontSize: "0.7rem" }} iconPosition='right' icon={<ChevronRight size={14} />}>VER GALERÍA COMPLETA</Button>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                </section>
+
+
+                <section className="desktop-productos">
+
+                    <h1 className="titulo-desk">Galería de productos</h1>
+
+                    <div className="galeria-contenedor">
+                        
+                    </div>
+
+                </section>
+            </main>
         </>
     );
 };

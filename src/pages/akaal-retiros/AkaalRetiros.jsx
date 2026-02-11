@@ -3,7 +3,7 @@
 const AkaalRetiros = () => {
     return ( 
         <>
-        <h1>AKAAL RETIROS</h1>
+     
         </>
      );
 }
