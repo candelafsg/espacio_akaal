@@ -80,6 +80,35 @@ const Contacto = () => {
                             <p className="contacto-p">@ESPACIO.AKAAL</p>
                         </a>
                     </div>
+
+
+
+                    <div className="contacto-desktop">
+                           <a href="tel:+34614218764" className="contacto-item animate-child">
+                            <Phone strokeWidth={1} size={18}/>
+                            <p className="contacto-p">+34 614 218 764</p>
+                        </a>
+
+                        <a 
+                            href="https://maps.google.com/?q=C/ENRIC+NAVARRO,+28+BAJO.+BENIMACLET+-+VALENCIA" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="contacto-item animate-child"
+                        >
+                            <MapPin strokeWidth={1} size={18}/>
+                            <p className="contacto-p">C/ENRIC NAVARRO, 28 BAJO. BENIMACLET - VALENCIA</p>
+                        </a>
+                        
+                        <a 
+                            href="https://www.instagram.com/espacio.akaal/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="contacto-item animate-child"
+                        >
+                            <IoLogoInstagram size={18} />
+                            <p className="contacto-p">@ESPACIO.AKAAL</p>
+                        </a>
+                    </div>
                 </div>
             </section>
         </>

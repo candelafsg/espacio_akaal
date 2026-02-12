@@ -34,9 +34,25 @@ export const Footer = () => {
 
         <div className="footer-contacto">
             <ul className="footer-contacto-ul">
-                <li>Instagram</li>
-                <li>Facebook</li>
-                <li>Twitter</li>
+                <li className='contact insta'>
+                    <a href="https://www.instagram.com/espacio.akaal/" target="_blank" rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </li>
+                <li className='contact location'>
+                    <a 
+                        href="https://maps.google.com/?q=C/ENRIC+NAVARRO,+28+BAJO.+BENIMACLET+-+VALENCIA" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        C/ENRIC NAVARRO, 28 BAJO. BENIMACLET - VALENCIA
+                    </a>
+                </li>
+                <li className='contact'>
+                    <a href="tel:+34614218764">
+                        +34 614 218 764
+                    </a>
+                </li>
             </ul>
         </div>
     </footer>

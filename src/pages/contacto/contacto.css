@@ -1,19 +1,19 @@
+/* ========================================
+   SECCIÓN DE CONTACTO - ESTRUCTURA Y ESTILOS
+   ======================================== */
 
-
-
-
-
+/* ====== ESTRUCTURA GENERAL ====== */
 .contacto-section{
     position: relative;
+    width: 100%;
     min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px; /* Compensar header fijo */
     margin: 0;
-    padding: 0;
 }
 
+/* Fondo de imagen que ocupa toda la sección */
 .contacto-background{
     position: absolute;
     top: 0;
@@ -23,6 +23,7 @@
     z-index: -1;
 }
 
+/* Imagen de fondo */
 .contacto-bg-img{
     width: 100%;
     height: 100%;
@@ -31,82 +32,52 @@
     filter: brightness(0.8) contrast(1.2) ;
 }
 
+/* ====== CONTENEDOR PRINCIPAL ====== */
 .contacto-content{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: 20px;
-    max-width: 90%;
+    max-width: 90%; /* Limitación base para mobile */
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Máximo ancho en todos los dispositivos */
 }
 
-@media (max-width: 768px) {
-    .contacto-content {
-        max-width: calc(100% - 2rem);
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-}
-
-
-
+/* ====== TÍTULO PRINCIPAL ====== */
 .contacto-titulo{
-    font-size: 8vw;
+    font-size: 8vw; /* Escalable en mobile */
     line-height: 1.1;
     text-align: center;
     margin-bottom: 1rem;
     color: var(--primary);
 }
 
-@media (min-width: 768px) {
-    .contacto-titulo{
-        font-size: 4rem;
-    }
+/* ====== CONTENEDOR DE IMÁGENES ====== */
+.titulo-conecta-container{
+    padding: 0.7rem;
 }
 
-.titulo-conecta-container{padding: 0.7rem;
-}
-
-.capa-about{
-    width: 20px;
-}
-
-@media (min-width: 1024px) {
-    .capa-about{
-        width: 30px;
-    }
-}
 .contacto-imagen-texto{
     display: flex;
     flex-direction: column;
     height: auto;
     align-items: center;
     justify-content: center;
-   
-   
 }
 
 .contacto-texto-img{
     width: 200px;
     margin-bottom: 0.7rem;
-   
 }
 
-
-
+/* ====== IMAGEN DECORATIVA ====== */
 .contacto-imagen{
     width: 100%;
     height: 50vh;
-    
 }
-
 
 .contacto-img{
     width: 100%;
@@ -117,7 +88,7 @@
     object-position: right center;
 }
 
-
+/* ====== CONTENEDOR DE CONTACTO ====== */
 .contacto{
     padding: 1rem;
     display: flex;
@@ -126,18 +97,26 @@
     width: 100%;
     text-align: start;
 }
+
+.contacto-desktop{
+    display: none;
+}
+
+/* ====== ITEMS DE CONTACTO ====== */
 .contacto-item{
     display: flex;
     align-items: center;
     gap: 1rem;
     text-decoration: none;
-    color: var(--primary);
+    color: var(--background);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     border-radius: 8px;
     padding: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: start;
+    font-weight: 300;
+    transition: all 0.1s ease-in-out;
+
+    border: 1px solid var(--background);
 }
 
 .contacto-item svg {
@@ -147,8 +126,70 @@
     min-height: 20px;
 }
 
+/* Efecto hover para los items de contacto */
 .contacto-item:hover{
-    transform: translateX(8px) scale(1.02);
-    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ======================================== */
+
+/* ====== TABLET Y DESKTOP (768px+) ====== */
+@media (min-width: 768px) {
+    
+    /* Ajustes para imagen de fondo en desktop */
+    .contacto-bg-img{
+        filter: brightness(0.7) contrast(1.2) ;
+    }
+    
+    /* Contenedor principal en desktop */
+    .contacto-content{
+        display: flex;
+        flex-direction: row;
+        border: 1px solid var(--background);
+        width: 100%;
+        max-width: 90%; 
+        height: 83dvh;
+    }
+    
+    /* Título más grande en desktop */
+    .contacto-titulo{
+        font-size: 6rem; /* Fijo en desktop */
+        color: var(--background);
+        text-align: start;
+    }
+    
+    /* Contenedor de imágenes en desktop */
+    .titulo-conecta-container{
+        padding-top: 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+
+    .contacto, .capa-about, .contacto-texto-img{
+        display: none;
+    }
+
+
+    .contacto-desktop{
+        display: block;
+    }
+
+
+    .contacto-desktop{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        background-color: rgba(97, 37, 62, .4);
+        width: 40%;
+        height: 33vh;
+        border-radius: 10px;
+    }
+    
 }
