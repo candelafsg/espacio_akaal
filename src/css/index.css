@@ -138,7 +138,9 @@ a{
     text-decoration: none;
 }
 
-
+p {
+    font-weight: 400;
+}
 
 button{
     font-family: 'Yaldevi', 'Times New Roman', serif !important;
