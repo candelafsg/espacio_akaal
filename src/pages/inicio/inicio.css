@@ -5,11 +5,16 @@
 /* ==========================================================================
    COMPONENTE PRINCIPAL - IMAGEN DE INICIO
    ========================================================================== */
+.inicio-contenedor{
+    width: 100%;
+    height: 100vh;
+ position: relative;
+ padding: 0.3rem;
+}
 .inicio-imagen {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
-    padding: 0.3rem;
     border-radius: var(--radius-img);
     filter: brightness(0.7);
 }

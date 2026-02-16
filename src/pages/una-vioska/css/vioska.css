@@ -664,7 +664,6 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         width: 100%;
         height: 100dvh;
         position: relative;
-        background-color: red;
     }
 
 .desktop-image{

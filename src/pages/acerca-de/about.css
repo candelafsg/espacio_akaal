@@ -263,81 +263,21 @@
     height: 40vh;
     overflow: hidden;
     border-radius: 12px;
-    transition: transform 0.3s ease;
-    animation: imageZoomIn 0.8s ease-out;
 }
 
-@keyframes imageZoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
 
-.slide-image-container:hover {
-    transform: scale(1.02);
-}
 
 .slide-image {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.slide-image:hover {
-    transform: scale(1.05);
-}
+
 
 .slide-text {
     color: var(--background);
-    animation: fadeIn 0.8s ease-out 0.4s both;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slide-text h3 {
-    animation: titleSlide 0.6s ease-out 0.2s both;
-}
-
-@keyframes titleSlide {
-    from {
-        opacity: 0;
-        transform: translateX(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.slide-text p {
-    animation: textSlide 0.6s ease-out 0.6s both;
-}
-
-@keyframes textSlide {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
   
 

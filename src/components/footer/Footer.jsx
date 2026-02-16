@@ -15,21 +15,18 @@ export const Footer = () => {
         <div className="footer-nav">
             <ul className="footer-ul">
                 <li><NavLink to="/">Inicio</NavLink></li>
-                <li><NavLink to="/sobre-mi">Sobre mí</NavLink></li>
-                 <li><NavLink to="/contacto">Contacto</NavLink></li>
-                
-               
+                <li><NavLink to="/about">Sobre mí</NavLink></li>
+                <li><NavLink to="/contacto">Contacto</NavLink></li>
+                <li><NavLink to="/privacidad">Política de privacidad</NavLink></li>
             </ul>
         </div>
 
         <ul className="footer-ul">
              <li><NavLink to="/espacio-akaal">Espacio AKAAL</NavLink></li>
               <li><NavLink to="/akaal-viajes">Viajes AKAAL</NavLink></li>
-            <li><NavLink to="/servicios">una vioska.</NavLink></li>
-           
+            <li><NavLink to="/una-vioska">una vioska.</NavLink></li>
             <li><NavLink to="/gong">Baños de gong</NavLink></li>
-            <li><NavLink to="/retiros">Retiros</NavLink></li>
-           
+            <li><NavLink to="/akaal-retiros">Retiros</NavLink></li>
         </ul>
 
         <div className="footer-contacto">

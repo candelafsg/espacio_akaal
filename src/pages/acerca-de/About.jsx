@@ -92,43 +92,51 @@ const About = () => {
 
         <div className="timeline-container animate-child">
           <div className="timeline-slider">
-            {/* <AnimatePresence mode="wait" custom={direction}> */}
-              {/* <motion.div
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
                 key={currentSlide}
                 className="timeline-slide"
                 custom={direction}
                 initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                transition={{ duration: 0.5 }}
-              > */}
-                <div className="timeline-slide">
-                  <div className="slide-image-container">
-                    <img
-                      src={timeline[currentSlide].image}
-                      alt={timeline[currentSlide].title}
-                      className="slide-image"
-                    />
-                  </div>
-                  <div className="slide-content">
-                    <div className="slide-text">
-                      <div className="slide-header">
-                        <div className="slide-icon">
-                          {timeline[currentSlide].icon}
-                        </div>
-                        <div>
-                          <span className="slide-year">{timeline[currentSlide].year}</span>
-                          <p className="slide-title">{timeline[currentSlide].title}</p>
-                        </div>
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <div className="slide-image-container">
+                  <img
+                    src={timeline[currentSlide].image}
+                    alt={timeline[currentSlide].title}
+                    className="slide-image"
+                  />
+                </div>
+                <div className="slide-content">
+                  <div className="slide-text">
+                    <motion.div 
+                      className="slide-header"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      <div className="slide-icon">
+                        {timeline[currentSlide].icon}
                       </div>
-                      <p className="slide-description">
-                        {timeline[currentSlide].content}
-                      </p>
-                    </div>
+                      <div>
+                        <span className="slide-year">{timeline[currentSlide].year}</span>
+                        <p className="slide-title">{timeline[currentSlide].title}</p>
+                      </div>
+                    </motion.div>
+                    <motion.p 
+                      className="slide-description"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                      {timeline[currentSlide].content}
+                    </motion.p>
                   </div>
                 </div>
-              {/* </motion.div> */}
-            {/* </AnimatePresence> */}
+              </motion.div>
+            </AnimatePresence>
 
             <button className="nav-button prev" onClick={prevSlide}>
               <ChevronLeft size={32} />

@@ -202,7 +202,6 @@
         flex: 1;
         display: flex;
         justify-content: end;
-        padding-right: 2rem;
         align-items: center;
     }
 
@@ -214,7 +213,9 @@
         padding: 0;
         gap: 2rem;
         padding: 0.5rem 1rem;
-        border-radius: 30px;
+        margin-right: 4px;
+        margin-top: 4px;
+        border-radius: 10px 4px 4px 10px;
         align-items: center;
          background-color: rgba(97, 37, 62, 0.4);
     }

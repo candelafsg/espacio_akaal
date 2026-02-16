@@ -26,7 +26,7 @@ const Inicio = () => {
 
     return (
         <>
-            <ImgContainer>
+               <section className="inicio-contenedor">
                 <img 
                     src={
                         isDesktop 
@@ -42,7 +42,7 @@ const Inicio = () => {
                         Un refugio para el movimiento, la pausa y la intención
                     </p>
                 </div>
-            </ImgContainer>
+           </section>
 
 
             <section className="inicio-maneras">

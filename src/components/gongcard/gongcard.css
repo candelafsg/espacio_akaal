@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
     background-color: var(--background);
     height: 440px;
     border-radius: var(--radius-img);
     border: var(--border);
+    width: 90%;
 
     backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,9 +75,10 @@
 .info-container {
     display: flex;
     align-items: center;
+        background-color: rgba(97, 37, 62, 0.05);
     padding: 0.7rem;
     border: var(--border);
-    border-radius: 10px;
+    border-radius: 30px;
     justify-content: space-between;
 }
 

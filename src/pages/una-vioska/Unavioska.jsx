@@ -20,6 +20,7 @@ import {
     X
 } from "lucide-react";
 import ResumenPedido from './ResumenPedido';
+import { Footer } from "../../components/footer/Footer";
 
 
 // 📝 Lista de pasos de instrucciones
@@ -600,7 +601,20 @@ const UnaVioska = () => {
 
                                     <div className=" cont-btn">
 
-                                        <Button variant='noOutlined' style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'center', fontSize: "0.7rem" }} iconPosition='right' icon={<ChevronRight size={14} />}>VER GALERÍA COMPLETA</Button>
+                                        <Button 
+                                            variant='noOutlined' 
+                                            style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'center', fontSize: "0.7rem" }} 
+                                            iconPosition='right' 
+                                            icon={<ChevronRight size={14} />}
+                                            onClick={() => {
+                                                const section = document.querySelector('.desktop-productos');
+                                                if (section) {
+                                                    section.scrollIntoView({ behavior: 'smooth' });
+                                                }
+                                            }}
+                                        >
+                                            VER GALERÍA COMPLETA
+                                        </Button>
 
                                     </div>
                                 </div>
@@ -797,6 +811,9 @@ const UnaVioska = () => {
                   
 
                 </section>
+                
+                {/* Footer - solo visible en desktop */}
+                <Footer />
             </main>
         </>
     );

@@ -1,117 +1,81 @@
 
-
 import './contacto.css'
+import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
+import { ArrowUpRight } from 'lucide-react';
 
-import { Phone, MapPin } from 'lucide-react';
-import { IoLogoInstagram } from "react-icons/io5";
-import { useEffect } from 'react';
+
+
+import { Button } from '../../components/buttons/Button';
 
 
 const Contacto = () => {
-
-    useEffect(() => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    
-                    // Animar elementos hijos uno a uno
-                    const children = entry.target.querySelectorAll('.animate-child');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.classList.add('animate-in');
-                        }, index * 200);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observar secciones
-        const sections = document.querySelectorAll('.animate-section');
-        sections.forEach(section => observer.observe(section));
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
+        <section className="contacto">
+            <div className="simbolo">
+                <img src="/img/capa.png" alt="capa" className="capa" />
+            </div>
 
-        <>
-            <section className="contacto-section animate-section">
-                <div className="contacto-background">
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501261/akaal-1_jobcs5.png" alt="espacio" className="contacto-bg-img" loading="lazy" />
+            <div className="contacto-container">
+                <h1 className="contacto-titulo">¿Hablamos? </h1>
+                <p className="contacto-subtitulo">Si buscas información sobre nuestros próximos viajes, joyas, eventos, etc. , contáctanos directamente.</p>
+                <WhatsAppLink style={{ width: "90%" }}>ESCRÍBENOS POR WHATSAPP</WhatsAppLink>
+            </div>
+
+
+            <div className="contacto-instagram-container">
+                <div className="icono-insta">
+                    <img src="/img/instagram.png" alt="insta" className="instagram-img" />
+                    <div className="insta-cuenta"><h4 className="cuenta">@espacio.akaal</h4>
+                        <p className="cuenta-subtitulo">Centro de terapias alternativas</p></div>
                 </div>
-                <div className="contacto-content animate-child">
-                    <div className="titulo-conecta-container">
-                        <h1 className="contacto-titulo">Visita <br/> Espacio AKAAL</h1>
-                        <div className="contacto-imagen-texto">
-                            <img src="/img/conecta.png" alt="conecta" className="contacto-texto-img" loading="lazy" />
-                            <img src="/img/capa.png" alt="" className="capa-about" loading="lazy" />
-                        </div>
-                    </div>
-                    
-                    <div className="contacto">
-                        <a href="tel:+34614218764" className="contacto-item animate-child">
-                            <Phone strokeWidth={1} size={18}/>
-                            <p className="contacto-p">+34 614 218 764</p>
-                        </a>
 
-                        <a 
-                            href="https://maps.google.com/?q=C/ENRIC+NAVARRO,+28+BAJO.+BENIMACLET+-+VALENCIA" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="contacto-item animate-child"
-                        >
-                            <MapPin strokeWidth={1} size={18}/>
-                            <p className="contacto-p">C/ENRIC NAVARRO, 28 BAJO. BENIMACLET - VALENCIA</p>
-                        </a>
-                        
-                        <a 
-                            href="https://www.instagram.com/espacio.akaal/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="contacto-item animate-child"
-                        >
-                            <IoLogoInstagram size={18} />
-                            <p className="contacto-p">@ESPACIO.AKAAL</p>
-                        </a>
+                <Button
+                    style={{ width: "90%" }}
+                    onClick={() => window.open('https://www.instagram.com/espacio.akaal/', '_blank')}
+                >Ir a perfil de Instagram</Button>
+
+            </div>
+
+
+
+
+            <div className="contacto-ubicacion">
+
+
+                <a 
+                    href="https://maps.google.com/?q=C/ENRIC+NAVARRO,+28+BAJO.+BENIMACLET+-+VALENCIA" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="contacto-texto"
+                >
+                    <div className="p">
+                        <p className="ubicacion-titulo">c/ENRIC NAVARRO, 28 BAJO.</p>
+                        <p className="ubicacion-titulo">BENIMACLET - VALENCIA</p>
                     </div>
 
+                    <div className="arrow">
+                        <ArrowUpRight strokeWidth={1} />                    </div>
+                </a>
 
 
-                    <div className="contacto-desktop">
-                           <a href="tel:+34614218764" className="contacto-item animate-child">
-                            <Phone strokeWidth={1} size={18}/>
-                            <p className="contacto-p">+34 614 218 764</p>
-                        </a>
 
-                        <a 
-                            href="https://maps.google.com/?q=C/ENRIC+NAVARRO,+28+BAJO.+BENIMACLET+-+VALENCIA" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="contacto-item animate-child"
-                        >
-                            <MapPin strokeWidth={1} size={18}/>
-                            <p className="contacto-p">C/ENRIC NAVARRO, 28 BAJO. BENIMACLET - VALENCIA</p>
-                        </a>
-                        
-                        <a 
-                            href="https://www.instagram.com/espacio.akaal/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="contacto-item animate-child"
-                        >
-                            <IoLogoInstagram size={18} />
-                            <p className="contacto-p">@ESPACIO.AKAAL</p>
-                        </a>
-                    </div>
+
+
+                <div className="contacto-imagen">
+
+
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501183/akaal-1_ylxdws.png" alt="akaal" className="akaal-img" />
+
+
+
                 </div>
-            </section>
-        </>
+            </div>
+
+            <div className="simbolo">
+                <img src="/img/capa.png" alt="capa" className="capa" />
+            </div>
+
+        </section>
     );
 }
 
