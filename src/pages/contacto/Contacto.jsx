@@ -10,6 +10,8 @@ import { Button } from '../../components/buttons/Button';
 
 const Contacto = () => {
     return (
+        <>
+       
         <section className="contacto">
             <div className="simbolo">
                 <img src="/img/capa.png" alt="capa" className="capa" />
@@ -76,6 +78,8 @@ const Contacto = () => {
             </div>
 
         </section>
+
+ </>
     );
 }
 
