@@ -565,7 +565,7 @@ const UnaVioska = () => {
                                             </div>
                                             <div className="cont ">
 
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770798652/Frame_31_rqpupa.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770293173/ChatGPT_Image_5_feb_2026_13_06_06_aikals.png" alt="portada" className='cont-img' />
 
                                                 <div className="cont-title">
                                                     COLGANTES
@@ -613,7 +613,7 @@ const UnaVioska = () => {
                                                 }
                                             }}
                                         >
-                                            VER GALERÍA COMPLETA
+                                            VER TODO
                                         </Button>
 
                                     </div>

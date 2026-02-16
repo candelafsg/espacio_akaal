@@ -679,8 +679,8 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         top: 52%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: 0.5px solid var(--background);
-        width: 95%;
+        border: 0.5px solid rgba(255, 255, 255, 0.5);
+        width: 98%;
         height: 85%;
         border-radius: 10px;
     }

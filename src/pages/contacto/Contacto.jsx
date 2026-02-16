@@ -19,9 +19,9 @@ const Contacto = () => {
                 <div className="contacto-left-container">
                     <div className="contacto-container">
                         <h1 className="contacto-titulo">¿Hablamos? </h1>
-                        <p className="contacto-subtitulo">Si quieres saber más sobre joyas, viajes, clases o retiros, contáctanos y te contamos todo.</p>
+                        <p className="contacto-subtitulo">Si quieres saber más sobre yoga, viajes, retiros o joyas, contáctanos y te contamos todo.</p>
                         <WhatsAppLink 
-                                                    className='btn'
+                                                    className='btn-btn'
 >ESCRÍBENOS POR WHATSAPP</WhatsAppLink>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const Contacto = () => {
                         </div>
 
                         <Button
-                            className='btn'
+                            className='btn-btn'
                             onClick={() => window.open('https://www.instagram.com/espacio.akaal/', '_blank')}
                         >Ir a perfil de Instagram</Button>
 
