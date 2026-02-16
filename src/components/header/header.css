@@ -10,11 +10,11 @@
 /* Header móvil - estilos base */
 .header-mobile {
     width: 100%;
-    padding: 2rem 1rem;
+    padding:1rem 1.5rem;
    position: fixed;
-   top: 1rem;
+   top: 0.5rem;
    background: transparent;
-   z-index: 999;
+   z-index: 999999;
 }
 
 /* Navegación móvil */
@@ -196,25 +196,13 @@
         border-bottom: none;
     }
 
-    /* Símbolos decorativos del header desktop */
-    .header-symbol-left,
-    .header-symbol-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .header-symbol-img {
-        width: 10px;
-        height: 10px;
-        object-fit: contain;
-    }
 
     /* Contenedor central de navegación desktop */
     .header-nav-center {
         flex: 1;
         display: flex;
-        justify-content: center;
+        justify-content: end;
+        padding-right: 2rem;
         align-items: center;
     }
 
@@ -225,16 +213,20 @@
         margin: 0;
         padding: 0;
         gap: 2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
         align-items: center;
+         background-color: rgba(97, 37, 62, 0.4);
     }
 
     .header-nav-list li {
         position: relative;
+        
     }
 
     /* Links de navegación desktop */
     .header-nav-link {
-        color: var(--primary);
+        color: var(--background);
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;

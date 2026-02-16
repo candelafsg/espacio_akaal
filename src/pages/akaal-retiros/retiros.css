@@ -159,3 +159,43 @@ margin-top: 2rem;
     background-color: var(--primary);
     border-radius: 30px;
 }
+
+/* Tablet y Desktop - Centrar contenido */
+@media (min-width: 768px) {
+    .retiro-incluye {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .retiro-eleme {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .inmersion-info-precio {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .buttons-container {
+        max-width: 400px;
+        margin: 2rem auto 0;
+    }
+}
+
+/* Desktop - Mejorar espaciado */
+@media (min-width: 1024px) {
+    .retiro-incluye {
+        max-width: 900px;
+        padding: 2rem;
+    }
+    
+    .retiro-eleme {
+        max-width: 700px;
+        padding: 2rem;
+    }
+    
+    .buttons-container {
+        max-width: 450px;
+    }
+}

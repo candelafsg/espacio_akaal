@@ -212,10 +212,7 @@ export const Header = () => {
                 {/* --- NAV DESKTOP --- */}
                 <nav className="header-nav-desk">
 
-                    {/* Símbolo izquierdo */}
-                    <div className="header-symbol-left">
-                        <img src="/img/capa.png" alt="símbolo" className="header-symbol-img" />
-                    </div>
+                  
 
                     {/* Navegación central */}
                     <div className="header-nav-center">
@@ -358,11 +355,7 @@ export const Header = () => {
                         </ul>
                     </div>
 
-                    {/* Símbolo derecho */}
-                    <div className="header-symbol-right">
-                        <img src="/img/capa.png" alt="símbolo" className="header-symbol-img" />
-                    </div>
-
+                  
                     {/* MENÚ DESKTOP ANTIGuo (oculto) */}
                     <div style={{display: 'none'}}>
                         <NavLink to="/" className="logo">INICIO</NavLink>

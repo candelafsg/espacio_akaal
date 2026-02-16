@@ -40,10 +40,12 @@
     justify-content: center;
     text-align: center;
     padding: 2rem;
+    margin: 1rem;
     border-radius: 20px;
     max-width: 90%; /* Limitación base para mobile */
     width: 100%;
-    max-width: 500px; /* Máximo ancho en todos los dispositivos */
+    max-width: 500px;
+    background-color: rgba(97, 37, 62, 0.7); /* Máximo ancho en todos los dispositivos */
 }
 
 /* ====== TÍTULO PRINCIPAL ====== */
@@ -52,7 +54,7 @@
     line-height: 1.1;
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--background);
 }
 
 /* ====== CONTENEDOR DE IMÁGENES ====== */
