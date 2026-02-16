@@ -13,7 +13,7 @@
 
 .gong-imagen {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   padding: 0.3rem;
   border-radius: var(--radius-img);

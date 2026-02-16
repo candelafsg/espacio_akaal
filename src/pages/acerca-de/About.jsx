@@ -160,7 +160,7 @@ const About = () => {
             <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />
           </div>
           
-          <h1 className="animate-child" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, mente y alma </h1>
+          <h1 className="animate-child final-h1" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, mente y alma </h1>
           
           <p className="animate-child">
             Si quieres saber un poquito más de mí, y empaparte de mi recorrido, te espero en AKAAL. 

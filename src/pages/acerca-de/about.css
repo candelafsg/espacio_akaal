@@ -10,23 +10,7 @@
     z-index: 1;
 }
 
-.scroll-section:nth-child(1) { z-index: 3; }
-.scroll-section:nth-child(2) { z-index: 2; }
-.scroll-section:nth-child(3) { z-index: 1; }
 
-/* Asegurar que las secciones tengan suficiente altura para el efecto */
-.hero-section {
-    min-height: 100dvh;
-   
-}
-
-.timeline-section {
-    min-height: 100dvh;
-}
-
-.final-section {
-    min-height: 100dvh;
-}
 
 /* Animaciones de secciones */
 .animate-section {
@@ -37,21 +21,12 @@
     opacity: 1;
 }
 
-.animate-child {
-    opacity: 1;
+.final-h1{
+    margin-top: 2rem;
 }
 
-.animate-child.animate-in {
-    opacity: 1;
-}
 
-/* Retrasos progresivos para elementos hijos */
-.animate-child:nth-child(1) { transition-delay: 0.1s; }
-.animate-child:nth-child(2) { transition-delay: 0.2s; }
-.animate-child:nth-child(3) { transition-delay: 0.3s; }
-.animate-child:nth-child(4) { transition-delay: 0.4s; }
-.animate-child:nth-child(5) { transition-delay: 0.5s; }
-.animate-child:nth-child(6) { transition-delay: 0.6s; }
+.final-image{margin-bottom: 2rem;}
 
 /* Hero Section */
 .hero-section {
@@ -69,6 +44,8 @@
 .hero-image img {
     width: 100%;
     height: 100vh;
+    padding: 0.3rem;
+    border-radius: var(--radius-img);
     object-fit: cover;
     object-position: center 70%;
 }
@@ -152,6 +129,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 120vh;
     align-items: center;
     padding: 5rem 2rem;
     max-width: 1200px;
@@ -507,7 +485,12 @@
 
 /* Final Section */
 .final-section {
-    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;;
+    padding:1.5rem;
     width: 100%;
     min-height: 100dvh;
 }
