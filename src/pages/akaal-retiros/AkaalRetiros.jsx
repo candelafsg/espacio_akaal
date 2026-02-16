@@ -1,6 +1,34 @@
 import './retiros.css'
-
+import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
+import { Button } from '../../components/buttons/Button';
+import { useState, useEffect } from 'react';
 const AkaalRetiros = () => {
+
+
+    const [overlay, setOverlay] = useState(false)
+
+    const handleOpen = () => {
+    setOverlay(true)
+
+    }
+
+    const handleClose = () => {
+        setOverlay(false)
+    }
+
+   
+
+
+    useEffect(() => {
+    if (overlay) {
+        document.body.style.overflow = "hidden"
+    } else {
+        document.body.style.overflow = "auto"
+    }
+}, [overlay])
+
+
+
     return (
         <>
             <section className="retiros-portada">
@@ -10,7 +38,7 @@ const AkaalRetiros = () => {
                     <h1 className="retiros-titulo">Retiro Solsticio</h1>
                     <div className="retiros-info-icon">
                         <div className="info">19 - 21 Junio</div>
-                        <div className="info">Calma, Gilet</div>
+                        <div className="info">Calima, Gilet</div>
                     </div>
                 </div>
             </section>
@@ -21,8 +49,8 @@ const AkaalRetiros = () => {
                 </div>
 
                 <div className="retiro-resumen">
-                    <p className="retiro-texto">Una experiencia transformadora diseñada para reconectar con tu esencia durante el solsticio.</p>
-                    <p className="retiro-texto">Tres días de pausa consciente entre las montañas de la Sierra Calderona.</p>
+                    <h1 className="retiro-texto">Una experiencia transformadora</h1>
+                    <p className="retiro-texto">Tres días para reconectar contigoentre las montañas de la Sierra Calderona durante el solsticio.</p>
                 </div>
 
                 <div className="retiro-eleme">
@@ -71,6 +99,24 @@ const AkaalRetiros = () => {
                     <img src="/img/capa.png" alt="simbolo" className="svg" />
                 </div>
 
+
+<div className="buttons-container">
+<Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
+                <Button>RESERVAR MI PLAZA</Button>
+                </div>
+
+
+
+                {
+                    overlay && (
+                        
+                        <div className="overlay-dossier">
+                            <div className="cerrar-container">
+                            <div className="boton-cerrar" onClick={handleClose}>CERRAR</div></div>
+                          <iframe src="/dossier/retiro.pdf" className="dossier"></iframe>
+                        </div>
+                    )
+                }
                 
             </section>
         </>
