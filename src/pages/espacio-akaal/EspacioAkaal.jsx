@@ -76,7 +76,7 @@ const EspacioAkaal = () => {
           <h1 className="texto-provisional">
             Espacio AKAAL
           </h1>
-          <p className="subtitulo-yoga">Un refugio para el cuerpo</p>
+          <p className="subtitulo-yoga">Un refugio para el cuerpo, mente y alma.</p>
           </div>
         </div>
       </ImgContainer>
@@ -97,7 +97,7 @@ const EspacioAkaal = () => {
              <p className="yoga-texto"> Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal.</p>
               
               
-              <p className="yoga-texto"> Ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente.</p>
+              <p className="yoga-texto"> Ideal para reducir dolores corporales, ganar estabilidad,  equilibrio, fuerza, flexibilidad y generar un bienestar profundo, tanto en el cuerpo como en la mente.</p>
               <p className="yoga-texto"> Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.</p>
 
          <div className="yoga-decoracion-bottom">
@@ -118,7 +118,7 @@ const EspacioAkaal = () => {
              <p className="akaal-horarios-texto-desktop"> Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal.</p>
               
               
-              <p className="akaal-horarios-texto-desktop"> Ideal para mejorar la postura corporal, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente.</p>
+              <p className="akaal-horarios-texto-desktop"> Ideal para  reducir dolores corporales, ganar estabilidad y equilibrio, y generar un bienestar profundo tanto en el cuerpo como en la mente.</p>
               <p className="akaal-horarios-texto-desktop"> Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.</p>
           
         </div>

@@ -50,6 +50,8 @@
 
 .subtitulo-yoga{
   color: var(--background);
+  text-align: center;
+  font-weight: 600;
 }
 
 
@@ -376,10 +378,9 @@
 }
 
 .slider-titulo {
-    font-size: 5vw !important;
+    font-size: 3rem !important;
     color: var(--primary);
     margin-bottom:2rem !important;
-    margin-top: 2rem;
     line-height: 1.2;
     text-align: center;
 }

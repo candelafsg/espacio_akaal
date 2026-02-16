@@ -49,7 +49,7 @@ const AkaalRetiros = () => {
                 </div>
 
                 <div className="retiro-resumen">
-                    <h1 className="retiro-texto">Una experiencia transformadora</h1>
+                    <h2 className="retiro-title">Una experiencia transformadora</h2>
                     <p className="retiro-texto">Tres días para reconectar contigoentre las montañas de la Sierra Calderona durante el solsticio.</p>
                 </div>
 

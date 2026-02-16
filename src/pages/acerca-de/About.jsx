@@ -3,78 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
 import './about.css'
 import { Footer } from "../../components/footer/Footer"
-
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0) // 0 = no direction, 1 = forward, -1 = backward
 
-  // Intersection Observer para animaciones de secciones
-  // useEffect(() => {
-  //   const observerOptions = {
-  //     threshold: [0, 0.1, 0.5, 1],
-  //     rootMargin: '0px 0px -100px 0px'
-  //   }
-
-  //   const handleScroll = () => {
-  //     const scrolled = window.scrollY;
-  //     const sections = document.querySelectorAll('.scroll-section');
-      
-  //     sections.forEach((section, index) => {
-  //       const rect = section.getBoundingClientRect();
-  //       const windowHeight = window.innerHeight;
-        
-  //       // Calcular qué tan centrada está la sección en la vista
-  //       const sectionCenter = rect.top + rect.height / 2;
-  //       const viewportCenter = windowHeight / 2;
-  //       const distance = Math.abs(sectionCenter - viewportCenter);
-  //       const maxDistance = windowHeight / 2 + rect.height / 2;
-        
-  //       // Progreso basado en qué tan lejos está del centro
-  //       const progress = Math.max(0, Math.min(1, distance / maxDistance));
-        
-  //       // La sección actual está al 100% cuando está centrada
-  //       if (distance < windowHeight / 3) {
-  //         // Sección activa: opacidad completa
-  //         section.style.opacity = 1;
-  //         section.style.transform = 'translateY(0) scale(1)';
-  //       } else {
-  //         // Sección inactiva: menos opacidad según la distancia
-  //         section.style.opacity = Math.max(0.3, 1 - progress * 0.7);
-  //         section.style.transform = `translateY(${progress * 15}px) scale(${1 - progress * 0.03})`;
-  //       }
-  //     });
-  //   };
-
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add('animate-in');
-          
-  //         // Animar elementos hijos uno a uno
-  //         const children = entry.target.querySelectorAll('.animate-child');
-  //         children.forEach((child, index) => {
-  //           setTimeout(() => {
-  //             child.classList.add('animate-in');
-  //           }, index * 200);
-  //         });
-  //       }
-  //     });
-  //   }, observerOptions);
-
-  //   // Observar secciones
-  //   const sections = document.querySelectorAll('.animate-section');
-  //   sections.forEach(section => observer.observe(section));
-
-  //   // Añadir listener de scroll
-  //   window.addEventListener('scroll', handleScroll);
-  //   handleScroll(); // Ejecutar una vez al inicio
-
-  //   return () => {
-  //     observer.disconnect();
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
+ 
   const timeline = [
     {
       year: "2013",
@@ -227,7 +160,7 @@ const About = () => {
             <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />
           </div>
           
-          <h1 className="animate-child" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, manos y alma </h1>
+          <h1 className="animate-child" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, mente y alma </h1>
           
           <p className="animate-child">
             Si quieres saber un poquito más de mí, y empaparte de mi recorrido, te espero en AKAAL. 
