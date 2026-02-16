@@ -49,7 +49,7 @@
 
 .contacto-titulo,
 .contacto-subtitulo {
-    text-align: left;
+    text-align: center;
 }
 
 .contacto-titulo{
@@ -131,7 +131,9 @@
     color: inherit;
     cursor: pointer;
 }
-
+.btn{
+   width: 90%;
+}
 /* ========================================
    MEDIA QUERIES
    ======================================== */
@@ -156,23 +158,12 @@
         align-items: flex-start;
     }
     
-    .contacto-container {
-        align-items: flex-start;
-        text-align: left;
-    }
+ 
     
-    .contacto-titulo,
-    .contacto-subtitulo {
-        text-align: left;
-    }
+ 
+
     
-    .contacto-instagram-container {
-        align-items: flex-start;
-    }
-    
-    .contacto-ubicacion {
-        align-items: flex-start;
-    }
+ 
     
     .contacto-imagen {
         height: 35vh;
@@ -181,4 +172,7 @@
     .simbolo {
         display: none;
     }
+
+  
+
 }
