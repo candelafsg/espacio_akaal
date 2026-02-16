@@ -320,13 +320,13 @@ const UnaVioska = () => {
 
             <main className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
-                <ImgContainer>
+                <section className='vioska-inicio'>
                     <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
                     <div className="vioska-info">
                         <h1 className="vioska-titulo">una vioska.</h1>
                         <p className="vioska-subtitulo">Artesanía hecha con propósito.</p>
                     </div>
-                </ImgContainer>
+                </section>
 
                 {/* Versión Mobile */}
                 <section className="vioska-instrucciones mobile-only">

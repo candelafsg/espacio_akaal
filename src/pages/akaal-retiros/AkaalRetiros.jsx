@@ -102,7 +102,7 @@ const AkaalRetiros = () => {
 
 <div className="buttons-container">
 <Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
-                <Button>RESERVAR MI PLAZA</Button>
+                <WhatsAppLink>RESERVAR MI PLAZA</   WhatsAppLink>
                 </div>
 
 
