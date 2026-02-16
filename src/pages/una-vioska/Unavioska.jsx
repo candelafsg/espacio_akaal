@@ -547,7 +547,7 @@ const UnaVioska = () => {
 
                                 <div className="subtitulo">
                                     <h2 className="h2-titulo">Creación consciente</h2>
-                                    <p className="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, rerum sed quibusdam unde nesciunt suscipit possimus, soluta accusantium blanditiis adipisci molestiae quae labore illo quidem laborum voluptatem modi recusandae reprehenderit.</p>
+                                    <p className="p">Joyas artesanales hechas a mano, pieza por pieza, con dedicación y cuidado en cada detalle. <br /> Trabajo de manera consciente, eligiendo los materiales y procesos,  poniendo cariño y alma en cada creación, para que cada joya no solo adorne, sino que también cuente una historia.</p>
                                 </div>
 
 
@@ -602,10 +602,11 @@ const UnaVioska = () => {
                                     <div className=" cont-btn">
 
                                         <Button 
+                                        className='boton-vioska'
                                             variant='noOutlined' 
-                                            style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'center', fontSize: "0.7rem" }} 
+                                            style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'end', fontSize: "0.7rem", gap: '0.5rem',  }} 
                                             iconPosition='right' 
-                                            icon={<ChevronRight size={14} />}
+                                            icon={<ChevronRight size={14} style={{marginTop:'0.2rem'}} />}
                                             onClick={() => {
                                                 const section = document.querySelector('.desktop-productos');
                                                 if (section) {
