@@ -7,25 +7,24 @@ const AkaalRetiros = () => {
 
     const [overlay, setOverlay] = useState(false)
 
-    const handleOpen = () => {
-    setOverlay(true)
-
-    }
 
     const handleClose = () => {
         setOverlay(false)
     }
 
-   
+const handleOpen = () => {
+  window.open("/dossier/retiro.pdf", "_blank");
+};
+
 
 
     useEffect(() => {
-    if (overlay) {
-        document.body.style.overflow = "hidden"
-    } else {
-        document.body.style.overflow = "auto"
-    }
-}, [overlay])
+        if (overlay) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
+    }, [overlay])
 
 
 
@@ -91,7 +90,7 @@ const AkaalRetiros = () => {
 
                     <div className="inmersion-info">
                         <p className="inmersion-texto">PLAZAS LIMITADAS</p>
-                         <p className="inmersion-texto" style={{fontWeight:'700', textAlign:'end'}}>ANA y MARÍA</p>
+                        <p className="inmersion-texto" style={{ fontWeight: '700', textAlign: 'end' }}>ANA y MARÍA</p>
 
                     </div>
                 </div>
@@ -100,24 +99,24 @@ const AkaalRetiros = () => {
                 </div>
 
 
-<div className="buttons-container">
-<Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
-                <WhatsAppLink>RESERVAR MI PLAZA</   WhatsAppLink>
+                <div className="buttons-container">
+                    <Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
+                    <WhatsAppLink>RESERVAR MI PLAZA</   WhatsAppLink>
                 </div>
 
 
 
-                {
+                {/* {
                     overlay && (
-                        
+
                         <div className="overlay-dossier">
                             <div className="cerrar-container">
-                            <div className="boton-cerrar" onClick={handleClose}>CERRAR</div></div>
-                          <iframe src="/dossier/retiro.pdf" className="dossier"></iframe>
+                                <div className="boton-cerrar" onClick={handleClose}>CERRAR</div></div>
+
                         </div>
                     )
-                }
-                
+                } */}
+
             </section>
         </>
     );
