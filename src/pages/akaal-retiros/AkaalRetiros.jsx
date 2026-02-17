@@ -35,7 +35,7 @@ const handleOpen = () => {
 
                 <div className="retiros-info">
                     <h1 className="retiros-titulo">Retiro Solsticio</h1>
-                    <div className="retiros-info-icon">
+                    <div className="retiros-info-icon" style={{fontWeight:'600'}}>
                         <div className="info">19 - 21 Junio</div>
                         <div className="info">Calima, Gilet</div>
                     </div>

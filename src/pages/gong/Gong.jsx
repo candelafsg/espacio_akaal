@@ -165,7 +165,7 @@ const Gong = () => {
 
                 <div className="gong-texto">
                     <h1 className="gong-titulo">Baños de Gong</h1>
-                    <p className="gong-subtitulo">
+                    <p className="gong-subtitulo" style={{fontWeight:'600'}}>
                         Un viaje de frecuencias y vibraciones
                     </p>
                 </div>

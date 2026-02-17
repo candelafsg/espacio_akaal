@@ -813,6 +813,7 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
     }
 
     .titulo-galeria{
+        margin-top: 7rem;
         font-size: 3rem;
         text-align: center;
         line-height: 1;

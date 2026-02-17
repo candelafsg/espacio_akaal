@@ -38,7 +38,7 @@ const Inicio = () => {
                 />
                 <div className="titulo-container-inicio">
                     <h1 className="espacioAkaal">Espacio AKAAL</h1>
-                    <p className="espacioAkaal-subtitulo" style={{color:'var(--background)'}}>
+                    <p className="espacioAkaal-subtitulo" style={{color:'var(--background)', fontWeight:'600'}}>
                         Un refugio para el movimiento, la pausa y la intención
                     </p>
                 </div>

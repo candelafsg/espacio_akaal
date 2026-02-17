@@ -95,7 +95,7 @@ const AkaalViajes = () => {
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
             <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
-            <p className="viajes-subtitulo">Cada viaje, una intención</p>
+            <p className="viajes-subtitulo" style={{fontWeight:'600'}}>Cada viaje, una intención</p>
           </div>
         </div>
       </section>

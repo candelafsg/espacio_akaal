@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import ResumenPedido from './ResumenPedido';
 import { Footer } from "../../components/footer/Footer";
+import Slider from '../../components/slider/Slider';
 
 
 // 📝 Lista de pasos de instrucciones
@@ -190,21 +191,6 @@ const UnaVioska = () => {
 
     const handleMenu = () => setMenu(!menu);
 
-    // Funciones para el slider de imágenes
-    const imagenSiguiente = () => {
-        setImagenActual((prev) => (prev + 1) % masonryImages.length);
-    };
-
-    const imagenAnterior = () => {
-        setImagenActual((prev) => (prev - 1 + masonryImages.length) % masonryImages.length);
-    };
-
-    const irAImagen = (index) => {
-        setImagenActual(index);
-    };
-
-
-
 
 
     const handleFiltro = (filtro) => {
@@ -316,6 +302,9 @@ const UnaVioska = () => {
         }
     }, []);
 
+    const sliderImages = masonryImages.map(item => item.img);
+
+
     return (
         <>
 
@@ -325,7 +314,7 @@ const UnaVioska = () => {
                     <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
                     <div className="vioska-info">
                         <h1 className="vioska-titulo">una vioska.</h1>
-                        <p className="vioska-subtitulo">Artesanía hecha con propósito.</p>
+                        <p className="vioska-subtitulo" style={{fontWeight:'600'}}>Artesanía hecha con propósito.</p>
                     </div>
                 </section>
 
@@ -443,42 +432,10 @@ const UnaVioska = () => {
                     <h2 className="slider-titulo">Creación consciente</h2>
                     <p className="slider-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
 
-                    <div className="slider-container-galery">
-                        <div className="slider-imagen">
-                            <img
-                                src={masonryImages[imagenActual].img}
-                                alt={`Imagen ${imagenActual + 1}`}
-                                className="slider-img-galery"
-                            />
-                        </div>
+                 <div className="slider-container-galery">
+  <Slider images={sliderImages} />
+</div>
 
-                        <button
-                            className="slider-btn slider-btn-prev"
-                            onClick={imagenAnterior}
-                            aria-label="Imagen anterior"
-                        >
-                            <ChevronLeft size={32} />
-                        </button>
-
-                        <button
-                            className="slider-btn slider-btn-next"
-                            onClick={imagenSiguiente}
-                            aria-label="Siguiente imagen"
-                        >
-                            <ChevronRight size={32} />
-                        </button>
-                    </div>
-
-                    <div className="slider-dots">
-                        {masonryImages.map((_, index) => (
-                            <button
-                                key={`slider-dot-${index}`}
-                                className={`slider-dot ${index === imagenActual ? 'slider-dot-active' : ''}`}
-                                onClick={() => irAImagen(index)}
-                                aria-label={`Ir a imagen ${index + 1}`}
-                            />
-                        ))}
-                    </div>
                 </section>
 
                 {menuResumenAbierto && (
@@ -554,6 +511,7 @@ const UnaVioska = () => {
                                 <div className="imgs-cont">
 
                                     <div className="imgs">
+
                                         <div className="fila">
 
                                             <div className="cont">
@@ -580,7 +538,7 @@ const UnaVioska = () => {
 
                                         <div className="fila">
 
-                                           
+
 
 
                                             <div className="cont">
@@ -590,7 +548,7 @@ const UnaVioska = () => {
                                                 </div>
                                             </div>
 
-                                             <div className="cont"> <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
+                                            <div className="cont"> <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">
                                                     PENDIENTES
                                                 </div>
@@ -601,12 +559,12 @@ const UnaVioska = () => {
 
                                     <div className=" cont-btn">
 
-                                        <Button 
-                                        className='boton-vioska'
-                                            variant='noOutlined' 
-                                            style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'end', fontSize: "0.7rem", gap: '0.5rem',  }} 
-                                            iconPosition='right' 
-                                            icon={<ChevronRight size={14} style={{marginTop:'0.2rem'}} />}
+                                        <Button
+                                            className='boton-vioska'
+                                            variant='noOutlined'
+                                            style={{ color: "var(--background)", display: "flex", alignItems: 'center', width: '100%', justifyContent: 'end', fontSize: "0.7rem", gap: '0.5rem', }}
+                                            iconPosition='right'
+                                            icon={<ChevronRight size={14} style={{ marginTop: '0.2rem' }} />}
                                             onClick={() => {
                                                 const section = document.querySelector('.desktop-productos');
                                                 if (section) {
@@ -642,177 +600,177 @@ const UnaVioska = () => {
 
                 <section className="desktop-productos" id='gallery'>
 
-                    <h1 className="titulo-galeria">Galería <br/> de productos</h1>
-                    <p className="subtitulo-galeria">Explora cada pieza con calma. <br/> Activa el modo selección para marcar tus favoritas y crear tu propia colección. <br/> Desactívalo cuando quieras volver a mirar sin compromiso</p>
+                    <h1 className="titulo-galeria">Galería <br /> de productos</h1>
+                    <p className="subtitulo-galeria">Explora cada pieza con calma. <br /> Activa el modo selección para marcar tus favoritas y crear tu propia colección. <br /> Desactívalo cuando quieras volver a mirar sin compromiso</p>
 
                     <div className="galeria-contenedor">
-                           <div className="filtros-header">
-                                <ul className="filtro-ul-galeria">
-                                    <li className={`filtro-li ${tipoActivo === "todo" ? "activo" : ""}`} onClick={() => handleTipo("todo")}>TODO</li>
-                                    <li className={`filtro-li ${tipoActivo === "macrame" ? "activo" : ""}`} onClick={() => handleTipo("macrame")}>MACRAMÉ</li>
-                                    <li className={`filtro-li ${tipoActivo === "colgantes" ? "activo" : ""}`} onClick={() => handleTipo("colgantes")}>COLGANTES</li>
-                                    <li className={`filtro-li ${tipoActivo === "anillos" ? "activo" : ""}`} onClick={() => handleTipo("anillos")}>ANILLOS</li>
-                                    <li className={`filtro-li ${tipoActivo === "pendientes" ? "activo" : ""}`} onClick={() => handleTipo("pendientes")}>PENDIENTES</li>
-                                    {/* <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
+                        <div className="filtros-header">
+                            <ul className="filtro-ul-galeria">
+                                <li className={`filtro-li ${tipoActivo === "todo" ? "activo" : ""}`} onClick={() => handleTipo("todo")}>TODO</li>
+                                <li className={`filtro-li ${tipoActivo === "macrame" ? "activo" : ""}`} onClick={() => handleTipo("macrame")}>MACRAMÉ</li>
+                                <li className={`filtro-li ${tipoActivo === "colgantes" ? "activo" : ""}`} onClick={() => handleTipo("colgantes")}>COLGANTES</li>
+                                <li className={`filtro-li ${tipoActivo === "anillos" ? "activo" : ""}`} onClick={() => handleTipo("anillos")}>ANILLOS</li>
+                                <li className={`filtro-li ${tipoActivo === "pendientes" ? "activo" : ""}`} onClick={() => handleTipo("pendientes")}>PENDIENTES</li>
+                                {/* <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
                                 <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li> */}
-                                </ul>
-                                <Button onClick={toggleSeleccion}>
-                                    {modoSeleccion ? 'VISTA' : 'SELECCIÓN'}
-                                </Button>
-                           </div>
-                           {seleccionados.length > 0 && (
-                                <div className="pedido-header-desktop">
-                                    <Button variant='noOutlined' onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
-                                    <AiOutlineDelete onClick={borrarSeleccion} />
+                            </ul>
+                            <Button onClick={toggleSeleccion}>
+                                {modoSeleccion ? 'VISTA' : 'SELECCIÓN'}
+                            </Button>
+                        </div>
+                        {seleccionados.length > 0 && (
+                            <div className="pedido-header-desktop">
+                                <Button variant='noOutlined' onClick={irAResumen}>VER PEDIDO ({seleccionados.length})</Button>
+                                <AiOutlineDelete onClick={borrarSeleccion} />
+                            </div>
+                        )}
+
+
+                        <div className="galeria">
+
+                            {/* Fila MACRAMÉ */}
+                            {tipoActivo === "todo" || tipoActivo === "macrame" ? (
+                                <div className="producto-titulo">
+                                    <div className="producto-titulo">
+                                        <h2>MACRAMÉ</h2>
+                                    </div>
+                                    <div className="galeria-scroll-container">
+                                        <div className="galeria-scroll-desk">
+                                            <div className="productos-scroll">
+                                                {productos
+                                                    .filter(producto => producto.tipo === 'macrame')
+                                                    .map(producto => (
+                                                        <ProductCard
+                                                            key={`desktop-macrame-${producto.id}`}
+                                                            producto={producto}
+                                                            modoSeleccion={modoSeleccion}
+                                                            seleccionado={seleccionados.includes(producto.id)}
+                                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                                        />
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            )}
+                            ) : null}
 
-
-                                <div className="galeria">
-
-                                    {/* Fila MACRAMÉ */}
-                                    {tipoActivo === "todo" || tipoActivo === "macrame" ? (
-                                        <div className="producto-titulo">
-                                            <div className="producto-titulo">
-                                                <h2>MACRAMÉ</h2>
-                                            </div>
-                                            <div className="galeria-scroll-container">
-                                                <div className="galeria-scroll-desk">
-                                                    <div className="productos-scroll">
-                                                        {productos
-                                                            .filter(producto => producto.tipo === 'macrame')
-                                                            .map(producto => (
-                                                                <ProductCard
-                                                                    key={`desktop-macrame-${producto.id}`}
-                                                                    producto={producto}
-                                                                    modoSeleccion={modoSeleccion}
-                                                                    seleccionado={seleccionados.includes(producto.id)}
-                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
-                                                                />
-                                                            ))}
-                                                    </div>
-                                                </div>
+                            {/* Fila COLGANTES */}
+                            {tipoActivo === "todo" || tipoActivo === "colgantes" ? (
+                                <div className="producto-titulo">
+                                    <div className="producto-titulo">
+                                        <h2>COLGANTES</h2>
+                                    </div>
+                                    <div className="galeria-scroll-container">
+                                        {canScrollPrev('colgantes') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'prev')}>
+                                                <ChevronLeft size={20} />
+                                            </button>
+                                        )}
+                                        <div className="galeria-scroll-desk">
+                                            <div className="productos-scroll" ref={colgantesRef}>
+                                                {productos
+                                                    .filter(producto => producto.tipo === 'colgantes')
+                                                    .map(producto => (
+                                                        <ProductCard
+                                                            key={`desktop-colgantes-${producto.id}`}
+                                                            producto={producto}
+                                                            modoSeleccion={modoSeleccion}
+                                                            seleccionado={seleccionados.includes(producto.id)}
+                                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                                        />
+                                                    ))}
                                             </div>
                                         </div>
-                                    ) : null}
-
-                                    {/* Fila COLGANTES */}
-                                    {tipoActivo === "todo" || tipoActivo === "colgantes" ? (
-                                        <div className="producto-titulo">
-                                            <div className="producto-titulo">
-                                                <h2>COLGANTES</h2>
-                                            </div>
-                                            <div className="galeria-scroll-container">
-                                                {canScrollPrev('colgantes') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'prev')}>
-                                                        <ChevronLeft size={20} />
-                                                    </button>
-                                                )}
-                                                <div className="galeria-scroll-desk">
-                                                    <div className="productos-scroll" ref={colgantesRef}>
-                                                        {productos
-                                                            .filter(producto => producto.tipo === 'colgantes')
-                                                            .map(producto => (
-                                                                <ProductCard
-                                                                    key={`desktop-colgantes-${producto.id}`}
-                                                                    producto={producto}
-                                                                    modoSeleccion={modoSeleccion}
-                                                                    seleccionado={seleccionados.includes(producto.id)}
-                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
-                                                                />
-                                                            ))}
-                                                    </div>
-                                                </div>
-                                                {canScrollNext('colgantes') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'next')}>
-                                                        <ChevronRight size={20} />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ) : null}
-
-                                    {/* Fila ANILLOS */}
-                                    {tipoActivo === "todo" || tipoActivo === "anillos" ? (
-                                        <div className="producto-titulo">
-                                            <div className="producto-titulo">
-                                                <h2>ANILLOS</h2>
-                                            </div>
-                                            <div className="galeria-scroll-container">
-                                                {canScrollPrev('anillos') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('anillos', 'prev')}>
-                                                        <ChevronLeft size={20} />
-                                                    </button>
-                                                )}
-                                                <div className="galeria-scroll-desk">
-                                                    <div className="productos-scroll" ref={anillosRef}>
-                                                        {productos
-                                                            .filter(producto => producto.tipo === 'anillos')
-                                                            .map(producto => (
-                                                                <ProductCard
-                                                                    key={`desktop-anillos-${producto.id}`}
-                                                                    producto={producto}
-                                                                    modoSeleccion={modoSeleccion}
-                                                                    seleccionado={seleccionados.includes(producto.id)}
-                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
-                                                                />
-                                                            ))}
-                                                    </div>
-                                                </div>
-                                                {canScrollNext('anillos') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('anillos', 'next')}>
-                                                        <ChevronRight size={20} />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ) : null}
-
-                                    {/* Fila PENDIENTES */}
-                                    {tipoActivo === "todo" || tipoActivo === "pendientes" ? (
-                                        <div className="producto-titulo">
-                                            <div className="producto-titulo">
-                                                <h2>PENDIENTES</h2>
-                                            </div>
-                                            <div className="galeria-scroll-container">
-                                                {canScrollPrev('pendientes') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'prev')}>
-                                                        <ChevronLeft size={20} />
-                                                    </button>
-                                                )}
-                                                <div className="galeria-scroll-desk">
-                                                    <div className="productos-scroll" ref={pendientesRef}>
-                                                        {productos
-                                                            .filter(producto => producto.tipo === 'pendientes')
-                                                            .map(producto => (
-                                                                <ProductCard
-                                                                    key={`desktop-pendientes-${producto.id}`}
-                                                                    producto={producto}
-                                                                    modoSeleccion={modoSeleccion}
-                                                                    seleccionado={seleccionados.includes(producto.id)}
-                                                                    onSeleccionar={() => handleSeleccion(producto.id)}
-                                                                />
-                                                            ))}
-                                                    </div>
-                                                </div>
-                                                {canScrollNext('pendientes') && (
-                                                    <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'next')}>
-                                                        <ChevronRight size={20} />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ) : null}
-
+                                        {canScrollNext('colgantes') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('colgantes', 'next')}>
+                                                <ChevronRight size={20} />
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
-                        
+                            ) : null}
+
+                            {/* Fila ANILLOS */}
+                            {tipoActivo === "todo" || tipoActivo === "anillos" ? (
+                                <div className="producto-titulo">
+                                    <div className="producto-titulo">
+                                        <h2>ANILLOS</h2>
+                                    </div>
+                                    <div className="galeria-scroll-container">
+                                        {canScrollPrev('anillos') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('anillos', 'prev')}>
+                                                <ChevronLeft size={20} />
+                                            </button>
+                                        )}
+                                        <div className="galeria-scroll-desk">
+                                            <div className="productos-scroll" ref={anillosRef}>
+                                                {productos
+                                                    .filter(producto => producto.tipo === 'anillos')
+                                                    .map(producto => (
+                                                        <ProductCard
+                                                            key={`desktop-anillos-${producto.id}`}
+                                                            producto={producto}
+                                                            modoSeleccion={modoSeleccion}
+                                                            seleccionado={seleccionados.includes(producto.id)}
+                                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                                        />
+                                                    ))}
+                                            </div>
+                                        </div>
+                                        {canScrollNext('anillos') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('anillos', 'next')}>
+                                                <ChevronRight size={20} />
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            ) : null}
+
+                            {/* Fila PENDIENTES */}
+                            {tipoActivo === "todo" || tipoActivo === "pendientes" ? (
+                                <div className="producto-titulo">
+                                    <div className="producto-titulo">
+                                        <h2>PENDIENTES</h2>
+                                    </div>
+                                    <div className="galeria-scroll-container">
+                                        {canScrollPrev('pendientes') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'prev')}>
+                                                <ChevronLeft size={20} />
+                                            </button>
+                                        )}
+                                        <div className="galeria-scroll-desk">
+                                            <div className="productos-scroll" ref={pendientesRef}>
+                                                {productos
+                                                    .filter(producto => producto.tipo === 'pendientes')
+                                                    .map(producto => (
+                                                        <ProductCard
+                                                            key={`desktop-pendientes-${producto.id}`}
+                                                            producto={producto}
+                                                            modoSeleccion={modoSeleccion}
+                                                            seleccionado={seleccionados.includes(producto.id)}
+                                                            onSeleccionar={() => handleSeleccion(producto.id)}
+                                                        />
+                                                    ))}
+                                            </div>
+                                        </div>
+                                        {canScrollNext('pendientes') && (
+                                            <button className="nav-btn" onClick={() => scrollGallery('pendientes', 'next')}>
+                                                <ChevronRight size={20} />
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            ) : null}
+
+                        </div>
+
                     </div>
 
 
-                  
+
 
                 </section>
-                
+
                 {/* Footer - solo visible en desktop */}
                 <Footer />
             </main>

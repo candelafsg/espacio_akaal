@@ -8,7 +8,7 @@ import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
 import { espacioAkaalImgs } from "../../db/imagenes";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Footer } from "../../components/footer/Footer";
-
+import Slider from "../../components/slider/Slider";
 const diasSemana = ["LUN.", "MAR.", "MIER.", "JUE.", "VIE."];
 
 const diaCompleto = {
@@ -30,10 +30,7 @@ const EspacioAkaal = () => {
   const [sliderInitialIndex, setSliderInitialIndex] = useState(0);
   const [imagenActual, setImagenActual] = useState(0);
 
-  // Preparar imágenes para el slider
-  const sliderImages = espacioAkaalImgs.map((img) => ({
-    img: img
-  }));
+
 
   const handleOpenSlider = (index) => {
     setSliderInitialIndex(index);
@@ -44,18 +41,7 @@ const EspacioAkaal = () => {
     setSliderOpen(false);
   };
 
-  // Funciones para el slider de imágenes
-  const imagenSiguiente = () => {
-    setImagenActual((prev) => (prev + 1) % sliderImages.length);
-  };
 
-  const imagenAnterior = () => {
-    setImagenActual((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
-  };
-
-  const irAImagen = (index) => {
-    setImagenActual(index);
-  };
 
   const dia = claseYoga?.dias.find((d) => d.dia === diaSeleccionado);
 
@@ -209,44 +195,12 @@ const EspacioAkaal = () => {
           <img src="/img/capa.png" alt="Decoración" className="slider-capa" />
         </div>
         
+        <div className="akaal-intro">
         <h1 className="slider-titulo">Un refugio <br /> para el cuerpo</h1>
-        
-        <div className="slider-container-galery">
-          <div className="slider-imagen">
-            <img 
-              src={sliderImages[imagenActual].img} 
-              alt={`Imagen ${imagenActual + 1}`}
-              className="slider-img-galery"
-            />
-          </div>
-          
-          <button 
-            className="slider-btn slider-btn-prev" 
-            onClick={imagenAnterior}
-            aria-label="Imagen anterior"
-          >
-            <ChevronLeft size={32} />
-          </button>
-          
-          <button 
-            className="slider-btn slider-btn-next" 
-            onClick={imagenSiguiente}
-            aria-label="Siguiente imagen"
-          >
-            <ChevronRight size={32} />
-          </button>
+        <p className="slider-subtitulo">Un espacio donde bajar el ritmo, escuchar el cuerpo y volver a ti. </p>
         </div>
         
-        <div className="slider-dots">
-          {sliderImages.map((_, index) => (
-            <button
-              key={index}
-              className={`slider-dot ${index === imagenActual ? 'slider-dot-active' : ''}`}
-              onClick={() => irAImagen(index)}
-              aria-label={`Ir a imagen ${index + 1}`}
-            />
-          ))}
-        </div>
+       <Slider images={espacioAkaalImgs} />
         
         <div className="slider-decoracion-bottom">
           <img src="/img/capa.png" alt="Decoración" className="slider-capa" />

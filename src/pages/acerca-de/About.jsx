@@ -75,8 +75,8 @@ const About = () => {
             <div className="hero-content animate-child">
 
            <h1 className="titulo-hero">Un viaje interior</h1>
-           <p className="subtitulo-hero animate-child">Este camino empezó conmigo, y hoy lo comparto contigo</p>
-              {/* <span className="hero-date">Desde 2013</span> */}
+           <p className="subtitulo-hero animate-child" style={{fontWeight:'600'}}>Este camino empezó conmigo, y hoy lo comparto contigo</p>
+            
             
             </div>
           </div>
@@ -86,8 +86,8 @@ const About = () => {
       {/* TIMELINE */}
       <section className="timeline-section animate-section scroll-section">
         <div className="timeline-header animate-child">
-          <h2>Mi Camino</h2>
-          <p>Una historia de transformación a través del viaje, el yoga y la artesanía</p>
+          <h2>El viaje que me transformó</h2>
+          <p>Una travesía interior entre viaje, yoga y creación.</p>
         </div>
 
         <div className="timeline-container animate-child">
