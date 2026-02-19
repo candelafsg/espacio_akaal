@@ -91,7 +91,7 @@ const AkaalViajes = () => {
       {/* Sección 1: Introducción a Viajes Akaal */}
       <section className="viajes-intro-section">
         <div className="viajes-intro-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
           <div className="viajes-intro-overlay"></div>
         </div>
         <div className="viajes-intro-content">
@@ -117,7 +117,9 @@ const AkaalViajes = () => {
 
             <div className="intro-contenedor-subtitulo">
               <h2 className="contenedor-sub">Cada viaje, una intención.</h2>
-              <p className="viajes-subtitulo" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam illo, delectus cupiditate inventore, odit, numquam culpa voluptatem illum deleniti facere? Aperiam ratione sed quam deserunt quia vel, alias eos.</p></div>
+              <p className="viajes-subtitulo" >Cada destino es un espacio sagrado que invita a detenerse, respirar y escuchar. <br/>
+                Lejos del ruido cotidiano, cultivamos presencia, silencio y conexión profunda.<br/>
+                Porque a veces, el viaje más importante no es hacia un lugar… sino hacia tu interior.</p></div>
           </div>
 
 
@@ -129,7 +131,7 @@ const AkaalViajes = () => {
             </div>
 
             <div className="contenedor-content">
-                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767437770/20240331_092747_zfcoi3.jpg" alt="" className="img-content" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767437770/20240331_092747_zfcoi3.jpg" alt="" className="img-content" />
             </div>
 
 
