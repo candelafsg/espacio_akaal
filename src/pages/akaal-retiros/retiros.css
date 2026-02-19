@@ -127,38 +127,82 @@ margin-top: 2rem;
 }
 
 
-
-
-
-.overlay-dossier{
-    position: absolute;
-   inset: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    width: 100%;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.retiro-incluye{
+    position: relative;
 }
 
 
-.dossier{
-    max-width: 90%;
-    height: 90dvh;
-}
 
 
-.boton-cerrar{
-    position: absolute;
-    top: 5rem;
-    right: 1.9rem;
-  padding: 1rem;
-    cursor: pointer;
-    color: var(--background);
-    background-color: var(--primary);
-    border-radius: 30px;
+
+/* OVERLAY FONDO */
+.overlay-dossier {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: fadeIn 0.4s ease forwards;
 }
+
+/* MODAL */
+.modal-dossier {
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+
+  transform: scale(0.9);
+  animation: scaleIn 0.4s ease forwards;
+}
+
+/* IFRAME */
+.iframe-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* BOTÓN CERRAR */
+.cerrar-btn {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: var(--background);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0.6rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+
+  transition: all 0.3s ease;
+}
+
+.cerrar-btn:hover {
+  background: #333;
+  transform: scale(1.1);
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
 
 /* Tablet y Desktop - Centrar contenido */
 @media (min-width: 768px) {

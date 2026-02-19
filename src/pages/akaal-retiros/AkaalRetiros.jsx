@@ -12,19 +12,28 @@ const AkaalRetiros = () => {
         setOverlay(false)
     }
 
-const handleOpen = () => {
-  window.open("/dossier/retiro.pdf", "_blank");
-};
+    const handleOpen = () => {
+        setOverlay(true);
+    };
 
 
 
-    useEffect(() => {
-        if (overlay) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "auto"
-        }
-    }, [overlay])
+
+  useEffect(() => {
+  if (overlay) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  };
+}, [overlay]);
+
 
 
 
@@ -35,7 +44,7 @@ const handleOpen = () => {
 
                 <div className="retiros-info">
                     <h1 className="retiros-titulo">Retiro Solsticio</h1>
-                    <div className="retiros-info-icon" style={{fontWeight:'600'}}>
+                    <div className="retiros-info-icon" style={{ fontWeight: '600' }}>
                         <div className="info">19 - 21 Junio</div>
                         <div className="info">Calima, Gilet</div>
                     </div>
@@ -101,21 +110,29 @@ const handleOpen = () => {
 
                 <div className="buttons-container">
                     <Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
-                    <WhatsAppLink>RESERVAR MI PLAZA</   WhatsAppLink>
+                    <WhatsAppLink>RESERVAR MI PLAZA</WhatsAppLink>
                 </div>
 
 
 
-                {/* {
+                {
                     overlay && (
-
                         <div className="overlay-dossier">
-                            <div className="cerrar-container">
-                                <div className="boton-cerrar" onClick={handleClose}>CERRAR</div></div>
+                            <div className="modal-dossier">
+                                <div className="cerrar-btn" onClick={handleClose}>
+                                    ✕
+                                </div>
 
+                                <iframe
+                                    src="/dossier/retiro.pdf"
+                                    title="Programa Retiro"
+                                    className="iframe-pdf"
+                                />
+                            </div>
                         </div>
                     )
-                } */}
+                }
+
 
             </section>
         </>
