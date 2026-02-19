@@ -19,7 +19,7 @@ const AkaalViajes = () => {
 
 
 
-  
+
 
 
 
@@ -69,6 +69,8 @@ const AkaalViajes = () => {
 
   const totalPages = 2; // Tenemos 2 páginas de cards
   const isLastStep = currentStep === steps.length - 1;
+
+
   useEffect(() => {
     const fechaViaje = new Date('2026-04-02');   //Actualizar fecha cuando se cambie el viaje 
     const hoy = new Date();
@@ -95,28 +97,74 @@ const AkaalViajes = () => {
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
             <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
-            <p className="viajes-subtitulo" style={{fontWeight:'600'}}>Cada viaje, una intención</p>
+            <p className="viajes-subtitulo" style={{ fontWeight: '600' }}>Cada viaje, una intención</p>
           </div>
         </div>
       </section>
 
-         {/* Sección 3: ¿Quienes somos? */}
+
+
+      <section className="section-desk">
+
+
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="portada" className="section-desk-img" />
+
+
+        <div className="desk-content">
+
+          <div className="intro-contenedor">
+            <h1 className="viajes-akaal-titulo-desk">Viajes AKAAL</h1>
+
+            <div className="intro-contenedor-subtitulo">
+              <h2 className="contenedor-sub">Cada viaje, una intención.</h2>
+              <p className="viajes-subtitulo" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam illo, delectus cupiditate inventore, odit, numquam culpa voluptatem illum deleniti facere? Aperiam ratione sed quam deserunt quia vel, alias eos.</p></div>
+          </div>
+
+
+          <div className="contenedor-imgs">
+
+            <div className="contenedor-content">
+
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/IMG_2928_fkd0tn.jpg" alt="" className="img-content" />
+            </div>
+
+            <div className="contenedor-content">
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767437770/20240331_092747_zfcoi3.jpg" alt="" className="img-content" />
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+      {/* Sección 3: ¿Quienes somos? */}
       <section className="viajes-accordion-section">
         <div className="viajes-accordion-container">
           <div className="viajes-accordion-decoracion-top">
             <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
-          
+
           <h2 className="viajes-accordion-titulo">Viajes AKAAL</h2>
-          
+
           <div className="viajes-accordion-texto">
             <p>Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje.</p>
-            
+
             <p>Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior.</p>
-            
+
             <p>Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal.</p>
           </div>
-          
+
           <div className="viajes-accordion-decoracion-bottom">
             <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
@@ -129,7 +177,7 @@ const AkaalViajes = () => {
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
         </div>
-        
+
         <div className="viajes-texto-container">
           <div className="viajes-intro">
             <div className="viajes-intro-nombre">
@@ -146,24 +194,24 @@ const AkaalViajes = () => {
             <div className="viajes-descripcion-texto">
               <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico.</p>
               {/* <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p> */}
-                {/* <p className="plazas-disponibles">¡Quedan dos plazas!</p> */}
+              {/* <p className="plazas-disponibles">¡Quedan dos plazas!</p> */}
             </div>
-           
+
 
             <div className="viajes-intro-buttons">
-             
-             
+
+
 
               <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
                 RESERVA TU PLAZA
               </WhatsAppLink>
-               {/* <Button variant='secondary' style={{color: 'var(--background)'}}>VER ITINERARIO</Button> */}
+              {/* <Button variant='secondary' style={{color: 'var(--background)'}}>VER ITINERARIO</Button> */}
             </div>
           </div>
         </div>
       </section>
 
-   
+
 
       {/* Sección 4: Cards */}
       <section className="viajes-cards">
@@ -172,7 +220,7 @@ const AkaalViajes = () => {
         </div>
 
         <h1 className="header-viajes">
-         El ritmo <br />de nuestros días 
+          El ritmo <br />de nuestros días
         </h1>
 
         {/* En desktop: mostrar todas las cards en slider horizontal con navegación */}
@@ -189,8 +237,8 @@ const AkaalViajes = () => {
                   totalSteps={steps.length}
                   currentStep={currentStep}
                   isAnimating={currentPage === 0 ? isAnimating : false}
-                  onStepClick={() => {}}
-                  onNextClick={() => {}}
+                  onStepClick={() => { }}
+                  onNextClick={() => { }}
                   cta={
                     index === 2 && steps.length <= 3 ? (
                       <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
@@ -213,8 +261,8 @@ const AkaalViajes = () => {
                   totalSteps={steps.length}
                   currentStep={currentStep}
                   isAnimating={currentPage === 1 ? isAnimating : false}
-                  onStepClick={() => {}}
-                  onNextClick={() => {}}
+                  onStepClick={() => { }}
+                  onNextClick={() => { }}
                   cta={
                     index === 2 ? (
                       <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
@@ -283,7 +331,7 @@ const AkaalViajes = () => {
             </button>
           </div>
         </div>
-        
+
         {/* En mobile: mostrar solo la card actual */}
         <div className="cards-container-mobile">
           <CardViajes
@@ -342,14 +390,14 @@ const AkaalViajes = () => {
           <div className="viajes-anteriores-decoracion-top">
             <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" loading="lazy" />
           </div>
-          
+
           <h1 className="viajes-anteriores-titulo">Experiencias anteriores</h1>
           <p className="viajes-anteriores-subtitulo">Recuerdos de nuestras aventuras juntxs</p>
-          
+
           <div className="viajes-anteriores-gallery">
             <ViajesAnterioresGallery />
           </div>
-          
+
           <div className="viajes-anteriores-decoracion-bottom">
             <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" loading="lazy" />
           </div>

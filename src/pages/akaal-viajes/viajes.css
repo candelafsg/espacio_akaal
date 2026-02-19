@@ -270,7 +270,9 @@
 
 
  
-
+.section-desk{
+  display: none;
+}
   
   .viajes-intro-content {
     width: 95%;
@@ -762,6 +764,84 @@
 
 /* Desktop styles */
 @media (min-width: 1024px) {
+
+.section-desk{
+  display: block;
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+}
+
+.viajes-intro-section{
+  display: none;
+}
+
+
+.section-desk-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0.3rem;
+  border-radius: var(--radius-img);
+  opacity: 0.85;
+  filter: brightness(0.5);
+}
+
+
+.desk-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid var(--background);
+  padding: 1rem;
+  width: 95%;
+  height: 80vh;
+  border-radius: 10px;
+  margin-top: 1rem;
+  display: flex;
+  align-items: last baseline;
+}
+
+.intro-contenedor{
+  display: flex;
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.viajes-akaal-titulo-desk{
+  color: var(--background);
+  font-size: 10vw;
+}
+
+
+.contenedor-sub{
+  color: var(--background);
+}
+
+.contenedor-imgs{
+  width: 35%;
+  height: 28vh;
+  border-radius: 10px;
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.7rem;
+
+  justify-content: space-between;
+  background-color:rgba(97, 37, 62, 0.4);
+}
+
+
+
+.img-content{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
   .viajes-texto-container {
     text-align: left;
     left: 10%;
