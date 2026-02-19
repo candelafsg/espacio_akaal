@@ -75,6 +75,7 @@ export const ViajesAnterioresGallery = () => {
             nombre={viaje.nombre}
             portada={viaje.portada}
             imagenes={viaje.imagenes}
+            videos={viaje.videos}
             numberphotos={viaje.imagenes.length}
           />
         ))}
@@ -93,6 +94,7 @@ export const ViajesAnterioresGallery = () => {
           nombre={ViajesAnteriores[indiceActual].nombre}
           portada={ViajesAnteriores[indiceActual].portada}
           imagenes={ViajesAnteriores[indiceActual].imagenes}
+          videos={ViajesAnteriores[indiceActual].videos}
           numberphotos={ViajesAnteriores[indiceActual].imagenes.length}
           onOverlayChange={setOverlayOpen} // Nueva prop
         />

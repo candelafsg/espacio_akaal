@@ -7,11 +7,26 @@ export const ViajesAnterioresContainer = ({
   numberphotos,
   portada,
   imagenes,
+  videos,
   nombre,
   onOverlayChange // Nueva prop
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const videoRefs = useRef([]) // Refs para controlar los videos
+
+  // Crear array combinado: video1 - imagenes - video2
+  const mediaItems = []
+  if (videos && videos.length > 0) {
+    mediaItems.push({ type: 'video', url: videos[0] }) // Video 1
+  }
+  // Agregar todas las imágenes
+  imagenes.forEach(img => {
+    mediaItems.push({ type: 'image', url: img })
+  })
+  if (videos && videos.length > 1) {
+    mediaItems.push({ type: 'video', url: videos[1] }) // Video 2
+  }
 
   const touchStartX = useRef(null)
   const touchCurrentX = useRef(null)
@@ -23,18 +38,30 @@ export const ViajesAnterioresContainer = ({
   }
 
   const closeModal = () => {
+    pauseAllVideos() // Pausar videos al cerrar
     setIsOpen(false)
     setCurrentIndex(0)
     if (onOverlayChange) onOverlayChange(false) // Notificar al gallery
   }
 
+  // Función para pausar todos los videos
+  const pauseAllVideos = () => {
+    videoRefs.current.forEach(videoRef => {
+      if (videoRef && videoRef.pause) {
+        videoRef.pause()
+      }
+    })
+  }
+
   const goNext = () => {
+    pauseAllVideos() // Pausar videos antes de cambiar
     setCurrentIndex((prev) =>
-      Math.min(prev + 1, imagenes.length - 1)
+      Math.min(prev + 1, mediaItems.length - 1)
     )
   }
 
   const goPrev = () => {
+    pauseAllVideos() // Pausar videos antes de cambiar
     setCurrentIndex((prev) => Math.max(prev - 1, 0))
   }
 
@@ -109,13 +136,29 @@ export const ViajesAnterioresContainer = ({
               transition: 'transform 0.3s ease'
             }}
           >
-            {imagenes.map((img, i) => (
+            {mediaItems.map((item, i) => (
               <div key={i} className="overlay-item">
-                <img
-                  src={img}
-                  alt={`img-${i}`}
-                  className="overlay-img-elegante"
-                />
+                {item.type === 'video' ? (
+                  <video
+                    ref={el => {
+                      if (el && !videoRefs.current.includes(el)) {
+                        videoRefs.current.push(el)
+                      }
+                    }}
+                    src={item.url}
+                    loop
+                    playsInline
+                    muted={false}
+                    controls
+                    className="overlay-video-elegante"
+                  />
+                ) : (
+                  <img
+                    src={item.url}
+                    alt={`img-${i}`}
+                    className="overlay-img-elegante"
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -133,20 +176,23 @@ export const ViajesAnterioresContainer = ({
         <button
           className="overlay-arrow overlay-arrow-next"
           onClick={goNext}
-          disabled={currentIndex === imagenes.length - 1}
+          disabled={currentIndex === mediaItems.length - 1}
         >
           <ChevronRight size={28} strokeWidth={1.25} />
         </button>
 
         {/* indicadores */}
         <div className="overlay-indicators">
-          {imagenes.map((_, i) => (
+          {mediaItems.map((_, i) => (
             <button
               key={i}
               className={`overlay-indicator ${
                 i === currentIndex ? 'active' : ''
               }`}
-              onClick={() => setCurrentIndex(i)}
+              onClick={() => {
+                pauseAllVideos() // Pausar videos antes de cambiar
+                setCurrentIndex(i)
+              }}
             />
           ))}
         </div>

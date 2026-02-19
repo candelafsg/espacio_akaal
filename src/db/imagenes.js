@@ -15,6 +15,11 @@ export const ViajesAnteriores = [
 
     imgFondo: '',
 
+    videos: [
+      'https://res.cloudinary.com/dhwd1b4be/video/upload/v1771512592/1762354195_xbeho0.mov',
+      'https://res.cloudinary.com/dhwd1b4be/video/upload/v1771512676/1764860686_hp2viz.mov'
+    ],
+
     imagenes: [
       'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/PXL_20250419_135952663.MP_jzjw0i.jpg',
       'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/PXL_20250425_122248625.MP_vkek3n.jpg',
