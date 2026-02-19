@@ -12,9 +12,14 @@ const AkaalRetiros = () => {
         setOverlay(false)
     }
 
-    const handleOpen = () => {
-        setOverlay(true);
-    };
+ const handleOpen = () => {
+  if (window.innerWidth < 768) {
+    window.location.href = "/dossier/retiro.pdf";
+  } else {
+    setOverlay(true);
+  }
+};
+
 
 
 
