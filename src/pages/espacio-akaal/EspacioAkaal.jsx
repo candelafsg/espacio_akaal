@@ -67,7 +67,7 @@ const EspacioAkaal = () => {
       </section>
 
 
-      <section className="akaal-incio-desktop">
+      <section className="akaal-inicio-desktop">
         
         <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771489981/ChatGPT_Image_17_feb_2026_08_38_05_1_1_drkay2.png" alt="portada" className="intro-imagen-desk" />
 

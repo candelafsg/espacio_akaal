@@ -22,6 +22,7 @@ import {
 import ResumenPedido from './ResumenPedido';
 import { Footer } from "../../components/footer/Footer";
 import Slider from '../../components/slider/Slider';
+import SplitText from '../../components/split-text/SplitText';
 
 
 // 📝 Lista de pasos de instrucciones
@@ -313,8 +314,25 @@ const UnaVioska = () => {
                 <section className='vioska-inicio'>
                     <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
                     <div className="vioska-info">
-                        <h1 className="vioska-titulo">una vioska.</h1>
-                        <p className="vioska-subtitulo" style={{fontWeight:'600'}}>Artesanía hecha con propósito.</p>
+                        <SplitText 
+                            text="una vioska." 
+                            className="vioska-titulo"
+                            tag="h1"
+                            delay={30}
+                            duration={1.2}
+                            from={{ opacity: 0, y: 60 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+                        <SplitText 
+                            text="Artesanía hecha con propósito." 
+                            className="vioska-subtitulo"
+                            style={{fontWeight:'600'}}
+                            tag="p"
+                            delay={50}
+                            duration={1}
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
                     </div>
                 </section>
 
@@ -322,11 +340,27 @@ const UnaVioska = () => {
                 <section className="vioska-instrucciones mobile-only">
                     <div className="artesania">
                         <Sparkles strokeWidth={0.7} />
-                        <h3 className="instrucciones-texto">Cada pieza está hecha a mano, con mucho mimo y dedicación.</h3>
+                        <SplitText 
+                            text="Cada pieza está hecha a mano, con mucho mimo y dedicación." 
+                            className="instrucciones-texto"
+                            tag="h3"
+                            delay={40}
+                            duration={1.3}
+                            from={{ opacity: 0, y: 25 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
                         <Sparkles strokeWidth={0.7} />
                     </div>
 
-                    <h4 className="instrucciones-texto">Pero antes de empezar...</h4>
+                    <SplitText 
+                        text="Pero antes de empezar..." 
+                        className="instrucciones-texto"
+                        tag="h4"
+                        delay={60}
+                        duration={1.1}
+                        from={{ opacity: 0, y: 20 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                     <ul className="instrucciones-ul">
                         {pasosInstrucciones.map((item, index) => (
@@ -339,13 +373,29 @@ const UnaVioska = () => {
 
                     <div className="button">
                         <Button as="a" href="#galeria">
-                            Ver galería
+                            <SplitText 
+                                text="Ver galería" 
+                                className="button-text"
+                                tag="span"
+                                delay={80}
+                                duration={1.4}
+                                from={{ opacity: 0, y: 40 }}
+                                to={{ opacity: 1, y: 0 }}
+                            />
                         </Button></div>
 
                 </section>
 
                 <section id='galeria' className="vioska-galeria mobile-only">
-                    <h2 className="galeria-titulo">Galería de productos</h2>
+                    <SplitText 
+                        text="Galería de productos" 
+                        className="galeria-titulo"
+                        tag="h2"
+                        delay={80}
+                        duration={1.4}
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                     <div className="galeria-header-sticky">
                         <div className="modo-seleccion-container">
@@ -429,8 +479,24 @@ const UnaVioska = () => {
 
                 {/* Galería Slider Minimalista - Ahora al final */}
                 <section className="vioska-slider-section">
-                    <h2 className="slider-titulo">Creación consciente</h2>
-                    <p className="slider-subtitulo">Un viaje a través de nuestras creaciones y momentos</p>
+                    <SplitText 
+                        text="Creación consciente" 
+                        className="slider-titulo"
+                        tag="h2"
+                        delay={100}
+                        duration={1.6}
+                        from={{ opacity: 0, y: 50 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
+                    <SplitText 
+                        text="Un viaje a través de nuestras creaciones y momentos" 
+                        className="slider-subtitulo"
+                        tag="p"
+                        delay={120}
+                        duration={1.3}
+                        from={{ opacity: 0, y: 30 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                  <div className="slider-container-galery">
   <Slider images={sliderImages} />
@@ -496,15 +562,39 @@ const UnaVioska = () => {
 
 
 
-                        <div className="contenedor">
-                            <h1 className="title-intr">una vioska.</h1>
+                            <div className="contenedor">
+                                <SplitText 
+                                    text="una vioska." 
+                                    className="title-intr"
+                                    tag="h1"
+                                    delay={140}
+                                    duration={1.8}
+                                    from={{ opacity: 0, y: 80 }}
+                                    to={{ opacity: 1, y: 0 }}
+                                />
 
 
                             <div className="subtitulo-imgs">
 
                                 <div className="subtitulo">
-                                    <h2 className="h2-titulo">Creación consciente</h2>
-                                    <p className="p">Joyas artesanales hechas a mano, pieza por pieza, con dedicación y cuidado en cada detalle. <br /> Trabajo de manera consciente, eligiendo los materiales y procesos,  poniendo cariño y alma en cada creación, para que cada joya no solo adorne, sino que también cuente una historia.</p>
+                                    <SplitText 
+                                        text="Creación consciente" 
+                                        className="h2-titulo"
+                                        tag="h2"
+                                        delay={160}
+                                        duration={1.5}
+                                        from={{ opacity: 0, y: 40 }}
+                                        to={{ opacity: 1, y: 0 }}
+                                    />
+                                    <SplitText 
+                                        text="Joyas artesanales hechas a mano, pieza por pieza, con dedicación y cuidado en cada detalle. Trabajo de manera consciente, eligiendo los materiales y procesos, poniendo cariño y alma en cada creación, para que cada joya no solo adorne, sino que también cuente una historia." 
+                                        className="p"
+                                        tag="p"
+                                        delay={180}
+                                        duration={1.4}
+                                        from={{ opacity: 0, y: 25 }}
+                                        to={{ opacity: 1, y: 0 }}
+                                    />
                                 </div>
 
 
@@ -599,9 +689,24 @@ const UnaVioska = () => {
 
 
                 <section className="desktop-productos" id='gallery'>
-
-                    <h1 className="titulo-galeria">Galería <br /> de productos</h1>
-                    <p className="subtitulo-galeria">Explora cada pieza con calma. <br /> Activa el modo selección para marcar tus favoritas y crear tu propia colección. <br /> Desactívalo cuando quieras volver a mirar sin compromiso</p>
+                    <SplitText 
+                        text="Galería de productos" 
+                        className="titulo-galeria"
+                        tag="h1"
+                        delay={200}
+                        duration={1.7}
+                        from={{ opacity: 0, y: 60 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
+                    <SplitText 
+                        text="Explora cada pieza con calma. Activa el modo selección para marcar tus favoritas y crear tu propia colección. Desactívalo cuando quieras volver a mirar sin compromiso" 
+                        className="subtitulo-galeria"
+                        tag="p"
+                        delay={220}
+                        duration={1.5}
+                        from={{ opacity: 0, y: 30 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                     <div className="galeria-contenedor">
                         <div className="filtros-header">

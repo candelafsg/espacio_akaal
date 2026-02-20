@@ -12,7 +12,7 @@
 
 }
 .akaal-inicio-desktop{
-  display: none;
+  display: none !important;
 }
 
 
