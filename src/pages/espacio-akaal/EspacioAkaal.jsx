@@ -9,6 +9,7 @@ import { espacioAkaalImgs } from "../../db/imagenes";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Footer } from "../../components/footer/Footer";
 import Slider from "../../components/slider/Slider";
+import SplitText from "../../components/split-text/SplitText";
 const diasSemana = ["LUN.", "MAR.", "MIER.", "JUE.", "VIE."];
 
 const diaCompleto = {
@@ -59,10 +60,24 @@ const EspacioAkaal = () => {
         <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
 
         <div className="container-titulo">
-          <h1 className="texto-provisional">
-            Espacio AKAAL
-          </h1>
-          <p className="subtitulo-yoga">Un refugio para el cuerpo, mente y alma.</p>
+          <SplitText 
+            text="Espacio AKAAL" 
+            className="texto-provisional"
+            tag="h1"
+            delay={100}
+            duration={1.5}
+            from={{ opacity: 0, y: 60 }}
+            to={{ opacity: 1, y: 0 }}
+          />
+          <SplitText 
+            text="Un refugio para el cuerpo, mente y alma." 
+            className="subtitulo-yoga"
+            tag="p"
+            delay={150}
+            duration={1.3}
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+          />
         </div>
       </section>
 
@@ -114,16 +129,51 @@ const EspacioAkaal = () => {
 
         <h1 className="yoga-titulo">La práctica que compartimos</h1>
 
-
-
-        <p className="yoga-texto">
-          En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural. </p>
-        <p className="yoga-texto"> A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa.</p>
-        <p className="yoga-texto"> Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal.</p>
-
-
-        <p className="yoga-texto"> Ideal para reducir dolores corporales, ganar estabilidad,  equilibrio, fuerza, flexibilidad y generar un bienestar profundo, tanto en el cuerpo como en la mente.</p>
-        <p className="yoga-texto"> Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero.</p>
+        <SplitText 
+          text="En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural." 
+          className="yoga-texto"
+          tag="p"
+          delay={200}
+          duration={1.3}
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+        />
+        <SplitText 
+          text="A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa." 
+          className="yoga-texto"
+          tag="p"
+          delay={250}
+          duration={1.3}
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+        />
+        <SplitText 
+          text="Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal." 
+          className="yoga-texto"
+          tag="p"
+          delay={300}
+          duration={1.3}
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+        />
+        <SplitText 
+          text="Ideal para reducir dolores corporales, ganar estabilidad, equilibrio, fuerza, flexibilidad y generar un bienestar profundo, tanto en el cuerpo como en la mente." 
+          className="yoga-texto"
+          tag="p"
+          delay={350}
+          duration={1.3}
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+        />
+        <SplitText 
+          text="Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero." 
+          className="yoga-texto"
+          tag="p"
+          delay={400}
+          duration={1.3}
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+        />
 
         <div className="yoga-decoracion-bottom">
           <img src="/img/capa.png" alt="Decoración" className="yoga-capa" />
