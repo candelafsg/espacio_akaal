@@ -6,6 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.6s ease-out;
+  opacity: 0;
+  transform: none !important;
+}
+
+.viajes-intro-section.section-visible {
+  opacity: 1;
 }
 
 .viajes-intro-background {
@@ -15,6 +22,8 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  transform: none !important;
+  transition: none !important;
 }
 
 .viajes-intro-img {
@@ -26,9 +35,9 @@
   padding: 0.3rem;
   border-radius: var(--radius-img);
   object-position: left center;
+  transform: none !important;
+  transition: none !important;
 }
-
-
 
 .viajes-intro-content {
   position: relative;
@@ -45,7 +54,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .viajes-akaal-titulo {
@@ -53,7 +61,6 @@
   line-height: 1.1;
   color: var(--background);
 }
-
 
 /* Sección del acordeón */
 .viajes-accordion-section {
@@ -76,8 +83,6 @@
   justify-content: center;
   gap: 2rem;
 }
-
-
 
 .viajes-accordion-capa {
   width: 20px;
@@ -110,8 +115,6 @@
   margin-bottom: 0;
 }
 
-
-
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -129,6 +132,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.viajes-india-section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .viajes-india-background {
@@ -145,6 +156,9 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  padding: 0.3rem;
+  border-radius: var(--radius-img);
+  filter: brightness(0.5);
 }
 
 .viajes-india-overlay {
@@ -152,13 +166,9 @@
   top: 0;
   left: 0;
   width: 100%;
+  
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  background: transparent;
   z-index: 2;
 }
 
@@ -222,7 +232,6 @@
   align-items: center;
   height: 100%;
   gap: 1rem;
- 
 }
 
 .viajes-anteriores-decoracion-top,
@@ -247,68 +256,60 @@
 
 .viajes-anteriores-titulo {
   font-size: 3rem;
-  
   color: var(--primary);
- 
   width: 100%;
-
 }
 
 .viajes-anteriores-subtitulo {
   font-size: 1.2rem;
   color: var(--primary);
- 
   width: 100%;
 }
 
 .viajes-anteriores-gallery {
   width: 100%;
- 
- 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
- 
 .section-desk{
   display: none;
 }
-  
-  .viajes-intro-content {
-    width: 95%;
-    padding: 1rem;
-  }
 
-  
-  
-  .viajes-anteriores-subtitulo {
-    font-size: 1rem;
-  }
-  
- 
+.viajes-intro-content {
+  width: 95%;
+  padding: 1rem;
+}
 
-  .viajes-india-titulo {
-    font-size: 4rem;
-  }
-  
-  .viajes-india-subtitulo {
-    font-size: 1.2rem;
-  }
-  
-  .viajes-india-proximamente {
-    font-size: 1rem;
-  }
+.viajes-anteriores-subtitulo {
+  font-size: 1rem;
+}
 
+.viajes-india-titulo {
+  font-size: 4rem;
+}
 
+.viajes-india-subtitulo {
+  font-size: 1.2rem;
+}
 
-/* seccion imagen */
+.viajes-india-proximamente {
+  font-size: 1rem;
+}
 
 .viajes {
   width: 100%;
   min-height: 100dvh;
   position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.viajes.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .viajes-background {
@@ -325,6 +326,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  padding: 0.3rem;
+  border-radius: var(--radius-img);
 }
 
 .viajes-overlay {
@@ -333,7 +336,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   z-index: 2;
 }
 
@@ -350,7 +353,6 @@
 }
 
 .viajes-imagen {
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -358,7 +360,6 @@
   padding: 0.3rem;
   opacity: 0.85;
   filter: brightness(0.5);
-
 }
 
 .viajes-nombre {
@@ -385,63 +386,54 @@
 }
 
 .viajes-imagen {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius-img);
-    padding: 0.3rem;
-    opacity: 0.85;
-    filter: brightness(0.5);
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-img);
+  padding: 0.3rem;
+  opacity: 0.85;
+  filter: brightness(0.5);
+}
 
-  .viajes-nombre {
-    font-size: 5rem;
-    color: var(--primary);
-  }
+.viajes-nombre {
+  font-size: 5rem;
+  color: var(--primary);
+}
 
-  .viajes-subnombre {
-    font-size: 2.5rem;
-    color: var(--primary);
-    font-weight: 400;
-    margin-top: -0.5rem;
-  }
+.viajes-subnombre {
+  font-size: 2.5rem;
+  color: var(--primary);
+  font-weight: 400;
+  margin-top: -0.5rem;
+}
 
-  .viajes-nombre-dos {
-    color: var(--primary);
-  }
+.viajes-nombre-dos {
+  color: var(--primary);
+}
 
-  .viajes-subtitulo {
-    color: var(--primary);
-  }
+.viajes-subtitulo {
+  color: var(--primary);
+}
 
-  .viajes-fecha {
-    color: var(--primary);
-    letter-spacing: 2px;
-  }
+.viajes-fecha {
+  color: var(--primary);
+  letter-spacing: 2px;
+}
 
-  .contador-texto {
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+.contador-texto {
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-  .viajes-intro-buttons {
-    align-items: flex-start;
-    margin-top: 0;
-  }
-
-
-
- 
-
-
-
+.viajes-intro-buttons {
+  align-items: flex-start;
+  margin-top: 0;
+}
 
 .viajes-intro {
   display: flex;
   flex-direction: column;
-
- 
   z-index: 1;
   left: 1rem;
 }
@@ -451,7 +443,6 @@
   color: var(--background);
   width: 80%;
 }
-
 
 .viajes-fecha {
   color: var(--background);
@@ -463,30 +454,21 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-
-
-
 }
 
 .contador-texto {
   color: var(--background);
-
-
-
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .contador-numero {
   color: var(--background);
-
   margin: 0.5rem 0;
   font-weight: bold;
   line-height: 1;
   margin-bottom: 1rem;
 }
-
-
 
 .viajes-intro-buttons {
   display: flex;
@@ -494,12 +476,7 @@
   gap: 1.4rem;
   width: 100%;
   margin-bottom: 2rem;
-
 }
-
-
-
-/* Seccion descripcion */
 
 .viajes-descripcion {
   width: 100%;
@@ -512,15 +489,11 @@
   padding: 1rem;
 }
 
-
-
-
 .viajes-imag {
   width: 100%;
   height: 50vh;
   margin-top: 1rem;
 }
-
 
 .viajes-image {
   width: 100%;
@@ -540,23 +513,23 @@
   line-height: 1.6;
 }
 
-
-/* Sección cards */
-
 .viajes-cards {
-
   width: 100%;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-
-
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.slider-navigation-desktop{
-  display: none;
+
+.viajes-cards.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+
 .viajes-cards-decoracion-top,
 .viajes-cards-decoracion-bottom {
   display: flex;
@@ -636,7 +609,9 @@
   font-weight: bold;
 }
 
-
+.slider-navigation-desktop{
+  display: none;
+}
 
 .viajes-anteriores {
   width: 100%;

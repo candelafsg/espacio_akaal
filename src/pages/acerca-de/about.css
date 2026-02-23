@@ -8,6 +8,36 @@
 .scroll-section {
     position: relative;
     z-index: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hero-section {
+    opacity: 0;
+    transform: translateY(0);
+}
+
+.hero-section.section-visible {
+    opacity: 1;
+}
+
+.timeline-section {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timeline-section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-section {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 

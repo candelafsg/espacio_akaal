@@ -1,12 +1,13 @@
 import './viajes.css';
 import { ImgContainer } from '../../components/components/Components';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CardViajes } from '../../components/cards/Cards';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucide-react';
 import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
 import { Footer } from '../../components/footer/Footer';
+import SplitText from '../../components/split-text/SplitText';
 
 const AkaalViajes = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -15,6 +16,11 @@ const AkaalViajes = () => {
   const [viajeActivo, setViajeActivo] = useState('AZORES');
   const [diasRestantes, setDiasRestantes] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  
+  const introSectionRef = useRef();
+  const azoresSectionRef = useRef();
+  const cardsSectionRef = useRef();
+  const indiaSectionRef = useRef();
 
 
 
@@ -72,6 +78,37 @@ const AkaalViajes = () => {
 
 
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        } else {
+          entry.target.classList.remove('section-visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    const sections = [introSectionRef.current, azoresSectionRef.current, cardsSectionRef.current, indiaSectionRef.current];
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
     const fechaViaje = new Date('2026-04-02');   //Actualizar fecha cuando se cambie el viaje 
     const hoy = new Date();
     const diferencia = fechaViaje - hoy;
@@ -89,7 +126,7 @@ const AkaalViajes = () => {
   return (
     <>
       {/* Sección 1: Introducción a Viajes Akaal */}
-      <section className="viajes-intro-section">
+      <section className="viajes-intro-section" ref={introSectionRef}>
         <div className="viajes-intro-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
           <div className="viajes-intro-overlay"></div>
@@ -160,11 +197,35 @@ const AkaalViajes = () => {
           <h2 className="viajes-accordion-titulo">Viajes AKAAL</h2>
 
           <div className="viajes-accordion-texto">
-            <p>Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje.</p>
+            <SplitText
+              text="Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje."
+              className="viajes-accordion-parrafo"
+              tag="p"
+              delay={30}
+              duration={1.2}
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+            />
 
-            <p>Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior.</p>
+            <SplitText
+              text="Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior."
+              className="viajes-accordion-parrafo"
+              tag="p"
+              delay={30}
+              duration={1.2}
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+            />
 
-            <p>Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal.</p>
+            <SplitText
+              text="Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal."
+              className="viajes-accordion-parrafo"
+              tag="p"
+              delay={30}
+              duration={1.2}
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+            />
           </div>
 
           <div className="viajes-accordion-decoracion-bottom">
@@ -174,7 +235,7 @@ const AkaalViajes = () => {
       </section>
 
       {/* Sección 2: AZORES */}
-      <section className="viajes">
+      <section className="viajes" ref={azoresSectionRef}>
         <div className="viajes-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
@@ -216,7 +277,7 @@ const AkaalViajes = () => {
 
 
       {/* Sección 4: Cards */}
-      <section className="viajes-cards">
+      <section className="viajes-cards" ref={cardsSectionRef}>
         <div className="viajes-cards-decoracion-top">
           <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
@@ -372,7 +433,7 @@ const AkaalViajes = () => {
       </section>
 
       {/* Sección 5: Próximo viaje India */}
-      <section className="viajes-india-section">
+      <section className="viajes-india-section" ref={indiaSectionRef}>
         <div className="viajes-india-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" loading="lazy" />
           <div className="viajes-india-overlay"></div>

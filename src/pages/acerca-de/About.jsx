@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
 import './about.css'
@@ -6,6 +6,9 @@ import { Footer } from "../../components/footer/Footer"
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0) // 0 = no direction, 1 = forward, -1 = backward
+  const heroSectionRef = useRef();
+  const timelineSectionRef = useRef();
+  const finalSectionRef = useRef();
 
  
   const timeline = [
@@ -55,6 +58,37 @@ const About = () => {
     }
   ]
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        } else {
+          entry.target.classList.remove('section-visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    const sections = [heroSectionRef.current, timelineSectionRef.current, finalSectionRef.current];
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   const nextSlide = () => {
     setDirection(1)
     setCurrentSlide((prev) => (prev + 1) % timeline.length)
@@ -68,7 +102,7 @@ const About = () => {
   return (
     <div className="about-container">
       {/* HERO */}
-      <section className="hero-section animate-section scroll-section">
+      <section className="hero-section animate-section scroll-section" ref={heroSectionRef}>
         <div className="hero-image">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300788/ChatGPT_Image_3_feb_2026_16_33_41_1_t6irit.png" alt="Espacio AKAAL" className='image-hero' loading="lazy"/>
           <div className="hero-overlay">
@@ -84,7 +118,7 @@ const About = () => {
       </section>
 
       {/* TIMELINE */}
-      <section className="timeline-section animate-section scroll-section">
+      <section className="timeline-section animate-section scroll-section" ref={timelineSectionRef}>
         <div className="timeline-header animate-child">
           <h2>El viaje que me transformó</h2>
           <p>Una travesía interior entre viaje, yoga y creación.</p>
@@ -162,7 +196,7 @@ const About = () => {
       </section>
 
       {/* FINAL */}
-      <section className="final-section animate-section scroll-section">
+      <section className="final-section animate-section scroll-section" ref={finalSectionRef}>
         <div className="final-content">
           <div className="final-decoracion-top">
             <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />

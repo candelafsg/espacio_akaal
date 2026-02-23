@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
     Brain,
     Zap,
@@ -16,10 +16,16 @@ import {
 import './gong.css';
 import { Footer } from '../../components/footer/Footer';
 import { GongCard } from '../../components/gongcard/GongCard';
+import SplitText from '../../components/split-text/SplitText';
 
 const Gong = () => {
     const [beneficioIndex, setBeneficioIndex] = useState(0);
     const [sesionIndex, setSesionIndex] = useState(0);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    const introduccionRef = useRef();
+    const descripcionRef = useRef();
+    const sesionesRef = useRef();
 
 
     const touchStartX = useRef(null);
@@ -145,11 +151,53 @@ const Gong = () => {
         touchEndX.current = null;
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const maxScroll = document.documentElement.scrollHeight - windowHeight;
+            const progress = Math.min(scrollY / maxScroll, 1);
+            
+            setScrollProgress(progress);
+
+            // Opacity effect for first section (introduccion)
+            if (introduccionRef.current) {
+                const firstSectionOpacity = Math.max(0, 1 - (scrollY / (windowHeight * 0.5)));
+                introduccionRef.current.style.opacity = firstSectionOpacity;
+            }
+
+            // Opacity and transform effect for second section (descripcion)
+            if (descripcionRef.current && scrollY > windowHeight * 0.3) {
+                const secondSectionProgress = Math.min((scrollY - windowHeight * 0.3) / (windowHeight * 0.4), 1);
+                const secondSectionOpacity = Math.min(1, secondSectionProgress);
+                const translateY = Math.max(0, (1 - secondSectionProgress) * 50);
+                
+                descripcionRef.current.style.opacity = secondSectionOpacity;
+                descripcionRef.current.style.transform = `translateY(${translateY}px)`;
+            }
+
+            // Opacity and transform effect for third section (sesiones)
+            if (sesionesRef.current && scrollY > windowHeight * 0.7) {
+                const thirdSectionProgress = Math.min((scrollY - windowHeight * 0.7) / (windowHeight * 0.4), 1);
+                const thirdSectionOpacity = Math.min(1, thirdSectionProgress);
+                const translateY = Math.max(0, (1 - thirdSectionProgress) * 50);
+                
+                sesionesRef.current.style.opacity = thirdSectionOpacity;
+                sesionesRef.current.style.transform = `translateY(${translateY}px)`;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial call
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
 
     return (
         <>
             {/* HERO */}
-            <section className="gong-introduccion">
+            <section className="gong-introduccion" ref={introduccionRef}>
                 <picture className="gong-wrapper">
                     <source
                         srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
@@ -172,25 +220,40 @@ const Gong = () => {
             </section>
 
             {/* DESCRIPCIÓN */}
-            <section className="gong-descripcion">
+            <section className="gong-descripcion" ref={descripcionRef}>
                 <div className="svg-container">
                     <img src="/img/capa.png" alt="simbolo" className="svg-img" />
                 </div>
 
                 <h2 className="gong-titulo-desc">Habitar en el sonido</h2>
 
-                <p className="gong-txt">
-                    Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la
-                    mente, creando una sensación de paz que se expande con cada sonido.
-                </p>
-                <p className="gong-txt">
-                    Entre resonancias y silencios, la energía se armoniza, invitando a
-                    soltar tensiones y abrir espacio para la calma.
-                </p>
-                <p className="gong-txt">
-                    Es una experiencia de renovación suave y profunda, un retorno al
-                    equilibrio natural de tu Ser.
-                </p>
+                <SplitText
+                  text="Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido."
+                  className="gong-txt"
+                  tag="p"
+                  delay={30}
+                  duration={1.2}
+                  from={{ opacity: 0, y: 30 }}
+                  to={{ opacity: 1, y: 0 }}
+                />
+                <SplitText
+                  text="Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma."
+                  className="gong-txt"
+                  tag="p"
+                  delay={30}
+                  duration={1.2}
+                  from={{ opacity: 0, y: 30 }}
+                  to={{ opacity: 1, y: 0 }}
+                />
+                <SplitText
+                  text="Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser."
+                  className="gong-txt"
+                  tag="p"
+                  delay={30}
+                  duration={1.2}
+                  from={{ opacity: 0, y: 30 }}
+                  to={{ opacity: 1, y: 0 }}
+                />
                 <div className="beneficios-container">
                     {/* DESKTOP: Grid de beneficios */}
                     <div className="beneficios-grid">
@@ -261,7 +324,7 @@ const Gong = () => {
             </section>
 
             {/* BENEFICIOS SLIDER */}
-           <section className="gong-sesiones">
+           <section className="gong-sesiones" ref={sesionesRef}>
             <div className="svg-container" style={{marginBottom:'2rem'}}>
                 <img src="/img/capa.png" alt="simbolo" className="svg-img" />
             </div>
@@ -341,11 +404,7 @@ const Gong = () => {
   </div>
 </section>
 
-
-
-            <div className="desktop-only">
-                <Footer />
-            </div>
+            <Footer />
         </>
     );
 };
