@@ -9,14 +9,14 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    padding: 0.3rem;
 }
 .inicio-imagen {
     width: 100%;
-    height: 100vh;
+    height: 98vh;
     object-fit: cover;
     border-radius: var(--radius-img);
     filter: brightness(0.7);
+    padding: 0.3rem;
 }
 
 /* ==========================================================================
