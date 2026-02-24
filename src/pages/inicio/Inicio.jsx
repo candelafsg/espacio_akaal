@@ -48,61 +48,59 @@ const Inicio = () => {
            </section>
 
             <section className="inicio-maneras" ref={secondSectionRef}>
+                <div className="simbolo-container" ref={simboloRef}>
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
+                </div>
 
-            <div className="simbolo-container" ref={simboloRef}>
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
-            </div>
+                <div className="titulo-container">
+                    <h1 className="titulo-linea-izquierda">MANERAS DE</h1>
+                    <h1 className="titulo-linea-derecha"> PENSAR EN TI</h1>
+                </div>
 
-            <div className="titulo-container">
-                <h1 className="titulo-linea-izquierda">MANERAS DE</h1>
-                <h1 className="titulo-linea-derecha"> PENSAR EN TI</h1>
-            </div>
+                <div ref={cardsRef} className="cards-galeria">
+                    {[ 
+                        {
+                            text: 'Sesiones que conectan y equilibran el cuerpo y la mente',
+                            buttonText: 'Espacio AKAAL',
+                            to: '/espacio-akaal',
+                        },
+                        {
+                            text: 'Piezas hechas a mano, con propósito',
+                            buttonText: 'una vioska.',
+                            to: '/una-vioska',
+                        },
+                        {
+                            text: 'Experiencias pensadas para desconectar y renovarte',
+                            buttonText: 'Viajes AKAAL',
+                            to: '/akaal-viajes',
+                        },
+                        {
+                            text: 'Frecuencias para volver al centro',
+                            buttonText: 'Baños de gong',
+                            to: '/gong',
+                        }
+                    ].map((card) => (
+                        <CardInicio key={card.to} buttonText={card.buttonText} to={card.to}>
+                            {card.text}
+                        </CardInicio>
+                    ))}
+                </div>
 
-            <div ref={cardsRef} className="cards-galeria">
-                {[ 
-                    {
-                        text: 'Sesiones que conectan y equilibran el cuerpo y la mente',
-                        buttonText: 'Espacio AKAAL',
-                        to: '/espacio-akaal',
-                    },
-                    {
-                        text: 'Piezas hechas a mano, con propósito',
-                        buttonText: 'una vioska.',
-                        to: '/una-vioska',
-                    },
-                    {
-                        text: 'Experiencias pensadas para desconectar y renovarte',
-                        buttonText: 'Viajes AKAAL',
-                        to: '/akaal-viajes',
-                    },
-                    {
-                        text: 'Frecuencias para volver al centro',
-                        buttonText: 'Baños de gong',
-                        to: '/gong',
-                    }
-                ].map((card) => (
-                    <CardInicio key={card.to} buttonText={card.buttonText} to={card.to}>
-                        {card.text}
-                    </CardInicio>
-                ))}
-            </div>
+                <div className="simbolo-container">
+                    <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
+                </div>
 
-            <div className="simbolo-container">
-                <img src="/img/capa.png" alt="simbolo" className="simbolo" loading="lazy" />
-            </div>
-
-            <div className="section-content">
-                <img src="/img/conecta.png" alt="conecta" className="section-content-img" loading="lazy" />
-                <Button
-                    icon={<MdOutlineNorthEast />}
-                    iconPosition="right"
-                    as={NavLink}
-                    to='/about'
-                >
-                    CONÓCEME
-                </Button>
-            </div>
-
+                <div className="section-content">
+                    <img src="/img/conecta.png" alt="conecta" className="section-content-img" loading="lazy" />
+                    <Button
+                        icon={<MdOutlineNorthEast />}
+                        iconPosition="right"
+                        as={NavLink}
+                        to='/about'
+                    >
+                        CONÓCEME
+                    </Button>
+                </div>
             </section>
 
             <div className="footer-desktop">
