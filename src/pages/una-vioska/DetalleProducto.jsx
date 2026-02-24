@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion'
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import './css/detalle.css'
 import useFetchProductos from '../../hooks/useFetchProducts';
 import { HandHeart, } from 'lucide-react'
@@ -20,7 +20,21 @@ const DetalleProducto = () => {
     const producto = productos.find(p => p.id === Number(pid));
     const navigate = useNavigate();
 
+    // Efecto para inicializar el slider
+    useEffect(() => {
+        if (sliderRef.current && producto) {
+            // Asegurar que empieza en la primera imagen
+            sliderRef.current.scrollTo({
+                left: 0,
+                behavior: "auto",
+            });
+            setImagenActiva(0);
+        }
+    }, [producto]);
+
     const handleScroll = () => {
+        if (!sliderRef.current) return;
+        
         const scrollLeft = sliderRef.current.scrollLeft;
         const width = sliderRef.current.clientWidth;
         const newIndex = Math.round(scrollLeft / width);
@@ -28,11 +42,14 @@ const DetalleProducto = () => {
     };
 
     const scrollToImagen = (index) => {
+        if (!sliderRef.current) return;
+        
         const width = sliderRef.current.clientWidth;
         sliderRef.current.scrollTo({
             left: width * index,
             behavior: "smooth",
         });
+        setImagenActiva(index);
     };
 
 

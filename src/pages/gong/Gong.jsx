@@ -21,7 +21,6 @@ import SplitText from '../../components/split-text/SplitText';
 const Gong = () => {
     const [beneficioIndex, setBeneficioIndex] = useState(0);
     const [sesionIndex, setSesionIndex] = useState(0);
-    const [scrollProgress, setScrollProgress] = useState(0);
 
     const introduccionRef = useRef();
     const descripcionRef = useRef();
@@ -151,48 +150,7 @@ const Gong = () => {
         touchEndX.current = null;
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const maxScroll = document.documentElement.scrollHeight - windowHeight;
-            const progress = Math.min(scrollY / maxScroll, 1);
-            
-            setScrollProgress(progress);
-
-            // Opacity effect for first section (introduccion)
-            if (introduccionRef.current) {
-                const firstSectionOpacity = Math.max(0, 1 - (scrollY / (windowHeight * 0.5)));
-                introduccionRef.current.style.opacity = firstSectionOpacity;
-            }
-
-            // Opacity and transform effect for second section (descripcion)
-            if (descripcionRef.current && scrollY > windowHeight * 0.3) {
-                const secondSectionProgress = Math.min((scrollY - windowHeight * 0.3) / (windowHeight * 0.4), 1);
-                const secondSectionOpacity = Math.min(1, secondSectionProgress);
-                const translateY = Math.max(0, (1 - secondSectionProgress) * 50);
-                
-                descripcionRef.current.style.opacity = secondSectionOpacity;
-                descripcionRef.current.style.transform = `translateY(${translateY}px)`;
-            }
-
-            // Opacity and transform effect for third section (sesiones)
-            if (sesionesRef.current && scrollY > windowHeight * 0.7) {
-                const thirdSectionProgress = Math.min((scrollY - windowHeight * 0.7) / (windowHeight * 0.4), 1);
-                const thirdSectionOpacity = Math.min(1, thirdSectionProgress);
-                const translateY = Math.max(0, (1 - thirdSectionProgress) * 50);
-                
-                sesionesRef.current.style.opacity = thirdSectionOpacity;
-                sesionesRef.current.style.transform = `translateY(${translateY}px)`;
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial call
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
+    
 
     return (
         <>
