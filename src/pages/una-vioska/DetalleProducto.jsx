@@ -98,7 +98,7 @@ const DetalleProducto = () => {
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                         >
-                            <button className="cerrar" onClick={handleBack}>✕</button>
+                            <button className="cerrar" onClick={handleBack}>VOLVER</button>
 
                             <div className="slider-container-product">
                                 <div className="slider" ref={sliderRef} onScroll={handleScroll}>
@@ -107,7 +107,7 @@ const DetalleProducto = () => {
                                     ))}
                                 </div>
 
-                                <div className="dots">
+                                <div className="dots-det">
                                     {producto.imagenes.map((_, index) => (
                                         <span
                                             key={index}

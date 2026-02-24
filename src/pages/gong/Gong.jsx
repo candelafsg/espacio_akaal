@@ -197,8 +197,8 @@ const Gong = () => {
     return (
         <>
             {/* HERO */}
-            <section className="gong-introduccion" ref={introduccionRef}>
-                <picture className="gong-wrapper">
+            <section className="gong-introduccion">
+                <picture className="gong-wrapper"  ref={introduccionRef}>
                     <source
                         srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
                         media="(min-width: 768px)"

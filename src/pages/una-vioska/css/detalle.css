@@ -26,19 +26,18 @@
 
 .cerrar {
     position: absolute;
-    top: 3rem;
-    right: 1rem;
+    top: 4rem;
+    left: 1rem;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     cursor: pointer;
     z-index: 1001;
-    color: var(--background);
-    background-color: var(--primary);
+    color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.7rem 1rem;
+    padding: 0.7rem d;
     border-radius: 100%;
     transition: all 0.3s ease;
 }
@@ -80,7 +79,7 @@
   
 }
 
-.dots {
+.dots-det {
     display: flex;
     justify-content: center;
     gap: 0.6rem;
