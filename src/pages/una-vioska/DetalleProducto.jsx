@@ -32,13 +32,29 @@ const DetalleProducto = () => {
         }
     }, [producto]);
 
+    // Efecto para configurar el evento scroll
+    useEffect(() => {
+        const slider = sliderRef.current;
+        if (!slider) return;
+
+        slider.addEventListener('scroll', handleScroll);
+        
+        return () => {
+            slider.removeEventListener('scroll', handleScroll);
+        };
+    }, [producto]);
+
     const handleScroll = () => {
         if (!sliderRef.current) return;
         
         const scrollLeft = sliderRef.current.scrollLeft;
         const width = sliderRef.current.clientWidth;
         const newIndex = Math.round(scrollLeft / width);
-        setImagenActiva(newIndex);
+        
+        // Asegurarnos de que el índice esté dentro del rango válido
+        if (newIndex >= 0 && newIndex < producto.imagenes.length) {
+            setImagenActiva(newIndex);
+        }
     };
 
     const scrollToImagen = (index) => {

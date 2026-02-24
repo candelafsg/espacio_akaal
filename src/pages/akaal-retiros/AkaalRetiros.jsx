@@ -3,13 +3,11 @@ import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { Button } from '../../components/buttons/Button';
 import { useState, useEffect, useRef } from 'react';
 const AkaalRetiros = () => {
-    const portadaRef = useRef();
-    const retiroInfoRef = useRef();
     const [overlay, setOverlay] = useState(false)
 
-    const handleClose = () => {
-        setOverlay(false)
-    }
+  const handleClose = () => {
+    setOverlay(false)
+  }
 
  const handleOpen = () => {
   if (window.innerWidth < 768) {
@@ -18,37 +16,6 @@ const AkaalRetiros = () => {
     setOverlay(true);
   }
 };
-
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-10% 0px -10% 0px',
-      threshold: 0.1
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        } else {
-          entry.target.classList.remove('section-visible');
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    const sections = [portadaRef.current, retiroInfoRef.current];
-    sections.forEach(section => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach(section => {
-        if (section) observer.unobserve(section);
-      });
-    };
-  }, []);
 
   useEffect(() => {
   if (overlay) {
@@ -70,7 +37,7 @@ const AkaalRetiros = () => {
 
     return (
         <>
-            <section className="retiros-portada" ref={portadaRef}>
+            <section className="retiros-portada">
                 <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770913737/Frame_50_2_raea1m.png" alt="portada" className="retiros-portada-img" />
 
                 <div className="retiros-info">
@@ -82,7 +49,7 @@ const AkaalRetiros = () => {
                 </div>
             </section>
 
-            <section className="retiro-incluye" ref={retiroInfoRef}>
+            <section className="retiro-incluye">
                 <div className="capa">
                     <img src="/img/capa.png" alt="simbolo" className="svg" />
                 </div>

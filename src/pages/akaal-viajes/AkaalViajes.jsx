@@ -10,17 +10,13 @@ import { Footer } from '../../components/footer/Footer';
 import SplitText from '../../components/split-text/SplitText';
 
 const AkaalViajes = () => {
+  const [overlay, setOverlay] = useState(false)
   const [currentStep, setCurrentStep] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [viajeActivo, setViajeActivo] = useState('AZORES');
-  const [diasRestantes, setDiasRestantes] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  
-  const introSectionRef = useRef();
-  const azoresSectionRef = useRef();
-  const cardsSectionRef = useRef();
-  const indiaSectionRef = useRef();
+  const [diasRestantes, setDiasRestantes] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
 
 
 
@@ -69,44 +65,11 @@ const AkaalViajes = () => {
   ];
 
 
-  const toggleAccordion = (index) => {
-    setActiveAccordion(activeAccordion === index ? null : index);
-  };
 
   const totalPages = 2; // Tenemos 2 páginas de cards
   const isLastStep = currentStep === steps.length - 1;
 
 
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-10% 0px -10% 0px',
-      threshold: 0.1
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        } else {
-          entry.target.classList.remove('section-visible');
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    const sections = [introSectionRef.current, azoresSectionRef.current, cardsSectionRef.current, indiaSectionRef.current];
-    sections.forEach(section => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach(section => {
-        if (section) observer.unobserve(section);
-      });
-    };
-  }, []);
 
   useEffect(() => {
     const fechaViaje = new Date('2026-04-02');   //Actualizar fecha cuando se cambie el viaje 
@@ -126,7 +89,7 @@ const AkaalViajes = () => {
   return (
     <>
       {/* Sección 1: Introducción a Viajes Akaal */}
-      <section className="viajes-intro-section" ref={introSectionRef}>
+      <section className="viajes-intro-section">
         <div className="viajes-intro-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
           <div className="viajes-intro-overlay"></div>
@@ -235,7 +198,7 @@ const AkaalViajes = () => {
       </section>
 
       {/* Sección 2: AZORES */}
-      <section className="viajes" ref={azoresSectionRef}>
+      <section className="viajes">
         <div className="viajes-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
@@ -277,7 +240,7 @@ const AkaalViajes = () => {
 
 
       {/* Sección 4: Cards */}
-      <section className="viajes-cards" ref={cardsSectionRef}>
+      <section className="viajes-cards">
         <div className="viajes-cards-decoracion-top">
           <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
@@ -433,7 +396,7 @@ const AkaalViajes = () => {
       </section>
 
       {/* Sección 5: Próximo viaje India */}
-      <section className="viajes-india-section" ref={indiaSectionRef}>
+      <section className="viajes-india-section">
         <div className="viajes-india-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" loading="lazy" />
           <div className="viajes-india-overlay"></div>
