@@ -331,64 +331,29 @@ const UnaVioska = () => {
 
                 {/* Versión Mobile */}
                 <section className="vioska-instrucciones mobile-only">
-                    <div className="artesania">
-                        <Sparkles strokeWidth={0.7} />
-                        <SplitText
-                            text="Cada pieza está hecha a mano, con mucho mimo y dedicación."
-                            className="instrucciones-texto"
-                            tag="h3"
-                            delay={40}
-                            duration={1.3}
-                            from={{ opacity: 0, y: 25 }}
-                            to={{ opacity: 1, y: 0 }}
-                        />
-                        <Sparkles strokeWidth={0.7} />
-                    </div>
+                <div className="capa">
+                    <img src="/img/capa.png" alt="capa" className="simbolo" />
+                </div>
 
-                    <SplitText
-                        text="Pero antes de empezar..."
-                        className="instrucciones-texto"
-                        tag="h4"
-                        delay={60}
-                        duration={1.1}
-                        from={{ opacity: 0, y: 20 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                <h2 className="instrucciones-titulo">Donde las manos <br/> crean lo que el alma siente.</h2>
 
-                    <ul className="instrucciones-ul">
-                        {pasosInstrucciones.map((item, index) => (
-                            <li key={`instruccion-${index}`} className="instrucciones-li">
-                                {item.icono}
-                                <p className="instrucciones-p">{item.texto}</p>
-                            </li>
-                        ))}
-                    </ul>
+                <p className="instrucciones-texto">Cuando compras artesanía, 
+compras mucho más que un objeto</p>
+                 <p className="instrucciones-texto">Te llevas contigo horas de dedicación,  aprendizaje y momentos de profunda pasión. </p>
+                  <p className="instrucciones-texto">En cada joya se guarda un pedacito del alma y del corazón de quien la crea.</p>
+                   <p className="instrucciones-texto" style={{fontWeight:'700'}}>· Selecciona tus joyas favoritas, revisa tu pedido y contáctanos por WhatsApp para reservarlas. ·</p>
+                    <p className="instrucciones-texto" style={{fontWeight:'700', margin:'1rem'}}>100% artesanal. 100% única ♥ </p>
+                    
 
                     <div className="button">
                         <Button as="a" href="#galeria">
-                            <SplitText
-                                text="Ver galería"
-                                className="button-text"
-                                tag="span"
-                                delay={80}
-                                duration={1.4}
-                                from={{ opacity: 0, y: 40 }}
-                                to={{ opacity: 1, y: 0 }}
-                            />
+                         VER PRODUCTOS
                         </Button></div>
 
                 </section>
 
                 <section id='galeria' className="vioska-galeria mobile-only">
-                    <SplitText
-                        text="Galería de productos"
-                        className="galeria-titulo"
-                        tag="h2"
-                        delay={80}
-                        duration={1.4}
-                        from={{ opacity: 0, y: 40 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                  <h2 className="galeria-titulo">Encuentra <br/>  tu joya.</h2>
 
                     <div className="galeria-header-sticky">
                         <div className="modo-seleccion-container">
