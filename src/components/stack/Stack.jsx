@@ -5,8 +5,8 @@ import './stack.css';
 function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [60, -60]);
-  const rotateY = useTransform(x, [-100, 100], [-60, 60]);
+  const rotateX = useTransform(y, [-100, 100], [0, -0]);
+  const rotateY = useTransform(x, [-100, 100], [-40, 40]);
 
   function handleDragEnd(_, info) {
     if (Math.abs(info.offset.x) > sensitivity || Math.abs(info.offset.y) > sensitivity) {
