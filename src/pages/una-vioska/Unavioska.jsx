@@ -32,7 +32,7 @@ const pasosInstrucciones = [
         texto: 'Pulsa el botón "Seleccionar" para poder elegir las joyas que te hayan llegado al alma. Vuelve a pulsar para volver a vista normal. '
 
     },
-   
+
     {
         icono: <ShoppingCart strokeWidth={1} />,
         texto: ' Pulsando "Ver pedido", verás el resumen de tus productos seleccionados.'
@@ -331,29 +331,29 @@ const UnaVioska = () => {
 
                 {/* Versión Mobile */}
                 <section className="vioska-instrucciones mobile-only">
-                <div className="capa">
-                    <img src="/img/capa.png" alt="capa" className="simbolo" />
-                </div>
+                    <div className="capa">
+                        <img src="/img/capa.png" alt="capa" className="simbolo" />
+                    </div>
 
-                <h2 className="instrucciones-titulo">Donde las manos <br/> crean lo que el alma siente.</h2>
+                    <h2 className="instrucciones-titulo">Donde las manos <br /> crean lo que el alma siente.</h2>
 
-                <p className="instrucciones-texto">Cuando compras artesanía, 
-compras mucho más que un objeto</p>
-                 <p className="instrucciones-texto">Te llevas contigo horas de dedicación,  aprendizaje y momentos de profunda pasión. </p>
-                  <p className="instrucciones-texto">En cada joya se guarda un pedacito del alma y del corazón de quien la crea.</p>
-                   <p className="instrucciones-texto" style={{fontWeight:'700'}}>· Selecciona tus joyas favoritas, revisa tu pedido y contáctanos por WhatsApp para reservarlas. ·</p>
-                    <p className="instrucciones-texto" style={{fontWeight:'700', margin:'1rem'}}>100% artesanal. 100% única ♥ </p>
-                    
+                    <p className="instrucciones-texto">Cuando compras artesanía,
+                        compras mucho más que un objeto</p>
+                    <p className="instrucciones-texto">Te llevas contigo horas de dedicación,  aprendizaje y momentos de profunda pasión. </p>
+                    <p className="instrucciones-texto">En cada joya se guarda un pedacito del alma y del corazón de quien la crea.</p>
+                    <p className="instrucciones-texto" style={{ fontWeight: '700' }}>· Selecciona tus joyas favoritas, revisa tu pedido y contáctanos por WhatsApp para reservarlas. ·</p>
+                    <p className="instrucciones-texto" style={{ fontWeight: '700', margin: '1rem' }}>100% artesanal. 100% única ♥ </p>
+
 
                     <div className="button">
                         <Button as="a" href="#galeria">
-                         VER PRODUCTOS
+                            VER PRODUCTOS
                         </Button></div>
 
                 </section>
 
                 <section id='galeria' className="vioska-galeria mobile-only">
-                  <h2 className="galeria-titulo">Encuentra <br/>  tu joya.</h2>
+                    <h2 className="galeria-titulo">Encuentra <br />  tu joya.</h2>
 
                     <div className="galeria-header-sticky">
                         <div className="modo-seleccion-container">
@@ -436,30 +436,39 @@ compras mucho más que un objeto</p>
                 )}
 
                 {/* Galería Slider Minimalista - Ahora al final */}
-                <section className="vioska-slider-section">
-                    <SplitText
-                        text="Creación consciente"
-                        className="slider-titulo"
-                        tag="h2"
-                        delay={100}
-                        duration={1.6}
-                        from={{ opacity: 0, y: 50 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
-                    <SplitText
-                        text="Un viaje a través de nuestras creaciones y momentos"
-                        className="slider-subtitulo"
-                        tag="p"
-                        delay={120}
-                        duration={1.3}
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
 
-                    <div className="slider-container-galery">
-                        <Slider images={sliderImages} />
+
+                <section className="vioska-insta-section">
+                    <div className="capa">
+                        <img src="/img/capa.png" alt="simbolo" className="simbolo" />
                     </div>
 
+                    <div className="titulo-footer">
+
+                        <h2 className="tit">Nuestra historia <br/> continúa aquí.</h2>
+                        <p className="subtit">Acompáñanos en el proceso creativo y descubre las nuevas joyas antes que nadie.</p>
+                        <p className="subtit">Síguenos en Instagram ♥ </p>
+                    </div>
+
+                    <div className="contacto-instagram-container">
+                        <div className="icono-insta">
+                            <img src="/img/instagram.png" alt="insta" className="instagram-img" />
+                            <div className="insta-cuenta"><h4 className="cuenta">@unavioska</h4>
+                                <p className="cuenta-subtitulo">Joyería artesanal con espiritu, en plata y macramé.</p></div>
+                        </div>
+
+                        <Button
+                            className='btn-btn'
+                            onClick={() => window.open('https://www.instagram.com/unavioska/', '_blank')}
+                        >Ir a perfil de Instagram</Button>
+
+                    </div>
+                    {/* <div className="slider-container-galery">
+                        <Slider images={sliderImages} />
+                    </div> */}
+                    <div className="capa">
+                        <img src="/img/capa.png" alt="simbolo" className="simbolo" />
+                    </div>
                 </section>
 
                 {menuResumenAbierto && (
