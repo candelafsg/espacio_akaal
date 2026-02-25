@@ -296,7 +296,6 @@ const UnaVioska = () => {
         }
     }, []);
 
-    const sliderImages = masonryImages.map(item => item.img);
 
 
     return (
@@ -656,25 +655,14 @@ const UnaVioska = () => {
 
 
                 <section className="desktop-productos" id='gallery'>
-                    <SplitText
-                        text="Galería de productos"
-                        className="titulo-galeria"
-                        tag="h1"
-                        delay={200}
-                        duration={1.7}
-                        from={{ opacity: 0, y: 60 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
-                    <SplitText
-                        text="Explora cada pieza con calma. Activa el modo selección para marcar tus favoritas y crear tu propia colección. Desactívalo cuando quieras volver a mirar sin compromiso"
-                        className="subtitulo-galeria"
-                        tag="p"
-                        delay={220}
-                        duration={1.5}
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
-
+                   <h2 className="titulo-galeria">Encuentra tu joya ideal</h2>
+                  
+  <p className="instrucciones-texto">Cuando compras artesanía,
+                        compras mucho más que un objeto.</p>
+                    <p className="instrucciones-texto">Te llevas contigo horas de dedicación,  aprendizaje y momentos de profunda pasión. </p>
+                    <p className="instrucciones-texto">En cada joya se guarda un pedacito del alma y del corazón de quien la crea.</p>
+                    <p className="instrucciones-texto" style={{ fontWeight: '700' }}>· Selecciona tus joyas favoritas, revisa tu pedido y contáctanos por WhatsApp para reservarlas. ·</p>
+                    <p className="instrucciones-texto" style={{ fontWeight: '700'}}>100% artesanal. 100% única ♥ </p>
                     <div className="galeria-contenedor">
                         <div className="filtros-header">
                             <ul className="filtro-ul-galeria">

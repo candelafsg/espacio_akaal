@@ -290,7 +290,7 @@ const EspacioAkaal = () => {
           <p className="slider-subtitulo">Un espacio donde bajar el ritmo, escuchar el cuerpo y volver a ti. </p>
         </div>
 
-        <div style={{ width: 280, height: 280, marginTop: '1.5rem' }}>
+        <div className="stack-container-akaal" >
           <Stack
             randomRotation
             sensitivity={150}

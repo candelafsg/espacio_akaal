@@ -12,7 +12,7 @@
 
 }
 .akaal-inicio-desktop{
-  display: none !important;
+  display: none ;
 }
 
 
@@ -193,6 +193,37 @@
   padding: 2rem 1rem;
 }
 
+.stack-container-akaal {
+  width: 345px;
+  height: 300px;
+  margin-top: 1.5rem;
+}
+
+
+
+.akaal-intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+@media (min-width: 768px) {
+  .stack-container-akaal {
+    width: 500px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stack-container-akaal {
+    width: 650px;
+    height: 520px;
+  }
+}
+
 /* Estilos desktop */
 @media (min-width: 768px) {
   .texto-provisional {
@@ -254,7 +285,7 @@
 
 .akaal-inicio-desktop{
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -275,12 +306,12 @@
 
 .akaal-desk-intro{
   position: absolute;
-  top: 3%;
+  top: 13%;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
 
-  height: 90vh;
+  height: 85vh;
   border-radius: 10px;
   border: 0.5px solid var(--background);
   display: flex;
@@ -438,24 +469,7 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .akaal-slider-section {
-    min-height: 100svh;
-    padding: 4rem 2rem;
-    justify-content: center;
-  }
 
-  .slider-titulo {
-    font-size: 2.5rem !important;
-    margin-top: 1.25rem;
-  }
-
-  .slider-container-galery {
-    max-width: 820px;
-    height: 520px;
-    margin: 0 auto 2rem auto;
-  }
-}
 
 /* Galería Slider Minimalista - Espacio AKAAL */
 .akaal-slider-section {
@@ -490,97 +504,9 @@
     text-align: center;
 }
 
-.slider-container-galery {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    margin: 0 auto 3rem auto;
-    overflow: hidden;
-}
 
-.slider-imagen {
-    width: 100%;
-   height: 100%;
-    position: relative;
-}
 
-.slider-img-galery {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--background);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    color: var(--background) !important;
-}
-
-.slider-btn:hover {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    transform: translateY(-50%) scale(1.1);
-    color: var(--background) !important;
-    border: 1px solid var(--background);
-}
-
-.slider-btn-prev {
-    left: 0.5rem;
-}
-
-.slider-btn-next {
-    right: 0.5rem;
-}
-
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    margin-top: 1.5rem;
-}
-
-.slider-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    border: none;
-    background: var(--primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0.5;
-}
-
-.slider-dot-active {
-    background: var(--primary);
-    width: 18px;
-    border-radius: 3px;
-    opacity: 1;
-}
-
-.slider-dot:hover {
-    background: var(--primary);
-    opacity: 0.8;
-}
-
-.slider-dot-active:hover {
-    background: var(--primary);
-    opacity: 1;
-}
 
 @media (min-width: 768px) {
     .slider-titulo {
