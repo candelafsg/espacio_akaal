@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { horarios } from "../../db/imagenes";
 import { CardHorario } from "../../components/cards/Cards";
 import "./espacio-akaal.css";
-import Stack from "../../components/stack/stack";
+import Stack from "../../components/stack/Stack";
 import { ImgContainer } from "../../components/components/Components";
 import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
 import { espacioAkaalImgs } from "../../db/imagenes";
