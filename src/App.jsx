@@ -13,11 +13,14 @@ function App() {
 
   const location = useLocation();
     const state = location.state;
+    
+    // Ocultar header en la página de detalle de producto
+    const shouldShowHeader = !location.pathname.includes('/detalle-producto');
 
   return (
     <>
 
-   <Header/>
+   {shouldShowHeader && <Header/>}
     
    <Outlet context={{ background: state?.background }} />    
    <ScrollToTop />
