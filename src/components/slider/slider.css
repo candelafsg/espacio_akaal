@@ -8,7 +8,8 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: pan-x;            /* 👈 permite swipe horizontal */
+  overscroll-behavior: contain;
 }
 
 .slider-track {
