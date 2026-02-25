@@ -352,9 +352,10 @@ const UnaVioska = () => {
                 </section>
 
                 <section id='galeria' className="vioska-galeria mobile-only">
-                    <h2 className="galeria-titulo">Encuentra <br />  tu joya.</h2>
+                  
 
                     <div className="galeria-header-sticky">
+                          <h2 className="galeria-titulo">Encuentra <br />  tu joya.</h2>
                         <div className="modo-seleccion-container">
                             <div className="seleccion-multiple-container">
                                 <p className="seleccion-titulo">
