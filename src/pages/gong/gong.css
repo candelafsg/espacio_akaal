@@ -2,13 +2,13 @@
 
 .gong-introduccion {
   width: 100%;
-  height: 100dvh;
+  min-height: 100svh;
   position: relative;
 }
 
 .gong-wrapper {
   width: 100%;
-  height: 100vh;
+  min-height: 100svh;
 }
 
 .gong-imagen {
