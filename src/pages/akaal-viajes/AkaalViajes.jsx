@@ -164,8 +164,8 @@ const AkaalViajes = () => {
               className="viajes-accordion-parrafo"
               tag="p"
               delay={30}
-              duration={1.2}
-              from={{ opacity: 0, y: 20 }}
+              duration={1.5}
+              from={{ opacity: 0, y: 5 }}
               to={{ opacity: 1, y: 0 }}
             />
 
@@ -174,8 +174,8 @@ const AkaalViajes = () => {
               className="viajes-accordion-parrafo"
               tag="p"
               delay={30}
-              duration={1.2}
-              from={{ opacity: 0, y: 20 }}
+              duration={1.5}
+              from={{ opacity: 0, y: 5 }}
               to={{ opacity: 1, y: 0 }}
             />
 
@@ -184,8 +184,8 @@ const AkaalViajes = () => {
               className="viajes-accordion-parrafo"
               tag="p"
               delay={30}
-              duration={1.2}
-              from={{ opacity: 0, y: 20 }}
+              duration={1.5}
+              from={{ opacity: 0, y: 5 }}
               to={{ opacity: 1, y: 0 }}
             />
           </div>
