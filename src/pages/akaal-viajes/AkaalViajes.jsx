@@ -90,10 +90,9 @@ const AkaalViajes = () => {
     <>
       {/* Sección 1: Introducción a Viajes Akaal */}
       <section className="viajes-intro-section">
-        <div className="viajes-intro-background">
+       
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
-          <div className="viajes-intro-overlay"></div>
-        </div>
+       
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
             <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
@@ -166,7 +165,7 @@ const AkaalViajes = () => {
               tag="p"
               delay={30}
               duration={1.2}
-              from={{ opacity: 0, y: 30 }}
+              from={{ opacity: 0, y: 20 }}
               to={{ opacity: 1, y: 0 }}
             />
 
@@ -176,7 +175,7 @@ const AkaalViajes = () => {
               tag="p"
               delay={30}
               duration={1.2}
-              from={{ opacity: 0, y: 30 }}
+              from={{ opacity: 0, y: 20 }}
               to={{ opacity: 1, y: 0 }}
             />
 
@@ -186,7 +185,7 @@ const AkaalViajes = () => {
               tag="p"
               delay={30}
               duration={1.2}
-              from={{ opacity: 0, y: 30 }}
+              from={{ opacity: 0, y: 20 }}
               to={{ opacity: 1, y: 0 }}
             />
           </div>
