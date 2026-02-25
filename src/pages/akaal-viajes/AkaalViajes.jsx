@@ -151,7 +151,7 @@ const AkaalViajes = () => {
 
       {/* Sección 3: ¿Quienes somos? */}
       <section className="viajes-accordion-section">
-        <div className="viajes-accordion-container">
+       
           <div className="viajes-accordion-decoracion-top">
             <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
@@ -193,7 +193,7 @@ const AkaalViajes = () => {
           <div className="viajes-accordion-decoracion-bottom">
             <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
           </div>
-        </div>
+      
       </section>
 
       {/* Sección 2: AZORES */}
