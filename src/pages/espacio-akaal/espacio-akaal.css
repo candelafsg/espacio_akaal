@@ -440,7 +440,7 @@
 
 @media (min-width: 1024px) {
   .akaal-slider-section {
-    min-height: 100dvh;
+    min-height: 100svh;
     padding: 4rem 2rem;
     justify-content: center;
   }
@@ -459,14 +459,13 @@
 
 /* Galería Slider Minimalista - Espacio AKAAL */
 .akaal-slider-section {
-    padding: 4rem 2rem;
+    padding:2rem;
     text-align: center;
-    min-height: 100dvh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 80px; /* Compensar header fijo */
 }
 
 .slider-decoracion-top,

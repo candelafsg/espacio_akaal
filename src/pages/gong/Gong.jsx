@@ -10,7 +10,7 @@ import {
     Users,
     Flower,
     HeartHandshake
-    
+
 } from 'lucide-react';
 
 import './gong.css';
@@ -57,21 +57,21 @@ const Gong = () => {
     const sesiones = [
         {
             nombre: 'Sesión individual',
-            icono: <Heart strokeWidth={1} color='var(--background)'/>,
+            icono: <Heart strokeWidth={1} color='var(--background)' />,
             texto: 'Un espacio íntimo y personalizado para tu transformación profunda. Sesión adaptada a ti',
             duracion: '120 min.',
             precio: '60€'
         },
         {
             nombre: 'Sesión en pareja',
-            icono: <HeartHandshake strokeWidth={1} color='var(--background)'/>,
+            icono: <HeartHandshake strokeWidth={1} color='var(--background)' />,
             texto: 'Comparte una experiencia de conexión profunda con otra persona, de una manera más privada.',
             duracion: '120 min.',
             precio: '80€'
         },
-           {
+        {
             nombre: 'Sesión en grupo',
-            icono: <Flower strokeWidth={1} color='var(--background)'/>,
+            icono: <Flower strokeWidth={1} color='var(--background)' />,
             texto: 'Experiencia colectiva. Comparte vibraciones con otras personas en un espacio seguro y energético.',
             duracion: '120 min.',
             precio: '25€/per (min. 5 pers)'
@@ -150,13 +150,13 @@ const Gong = () => {
         touchEndX.current = null;
     };
 
-    
+
 
     return (
         <>
             {/* HERO */}
             <section className="gong-introduccion">
-                <picture className="gong-wrapper"  ref={introduccionRef}>
+                <picture className="gong-wrapper" ref={introduccionRef}>
                     <source
                         srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
                         media="(min-width: 768px)"
@@ -171,7 +171,7 @@ const Gong = () => {
 
                 <div className="gong-texto">
                     <h1 className="gong-titulo">Baños de Gong</h1>
-                    <p className="gong-subtitulo" style={{fontWeight:'600'}}>
+                    <p className="gong-subtitulo" style={{ fontWeight: '600' }}>
                         Un viaje de frecuencias y vibraciones
                     </p>
                 </div>
@@ -186,31 +186,31 @@ const Gong = () => {
                 <h2 className="gong-titulo-desc">Habitar en el sonido</h2>
 
                 <SplitText
-                  text="Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido."
-                  className="gong-txt"
-                  tag="p"
-                  delay={30}
-                  duration={1.2}
-                  from={{ opacity: 0, y: 30 }}
-                  to={{ opacity: 1, y: 0 }}
+                    text="Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido."
+                    className="gong-txt"
+                    tag="p"
+                    delay={30}
+                    duration={1.2}
+                    from={{ opacity: 0, y: 30 }}
+                    to={{ opacity: 1, y: 0 }}
                 />
                 <SplitText
-                  text="Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma."
-                  className="gong-txt"
-                  tag="p"
-                  delay={30}
-                  duration={1.2}
-                  from={{ opacity: 0, y: 30 }}
-                  to={{ opacity: 1, y: 0 }}
+                    text="Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma."
+                    className="gong-txt"
+                    tag="p"
+                    delay={30}
+                    duration={1.2}
+                    from={{ opacity: 0, y: 30 }}
+                    to={{ opacity: 1, y: 0 }}
                 />
                 <SplitText
-                  text="Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser."
-                  className="gong-txt"
-                  tag="p"
-                  delay={30}
-                  duration={1.2}
-                  from={{ opacity: 0, y: 30 }}
-                  to={{ opacity: 1, y: 0 }}
+                    text="Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser."
+                    className="gong-txt"
+                    tag="p"
+                    delay={30}
+                    duration={1.2}
+                    from={{ opacity: 0, y: 30 }}
+                    to={{ opacity: 1, y: 0 }}
                 />
                 <div className="beneficios-container">
                     {/* DESKTOP: Grid de beneficios */}
@@ -282,85 +282,85 @@ const Gong = () => {
             </section>
 
             {/* BENEFICIOS SLIDER */}
-           <section className="gong-sesiones" ref={sesionesRef}>
-            <div className="svg-container" style={{marginBottom:'2rem'}}>
-                <img src="/img/capa.png" alt="simbolo" className="svg-img" />
-            </div>
-            <h2 className="gong-titulo-sesiones">Sesiones de conexión</h2>
+            <section className="gong-sesiones" ref={sesionesRef}>
+                <div className="svg-container" style={{ marginBottom: '2rem' }}>
+                    <img src="/img/capa.png" alt="simbolo" className="svg-img" />
+                </div>
+                <h2 className="gong-titulo-sesiones">Sesiones de conexión</h2>
 
-  {/* DESKTOP: Grid de sesiones */}
-  <div className="sesiones-grid">
-    {sesiones.map((sesion, index) => (
-      <GongCard
-        key={index}
-        nombre={sesion.nombre}
-        icono={sesion.icono}
-        texto={sesion.texto}
-        duracion={sesion.duracion}
-        precio={sesion.precio}
-      />
-    ))}
-  </div>
+                {/* DESKTOP: Grid de sesiones */}
+                <div className="sesiones-grid">
+                    {sesiones.map((sesion, index) => (
+                        <GongCard
+                            key={index}
+                            nombre={sesion.nombre}
+                            icono={sesion.icono}
+                            texto={sesion.texto}
+                            duracion={sesion.duracion}
+                            precio={sesion.precio}
+                        />
+                    ))}
+                </div>
 
-  {/* MÓVIL: Slider de sesiones */}
-  <div
-    className="sesiones-viewport"
-    onTouchStart={handleSesionTouchStart}
-    onTouchMove={handleSesionTouchMove}
-    onTouchEnd={handleSesionTouchEnd}
-  >
-    <div
-      className="sesiones-track"
-      style={{
-        transform: `translate3d(-${sesionIndex * 100}%, 0, 0)`
-      }}
-    >
-      {sesiones.map((sesion, index) => (
-        <div className="sesiones-slide" key={index}>
-          <GongCard
-            nombre={sesion.nombre}
-            icono={sesion.icono}
-            texto={sesion.texto}
-            duracion={sesion.duracion}
-            precio={sesion.precio}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
+                {/* MÓVIL: Slider de sesiones */}
+                <div
+                    className="sesiones-viewport"
+                    onTouchStart={handleSesionTouchStart}
+                    onTouchMove={handleSesionTouchMove}
+                    onTouchEnd={handleSesionTouchEnd}
+                >
+                    <div
+                        className="sesiones-track"
+                        style={{
+                            transform: `translate3d(-${sesionIndex * 100}%, 0, 0)`
+                        }}
+                    >
+                        {sesiones.map((sesion, index) => (
+                            <div className="sesiones-slide" key={index}>
+                                <GongCard
+                                    nombre={sesion.nombre}
+                                    icono={sesion.icono}
+                                    texto={sesion.texto}
+                                    duracion={sesion.duracion}
+                                    precio={sesion.precio}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-  {/* CONTROLES MÓVIL */}
-  <div className="sesiones-controls">
-    <button
-      className="sesiones-arrow"
-      onClick={prevSesion}
-      aria-label="Anterior"
-    >
-      <ChevronLeft />
-    </button>
+                {/* CONTROLES MÓVIL */}
+                <div className="sesiones-controls">
+                    <button
+                        className="sesiones-arrow"
+                        onClick={prevSesion}
+                        aria-label="Anterior"
+                    >
+                        <ChevronLeft />
+                    </button>
 
-    <div className="sesiones-dots">
-      {sesiones.map((_, index) => (
-        <button
-          key={index}
-          className={`dot ${index === sesionIndex ? 'active' : ''}`}
-          onClick={() => goToSesion(index)}
-        />
-      ))}
-    </div>
+                    <div className="sesiones-dots">
+                        {sesiones.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`dot ${index === sesionIndex ? 'active' : ''}`}
+                                onClick={() => goToSesion(index)}
+                            />
+                        ))}
+                    </div>
 
-    <button
-      className="sesiones-arrow"
-      onClick={nextSesion}
-      aria-label="Siguiente"
-    >
-      <ChevronRight />
-    </button>
-  </div>
-  <div className="svg-container" style={{marginTop:'2rem'}}>
-    <img src="/img/capa.png" alt="simbolo" className="svg-img" />
-  </div>
-</section>
+                    <button
+                        className="sesiones-arrow"
+                        onClick={nextSesion}
+                        aria-label="Siguiente"
+                    >
+                        <ChevronRight />
+                    </button>
+                </div>
+                <div className="svg-container" style={{ marginTop: '2rem' }}>
+                    <img src="/img/capa.png" alt="simbolo" className="svg-img" />
+                </div>
+            </section>
 
             <Footer />
         </>

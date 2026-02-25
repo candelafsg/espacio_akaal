@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { horarios } from "../../db/imagenes";
 import { CardHorario } from "../../components/cards/Cards";
 import "./espacio-akaal.css";
+import Stack from "../../components/stack/stack";
 import { ImgContainer } from "../../components/components/Components";
 import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
 import { espacioAkaalImgs } from "../../db/imagenes";
@@ -60,8 +61,8 @@ const EspacioAkaal = () => {
         <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
 
         <div className="container-titulo">
-          <SplitText 
-            text="Espacio AKAAL" 
+          <SplitText
+            text="Espacio AKAAL"
             className="texto-provisional"
             tag="h1"
             delay={100}
@@ -69,8 +70,8 @@ const EspacioAkaal = () => {
             from={{ opacity: 0, y: 60 }}
             to={{ opacity: 1, y: 0 }}
           />
-          <SplitText 
-            text="Un refugio para el cuerpo, mente y alma." 
+          <SplitText
+            text="Un refugio para el cuerpo, mente y alma."
             className="subtitulo-yoga"
             tag="p"
             delay={150}
@@ -83,7 +84,7 @@ const EspacioAkaal = () => {
 
 
       <section className="akaal-inicio-desktop">
-        
+
         <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771489981/ChatGPT_Image_17_feb_2026_08_38_05_1_1_drkay2.png" alt="portada" className="intro-imagen-desk" />
 
         <div className="akaal-desk-intro">
@@ -97,7 +98,7 @@ const EspacioAkaal = () => {
 
             <div className="subtitulo-intro-container">
               <h2 className="subtitulo-h2-intro">Un refugio para el cuerpo, mente y alma. </h2>
-            <p className="subtitulo-intro"><br/> Donde cada postura ordena y armoniza, con intención. <br/> Un bienestar que se siente por dentro y por fuera, donde la estabilidad se construye paso a paso y la mente se aquieta en el proceso.</p>
+              <p className="subtitulo-intro"><br /> Donde cada postura ordena y armoniza, con intención. <br /> Un bienestar que se siente por dentro y por fuera, donde la estabilidad se construye paso a paso y la mente se aquieta en el proceso.</p>
             </div>
 
           </div>
@@ -109,9 +110,9 @@ const EspacioAkaal = () => {
             <div className="intro-2-content">
               <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493354/ChatGPT_Image_3_feb_2026_15_51_18_1_1_hh3qci.png" alt="" className="intro-2-img" />
             </div>
-             <div className="intro-2-content">
-               <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="" className="intro-2-img" />
-             </div>
+            <div className="intro-2-content">
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="" className="intro-2-img" />
+            </div>
 
           </div>
         </div>
@@ -129,8 +130,8 @@ const EspacioAkaal = () => {
 
         <h1 className="yoga-titulo">La práctica que compartimos</h1>
 
-        <SplitText 
-          text="En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural." 
+        <SplitText
+          text="En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural."
           className="yoga-texto"
           tag="p"
           delay={200}
@@ -138,8 +139,8 @@ const EspacioAkaal = () => {
           from={{ opacity: 0, y: 30 }}
           to={{ opacity: 1, y: 0 }}
         />
-        <SplitText 
-          text="A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa." 
+        <SplitText
+          text="A través del uso de cuerdas en la pared, sillas, bloques y cinturones, llevamos atención e inteligencia a zonas del cuerpo menos conscientes, ayudando a despertarlas de forma progresiva y respetuosa."
           className="yoga-texto"
           tag="p"
           delay={250}
@@ -147,8 +148,8 @@ const EspacioAkaal = () => {
           from={{ opacity: 0, y: 30 }}
           to={{ opacity: 1, y: 0 }}
         />
-        <SplitText 
-          text="Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal." 
+        <SplitText
+          text="Es un yoga terapéutico, ya que hace que mejores de forma directa tu postura corporal."
           className="yoga-texto"
           tag="p"
           delay={300}
@@ -156,8 +157,8 @@ const EspacioAkaal = () => {
           from={{ opacity: 0, y: 30 }}
           to={{ opacity: 1, y: 0 }}
         />
-        <SplitText 
-          text="Ideal para reducir dolores corporales, ganar estabilidad, equilibrio, fuerza, flexibilidad y generar un bienestar profundo, tanto en el cuerpo como en la mente." 
+        <SplitText
+          text="Ideal para reducir dolores corporales, ganar estabilidad, equilibrio, fuerza, flexibilidad y generar un bienestar profundo, tanto en el cuerpo como en la mente."
           className="yoga-texto"
           tag="p"
           delay={350}
@@ -165,8 +166,8 @@ const EspacioAkaal = () => {
           from={{ opacity: 0, y: 30 }}
           to={{ opacity: 1, y: 0 }}
         />
-        <SplitText 
-          text="Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero." 
+        <SplitText
+          text="Si quieres reservar tu primera clase de forma gratuita y sin compromiso, te espero."
           className="yoga-texto"
           tag="p"
           delay={400}
@@ -289,8 +290,18 @@ const EspacioAkaal = () => {
           <p className="slider-subtitulo">Un espacio donde bajar el ritmo, escuchar el cuerpo y volver a ti. </p>
         </div>
 
-        <Slider images={espacioAkaalImgs} />
-
+        <div style={{ width: 280, height: 280, marginTop: '1.5rem' }}>
+          <Stack
+            randomRotation
+            sensitivity={150}
+            sendToBackOnClick={true}
+            cards={espacioAkaalImgs.map((src) => (
+              <img src={src} alt="espacio akaal" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
+            ))} autoplay={false}
+            autoplayDelay={3000}
+            pauseOnHover={false}
+          />
+        </div>
         <div className="slider-decoracion-bottom">
           <img src="/img/capa.png" alt="Decoración" className="slider-capa" />
         </div>
