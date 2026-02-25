@@ -1,9 +1,10 @@
 /* ====== HERO SECTION ====== */
-.vioska-inicio{
+.vioska-inicio {
     width: 100%;
     min-height: 100svh;
- position: relative;
+    position: relative;
 }
+
 .vioska-portada {
     width: 100%;
     height: 98vh;
@@ -15,10 +16,13 @@
     object-position: 70% 60%;
     box-sizing: border-box;
 }
-.cuenta, .cuenta-subtitulo{
+
+.cuenta,
+.cuenta-subtitulo {
     text-align: start;
     margin-left: 0.8rem;
 }
+
 .desk {
     display: none;
 }
@@ -98,7 +102,7 @@
 
 }
 
-.instrucciones-titulo{
+.instrucciones-titulo {
     text-align: center;
     font-size: 2.5rem;
 }
@@ -120,22 +124,22 @@
 /* Instagram  */
 .vioska-insta-section {
     padding: 1rem;
-    
+
     text-align: center;
-width: 100%;
-height: 90vh;
-  
+    width: 100%;
+    min-height: 100svh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
- 
+
     align-items: center;
 }
 
 
 
-.titulo-footer{
+.titulo-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,7 +148,7 @@ height: 90vh;
 }
 
 
-.tit{
+.tit {
     font-size: 2.3rem;
 }
 
@@ -154,7 +158,7 @@ height: 90vh;
 .vioska-masonry-section {
     padding: 2rem 1rem;
     text-align: center;
-    min-height: 100dvh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -454,7 +458,7 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
 .galeria-scroll {
     overflow-x: auto;
     overflow-y: hidden;
-    
+
     padding: 1rem;
     /* Ocultar scrollbar pero mantener funcionalidad */
     scrollbar-width: none;
@@ -549,16 +553,16 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         display: none;
     }
 
-.desk{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    .desk {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
 
-}
+    }
 
     .desktop {
-        
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -568,14 +572,15 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         position: relative;
     }
 
-.desktop-image{
-    width: 100%;
-    padding: 0.3rem;
-    height: 100dvh;
-    object-fit: cover;
-    filter: brightness(0.7);
-    border-radius: var(--radius-img);
-}
+    .desktop-image {
+        width: 100%;
+        padding: 0.3rem;
+        height: 100dvh;
+        object-fit: cover;
+        filter: brightness(0.7);
+        border-radius: var(--radius-img);
+    }
+
     .contenedor {
         position: absolute;
         top: 52%;
@@ -597,17 +602,17 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         padding: 1rem;
     }
 
-   .h2-titulo{
-    font-size: 2rem;
-    color: var(--background);
-   }
+    .h2-titulo {
+        font-size: 2rem;
+        color: var(--background);
+    }
 
     .subtitulo {
         width: 60%;
         color: var(--background);
     }
 
-    .imgs-cont{
+    .imgs-cont {
         width: 35%;
         height: 41vh;
         position: relative;
@@ -618,7 +623,7 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         display: flex;
         flex-direction: column;
         gap: 0.7rem;
-       
+
         background-color: rgba(97, 37, 62, 0.3);
         padding: 0.7rem;
         border-radius: 10px;
@@ -635,7 +640,7 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         position: relative;
     }
 
-    .cont-title{
+    .cont-title {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -649,17 +654,17 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         border-radius: 0px 0px 10px 10px;
     }
 
-    .cont-btn{
+    .cont-btn {
         display: flex;
         position: absolute;
         bottom: 0;
         right: 0%;
         transform: translateX(-50%);
-        
+
         align-items: end;
     }
 
-    .cont-img{
+    .cont-img {
         border-radius: 10px;
         width: 100%;
         height: 100%;
@@ -709,12 +714,12 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
 
 
     /* galería */
-    .desktop-productos{
+    .desktop-productos {
         width: 100%;
         min-height: 100dvh;
     }
 
-    .titulo-galeria{
+    .titulo-galeria {
         margin-top: 7rem;
         font-size: 3rem;
         text-align: center;
@@ -722,31 +727,31 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         margin-bottom: 1rem;
     }
 
-    .subtitulo-galeria{
+    .subtitulo-galeria {
         font-size: 1rem;
         text-align: center;
         font-weight: 300;
     }
 
-    .filtros-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 0;
-}
+    .filtros-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+    }
 
-    .filtro-ul-galeria{
+    .filtro-ul-galeria {
         display: flex;
         justify-content: center;
         margin: 0;
         width: 100%;
-        gap:1rem;
+        gap: 1rem;
         font-weight: 400;
         border-bottom: var(--border);
     }
 
-    .galeria-contenedor{
+    .galeria-contenedor {
         padding: 1rem;
         display: flex;
         flex-direction: column;
@@ -754,55 +759,56 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
     }
 
 
-    .galeria-scroll-container{
+    .galeria-scroll-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
         width: 100%;
     }
+
     .galeria-scroll-desk {
-    overflow-x: auto;
-    width: 100%;
-    overflow-y: hidden;
-    
-    padding: 1rem;
-    /* Ocultar scrollbar pero mantener funcionalidad */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
+        overflow-x: auto;
+        width: 100%;
+        overflow-y: hidden;
 
-.galeria{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+        padding: 1rem;
+        /* Ocultar scrollbar pero mantener funcionalidad */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 
-.producto-titulo{
-    margin-bottom: 1rem;
-}
+    .galeria {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.pedido-header-desktop{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-top: var(--border);
-}
+    .producto-titulo {
+        margin-bottom: 1rem;
+    }
 
-.pedido-header-desktop{
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
-    padding: 0.1rem;
-    border: none;
+    .pedido-header-desktop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-top: var(--border);
+    }
+
+    .pedido-header-desktop {
+        display: flex;
+        justify-content: end;
+        gap: 1rem;
+        padding: 0.1rem;
+        border: none;
 
 
-   
-}
 
-.pedido-header-desktop .AiOutlineDelete:hover{
-    opacity: 0.7;
-}
+    }
+
+    .pedido-header-desktop .AiOutlineDelete:hover {
+        opacity: 0.7;
+    }
 
 }
