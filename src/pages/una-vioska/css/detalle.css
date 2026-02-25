@@ -1,5 +1,12 @@
 
+.slider {
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+}
 
+.modal-overlay {
+    touch-action: none; /* Evita que el overlay interfiera */
+}
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -26,19 +33,20 @@
 
 .cerrar {
     position: absolute;
-    top: 4rem;
+    top: 1rem;
     left: 1rem;
     background: none;
     border: none;
     font-size: 0.9rem;
     cursor: pointer;
     z-index: 1001;
-    color: var(--primary);
+    color: var(--background);
+    background-color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.7rem d;
-    border-radius: 100%;
+    padding: 01rem;
+    border-radius: 20px;
     transition: all 0.3s ease;
 }
 

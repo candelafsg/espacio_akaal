@@ -15,7 +15,7 @@ function App() {
     const state = location.state;
     
     // Ocultar header en la página de detalle de producto
-    const shouldShowHeader = !location.pathname.includes('/detalle-producto');
+    const shouldShowHeader = !location.pathname.includes('/producto/');
 
   return (
     <>
