@@ -43,7 +43,7 @@
 /* ---------- DESCRIPCIÓN ---------- */
 
 .gong-descripcion {
-  min-height: 100dvh;
+  min-height: 100svh;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -71,6 +71,8 @@
 
 .gong-sesiones {
   padding: 2rem 1rem;
+  width: 100%;
+  min-height: 100svh;
 }
 
 .beneficios-container {
