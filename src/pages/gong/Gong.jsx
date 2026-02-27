@@ -189,6 +189,7 @@ const Gong = () => {
                                         duration={1}
                                         from={{ opacity: 0, y: 30 }}
                                         to={{ opacity: 1, y: 0 }}
+                                        style={{ fontWeight: '600', color:'var(--background' }}
                                     />
                    
                   
@@ -294,9 +295,7 @@ const Gong = () => {
                         ))}
                     </div>
                 </div>
-                <div className="svg-container">
-                    <img src="/img/capa.png" alt="" className="svg-img" />
-                </div>
+               
             </section>
 
             {/* BENEFICIOS SLIDER */}

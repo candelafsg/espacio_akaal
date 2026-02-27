@@ -36,7 +36,9 @@
     color: var(--background);
     font-size: 3rem;
 }
-
+.espacioAkaal-subtitulo{
+    color: var(--background);
+}
 /* Desktop - tipografía más grande para Espacio AKAAL */
 @media (min-width: 1024px) {
     .espacioAkaal {

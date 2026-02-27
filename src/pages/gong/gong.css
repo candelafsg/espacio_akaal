@@ -37,7 +37,7 @@
 }
 
 .gong-subtitulo {
-  opacity: 0.9;
+ color: var(--background);
 }
 
 /* ---------- DESCRIPCIÓN ---------- */
@@ -56,6 +56,9 @@
 .gong-txt {
   text-align: center;
 }
+
+
+
 
 .svg-container {
   width: 100%;
@@ -296,7 +299,7 @@
   }
 
   .gong-titulo-desc {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
   }
 
@@ -312,7 +315,7 @@
   }
 
   .gong-titulo-sesiones {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 3rem;
   }
 

@@ -54,7 +54,7 @@ const Inicio = () => {
                      <SplitText
                             text=" Un refugio para el movimiento, la pausa y la intención."
                             className="espacioAkaal-subtitulo"
-                            style={{ fontWeight: '600' }}
+                            style={{ fontWeight: '600'}}
                             tag="p"
                             delay={50}
                             duration={1}
