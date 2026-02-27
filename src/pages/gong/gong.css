@@ -32,7 +32,7 @@
 }
 
 .gong-titulo {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--background);
 }
 
@@ -284,7 +284,7 @@
   }
 
   .gong-titulo {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 
   .gong-subtitulo {
@@ -323,7 +323,7 @@
 
 @media (min-width: 1024px) {
   .gong-titulo {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   .gong-subtitulo {

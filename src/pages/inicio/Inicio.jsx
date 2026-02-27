@@ -6,6 +6,7 @@ import { MdOutlineNorthEast } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { Footer } from "../../components/footer/Footer";
+import SplitText from '../../components/split-text/SplitText';
 
 const Inicio = () => {
     const cardsRef = useRef();
@@ -26,26 +27,44 @@ const Inicio = () => {
         return () => window.removeEventListener('resize', checkDesktop);
     }, []);
 
-    
+
     return (
         <>
-               <section className="inicio-contenedor" ref={firstSectionRef}>
-                <img 
+            <section className="inicio-contenedor" ref={firstSectionRef}>
+                <img
                     src={
-                        isDesktop 
+                        isDesktop
                             ? "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769624540/Desktop_-_1_qur0pp.png"
                             : "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501290/img2_yo27mp.png"
-                    } 
-                    alt="inicio" 
-                    className="inicio-imagen" 
+                    }
+                    alt="inicio"
+                    className="inicio-imagen"
                 />
                 <div className="titulo-container-inicio">
-                    <h1 className="espacioAkaal">Espacio AKAAL</h1>
-                    <p className="espacioAkaal-subtitulo" style={{color:'var(--background)', fontWeight:'600'}}>
-                        Un refugio para el movimiento, la pausa y la intención
-                    </p>
+                    <SplitText
+                        text="Espacio AKAAL"
+                        className="espacioAkaal"
+                        tag="h1"
+                        delay={30}
+                        duration={1.2}
+                        from={{ opacity: 0, y: 60 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
+
+                     <SplitText
+                            text=" Un refugio para el movimiento, la pausa y la intención."
+                            className="espacioAkaal-subtitulo"
+                            style={{ fontWeight: '600' }}
+                            tag="p"
+                            delay={50}
+                            duration={1}
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+
+                    
                 </div>
-           </section>
+            </section>
 
             <section className="inicio-maneras" ref={secondSectionRef}>
                 <div className="simbolo-container" ref={simboloRef}>
@@ -58,7 +77,7 @@ const Inicio = () => {
                 </div>
 
                 <div ref={cardsRef} className="cards-galeria">
-                    {[ 
+                    {[
                         {
                             text: 'Sesiones que conectan y equilibran el cuerpo y la mente',
                             buttonText: 'Espacio AKAAL',

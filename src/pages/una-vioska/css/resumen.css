@@ -94,8 +94,14 @@ background-color: var(--background);
   .vioska-page.dimmed {
     opacity: 0.95;
   }
+  
+  /* Bloquear scroll cuando el menú está abierto */
+  body:has(.resumen.menu-lateral.active) {
+    overflow: hidden;
+  }
+  
     .resumen.menu-lateral {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         width: 500px;
@@ -157,7 +163,7 @@ background-color: var(--background);
 
     /* Overlay independiente para mejor control */
 .overlay {
-    position: fixed;
+    position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.55); /* negro translúcido */
     z-index: 9999;

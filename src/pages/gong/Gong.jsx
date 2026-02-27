@@ -170,10 +170,28 @@ const Gong = () => {
                 </picture>
 
                 <div className="gong-texto">
-                    <h1 className="gong-titulo">Baños de Gong</h1>
-                    <p className="gong-subtitulo" style={{ fontWeight: '600' }}>
-                        Un viaje de frecuencias y vibraciones
-                    </p>
+
+                      <SplitText
+                                        text="Baños de Gong"
+                                        className="gong-titulo"
+                                        tag="h1"
+                                        delay={30}
+                                        duration={1.2}
+                                        from={{ opacity: 0, y: 60 }}
+                                        to={{ opacity: 1, y: 0 }}
+                                    />
+
+                       <SplitText
+                                        text=" Un viaje de frecuencias y vibraciones"
+                                        className="gong-subtitulo"
+                                        tag="h2"
+                                        delay={50}
+                                        duration={1}
+                                        from={{ opacity: 0, y: 30 }}
+                                        to={{ opacity: 1, y: 0 }}
+                                    />
+                   
+                  
                 </div>
             </section>
 
@@ -189,7 +207,7 @@ const Gong = () => {
                     text="Las vibraciones profundas del Gong envuelven el cuerpo y suavizan la mente, creando una sensación de paz que se expande con cada sonido."
                     className="gong-txt"
                     tag="p"
-                    delay={30}
+                    delay={130}
                     duration={1.2}
                     from={{ opacity: 0, y: 30 }}
                     to={{ opacity: 1, y: 0 }}
@@ -198,7 +216,7 @@ const Gong = () => {
                     text="Entre resonancias y silencios, la energía se armoniza, invitando a soltar tensiones y abrir espacio para la calma."
                     className="gong-txt"
                     tag="p"
-                    delay={30}
+                    delay={160}
                     duration={1.2}
                     from={{ opacity: 0, y: 30 }}
                     to={{ opacity: 1, y: 0 }}
@@ -207,7 +225,7 @@ const Gong = () => {
                     text="Es una experiencia de renovación suave y profunda, un retorno al equilibrio natural de tu Ser."
                     className="gong-txt"
                     tag="p"
-                    delay={30}
+                    delay={130}
                     duration={1.2}
                     from={{ opacity: 0, y: 30 }}
                     to={{ opacity: 1, y: 0 }}

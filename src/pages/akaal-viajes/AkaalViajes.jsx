@@ -1,8 +1,8 @@
 import './viajes.css';
-import { ImgContainer } from '../../components/components/Components';
+
 import { useState, useEffect, useRef } from 'react';
 import { CardViajes } from '../../components/cards/Cards';
-import { Button } from '../../components/buttons/Button';
+
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucide-react';
 import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
@@ -13,7 +13,7 @@ const AkaalViajes = () => {
   const [overlay, setOverlay] = useState(false)
   const [currentStep, setCurrentStep] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [activeAccordion, setActiveAccordion] = useState(null);
+
   const [viajeActivo, setViajeActivo] = useState('AZORES');
   const [diasRestantes, setDiasRestantes] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
@@ -90,13 +90,33 @@ const AkaalViajes = () => {
     <>
       {/* Sección 1: Introducción a Viajes Akaal */}
       <section className="viajes-intro-section">
-       
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
-       
+
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
+
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
-            <h1 className="viajes-akaal-titulo">Viajes AKAAL</h1>
-            <p className="viajes-subtitulo" style={{ fontWeight: '600' }}>Cada viaje, una intención</p>
+
+            <SplitText
+              text="Viajes AKAAL"
+              className="viajes-akaal-titulo"
+              tag="h1"
+              delay={140}
+              duration={1.8}
+              from={{ opacity: 0, y: 80 }}
+              to={{ opacity: 1, y: 0 }}
+            />
+
+            <SplitText
+              text="Cada viaje, una intención"
+              className="viajes-subtitulo"
+              tag="p"
+              delay={180}
+              duration={1.4}
+              from={{ opacity: 0, y: 25 }}
+              to={{ opacity: 1, y: 0 }}
+            />
+
+          
           </div>
         </div>
       </section>
@@ -116,8 +136,8 @@ const AkaalViajes = () => {
 
             <div className="intro-contenedor-subtitulo">
               <h2 className="contenedor-sub">Cada viaje, una intención.</h2>
-              <p className="viajes-subtitulo" >Cada destino es un espacio sagrado que invita a detenerse, respirar y escuchar. <br/>
-                Lejos del ruido cotidiano, cultivamos presencia, silencio y conexión profunda.<br/>
+              <p className="viajes-subtitulo" >Cada destino es un espacio sagrado que invita a detenerse, respirar y escuchar. <br />
+                Lejos del ruido cotidiano, cultivamos presencia, silencio y conexión profunda.<br />
                 Porque a veces, el viaje más importante no es hacia un lugar… sino hacia tu interior.</p></div>
           </div>
 
@@ -151,49 +171,49 @@ const AkaalViajes = () => {
 
       {/* Sección 3: ¿Quienes somos? */}
       <section className="viajes-accordion-section">
-       
-          <div className="viajes-accordion-decoracion-top">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
-          </div>
 
-          <h2 className="viajes-accordion-titulo">Viajes AKAAL</h2>
+        <div className="viajes-accordion-decoracion-top">
+          <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
+        </div>
 
-          <div className="viajes-accordion-texto">
-            <SplitText
-              text="Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje."
-              className="viajes-accordion-parrafo"
-              tag="p"
-              delay={30}
-              duration={1.5}
-              from={{ opacity: 0, y: 5 }}
-              to={{ opacity: 1, y: 0 }}
-            />
+        <h2 className="viajes-accordion-titulo">Viajes AKAAL</h2>
 
-            <SplitText
-              text="Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior."
-              className="viajes-accordion-parrafo"
-              tag="p"
-              delay={30}
-              duration={1.5}
-              from={{ opacity: 0, y: 5 }}
-              to={{ opacity: 1, y: 0 }}
-            />
+        <div className="viajes-accordion-texto">
+          <SplitText
+            text="Desde Espacio AKAAL organizamos viajes conscientes y transformadores que combinan la práctica del yoga con la experiencia profunda del viaje."
+            className="viajes-accordion-parrafo"
+            tag="p"
+            delay={30}
+            duration={1.2}
+            from={{ opacity: 0, y: 60 }}
+            to={{ opacity: 1, y: 0 }}
+          />
 
-            <SplitText
-              text="Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal."
-              className="viajes-accordion-parrafo"
-              tag="p"
-              delay={30}
-              duration={1.5}
-              from={{ opacity: 0, y: 5 }}
-              to={{ opacity: 1, y: 0 }}
-            />
-          </div>
+          <SplitText
+            text="Son propuestas pensadas para salir de lo cotidiano y, a través del movimiento, la presencia y el contacto con lugares especiales, emprender un viaje hacia el interior."
+            className="viajes-accordion-parrafo"
+            tag="p"
+            delay={50}
+            duration={1}
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+          />
 
-          <div className="viajes-accordion-decoracion-bottom">
-            <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
-          </div>
-      
+          <SplitText
+            text="Habitualmente los realizamos a destinos con una gran fuerza espiritual y natural como la India y las Azores, creando espacios de pausa, conexión y transformación personal."
+            className="viajes-accordion-parrafo"
+            tag="p"
+            delay={130}
+            duration={1.5}
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+          />
+        </div>
+
+        <div className="viajes-accordion-decoracion-bottom">
+          <img src="/img/capa.png" alt="Decoración" className="viajes-accordion-capa" loading="lazy" />
+        </div>
+
       </section>
 
       {/* Sección 2: AZORES */}
