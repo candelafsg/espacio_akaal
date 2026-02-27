@@ -11,6 +11,9 @@ const ResumenPedido = ({ productos: productosProps, esMenuLateral, menuAbierto, 
   const location = useLocation();
   const navigate = useNavigate();
 
+
+  
+
   // Si viene de navegación normal (mobile), usa location.state
   // Si viene como menú lateral (desktop), usa las props
   const productosIniciales = esMenuLateral
@@ -75,11 +78,11 @@ const ResumenPedido = ({ productos: productosProps, esMenuLateral, menuAbierto, 
           <ArrowLeft strokeWidth={1} onClick={handleVolver} />
         </div>
       )}
-      {esMenuLateral && (
+      {/* {esMenuLateral && (
         <div className="resumen-close">
-          <X size={20} onClick={handleCerrar} />
+          <X size={20} onClick={handleVolver} />
         </div>
-      )}
+      )} */}
 
       <h1 className='resumen-titulo'>RESUMEN <br />DE TU PEDIDO</h1>
 
