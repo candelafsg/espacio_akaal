@@ -397,21 +397,21 @@ const UnaVioska = () => {
                                     <div className="imgs">
                                         <div className="fila">
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770793446/Frame_30_vi0u0x.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772188316/Frame_30_1_xoph6j.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">MACRAMÉ</div>
                                             </div>
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770293173/ChatGPT_Image_5_feb_2026_13_06_06_aikals.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772189108/ChatGPT_Image_5_feb_2026_13_06_06_1_qhtzvm.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">COLGANTES</div>
                                             </div>
                                         </div>
                                         <div className="fila">
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771511023/ChatGPT_Image_19_feb_2026_15_22_30_1_rrmty2.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772191290/ChatGPT_Image_19_feb_2026_15_22_30_1_1_ncz5ib.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">ANILLOS</div>
                                             </div>
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770295069/ChatGPT_Image_5_feb_2026_13_37_29_epl8ge.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772188870/ChatGPT_Image_5_feb_2026_13_37_29_d0hr56.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">PENDIENTES</div>
                                             </div>
                                         </div>

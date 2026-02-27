@@ -172,6 +172,17 @@ background-color: var(--background);
     pointer-events: none;
 }
 
+/* Ocultar overlay en mobile */
+@media (max-width: 767px) {
+    .overlay {
+        display: none !important;
+    }
+    
+    .resumen.menu-lateral {
+        display: none !important;
+    }
+}
+
 .overlay.active {
     opacity: 1;
     pointer-events: auto;
