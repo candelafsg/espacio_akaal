@@ -206,7 +206,7 @@ const UnaVioska = () => {
             <main className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
                 <section className='vioska-inicio'>
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="colgante" className="vioska-portada" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772191045/iPhone_17_-_1_1_xqqmtb.png" alt="colgante" className="vioska-portada" />
                     <div className="vioska-info">
                         <SplitText
                             text="una vioska."
@@ -357,7 +357,7 @@ const UnaVioska = () => {
             {/* version desk */}
             <main className="desk">
                 <section className="desktop">
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png" alt="portada" className="desktop-image" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772190928/Frame_59_1_ij30th.png" alt="portada" className="desktop-image" />
 
                     <div className="title-container">
                         <div className="contenedor">

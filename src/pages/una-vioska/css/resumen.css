@@ -13,7 +13,9 @@
 .resumen-titulo{
     font-size: 10vw;
 }
-
+ .overlay {
+        display: none !important;
+    }
 
 .no-seleccionados{
     width: 100%;
@@ -174,9 +176,7 @@ background-color: var(--background);
 
 /* Ocultar overlay en mobile */
 @media (max-width: 767px) {
-    .overlay {
-        display: none !important;
-    }
+   
     
     .resumen.menu-lateral {
         display: none !important;
