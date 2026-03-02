@@ -97,7 +97,14 @@ const Inicio = () => {
                             text: 'Frecuencias para volver al centro',
                             buttonText: 'Baños de gong',
                             to: '/gong',
+                        },
+
+                         {
+                            text: 'Encuentros en la naturaleza donde transitar hacia la luz',
+                            buttonText: 'Retiros',
+                            to: '/akaal-retiros',
                         }
+            
                     ].map((card) => (
                         <CardInicio key={card.to} buttonText={card.buttonText} to={card.to}>
                             {card.text}
