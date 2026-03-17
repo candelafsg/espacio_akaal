@@ -108,11 +108,11 @@
 /* Sección de India */
 .viajes-india-section {
   width: 100%;
-  min-height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4rem 0;
 }
 
 .viajes-india-background {
@@ -334,11 +334,8 @@
 
 .buttons-container-dossier{
   display: flex;
-  position: absolute;
-  bottom: -30%;
-  left: 50%;
-  transform: translateX(-50%);
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .pdf-handler-btn {
