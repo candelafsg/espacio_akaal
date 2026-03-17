@@ -8,10 +8,12 @@ const PdfHandler = ({ fileUrl, fileName = "documento.pdf", variant = "primary", 
 
   const handleClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (isMobile) {
       // 📱 Descargar PDF sin desplazamiento
-      e.stopPropagation();
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
       const link = document.createElement("a");
       link.href = fileUrl;
       link.download = fileName;
@@ -19,6 +21,9 @@ const PdfHandler = ({ fileUrl, fileName = "documento.pdf", variant = "primary", 
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      
+      // Restaurar posición del scroll
+      window.scrollTo(0, scrollPosition);
       return false;
     } else {
       // 💻 Abrir en nueva pestaña

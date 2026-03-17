@@ -427,7 +427,7 @@ const AkaalViajes = () => {
             <p className="viajes-india-proximamente">PRÓXIMAMENTE</p>
             <div className="buttons-container-dossier">
               <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='primary'>
-                VER DOSSIER
+                DESCARGAR DOSSIER 
               </PdfHandler>
             </div>
           </div>
