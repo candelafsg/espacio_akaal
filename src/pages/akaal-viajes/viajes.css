@@ -333,8 +333,11 @@
 
 
 .buttons-container-dossier{
-  padding-top: 2rem;
   display: flex;
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
   justify-content: center;
 }
 
