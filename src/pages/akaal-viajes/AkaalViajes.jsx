@@ -8,9 +8,9 @@ import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucid
 import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
 import { Footer } from '../../components/footer/Footer';
 import SplitText from '../../components/split-text/SplitText';
+import PdfHandler from '../../components/pdf/Pdf';
 
 const AkaalViajes = () => {
-  const [overlay, setOverlay] = useState(false)
   const [currentStep, setCurrentStep] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -425,6 +425,11 @@ const AkaalViajes = () => {
             <h1 className="viajes-india-titulo">INDIA</h1>
             <p className="viajes-india-subtitulo">Viaje espiritual al origen del yoga y la meditación</p>
             <p className="viajes-india-proximamente">PRÓXIMAMENTE</p>
+            <div className="buttons-container-dossier">
+              <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='primary'>
+                VER DOSSIER
+              </PdfHandler>
+            </div>
           </div>
         </div>
       </section>

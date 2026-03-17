@@ -330,6 +330,11 @@
   filter: brightness(0.5);
 }
 
+
+
+.buttons-container-dossier{
+  padding-top: 2rem;
+}
 .viajes-nombre {
   color: var(--background);
   font-size: 10vw;
@@ -782,17 +787,17 @@
 }
 
   .viajes-texto-container {
-    text-align: left;
-    left: 10%;
-    transform: translateY(-50%);
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .viajes-intro-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     width: 100% !important;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
   }
 

@@ -1,36 +1,8 @@
 import './retiros.css'
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
-import { Button } from '../../components/buttons/Button';
+import PdfHandler from '../../components/pdf/Pdf';
 import { useState, useEffect, useRef } from 'react';
 const AkaalRetiros = () => {
-    const [overlay, setOverlay] = useState(false)
-
-  const handleClose = () => {
-    setOverlay(false)
-  }
-
- const handleOpen = () => {
-  if (window.innerWidth < 768) {
-    window.location.href = "/dossier/retiro.pdf";
-  } else {
-    setOverlay(true);
-  }
-};
-
-  useEffect(() => {
-  if (overlay) {
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
-  }
-
-  return () => {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
-  };
-}, [overlay]);
 
 
 
@@ -107,29 +79,11 @@ const AkaalRetiros = () => {
 
 
                 <div className="buttons-container">
-                    <Button variant='secondary' onClick={handleOpen}>VER PROGRAMA COMPLETO</Button>
+                    <PdfHandler fileUrl="/dossier/retiro.pdf" fileName="retiro.pdf" variant='secondary'>
+                        VER PROGRAMA COMPLETO
+                    </PdfHandler>
                     <WhatsAppLink>RESERVAR MI PLAZA</WhatsAppLink>
                 </div>
-
-
-
-                {
-                    overlay && (
-                        <div className="overlay-dossier">
-                            <div className="modal-dossier">
-                                <div className="cerrar-btn" onClick={handleClose}>
-                                    ✕
-                                </div>
-
-                                <iframe
-                                    src="/dossier/retiro.pdf"
-                                    title="Programa Retiro"
-                                    className="iframe-pdf"
-                                />
-                            </div>
-                        </div>
-                    )
-                }
 
 
             </section>
