@@ -334,6 +334,13 @@
 
 .buttons-container-dossier{
   padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-handler-btn {
+  width: 100%;
+  max-width: 280px;
 }
 .viajes-nombre {
   color: var(--background);

@@ -10,13 +10,16 @@ const PdfHandler = ({ fileUrl, fileName = "documento.pdf", variant = "primary", 
     e.preventDefault();
 
     if (isMobile) {
-      // 📱 Descargar PDF
+      // 📱 Descargar PDF sin desplazamiento
+      e.stopPropagation();
       const link = document.createElement("a");
       link.href = fileUrl;
       link.download = fileName;
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      return false;
     } else {
       // 💻 Abrir en nueva pestaña
       window.open(fileUrl, "_blank", "noopener,noreferrer");
@@ -24,7 +27,7 @@ const PdfHandler = ({ fileUrl, fileName = "documento.pdf", variant = "primary", 
   };
 
   return (
-    <Button onClick={handleClick} variant={variant} style={{ cursor: "pointer" }}>
+    <Button onClick={handleClick} variant={variant} style={{ cursor: "pointer" }} className="pdf-handler-btn">
       {children || "Abrir PDF"}
     </Button>
   );
