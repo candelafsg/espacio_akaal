@@ -22,7 +22,7 @@ const PdfHandler = ({ fileUrl, fileName = "documento.pdf", children, variant='pr
   };
 
   return (
-    <Button onClick={handleClick} style={{ cursor: "pointer" }}>
+    <Button onClick={handleClick} variant={variant} style={{ cursor: "pointer" }}>
       {children || "Abrir PDF"}
     </Button>
   );

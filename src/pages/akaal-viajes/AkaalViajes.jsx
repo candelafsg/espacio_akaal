@@ -9,12 +9,15 @@ import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContai
 import { Footer } from '../../components/footer/Footer';
 import SplitText from '../../components/split-text/SplitText';
 import PdfHandler from '../../components/pdf/Pdf';
+import { HouseHeart } from 'lucide-react';
+import { Map } from 'lucide-react';
+
 
 const AkaalViajes = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const [viajeActivo, setViajeActivo] = useState('AZORES');
+  const [viajeActivo, setViajeActivo] = useState('INDIA');
   const [diasRestantes, setDiasRestantes] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
 
@@ -25,44 +28,49 @@ const AkaalViajes = () => {
 
 
 
-  const steps = [
-    {
-      icon: <MountainSnow strokeWidth={1} size={58} />,
-      title: 'Conexión con la naturaleza',
-      description: 'Lagos volcánicos y termas naturales en el bosque y en el mar.',
-    },
-    {
-      icon: <Flower strokeWidth={1} size={58} />,
-      title: 'Yoga',
-      description: 'Respira, conecta y empieza el día en calma.',
-    },
-    {
-      icon: <Backpack strokeWidth={1} size={58} />,
-      title: 'Senderismo',
-      description: 'Rutas sencillas entre cascadas.',
-    },
-    {
-      icon: <FishSymbol strokeWidth={1} size={58} />,
-      title: 'Animales emblemáticos',
-      description: 'Iremos en busca de ballenas y delfines para verlos vivir en su hábitat natural.',
-    },
-
-    {
-      icon: <Sunset strokeWidth={1} size={58} />,
-      title: 'Momentos mágicos',
-      description: 'Disfrutaremos de playas salvajes y las preciosas puestas de sol',
-    },
-    {
-      icon: <Heart strokeWidth={1} size={58} />,
-      title: '¿A qué esperas?',
-      description: 'Te esperamos para que vivas con nosotrx una experiencia única',
-      cta: (
-        <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
-          RESERVA TU PLAZA
-        </WhatsAppLink>
-      )
-    },
-  ];
+const steps = [
+  {
+    icon: <Flower strokeWidth={1} size={58} />,
+    title: 'Un viaje que comienza dentro',
+    description:
+      'India no es solo un destino, es una experiencia transformadora que despierta los sentidos y te invita a mirar el mundo —y a ti— con otros ojos.',
+  },
+  {
+    icon: <HouseHeart strokeWidth={1} size={58} />,
+    title: 'Descubre la India más auténtica',
+    description:
+      'Recorreremos templos, ciudades sagradas y tradiciones vivas, conectando con la esencia cultural y espiritual de un país lleno de contrastes.', // :contentReference[oaicite:0]{index=0}
+  },
+  {
+    icon: <Backpack strokeWidth={1} size={58} />,
+    title: 'Viaja ligero, vive intenso',
+    description:
+      'Nos moveremos en grupo con un ritmo equilibrado, combinando trenes, tuk-tuks y otros transportes para vivir la experiencia de forma real y cercana.',
+  },
+  {
+    icon: <Map strokeWidth={1} size={58} />,
+    title: 'Sumérgete en lo esencial',
+    description:
+      'Desde el Taj Mahal hasta Varanasi, viviremos lugares que conectan con la historia, la espiritualidad y la vida en su forma más pura.',
+  },
+  {
+    icon: <Sunset strokeWidth={1} size={58} />,
+    title: 'Cierra en la cuna del yoga',
+    description:
+      'Finalizaremos en Rishikesh, rodeadas de naturaleza y espiritualidad, con prácticas diarias en ashram junto a profesores nativos.', // :contentReference[oaicite:1]{index=1}
+  },
+  {
+    icon: <Heart strokeWidth={1} size={58} />,
+    title: '¿A qué esperas?',
+    description:
+      'Te esperamos para que vivas con nosotrxs una experiencia única que recordarás toda la vida',
+    cta: (
+      <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+        RESERVA TU PLAZA
+      </WhatsAppLink>
+    )
+  },
+];
 
 
 
@@ -72,7 +80,7 @@ const AkaalViajes = () => {
 
 
   useEffect(() => {
-    const fechaViaje = new Date('2026-04-02');   //Actualizar fecha cuando se cambie el viaje 
+    const fechaViaje = new Date('2027-02-10');   //Actualizar fecha cuando se cambie el viaje - India 10-22 Feb 2027
     const hoy = new Date();
     const diferencia = fechaViaje - hoy;
     const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
@@ -116,7 +124,7 @@ const AkaalViajes = () => {
               to={{ opacity: 1, y: 0 }}
             />
 
-          
+
           </div>
         </div>
       </section>
@@ -219,37 +227,53 @@ const AkaalViajes = () => {
       {/* Sección 2: AZORES */}
       <section className="viajes">
         <div className="viajes-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770018531/twin-lagoons_1_r5z31s.png" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
+          <img
+          style={{
+            opacity:'0.9',
+            filter:'brightness(0.5)',
+            
+          }}
+          src="https://res.cloudinary.com/dhwd1b4be/image/upload/q_auto/f_auto/v1775135329/2152002841_1_sidufc.jpg" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
         </div>
 
         <div className="viajes-texto-container">
           <div className="viajes-intro">
             <div className="viajes-intro-nombre">
-              <h1 className="viajes-nombre">AZORES</h1>
-              <h2 className="viajes-subnombre">SAO MIGUEL</h2>
-              {/* <p className="viajes-subtitulo">Un viaje para desconectar de la rutina y reconectar contigo</p> */}
+              <h1 className="viajes-nombre">INDIA</h1>
+              {/* <h2 className="viajes-subnombre">SAO MIGUEL</h2> */}
+              <p className="viajes-subtitulo">Un viaje para desconectar de la rutina y reconectar contigo</p>
             </div>
 
             <div className="viajes-contador">
-              <p className="viajes-fecha">2-10 ABRIL 2026</p>
+              <p className="viajes-fecha">10 AL 22 FEBRERO 2027</p>
               <p className="contador-texto">Quedan {diasRestantes} días</p>
             </div>
 
             <div className="viajes-descripcion-texto">
-              <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico.</p>
+              <p className="descripcion-parrafo"></p>
               {/* <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p> */}
               {/* <p className="plazas-disponibles">¡Quedan dos plazas!</p> */}
             </div>
 
 
-            <div className="viajes-intro-buttons">
+            <div className="viajes-intro-buttons"
+            style={{
+display:'flex',
+flexDirection:'column',
+width:'100%',
+justifyContent:'center',
+alignItems:'center',
+            }}>
 
 
 
               <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
                 RESERVA TU PLAZA
               </WhatsAppLink>
+              <PdfHandler  fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='secondary'>
+                DESCARGAR DOSSIER
+              </PdfHandler>
               {/* <Button variant='secondary' style={{color: 'var(--background)'}}>VER ITINERARIO</Button> */}
             </div>
           </div>
@@ -415,7 +439,7 @@ const AkaalViajes = () => {
       </section>
 
       {/* Sección 5: Próximo viaje India */}
-      <section className="viajes-india-section">
+      {/* <section className="viajes-india-section">
         <div className="viajes-india-background">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" loading="lazy" />
           <div className="viajes-india-overlay"></div>
@@ -425,14 +449,14 @@ const AkaalViajes = () => {
             <h1 className="viajes-india-titulo">INDIA</h1>
             <p className="viajes-india-subtitulo">Viaje espiritual al origen del yoga y la meditación</p>
             <p className="viajes-india-proximamente">PRÓXIMAMENTE</p>
-            <div className="buttons-container-dossier">
-              <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='primary'>
+            <div className="buttons-container-dossier"> */}
+              {/* <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='primary'>
                 DESCARGAR DOSSIER 
-              </PdfHandler>
-            </div>
+              </PdfHandler> */}
+            {/* </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sección 6: Experiencias anteriores */}
       <section className="viajes-anteriores-section">
