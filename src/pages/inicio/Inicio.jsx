@@ -52,7 +52,7 @@ const Inicio = () => {
                     />
 
                      <SplitText
-                            text=" Centro de yoga en Benimaclet"
+                            text=" Centro de yoga en Valencia"
                             className="espacioAkaal-centro"
                             style={{ fontWeight: '600'}}
                             tag="p"
