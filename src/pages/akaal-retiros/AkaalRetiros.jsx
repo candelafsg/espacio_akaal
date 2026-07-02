@@ -15,7 +15,7 @@ const AkaalRetiros = () => {
                 <div className="retiros-info">
                     <h1 className="retiros-titulo">Retiro Solsticio</h1>
                     <div className="retiros-info-icon" style={{ fontWeight: '600' }}>
-                        <div className="info">19 - 21 Junio</div>
+                        <div className="info">27 - 29 Noviembre</div>
                         <div className="info">Calima, Gilet</div>
                     </div>
                 </div>
@@ -79,9 +79,12 @@ const AkaalRetiros = () => {
 
 
                 <div className="buttons-container">
-                    <PdfHandler fileUrl="/dossier/retiro.pdf" fileName="retiro.pdf" variant='secondary'>
+                    {/* <PdfHandler fileUrl="/dossier/retiro.pdf" fileName="retiro.pdf" variant='secondary'>
                         VER PROGRAMA COMPLETO
-                    </PdfHandler>
+                    </PdfHandler> */}
+                    <div style={{
+                        textAlign:'center'
+                    }}>DOSSIER DISPONIBLE PRÓXIMAMENTE</div>
                     <WhatsAppLink>RESERVAR MI PLAZA</WhatsAppLink>
                 </div>
 
