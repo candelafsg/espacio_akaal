@@ -16,13 +16,19 @@
 }
 
 
+.espacio-akaal-titulo{
+  width: 100%;
+  color: var(--background);
+  font-size: 8vw;
+}
+
 .img-prov{
 
   width: 100%;
   height: 98vh;
   object-fit: cover;
   border-radius: var(--radius-img);
-  filter: brightness(0.7);
+  filter: brightness(0.5);
   opacity: 0.9;
   padding: 0.3rem;
 
@@ -31,6 +37,7 @@
 
 .container-titulo{
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -40,15 +47,8 @@
   transform: translate(-50%, -50%);
 }
 
-.texto-provisional{
-  font-size: 3rem;
-  width: 100%;
-  padding: 1rem;
-  color: var(--background);
-  text-align: center;
 
- 
-}
+
 
 .subtitulo-yoga{
   color: var(--background);

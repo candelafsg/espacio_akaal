@@ -52,11 +52,22 @@ const Inicio = () => {
                     />
 
                      <SplitText
+                            text=" Centro de yoga en Benimaclet"
+                            className="espacioAkaal-centro"
+                            style={{ fontWeight: '600'}}
+                            tag="p"
+                            delay={50}
+                            duration={1}
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+
+                     <SplitText
                             text=" Un refugio para el movimiento, la pausa y la intención."
                             className="espacioAkaal-subtitulo"
                             style={{ fontWeight: '600'}}
                             tag="p"
-                            delay={50}
+                            delay={70}
                             duration={1}
                             from={{ opacity: 0, y: 30 }}
                             to={{ opacity: 1, y: 0 }}

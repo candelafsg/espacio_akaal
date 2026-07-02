@@ -15,7 +15,7 @@
     height: 98vh;
     object-fit: cover;
     border-radius: var(--radius-img);
-    filter: brightness(0.7);
+    filter: brightness(0.4);
     padding: 0.3rem;
 }
 
@@ -37,11 +37,21 @@
 
 .espacioAkaal {
     color: var(--background);
-    font-size: 3rem;
+    font-size: 8vw;
+    line-height: 1.1;
 }
 .espacioAkaal-subtitulo{
     color: var(--background);
+    font-style: oblique;
+    font-size: 1rem;
 }
+
+.espacioAkaal-centro{
+    color: var(--background);
+    font-size: 4vw;
+    margin-bottom: 0.7rem;
+}
+
 /* Desktop - tipografía más grande para Espacio AKAAL */
 @media (min-width: 1024px) {
     .espacioAkaal {

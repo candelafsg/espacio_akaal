@@ -63,16 +63,27 @@ const EspacioAkaal = () => {
         <div className="container-titulo">
           <SplitText
             text="Espacio AKAAL"
-            className="texto-provisional"
+            className="espacio-akaal-titulo"
             tag="h1"
             delay={100}
             duration={1.5}
             from={{ opacity: 0, y: 60 }}
             to={{ opacity: 1, y: 0 }}
           />
+
+          <SplitText
+            text="Clases de yoga para todos los niveles"
+            className="espacioAkaal-centro"
+            style={{ fontWeight: '600' }}
+            tag="p"
+            delay={50}
+            duration={1}
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+          />
           <SplitText
             text="Un refugio para el cuerpo, mente y alma."
-            className="subtitulo-yoga"
+            className="espacioAkaal-subtitulo"
             tag="p"
             delay={150}
             duration={1.3}
@@ -91,9 +102,19 @@ const EspacioAkaal = () => {
 
 
           <div className="intro-1">
-            <h1 className="titulo-intro">
-              Espacio AKAAL
-            </h1>
+            <div className="intro-1-1">
+              <h1 className="titulo-intro">
+                Espacio AKAAL
+              </h1>
+              <p style={{
+                fontSize: '2vw',
+                marginLeft:'1rem'
+                
+              }}className="subtitulo-intro">
+                Clases de yoga para todos los niveles
+              </p>
+            </div>
+            
 
 
             <div className="subtitulo-intro-container">
