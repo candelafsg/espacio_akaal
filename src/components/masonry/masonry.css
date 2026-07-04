@@ -5,9 +5,16 @@
 }
 
 .item-wrapper {
+  display: block;
   position: absolute;
   will-change: transform, width, height, opacity;
   padding: 6px;
+  border: none;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  text-align: inherit;
   cursor: pointer;
   top: 0;
   left: 0;
