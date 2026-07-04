@@ -32,9 +32,9 @@ export const GaleriaSlider = ({ imagenes = [], onClose }) => {
       tabIndex={0}
     >
       <div className="slider-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="slider-close" onClick={onClose}>×</button>
+        <button className="slider-close" onClick={onClose} aria-label="Cerrar galería">×</button>
 
-        <button className="slider-button slider-button-prev" onClick={handlePrev}>
+        <button className="slider-button slider-button-prev" onClick={handlePrev} aria-label="Imagen anterior">
           ‹
         </button>
 
@@ -46,16 +46,19 @@ export const GaleriaSlider = ({ imagenes = [], onClose }) => {
           />
         </div>
 
-        <button className="slider-button slider-button-next" onClick={handleNext}>
+        <button className="slider-button slider-button-next" onClick={handleNext} aria-label="Imagen siguiente">
           ›
         </button>
 
         <div className="slider-pagination">
           {imagenes.map((_, index) => (
-            <span
+            <button
               key={index}
+              type="button"
               className={`pagination-dot ${index === currentIndex ? 'active' : ''}`}
               onClick={() => setCurrentIndex(index)}
+              aria-label={`Ir a la imagen ${index + 1}`}
+              aria-current={index === currentIndex ? 'true' : undefined}
             />
           ))}
         </div>
