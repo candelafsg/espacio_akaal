@@ -103,9 +103,9 @@ const EspacioAkaal = () => {
 
           <div className="intro-1">
             <div className="intro-1-1">
-              <h1 className="titulo-intro">
+              <h2 className="titulo-intro">
                 Espacio AKAAL
-              </h1>
+              </h2>
               <p style={{
                 fontSize: '2vw',
                 marginLeft:'1rem'
@@ -149,7 +149,7 @@ const EspacioAkaal = () => {
           <img src="/img/capa.png" alt="Decoración" className="yoga-capa" />
         </div>
 
-        <h1 className="yoga-titulo">La práctica que compartimos</h1>
+        <h2 className="yoga-titulo">La práctica que compartimos</h2>
 
         <SplitText
           text="En Espacio AKAAL ofrecemos clases de yoga profundamente conscientes, enfocadas en una correcta alineación postural."
@@ -307,7 +307,7 @@ const EspacioAkaal = () => {
         </div>
 
         <div className="akaal-intro">
-          <h1 className="slider-titulo">Un refugio <br /> para el cuerpo</h1>
+          <h2 className="slider-titulo">Un refugio <br /> para el cuerpo</h2>
           <p className="slider-subtitulo">Un espacio donde bajar el ritmo, escuchar el cuerpo y volver a ti. </p>
         </div>
 
