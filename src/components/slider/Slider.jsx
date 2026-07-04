@@ -72,20 +72,23 @@ export default function Slider({ images = [] }) {
           ))}
         </div>
 
-        <button className="arrow left" onClick={() => goTo(current - 1)}>
+        <button className="arrow left" onClick={() => goTo(current - 1)} aria-label="Imagen anterior">
           <ChevronLeft />
         </button>
-        <button className="arrow right" onClick={() => goTo(current + 1)}>
+        <button className="arrow right" onClick={() => goTo(current + 1)} aria-label="Imagen siguiente">
           <ChevronRight />
         </button>
       </div>
 
       <div className="dots">
         {images.map((_, index) => (
-          <div
+          <button
             key={index}
+            type="button"
             className={`dot ${current === index ? "active" : ""}`}
             onClick={() => goTo(index)}
+            aria-label={`Ir a la imagen ${index + 1}`}
+            aria-current={current === index ? "true" : undefined}
           />
         ))}
       </div>
