@@ -83,8 +83,8 @@ const Inicio = () => {
                 </div>
 
                 <div className="titulo-container">
-                    <h1 className="titulo-linea-izquierda">MANERAS DE</h1>
-                    <h1 className="titulo-linea-derecha"> PENSAR EN TI</h1>
+                    <h2 className="titulo-linea-izquierda">MANERAS DE</h2>
+                    <h2 className="titulo-linea-derecha"> PENSAR EN TI</h2>
                 </div>
 
                 <div ref={cardsRef} className="cards-galeria">
