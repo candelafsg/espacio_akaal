@@ -48,7 +48,15 @@ export const Header = () => {
                     <NavLink to="/">
                         <img src="/img/logo.png" alt="logo" className="header-logo" />
                     </NavLink>
-                    <span className="header-menu" onClick={handleOpenMenu}>MENÚ</span>
+                    <button
+                        type="button"
+                        className="header-menu"
+                        onClick={handleOpenMenu}
+                        aria-expanded={menu}
+                        aria-label={menu ? "Cerrar menú" : "Abrir menú"}
+                    >
+                        MENÚ
+                    </button>
                 </nav>
 
 
@@ -73,7 +81,14 @@ export const Header = () => {
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
                                 ref={mobileMenuRef}
                             >
-                                <div className="menu-cerrar" onClick={() => setMenu(false)}>CERRAR</div>
+                                <button
+                                    type="button"
+                                    className="menu-cerrar"
+                                    onClick={() => setMenu(false)}
+                                    aria-label="Cerrar menú"
+                                >
+                                    CERRAR
+                                </button>
 
                                 <ul className="menu-ul">
 
@@ -197,7 +212,14 @@ export const Header = () => {
                                         POLÍTICA <br /> DE PRIVACIDAD
                                     </NavLink>
 
-                                    <a className='icon' href="https://www.instagram.com/espacio.akaal/" target="_blank" style={{color:'var(--background)'}}  onClick={() => setMenu(false)}>
+                                    <a
+                                        className='menu-rrss-icon'
+                                        href="https://www.instagram.com/espacio.akaal/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Instagram de Espacio AKAAL"
+                                        onClick={() => setMenu(false)}
+                                    >
                                         <IoLogoInstagram />
                                     </a>
                                 </div>
