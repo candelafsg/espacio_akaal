@@ -140,7 +140,7 @@ const steps = [
         <div className="desk-content">
 
           <div className="intro-contenedor">
-            <h1 className="viajes-akaal-titulo-desk">Viajes AKAAL</h1>
+            <h2 className="viajes-akaal-titulo-desk">Viajes AKAAL</h2>
 
             <div className="intro-contenedor-subtitulo">
               <h2 className="contenedor-sub">Cada viaje, una intención.</h2>
@@ -240,7 +240,7 @@ const steps = [
         <div className="viajes-texto-container">
           <div className="viajes-intro">
             <div className="viajes-intro-nombre">
-              <h1 className="viajes-nombre">INDIA</h1>
+              <h2 className="viajes-nombre">INDIA</h2>
               {/* <h2 className="viajes-subnombre">SAO MIGUEL</h2> */}
               <p className="viajes-subtitulo">Un viaje para desconectar de la rutina y reconectar contigo</p>
             </div>
@@ -288,9 +288,9 @@ alignItems:'center',
           <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
 
-        <h1 className="header-viajes">
+        <h2 className="header-viajes">
           El ritmo <br />de nuestros días
-        </h1>
+        </h2>
 
         {/* En desktop: mostrar todas las cards en slider horizontal con navegación */}
         <div className="cards-slider-wrapper">
@@ -367,8 +367,9 @@ alignItems:'center',
             {/* Dots indicadores */}
             <div className="slider-dots">
               {Array.from({ length: totalPages }).map((_, index) => (
-                <span
+                <button
                   key={index}
+                  type="button"
                   className={`slider-dot ${index === currentPage ? 'active' : ''}`}
                   onClick={() => {
                     if (index !== currentPage) {
@@ -377,6 +378,8 @@ alignItems:'center',
                       setTimeout(() => setIsAnimating(false), 300);
                     }
                   }}
+                  aria-label={`Ir a la página ${index + 1}`}
+                  aria-current={index === currentPage ? 'true' : undefined}
                 />
               ))}
             </div>
@@ -465,7 +468,7 @@ alignItems:'center',
             <img src="/img/capa.png" alt="Decoración" className="viajes-anteriores-capa" loading="lazy" />
           </div>
 
-          <h1 className="viajes-anteriores-titulo">Experiencias anteriores</h1>
+          <h2 className="viajes-anteriores-titulo">Experiencias anteriores</h2>
           <p className="viajes-anteriores-subtitulo">Recuerdos de nuestras aventuras juntxs</p>
 
           <div className="viajes-anteriores-gallery">

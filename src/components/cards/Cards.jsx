@@ -149,7 +149,7 @@ export const CardViajes = ({
             <div className="viajes-icon">{icon}</div>
 
             <div className="viajes-texto">
-                <h1 className="viajes-h1">{title}</h1>
+                <h3 className="viajes-h1">{title}</h3>
                 <p className="viajes-description">{description}</p>
                 {cta && cta !== null && (
                     <div className="viajes-cta">
@@ -207,7 +207,7 @@ export const CardBeneficios = ({
         <div className={`card-viajes ${isAnimating ? 'animating' : ''}`}>
             <div className="viajes-icon">{icon}</div>
             <div className="viajes-texto">
-                <h1 className="viajes-h1">{title}</h1>
+                <h3 className="viajes-h1">{title}</h3>
                 <p className="viajes-description">{description}</p>
             </div>
             <div className="viajes-footer">
