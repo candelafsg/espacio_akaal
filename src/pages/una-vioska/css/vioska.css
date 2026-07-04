@@ -23,6 +23,10 @@
     margin-left: 0.8rem;
 }
 
+.cuenta {
+    font-size: 1em;
+}
+
 .desk {
     display: none;
 }
@@ -164,25 +168,6 @@
     justify-content: flex-start;
     align-items: center;
 }
-
-.masonry-titulo {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-    font-family: semi-bold, poppins;
-}
-
-.masonry-subtitulo {
-    font-size: 1.1rem;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    font-family: normal, poppins;
-    line-height: 1.6;
-    max-width: 600px;
-}
-
-
 
 /* Contenedor principal para layout flexible */
 .vioska-page {
