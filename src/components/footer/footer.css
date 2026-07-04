@@ -33,29 +33,29 @@
         text-decoration: underline;
     }
 
-    .footer .logo p,
-    .footer .logo h3 {
+    .footer .footer__brand p,
+    .footer .footer__brand h3 {
         color: var(--background);
         margin: 0;
     }
 
-    .footer .footer-ul li,
-    .footer .footer-contacto-ul li {
+    .footer .footer__list li,
+    .footer .footer__contact-list li {
         color: var(--background);
     }
 
-    .footer-contacto-ul {
+    .footer__contact-list {
         display: flex;
         flex-direction: column;
         justify-content: end;
         align-items: end;
     }
 
-    .location {
+    .footer__contact-item--location {
         width: 70%;
     }
 
-    .contact {
+    .footer__contact-item {
         text-align: end;
     }
 }
