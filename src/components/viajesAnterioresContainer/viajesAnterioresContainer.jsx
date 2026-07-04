@@ -92,10 +92,24 @@ export const ViajesAnterioresContainer = ({
     touchCurrentX.current = null
   }
 
+  const handleCardKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      openModal()
+    }
+  }
+
   return (
     <>
       {/* CARD */}
-      <div className="viaje-container" onClick={openModal}>
+      <article
+        className="viaje-container"
+        onClick={openModal}
+        onKeyDown={handleCardKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label={`Ver galería de ${nombre}`}
+      >
         <div className="viaje-portada">
           <img
             src={portada}
@@ -110,7 +124,7 @@ export const ViajesAnterioresContainer = ({
             <p>+ {numberphotos}</p>
           </div>
         </div>
-      </div>
+      </article>
 
       {/* OVERLAY */}
       <OverlayModal isOpen={isOpen} onClose={closeModal}>
@@ -118,6 +132,7 @@ export const ViajesAnterioresContainer = ({
         <button
           className="overlay-close"
           onClick={closeModal}
+          aria-label="Cerrar galería"
         >
           <X size={22} strokeWidth={1.25} />
         </button>
@@ -169,6 +184,7 @@ export const ViajesAnterioresContainer = ({
           className="overlay-arrow overlay-arrow-prev"
           onClick={goPrev}
           disabled={currentIndex === 0}
+          aria-label="Imagen anterior"
         >
           <ChevronLeft size={28} strokeWidth={1.25} />
         </button>
@@ -177,6 +193,7 @@ export const ViajesAnterioresContainer = ({
           className="overlay-arrow overlay-arrow-next"
           onClick={goNext}
           disabled={currentIndex === mediaItems.length - 1}
+          aria-label="Imagen siguiente"
         >
           <ChevronRight size={28} strokeWidth={1.25} />
         </button>
@@ -193,6 +210,8 @@ export const ViajesAnterioresContainer = ({
                 pauseAllVideos() // Pausar videos antes de cambiar
                 setCurrentIndex(i)
               }}
+              aria-label={`Ir al elemento ${i + 1}`}
+              aria-current={i === currentIndex ? 'true' : undefined}
             />
           ))}
         </div>
