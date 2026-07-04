@@ -22,15 +22,26 @@ export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccion
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClick();
+        }
+    };
+
     // Evitar renderizar si no hay imagen válida
     if (!producto.imagen || producto.imagen.trim() === '') {
         return null;
     }
 
     return (
-        <div
+        <article
             className={`card ${seleccionado ? 'card-seleccionada' : ''}`}
             onClick={handleClick}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            aria-label={producto.nombre}
         >
             <div className="card-img-container">
                 <img
@@ -47,7 +58,7 @@ export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccion
                 <p className="card-name">{producto.nombre}</p>
                 <p className="card-prize">{producto.precio} </p>
             </div>
-        </div>
+        </article>
     );
 };
 
@@ -154,10 +165,13 @@ export const CardViajes = ({
                 {/* Indicadores */}
                 <div className="step-indicators">
                     {Array.from({ length: totalSteps }).map((_, index) => (
-                        <span
+                        <button
                             key={index}
+                            type="button"
                             className={`step-dot ${index === currentStep ? 'active' : ''}`}
                             onClick={() => onStepClick(index)}
+                            aria-label={`Ir al paso ${index + 1}`}
+                            aria-current={index === currentStep ? 'true' : undefined}
                         />
                     ))}
                 </div>
@@ -200,10 +214,13 @@ export const CardBeneficios = ({
                 {/* Indicadores */}
                 <div className="step-indicators">
                     {Array.from({ length: totalSteps }).map((_, index) => (
-                        <span
+                        <button
                             key={index}
+                            type="button"
                             className={`step-dot ${index === currentStep ? 'active' : ''}`}
                             onClick={() => onStepClick(index)}
+                            aria-label={`Ir al paso ${index + 1}`}
+                            aria-current={index === currentStep ? 'true' : undefined}
                         />
                     ))}
                 </div>
@@ -222,7 +239,6 @@ export const ViajesGaleria = ({ nombre, src, onClick }) => {
         <div
             className="viajes-container"
             onClick={onClick}
-            style={{ cursor: 'pointer' }}
         >
             <img src={src} alt={nombre} className="viajes-img" />
             <div className="viajes-info">
