@@ -291,6 +291,8 @@ const Gong = () => {
                                 className={`dot ${index === beneficioIndex ? 'active' : ''
                                     }`}
                                 onClick={() => goToBeneficio(index)}
+                                aria-label={`Ir al beneficio ${index + 1}`}
+                                aria-current={index === beneficioIndex ? 'true' : undefined}
                             />
                         ))}
                     </div>
@@ -362,6 +364,8 @@ const Gong = () => {
                                 key={index}
                                 className={`dot ${index === sesionIndex ? 'active' : ''}`}
                                 onClick={() => goToSesion(index)}
+                                aria-label={`Ir a la sesión ${index + 1}`}
+                                aria-current={index === sesionIndex ? 'true' : undefined}
                             />
                         ))}
                     </div>
