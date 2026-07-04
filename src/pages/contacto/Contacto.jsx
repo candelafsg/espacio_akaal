@@ -30,13 +30,16 @@ const Contacto = () => {
                     <div className="contacto-instagram-container">
                         <div className="icono-insta">
                             <img src="/img/instagram.png" alt="insta" className="instagram-img" />
-                            <div className="insta-cuenta"><h4 className="cuenta">@espacio.akaal</h4>
+                            <div className="insta-cuenta"><h2 className="cuenta">@espacio.akaal</h2>
                                 <p className="cuenta-subtitulo">Centro de terapias alternativas</p></div>
                         </div>
 
                         <Button
+                            as="a"
+                            href="https://www.instagram.com/espacio.akaal/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className='btn-btn'
-                            onClick={() => window.open('https://www.instagram.com/espacio.akaal/', '_blank')}
                         >Ir a perfil de Instagram</Button>
 
                     </div>
