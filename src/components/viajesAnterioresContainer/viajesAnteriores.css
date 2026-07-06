@@ -48,10 +48,6 @@
         max-width: calc(50% - 0.5rem);
     }
     
-    .gallery-btn {
-        display: none;
-    }
-    
     .viajes-gallery-desktop .viaje-portada {
         height: 300px;
     }
@@ -421,14 +417,6 @@ cursor: pointer;
   }
 }
 
-.gallery-btn{
-    display: flex;
-    padding: 0.5rem;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-
 .gallery-dots {
     display: flex;
     gap: 0.3rem;
@@ -453,24 +441,6 @@ cursor: pointer;
 
 
 
-  
-  .gallery-prev,
-  .gallery-next {
-    background: none;
-    border: none;
-    color: var(--primary);
-   
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .gallery-prev:disabled,
-  .gallery-next:disabled {
-    opacity: 0;
-    cursor: not-allowed;
-  }
-  
-  
   
   @media (min-width: 768px) {
     .overlay-img {

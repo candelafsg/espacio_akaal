@@ -23,6 +23,10 @@
     margin-left: 0.8rem;
 }
 
+.cuenta {
+    font-size: 1em;
+}
+
 .desk {
     display: none;
 }
@@ -53,22 +57,6 @@
     text-align: center;
 }
 
-/* ====== HERO CONTAINER ====== */
-.vioska-hero-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100dvh;
-    gap: 1rem;
-    padding: 0;
-    border-bottom: var(--border);
-    position: relative;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 /* ====== INSTRUCCIONES MOBILE ====== */
 .vioska-instrucciones {
     display: flex !important;
@@ -88,15 +76,6 @@
     display: block;
 }
 
-.artesania {
-    display: flex;
-    gap: 0.5rem;
-    width: 90%;
-    max-width: 400px;
-    justify-content: center;
-    align-items: center;
-}
-
 .instrucciones-texto {
     text-align: center;
 
@@ -106,13 +85,6 @@
     text-align: center;
     font-size: 2.5rem;
 }
-
-.instrucciones-p {
-    text-align: center;
-    margin: 0;
-    width: 100%;
-}
-
 
 .button {
     display: flex;
@@ -150,36 +122,6 @@
 
 .tit {
     font-size: 2.3rem;
-}
-
-
-
-/* Galería Masonry */
-.vioska-masonry-section {
-    padding: 2rem 1rem;
-    text-align: center;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.masonry-titulo {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-    font-family: semi-bold, poppins;
-}
-
-.masonry-subtitulo {
-    font-size: 1.1rem;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    font-family: normal, poppins;
-    line-height: 1.6;
-    max-width: 600px;
 }
 
 
@@ -231,16 +173,6 @@
 
 .seleccion-titulo {
     width: 60%;
-}
-
-.cantidad-productos {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.vioska-seleccionar {
-    cursor: pointer;
 }
 
 .filtros {
@@ -340,119 +272,6 @@
     display: none;
 }
 
-/* Desktop gallery styles */
-.vioska-galeria-desktop {
-    width: 100%;
-    min-height: 100dvh;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.instrucciones-compactas {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    border-bottom: var(--border);
-    width: 100%;
-}
-
-.artesania-compacto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.instrucciones-texto-compacto {
-    font-size: 0.8rem;
-    text-align: center;
-    margin: 0;
-}
-
-.pasos-compactos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    justify-content: center;
-    width: 100%;
-}
-
-.paso-compacto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
-    font-size: 0.7rem;
-    padding: 0.4rem;
-    flex: 1;
-    min-width: 180px;
-    max-width: 250px;
-}
-
-.paso-texto-compacto {
-    margin: 0;
-    font-size: 0.7rem;
-    text-align: center;
-    line-height: 1.2;
-    width: 100%;
-}
-
-.filtros-galeria {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.filtro-fila {
-    display: flex;
-    gap: 1rem;
-    align-items: stretch;
-    min-height: 200px;
-}
-
-.imagen-contenedor {
-    width: 30%;
-    background-color: #ccc;
-    border-radius: 8px;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.imagen-contenedor .img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.titulo-filtro {
-    font-size: 1rem !important;
-    font-weight: 600;
-    color: var(--background);
-    text-align: center;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-section .filtro-fila .imagen-contenedor h3.titulo-filtro {
-    font-size: 1rem !important;
-}
-
 .galeria-scroll-container {
     width: 70%;
     display: flex;
@@ -488,13 +307,6 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
     max-width: 200px;
 }
 
-.navegacion-galeria {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
 .nav-btn {
     background: none;
     border: none;
@@ -514,30 +326,9 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
     cursor: not-allowed;
 }
 
-.scroll-indicator {
-    font-size: 1.2rem;
-    color: #666;
-    animation: pulse 2s infinite;
-}
-
-
-
-.controles-seleccion {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    border-top: var(--border);
-    margin-top: 2rem;
-}
-
 /* ====== RESPONSIVE CLASSES ====== */
 .mobile-only {
     display: block;
-}
-
-.desktop-only {
-    display: none;
 }
 
 /* ====== MEDIA QUERIES ====== */
@@ -667,16 +458,6 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
     }
 
 
-    .desktop-intro-container {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
-        align-items: center;
-    }
-
     .title-intr {
         font-size: 15vw;
         color: var(--background);
@@ -699,16 +480,6 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         position: relative;
     }
 
-    .desktop-intro-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.6);
-        opacity: 0.8;
-    }
-
-
-
     /* galería */
     .desktop-productos {
         width: 100%;
@@ -722,12 +493,6 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
         text-align: center;
         line-height: 1;
         margin-bottom: 1rem;
-    }
-
-    .subtitulo-galeria {
-        font-size: 1rem;
-        text-align: center;
-        font-weight: 300;
     }
 
     .filtros-header {
@@ -806,9 +571,5 @@ section .filtro-fila .imagen-contenedor h3.titulo-filtro {
 
     .pedido-header-desktop .AiOutlineDelete:hover {
         opacity: 0.7;
-    }
-
-      .desktop-only {
-        display: block;
     }
 }

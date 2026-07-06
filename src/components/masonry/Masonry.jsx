@@ -213,13 +213,15 @@ const Masonry = ({
     <div ref={containerRef} className="list">
       {grid.map(item => {
         return (
-          <div
+          <button
             key={item.id}
+            type="button"
             data-key={item.id}
             className="item-wrapper"
             onClick={() => window.open(item.url, '_blank', 'noopener')}
             onMouseEnter={e => handleMouseEnter(e, item)}
             onMouseLeave={e => handleMouseLeave(e, item)}
+            aria-label="Ver imagen ampliada"
           >
             <div className="item-img" style={{ backgroundImage: `url(${item.img})` }}>
               {colorShiftOnHover && (
@@ -239,7 +241,7 @@ const Masonry = ({
                 />
               )}
             </div>
-          </div>
+          </button>
         );
       })}
     </div>

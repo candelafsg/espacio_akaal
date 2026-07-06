@@ -22,7 +22,7 @@ export const ImgContainer = ({ children }) => {
 
         <>
 
-            <div className="imagen-container" style={{position:'relative'}}>
+            <div className="imagen-container">
                 {children}
             </div>
 
@@ -37,10 +37,13 @@ export const StepIndicators = ({ totalSteps, currentStep, onStepClick }) => {
     return (
       <div className="step-indicators">
         {Array.from({ length: totalSteps }).map((_, index) => (
-          <span
+          <button
             key={index}
+            type="button"
             className={`step-dot ${index === currentStep ? 'active' : ''}`}
             onClick={() => onStepClick(index)}
+            aria-label={`Ir al paso ${index + 1}`}
+            aria-current={index === currentStep ? 'true' : undefined}
           />
         ))}
       </div>

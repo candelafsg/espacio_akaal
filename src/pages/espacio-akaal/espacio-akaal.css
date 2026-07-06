@@ -50,13 +50,6 @@
 
 
 
-.subtitulo-yoga{
-  color: var(--background);
-  text-align: center;
-  font-weight: 600;
-}
-
-
 .akaal-titulo{
   font-size: 10vw;
 }
@@ -183,16 +176,6 @@
 }
 
 
-.akaal-galeria{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 100dvh;
-  padding: 2rem 1rem;
-}
-
 .stack-container-akaal {
   width: 345px;
   height: 300px;
@@ -226,10 +209,6 @@
 
 /* Estilos desktop */
 @media (min-width: 768px) {
-  .texto-provisional {
-    font-size: 4rem;
-  }
-
   .akaal-titulo {
     font-size: 3.5rem;
   }
@@ -238,10 +217,6 @@
     font-size: 2.5rem;
     max-width: 800px;
     text-align: center;
-  }
-
-  .akaal-subtitulo {
-    font-size: 1rem;
   }
 
   .akaal-horarios {
@@ -262,17 +237,6 @@
     width: 50%;
   }
 
-  .akaal-galeria {
-    padding: 4rem 2rem;
-  }
-
-  /* Contenedor de la galería con ancho limitado */
-  .akaal-galeria .list {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
 }
 
 @media (min-width: 1024px) {
@@ -377,10 +341,6 @@
 
 
 
-  .texto-provisional {
-    font-size: 5rem;
-  }
-
   .akaal-yoga-section {
     display: none;
   }
@@ -457,16 +417,6 @@
     width: 45%;
   }
 
-  .akaal-galeria {
-    padding: 6rem 2rem;
-  }
-
-  /* Contenedor de la galería más centrado en pantallas grandes */
-  .akaal-galeria .list {
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-  }
 }
 
 

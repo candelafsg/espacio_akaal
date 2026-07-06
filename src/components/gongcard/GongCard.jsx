@@ -6,7 +6,7 @@ import WhatsAppLink from '../whatsapp-link/WhatsappLink';
 export const GongCard = ({ nombre, icono, texto, duracion, precio }) => {
     return (
         <>
-            <div className="card-gong">
+            <article className="card-gong">
                 <div className="header-card-gong">
                     <span className="icon">{icono}</span>
                     <h2 className="gong-card-titulo">{nombre}</h2>
@@ -20,10 +20,10 @@ export const GongCard = ({ nombre, icono, texto, duracion, precio }) => {
                         <div className="info-container"><p className="gong-card-texto">Precio </p>
                             <p className="info-resultado">{precio}</p></div>
                     </div>
-                    <WhatsAppLink message={`Hola! Estoy interesadx en reservar ${nombre}. Muchas gracias !`}>RESERVAR</WhatsAppLink>
+                    <WhatsAppLink message={`¡Hola! Estoy interesadx en reservar ${nombre}. ¡Muchas gracias !`}>RESERVAR</WhatsAppLink>
 
                 </div>
-            </div>
+            </article>
 
         </>
     );

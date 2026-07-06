@@ -139,10 +139,10 @@ const About = () => {
               </motion.div>
             </AnimatePresence>
 
-            <button className="nav-button prev" onClick={prevSlide}>
+            <button className="nav-button prev" onClick={prevSlide} aria-label="Anterior">
               <ChevronLeft size={32} />
             </button>
-            <button className="nav-button next" onClick={nextSlide}>
+            <button className="nav-button next" onClick={nextSlide} aria-label="Siguiente">
               <ChevronRight size={32} />
             </button>
           </div>
@@ -156,6 +156,8 @@ const About = () => {
                   setDirection(index > currentSlide ? 1 : -1)
                   setCurrentSlide(index)
                 }}
+                aria-label={`Ir al paso ${index + 1}`}
+                aria-current={index === currentSlide ? 'true' : undefined}
               />
             ))}
           </div>
@@ -169,7 +171,7 @@ const About = () => {
             <img src="/img/capa.png" alt="Decoración" className="final-capa" loading="lazy" />
           </div>
           
-          <h1 className="animate-child final-h1" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, mente y alma </h1>
+          <h2 className="animate-child final-h1" style={{marginBottom:'2rem'}}>Ven al lugar de encuentro para el cuerpo, mente y alma </h2>
           
           <p className="animate-child">
             Si quieres saber un poquito más de mí, y empaparte de mi recorrido, te espero en AKAAL. 

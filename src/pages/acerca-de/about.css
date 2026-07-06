@@ -7,17 +7,12 @@
 
 
 
-/* Animaciones de secciones */
-.animate-section {
-    opacity: 1;
-}
-
-.animate-section.animate-in {
-    opacity: 1;
-}
-
 .final-h1{
     margin-top: 2rem;
+}
+
+.final-content .final-h1{
+    font-size: 2em;
 }
 
 
@@ -67,25 +62,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-}
-
-.hero-date {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 300;
-   
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-    font-family: light, poppins;
-}
-
-.hero-flower {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    color: var(--background);
-    opacity: 0.7;
 }
 
 .titulo-hero{
@@ -273,19 +249,6 @@
 }
   
 
-.slide-text-glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.1;
-    border-radius: inherit;
-    z-index: -1;
-}
-
-
 .slide-header {
     display: flex;
     align-items: center;
@@ -469,38 +432,20 @@
     opacity: 0.8;
 }
 
-.final-flower {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    color: var(--primary);
-    opacity: 0.7;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-overlay {
         padding: 2rem;
     }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
+
     .timeline-section {
         padding: 3rem 1rem;
     }
-    
+
     .slide-content {
         padding: 2rem;
     }
-    
-    .slide-text-glass {
-        padding: 2rem;
-        max-width: 90%;
-    }
-    
+
     .final-content h2 {
         font-size: 2rem;
     }
@@ -531,22 +476,9 @@
         color: var(--background);
         text-align: center;
     }
-    
-    .hero-flower {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
-        color: var(--background);
-        opacity: 0.7;
-    }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
     .timeline-header h2 {
         font-size: 2rem;
     }

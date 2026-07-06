@@ -337,13 +337,16 @@ const UnaVioska = () => {
                         <div className="icono-insta">
                             <img src="/img/instagram.png" alt="insta" className="instagram-img" />
                             <div className="insta-cuenta">
-                                <h4 className="cuenta">@unavioska</h4>
+                                <h2 className="cuenta">@unavioska</h2>
                                 <p className="cuenta-subtitulo">Joyería artesanal con espiritu, en plata y macramé.</p>
                             </div>
                         </div>
                         <Button
+                            as="a"
+                            href="https://www.instagram.com/unavioska/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className='btn-btn'
-                            onClick={() => window.open('https://www.instagram.com/unavioska/', '_blank')}
                         >Ir a perfil de Instagram</Button>
                     </div>
                     <div className="capa">
@@ -364,7 +367,7 @@ const UnaVioska = () => {
                             <SplitText
                                 text="una vioska."
                                 className="title-intr"
-                                tag="h1"
+                                tag="h2"
                                 delay={140}
                                 duration={1.8}
                                 from={{ opacity: 0, y: 80 }}
@@ -383,7 +386,7 @@ const UnaVioska = () => {
                                         to={{ opacity: 1, y: 0 }}
                                     />
                                     <SplitText
-                                        text="Joyas artesanales hechas a mano, pieza por pieza, con dedicación y cuidado en cada detalle. Trabajo de manera consciente, eligiendo los materiales y procesos, poniendo cariño y alma en cada creación, para que cada joya no solo adorne, sino que también cuente una historia."
+                                        text="Joyas artesanales hechas a mano, pieza por pieza, con dedicación y cuidado en cada detalle.Trabajo de manera consciente, eligiendo los materiales y procesos, poniendo cariño y alma en cada creación, para que cada joya no solo adorne, sino que también cuente una historia."
                                         className="p"
                                         tag="p"
                                         delay={180}

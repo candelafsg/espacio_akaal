@@ -31,11 +31,6 @@
 
 
 
-.contacto-desk{
-    display: none;
-}
-
-
 .contacto-container {
     display: flex;
     flex-direction: column;
@@ -78,6 +73,10 @@
     gap: 0.5rem;
     padding: 1rem;
 
+}
+
+.cuenta{
+    font-size: 1em;
 }
 
 .cuenta-subtitulo{

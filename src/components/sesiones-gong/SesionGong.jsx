@@ -3,7 +3,7 @@ import WhatsAppLink from '../whatsapp-link/WhatsappLink';
 
 const SesionGong = ({ sesion, isAnimated = false, animationStep = 0 }) => {
     return (
-        <div className="sesion-card">
+        <article className="sesion-card">
             <div className={`sesion-header ${isAnimated && animationStep >= 1 ? 'animate-in' : ''}`}>
                 <div className={`sesion-icon ${isAnimated && animationStep >= 1 ? 'animate-in' : ''}`}>
                     {sesion.icon}
@@ -36,7 +36,7 @@ const SesionGong = ({ sesion, isAnimated = false, animationStep = 0 }) => {
                     RESERVAR SESIÓN
                 </WhatsAppLink>
             </div>
-        </div>
+        </article>
     );
 };
 

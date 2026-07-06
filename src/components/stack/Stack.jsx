@@ -162,6 +162,15 @@ export default function Stack({
             <motion.div
               className="card"
               onClick={() => shouldEnableClick && sendToBack(card.id)}
+              role={shouldEnableClick ? 'button' : undefined}
+              tabIndex={shouldEnableClick ? 0 : undefined}
+              aria-label={shouldEnableClick ? 'Enviar tarjeta al fondo de la pila' : undefined}
+              onKeyDown={(e) => {
+                if (shouldEnableClick && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  sendToBack(card.id);
+                }
+              }}
               animate={{
                 rotateZ: (stack.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - stack.length * 0.06,
