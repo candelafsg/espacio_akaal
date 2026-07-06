@@ -85,11 +85,6 @@
     z-index: -1;
 }
 
-/* Estado del menú cuando está abierto */
-.menu-open {
-    transform: translateX(0);
-}
-
 /* Botón de cerrar menú móvil */
 .menu-cerrar {
     display: flex;
@@ -266,45 +261,6 @@
     /* Contenedor del dropdown de servicios */
     .header-nav-dropdown {
         position: relative;
-    }
-
-    /* Menú dropdown de servicios */
-    .header-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: white;
-        border: 1px solid rgba(97, 37, 62, 0.2);
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(97, 37, 62, 0.15);
-        padding: 0.5rem 0;
-        min-width: 200px;
-        z-index: 1000;
-        margin-top: 0.5rem;
-    }
-
-    /* Items del dropdown */
-    .dropdown-item {
-        padding: 0.8rem 1.5rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-
-    .dropdown-item:hover {
-        background: rgba(97, 37, 62, 0.05);
-    }
-
-    .dropdown-item a {
-        color: var(--primary);
-        text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .dropdown-item:hover a {
-        color: rgba(97, 37, 62, 0.8);
     }
 
     /* ========================================
@@ -690,10 +646,4 @@
         color: rgba(245, 235, 222, 0.8);
     }
 
-    /* Ocultar estilos antiguos del dropdown */
-    .header-desk-ul,
-    .header-desk-li,
-    .desk-dropdown {
-        display: none !important;
-    }
 }
