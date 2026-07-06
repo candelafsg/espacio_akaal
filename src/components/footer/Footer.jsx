@@ -7,8 +7,7 @@ export const Footer = () => {
     <footer className='footer'>
 
         <div className="footer__brand">
-            <p>Espacio</p>
-            <h3>AKAAL</h3>
+            <p>Espacio AKAAL</p>
         </div>
 
         <nav aria-label="Navegación principal">
