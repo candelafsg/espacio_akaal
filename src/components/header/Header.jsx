@@ -130,7 +130,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
+                                                    <NavLink to="/">Espacio AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -154,7 +154,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
+                                                    <NavLink to="/viajes">Viajes AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -166,7 +166,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
+                                                    <NavLink to="/retiros">Retiros AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -284,7 +284,7 @@ export const Header = () => {
                                                             transition={{ duration: 0.5, delay: 0.1 }}
                                                             className="services-menu-item"
                                                         >
-                                                            <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
+                                                            <NavLink to="/">Espacio AKAAL</NavLink>
                                                         </motion.li>
 
                                                         <motion.li 
@@ -308,7 +308,7 @@ export const Header = () => {
                                                             transition={{ duration: 0.5, delay: 0.3 }}
                                                             className="services-menu-item"
                                                         >
-                                                            <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
+                                                            <NavLink to="/viajes">Viajes AKAAL</NavLink>
                                                         </motion.li>
 
                                                         <motion.li 
@@ -320,7 +320,7 @@ export const Header = () => {
                                                             transition={{ duration: 0.5, delay: 0.4 }}
                                                             className="services-menu-item"
                                                         >
-                                                            <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
+                                                            <NavLink to="/retiros">Retiros AKAAL</NavLink>
                                                         </motion.li>
 
                                                         <motion.li 
@@ -452,7 +452,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.1 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/espacio-akaal">Espacio AKAAL</NavLink>
+                                                                <NavLink to="/">Espacio AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -472,7 +472,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.2 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/akaal-viajes">Viajes AKAAL</NavLink>
+                                                                <NavLink to="/viajes">Viajes AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
@@ -482,7 +482,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.25 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/akaal-retiros">Retiros AKAAL</NavLink>
+                                                                <NavLink to="/retiros">Retiros AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 

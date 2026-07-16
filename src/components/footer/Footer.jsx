@@ -21,11 +21,11 @@ export const Footer = () => {
 
         <nav aria-label="Secciones de Espacio AKAAL">
             <ul className="footer__list">
-                <li><NavLink to="/espacio-akaal">Espacio AKAAL</NavLink></li>
-                <li><NavLink to="/akaal-viajes">Viajes AKAAL</NavLink></li>
+                <li><NavLink to="/">Espacio AKAAL</NavLink></li>
+                <li><NavLink to="/viajes">Viajes AKAAL</NavLink></li>
                 <li><NavLink to="/una-vioska">una vioska.</NavLink></li>
                 <li><NavLink to="/gong">Baños de gong</NavLink></li>
-                <li><NavLink to="/akaal-retiros">Retiros</NavLink></li>
+                <li><NavLink to="/retiros">Retiros</NavLink></li>
             </ul>
         </nav>
 

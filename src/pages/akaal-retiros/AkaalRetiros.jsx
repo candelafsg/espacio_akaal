@@ -79,12 +79,12 @@ const AkaalRetiros = () => {
 
 
                 <div className="buttons-container">
-                    <PdfHandler fileUrl="/dossier/Retiro-dejar-ir.pdf" fileName="retiro.pdf" variant='secondary'>
+                    <PdfHandler fileUrl="/dossier/Retiro-dejar-ir.pdf" fileName="retiro.pdf" variant='secondary' >
                         VER PROGRAMA COMPLETO
                     </PdfHandler>
-                    <div style={{
+                    {/* <div style={{
                         textAlign:'center'
-                    }}>DOSSIER DISPONIBLE PRÓXIMAMENTE</div>
+                    }}>DOSSIER DISPONIBLE PRÓXIMAMENTE</div> */}
                     <WhatsAppLink>RESERVAR MI PLAZA</WhatsAppLink>
                 </div>
 

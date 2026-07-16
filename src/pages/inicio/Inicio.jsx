@@ -92,7 +92,7 @@ const Inicio = () => {
                         {
                             text: 'Sesiones que conectan y equilibran el cuerpo y la mente',
                             buttonText: 'Espacio AKAAL',
-                            to: '/espacio-akaal',
+                            to: '/',
                         },
                         {
                             text: 'Piezas hechas a mano, con propósito',
@@ -102,7 +102,7 @@ const Inicio = () => {
                         {
                             text: 'Experiencias pensadas para desconectar y renovarte',
                             buttonText: 'Viajes AKAAL',
-                            to: '/akaal-viajes',
+                            to: '/viajes',
                         },
                         {
                             text: 'Frecuencias para volver al centro',
@@ -113,7 +113,7 @@ const Inicio = () => {
                          {
                             text: 'Encuentros en la naturaleza donde transitar hacia la luz',
                             buttonText: 'Retiros',
-                            to: '/akaal-retiros',
+                            to: '/retiros',
                         }
             
                     ].map((card) => (

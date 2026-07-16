@@ -32,19 +32,19 @@ const router = createBrowserRouter([{
 
 
         {
-            path: "/espacio-akaal",
+            path: "/",
             element: <EspacioAkaal />
         },
 
 
         {
 
-            path: "/akaal-viajes",
+            path: "/viajes",
             element: <AkaalViajes />
         },
 
         {
-            path: "/akaal-retiros",
+            path: "/retiros",
             element: <AkaalRetiros/>
         },
         
