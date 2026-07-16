@@ -32,7 +32,7 @@ const router = createBrowserRouter([{
 
 
         {
-            path: "/",
+            path: "/clases-de-yoga",
             element: <EspacioAkaal />
         },
 

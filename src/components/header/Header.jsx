@@ -130,7 +130,7 @@ export const Header = () => {
                                                     whileHover={{ x: 5 }}
                                                     whileTap={{ scale: 0.95 }}
                                                 >
-                                                    <NavLink to="/">Espacio AKAAL</NavLink>
+                                                    <NavLink to="/clases-de-yoga">Espacio AKAAL</NavLink>
                                                 </motion.li>
 
                                                 <motion.li 
@@ -284,7 +284,7 @@ export const Header = () => {
                                                             transition={{ duration: 0.5, delay: 0.1 }}
                                                             className="services-menu-item"
                                                         >
-                                                            <NavLink to="/">Espacio AKAAL</NavLink>
+                                                            <NavLink to="/clases-de-yoga">Espacio AKAAL</NavLink>
                                                         </motion.li>
 
                                                         <motion.li 
@@ -452,7 +452,7 @@ export const Header = () => {
                                                                 transition={{ duration: 0.3, delay: 0.1 }}
                                                                 className="service-item"
                                                             >
-                                                                <NavLink to="/">Espacio AKAAL</NavLink>
+                                                                <NavLink to="/clases-de-yoga">Espacio AKAAL</NavLink>
                                                             </motion.div>
 
                                                             <motion.div 
