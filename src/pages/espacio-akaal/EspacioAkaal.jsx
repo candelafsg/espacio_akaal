@@ -129,10 +129,10 @@ const EspacioAkaal = () => {
 
           <div className="intro-2">
             <div className="intro-2-content">
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493354/ChatGPT_Image_3_feb_2026_15_51_18_1_1_hh3qci.png" alt="" className="intro-2-img" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493354/ChatGPT_Image_3_feb_2026_15_51_18_1_1_hh3qci.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
             </div>
             <div className="intro-2-content">
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="" className="intro-2-img" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
             </div>
 
           </div>

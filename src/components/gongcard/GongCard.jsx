@@ -27,4 +27,4 @@ export const GongCard = ({ nombre, icono, texto, duracion, precio }) => {
 
         </>
     );
-}
+}//res.cloudinary.com/dnz96cick/image/upload/v1767373992/_MG_9568_hiv1xw.jpg

@@ -31,10 +31,16 @@
 
 .retiros-titulo{
     font-size: 10vw;
+    text-align: center;
 }
 
 .info, .retiros-titulo{
     color: var(--background);
+    text-align: center;
+}
+
+.info{
+    font-size: 2.5vw;
 }
 
 /* seccion dos  */

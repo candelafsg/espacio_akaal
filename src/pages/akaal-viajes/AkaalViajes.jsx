@@ -115,8 +115,8 @@ const steps = [
             />
 
             <SplitText
-              text="Cada viaje, una intención"
-              className="viajes-subtitulo"
+              text="Viajes de yoga y meditación"
+              className="espacioAkaal-centro"
               tag="p"
               delay={180}
               duration={1.4}
@@ -143,7 +143,7 @@ const steps = [
             <h2 className="viajes-akaal-titulo-desk">Viajes AKAAL</h2>
 
             <div className="intro-contenedor-subtitulo">
-              <h2 className="contenedor-sub">Cada viaje, una intención.</h2>
+              <h2 className="espacioAkaal-centro">Viajes de yoga y meditación</h2>
               <p className="viajes-subtitulo" >Cada destino es un espacio sagrado que invita a detenerse, respirar y escuchar. <br />
                 Lejos del ruido cotidiano, cultivamos presencia, silencio y conexión profunda.<br />
                 Porque a veces, el viaje más importante no es hacia un lugar… sino hacia tu interior.</p></div>

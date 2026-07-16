@@ -92,7 +92,7 @@ export const horarios = [
         clases: [
           { hora: '9:30 - 10:45', consultar: true },
           { hora: '11:30 - 12:45' },
-          { hora: '14:30 - 15:45', consultar: true },
+          // { hora: '14:30 - 15:45', consultar: true },
           { hora: '18:00 - 19:15' },
           { hora: '19:45 - 21:00' }
         ]
@@ -108,7 +108,7 @@ export const horarios = [
         clases: [
           { hora: '9:30 - 10:45', consultar: true },
           { hora: '11:30 - 12:45' },
-          { hora: '14:30 - 15:45', consultar: true },
+          // { hora: '14:30 - 15:45', consultar: true },
           { hora: '18:00 - 19:15' },
           { hora: '19:45 - 21:00' }
         ]

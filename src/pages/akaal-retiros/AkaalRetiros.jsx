@@ -13,7 +13,7 @@ const AkaalRetiros = () => {
                 <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770913737/Frame_50_2_raea1m.png" alt="portada" className="retiros-portada-img" />
 
                 <div className="retiros-info">
-                    <h1 className="retiros-titulo">Retiro Solsticio</h1>
+                    <h1 className="retiros-titulo">Retiro de Otoño <br/>Dejar ir</h1>
                     <div className="retiros-info-icon" style={{ fontWeight: '600' }}>
                         <div className="info">27 - 29 Noviembre</div>
                         <div className="info">Calima, Gilet</div>
@@ -79,9 +79,9 @@ const AkaalRetiros = () => {
 
 
                 <div className="buttons-container">
-                    {/* <PdfHandler fileUrl="/dossier/retiro.pdf" fileName="retiro.pdf" variant='secondary'>
+                    <PdfHandler fileUrl="/dossier/Retiro-dejar-ir.pdf" fileName="retiro.pdf" variant='secondary'>
                         VER PROGRAMA COMPLETO
-                    </PdfHandler> */}
+                    </PdfHandler>
                     <div style={{
                         textAlign:'center'
                     }}>DOSSIER DISPONIBLE PRÓXIMAMENTE</div>

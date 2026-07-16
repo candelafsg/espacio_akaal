@@ -235,7 +235,7 @@ const UnaVioska = () => {
                     <div className="capa">
                         <img src="/img/capa.png" alt="capa" className="simbolo" />
                     </div>
-                    <h2 className="instrucciones-titulo">Donde las manos <br /> crean lo que el alma siente.</h2>
+                    <h2 className="instrucciones-titulo">Donde las manos <br /> crean lo que el alma siente</h2>
                     <p className="instrucciones-texto">Cuando compras artesanía, compras mucho más que un objeto</p>
                     <p className="instrucciones-texto">Te llevas contigo horas de dedicación, aprendizaje y momentos de profunda pasión. </p>
                     <p className="instrucciones-texto">En cada joya se guarda un pedacito del alma y del corazón de quien la crea.</p>
@@ -262,7 +262,7 @@ const UnaVioska = () => {
                     />
 
                     <div className="galeria-header-sticky">
-                        <h2 className="galeria-titulo">Encuentra <br /> tu joya.</h2>
+                        <h2 className="galeria-titulo">Encuentra <br /> tu joya</h2>
                         <div className="modo-seleccion-container">
                             <div className="seleccion-multiple-container">
                                 <p className="seleccion-titulo">
