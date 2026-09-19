@@ -41,26 +41,28 @@ const Inicio = () => {
                     className="inicio-imagen"
                 />
                 <div className="titulo-container-inicio">
-                    <SplitText
-                        text="Espacio AKAAL"
-                        className="espacioAkaal"
-                        tag="h1"
-                        delay={30}
-                        duration={1.2}
-                        from={{ opacity: 0, y: 60 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                    <h1 className="tituloWrapper">
+        <SplitText
+            text="Espacio AKAAL"
+            className="espacioAkaal"
+            tag="span"
+            delay={30}
+            duration={1.2}
+            from={{ opacity: 0, y: 60 }}
+            to={{ opacity: 1, y: 0 }}
+        />
 
-                     <SplitText
-                            text=" Centro de yoga en Valencia"
-                            className="espacioAkaal-centro"
-                            style={{ fontWeight: '600'}}
-                            tag="p"
-                            delay={50}
-                            duration={1}
-                            from={{ opacity: 0, y: 30 }}
-                            to={{ opacity: 1, y: 0 }}
-                        />
+        <SplitText
+            text=" Centro de yoga en Valencia"
+            className="espacioAkaal-centro"
+            style={{ fontWeight: '600' }}
+            tag="span"
+            delay={50}
+            duration={1}
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+        />
+    </h1>
 
                      <SplitText
                             text=" Un refugio para el movimiento, la pausa y la intención."
