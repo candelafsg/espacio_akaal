@@ -13,7 +13,7 @@ export const Footer = () => {
         <nav aria-label="Navegación principal">
             <ul className="footer__list">
                 <li><NavLink to="/">Inicio</NavLink></li>
-                <li><NavLink to="/about">Sobre mí</NavLink></li>
+                <li><NavLink to="/acerca-de">Sobre mí</NavLink></li>
                 <li><NavLink to="/contacto">Contacto</NavLink></li>
                 <li><NavLink to="/privacidad">Política de privacidad</NavLink></li>
             </ul>

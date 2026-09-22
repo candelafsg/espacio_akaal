@@ -6,13 +6,14 @@ import EspacioAkaal from "../pages/espacio-akaal/EspacioAkaal";
 import AkaalRetiros from "../pages/akaal-retiros/AkaalRetiros";
 import AkaalViajes from "../pages/akaal-viajes/AkaalViajes";
 import UnaVioska from "../pages/una-vioska/Unavioska";
-import About from "../pages/acerca-de/About";
+import About from '../pages/acerca-de/About'
 import DetalleProducto from "../pages/una-vioska/DetalleProducto";
 import ResumenPedido from "../pages/una-vioska/ResumenPedido";
 import Privacidad from "../pages/privacy/Privacidad";
 import NotFound from "../pages/notFound/NotFound";
 import Gong from "../pages/gong/Gong";
 import Contacto from "../pages/contacto/Contacto";
+import TerapiasHolisticas from "../pages/masajes/TerapiasHolisticas";
 
 
 
@@ -56,7 +57,7 @@ const router = createBrowserRouter([{
         
 
         {
-            path: "/about",
+            path: "/acerca-de",
             element: <About />
         },
 
@@ -83,6 +84,11 @@ const router = createBrowserRouter([{
         {
             path: "/contacto",
             element: <Contacto />
+        },
+
+        {
+            path: "/terapias-holisticas",
+            element: <TerapiasHolisticas />
         },
 
         {

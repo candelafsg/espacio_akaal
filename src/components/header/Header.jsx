@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 
+
+
 export const Header = () => {
 
     const [menu, setMenu] = useState(false);
@@ -24,6 +26,15 @@ export const Header = () => {
     const handleOpenMobileServices = () => {
         setOpenMobileServices(!openMobileServices);
     };
+
+    useEffect(() => {
+        document.documentElement.style.overflow = menu ? 'hidden' : '';
+        document.body.style.overflow = menu ? 'hidden' : '';
+        return () => {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        };
+    }, [menu]);
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -180,6 +191,18 @@ export const Header = () => {
                                                 >
                                                     <NavLink to="/gong">Baños de Gong</NavLink>
                                                 </motion.li>
+
+                                                <motion.li 
+                                                    className="menu-li submenu-item" 
+                                                    onClick={() => { setMenu(false); setOpenMobileServices(false); }}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.2 }}
+                                                    whileHover={{ x: 5 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <NavLink to="/terapias-holisticas">Terapias holísticas</NavLink>
+                                                </motion.li>
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -191,7 +214,7 @@ export const Header = () => {
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <NavLink to="/about">SOBRE MÍ</NavLink>
+                                        <NavLink to="/acerca-de">SOBRE MÍ</NavLink>
                                     </motion.li>
 
                                     <motion.li 
@@ -334,6 +357,19 @@ export const Header = () => {
                                                         >
                                                             <NavLink to="/gong">Baños de Gong</NavLink>
                                                         </motion.li>
+
+
+                                                        <motion.li
+                                                            onClick={() => setOpenDeskMenu(false)}
+                                                            whileHover={{ x: 10 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                            initial={{ opacity: 0, y: 30 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.5, delay: 0.6 }}
+                                                            className="services-menu-item"
+                                                        >
+                                                            <NavLink to="/terapias-holisticas">Terapias holísticas</NavLink>
+                                                        </motion.li>
                                                     </ul>
 
                                                     <div className="services-menu-footer">
@@ -368,7 +404,7 @@ export const Header = () => {
                             </li>
                             
                             <li>
-                                <NavLink to="/about" className="header-nav-link">SOBRE MÍ</NavLink>
+                                <NavLink to="/acerca-de" className="header-nav-link">SOBRE MÍ</NavLink>
                             </li>
                             
                             <li>
@@ -507,7 +543,7 @@ export const Header = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: 0.3 }}
                                             >
-                                                <NavLink to="/about">SOBRE MÍ</NavLink>
+                                                <NavLink to="/acerca-de">SOBRE MÍ</NavLink>
                                             </motion.li>
 
                                             <motion.li 

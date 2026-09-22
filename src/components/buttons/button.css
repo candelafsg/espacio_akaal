@@ -26,8 +26,9 @@ a.btn {
 .btn-secondary {
     background-color: rgba(97, 37, 62, 0.5);
 
-    color: var(--primary);
+    color: var(--background);
     border-radius: 50px;
+    border: 1px solid var(--background);
 
 }
 

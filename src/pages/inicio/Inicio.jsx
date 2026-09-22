@@ -135,7 +135,7 @@ const Inicio = () => {
                         icon={<MdOutlineNorthEast />}
                         iconPosition="right"
                         as={NavLink}
-                        to='/about'
+                        to='/acerca-de'
                     >
                         CONÓCEME
                     </Button>

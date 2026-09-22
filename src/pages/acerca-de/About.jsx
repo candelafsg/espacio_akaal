@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
-import './about.css'
+import './acerca-de.css'
 import { Footer } from "../../components/footer/Footer"
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -67,7 +67,7 @@ const About = () => {
   }
 
   return (
-    <div className="about-container">
+    <div className="acerca-de-container">
       {/* HERO */}
       <section className="hero-section">
         <div className="hero-image">
