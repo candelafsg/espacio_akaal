@@ -57,11 +57,12 @@ export const Acompanamiento = ({ isOpen, onToggle }) => {
                 ))}
               </div>
 
-              <div className="acordeon-precio">
+             
+            </div>
+            <div className="acordeon-precio">
                 <p className="tiempo">60 min.</p>
                 <p className="precio">45€</p>
               </div>
-            </div>
           </div>
         </div>
 
