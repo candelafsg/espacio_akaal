@@ -89,7 +89,7 @@ const AkaalViajes = () => {
   }, []);
 
   useEffect(() => {
-    const fechaViajeAzores = new Date('2026-09-24');   //Actualizar fecha cuando se cambie el viaje - Azores 24 sept al 2 oct 2026
+    const fechaViajeAzores = new Date('2027-09-24');   //Actualizar fecha cuando se cambie el viaje - Azores 24 sept al 2 oct 2026
     const hoy = new Date();
     const diferencia = fechaViajeAzores - hoy;
     const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
