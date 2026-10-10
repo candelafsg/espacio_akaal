@@ -34,8 +34,8 @@ const Inicio = () => {
                 <img
                     src={
                         isDesktop
-                            ? "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769624540/Desktop_-_1_qur0pp.png"
-                            : "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501290/img2_yo27mp.png"
+                            ? "https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1920/v1769624540/Desktop_-_1_qur0pp.png"
+                            : "https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1000/v1769501290/img2_yo27mp.png"
                     }
                     alt="inicio"
                     className="inicio-imagen"

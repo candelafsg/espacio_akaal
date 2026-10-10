@@ -44,12 +44,12 @@ const pasosInstrucciones = [
 ];
 
 const masonryImages = [
-    { id: 1, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613621/colgante-foto_3_r4i19m.jpg', height: 300 },
-    { id: 2, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769613543/DSC00197_1_ggpsxe.jpg', height: 400 },
-    { id: 3, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501553/IMG_2224_1_gvdsoy.png', height: 350 },
-    { id: 4, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501547/Frame_2_mdpq44.png', height: 450 },
-    { id: 5, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501608/Frame_6_m6rcop.png', height: 380 },
-    { id: 6, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501475/Frame_4_sigg5c.png', height: 320 },
+    { id: 1, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769613621/colgante-foto_3_r4i19m.jpg', height: 300 },
+    { id: 2, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769613543/DSC00197_1_ggpsxe.jpg', height: 400 },
+    { id: 3, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501553/IMG_2224_1_gvdsoy.png', height: 350 },
+    { id: 4, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501547/Frame_2_mdpq44.png', height: 450 },
+    { id: 5, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501608/Frame_6_m6rcop.png', height: 380 },
+    { id: 6, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501475/Frame_4_sigg5c.png', height: 320 },
     { id: 7, img: '/img/colgante-mb.png', height: 360 }
 ];
 
@@ -206,7 +206,7 @@ const UnaVioska = () => {
             <main className={`vioska-page ${menuResumenAbierto ? 'dimmed' : ''}`}>
 
                 <section className='vioska-inicio'>
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772191045/iPhone_17_-_1_1_xqqmtb.png" alt="colgante" className="vioska-portada" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1200/v1772191045/iPhone_17_-_1_1_xqqmtb.png" alt="colgante" className="vioska-portada" />
                     <div className="vioska-info">
                         <SplitText
                             text="una vioska."
@@ -360,7 +360,7 @@ const UnaVioska = () => {
             {/* version desk */}
             <main className="desk">
                 <section className="desktop">
-                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772190928/Frame_59_1_ij30th.png" alt="portada" className="desktop-image" />
+                    <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1600/v1772190928/Frame_59_1_ij30th.png" alt="portada" className="desktop-image" />
 
                     <div className="title-container">
                         <div className="contenedor">
@@ -400,21 +400,21 @@ const UnaVioska = () => {
                                     <div className="imgs">
                                         <div className="fila">
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772188316/Frame_30_1_xoph6j.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1772188316/Frame_30_1_xoph6j.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">MACRAMÉ</div>
                                             </div>
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772189108/ChatGPT_Image_5_feb_2026_13_06_06_1_qhtzvm.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1772189108/ChatGPT_Image_5_feb_2026_13_06_06_1_qhtzvm.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">COLGANTES</div>
                                             </div>
                                         </div>
                                         <div className="fila">
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772191290/ChatGPT_Image_19_feb_2026_15_22_30_1_1_ncz5ib.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1772191290/ChatGPT_Image_19_feb_2026_15_22_30_1_1_ncz5ib.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">ANILLOS</div>
                                             </div>
                                             <div className="cont">
-                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1772188870/ChatGPT_Image_5_feb_2026_13_37_29_d0hr56.png" alt="portada" className='cont-img' />
+                                                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1772188870/ChatGPT_Image_5_feb_2026_13_37_29_d0hr56.png" alt="portada" className='cont-img' />
                                                 <div className="cont-title">PENDIENTES</div>
                                             </div>
                                         </div>

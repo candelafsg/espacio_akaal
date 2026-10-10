@@ -61,7 +61,7 @@ const Contacto = () => {
                         </a>
 
                         <div className="contacto-imagen">
-                            <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501183/akaal-1_ylxdws.png" alt="akaal" className="akaal-img" />
+                            <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_800/v1769501183/akaal-1_ylxdws.png" alt="akaal" className="akaal-img" />
                         </div>
                     </div>
                 </div>

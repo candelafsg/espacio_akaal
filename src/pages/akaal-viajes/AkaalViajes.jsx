@@ -108,7 +108,7 @@ const AkaalViajes = () => {
       {/* Sección 1: Introducción a Viajes Akaal */}
       <section className="viajes-intro-section">
 
-        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1200/v1771498978/6689_2_nhrhdb.jpg" alt="Viajes Akaal" className="viajes-intro-img" loading="lazy" />
 
         <div className="viajes-intro-content">
           <div className="viajes-intro-text">
@@ -143,7 +143,7 @@ const AkaalViajes = () => {
       <section className="section-desk">
 
 
-        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771498978/6689_2_nhrhdb.jpg" alt="portada" className="section-desk-img" />
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1920/v1771498978/6689_2_nhrhdb.jpg" alt="portada" className="section-desk-img" />
 
 
         <div className="desk-content">
@@ -167,11 +167,11 @@ const AkaalViajes = () => {
 
             <div className="contenedor-content">
 
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/IMG_2928_fkd0tn.jpg" alt="" className="img-content" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1765392296/IMG_2928_fkd0tn.jpg" alt="" className="img-content" />
             </div>
 
             <div className="contenedor-content">
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767437770/20240331_092747_zfcoi3.jpg" alt="" className="img-content" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1767437770/20240331_092747_zfcoi3.jpg" alt="" className="img-content" />
             </div>
 
 
@@ -302,7 +302,7 @@ const AkaalViajes = () => {
               filter: 'brightness(0.5)',
 
             }}
-            src="https://res.cloudinary.com/dhwd1b4be/image/upload/q_auto/f_auto/v1775135329/2152002841_1_sidufc.jpg" alt="india" className="viajes-imagen-fondo" loading="lazy" />
+            src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1920/v1775135329/2152002841_1_sidufc.jpg" alt="india" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
         </div>
 

@@ -158,12 +158,12 @@ const Gong = () => {
             <section className="gong-introduccion">
                 <picture className="gong-wrapper" ref={introduccionRef}>
                     <source
-                        srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
+                        srcSet="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1920/v1770300997/ChatGPT_Image_5_feb_2026_13_53_25_1_pgsejm.png"
                         media="(min-width: 768px)"
                         type="image/webp"
                     />
                     <img
-                        src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png"
+                        src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1000/v1770301002/ChatGPT_Image_5_feb_2026_13_53_52_1_ukuttb.png"
                         alt="portada"
                         className="gong-imagen"
                     />

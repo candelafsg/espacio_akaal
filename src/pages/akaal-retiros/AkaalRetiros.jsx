@@ -10,7 +10,7 @@ const AkaalRetiros = () => {
     return (
         <>
             <section className="retiros-portada">
-                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770913737/Frame_50_2_raea1m.png" alt="portada" className="retiros-portada-img" />
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1600/v1770913737/Frame_50_2_raea1m.png" alt="portada" className="retiros-portada-img" />
 
                 <div className="retiros-info">
                     <h1 className="retiros-titulo">Retiro de Otoño <br/>Dejar ir</h1>

@@ -50,7 +50,7 @@ const About = () => {
       content:
         "Tras muchos viajes y crecimiento interior, hoy todo ese camino toma forma en Espacio AKAAL: un proyecto que une viaje, yoga, artesanía y crecimiento personal.",
       image:
-        "https://res.cloudinary.com/dhwd1b4be/image/upload/v1769624540/Desktop_-_1_qur0pp.png",
+        "https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1000/v1769624540/Desktop_-_1_qur0pp.png",
       icon: <Heart size={24} />
     }
   ]
@@ -71,7 +71,7 @@ const About = () => {
       {/* HERO */}
       <section className="hero-section">
         <div className="hero-image">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1770300788/ChatGPT_Image_3_feb_2026_16_33_41_1_t6irit.png" alt="Espacio AKAAL" className='image-hero' loading="lazy"/>
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1600/v1770300788/ChatGPT_Image_3_feb_2026_16_33_41_1_t6irit.png" alt="Espacio AKAAL" className='image-hero' loading="lazy"/>
           <div className="hero-overlay">
             <div className="hero-content animate-child">
 

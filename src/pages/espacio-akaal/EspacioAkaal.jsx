@@ -58,7 +58,7 @@ const EspacioAkaal = () => {
     <>
 
       <section className="akaal-inicio">
-        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1200/v1769501307/img4_akwstx.png" alt="portada" className="img-prov" />
 
         <div className="container-titulo">
           <SplitText
@@ -96,7 +96,7 @@ const EspacioAkaal = () => {
 
       <section className="akaal-inicio-desktop">
 
-        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771489981/ChatGPT_Image_17_feb_2026_08_38_05_1_1_drkay2.png" alt="portada" className="intro-imagen-desk" />
+        <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_1600/v1771489981/ChatGPT_Image_17_feb_2026_08_38_05_1_1_drkay2.png" alt="portada" className="intro-imagen-desk" />
 
         <div className="akaal-desk-intro">
 
@@ -129,10 +129,10 @@ const EspacioAkaal = () => {
 
           <div className="intro-2">
             <div className="intro-2-content">
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493354/ChatGPT_Image_3_feb_2026_15_51_18_1_1_hh3qci.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1771493354/ChatGPT_Image_3_feb_2026_15_51_18_1_1_hh3qci.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
             </div>
             <div className="intro-2-content">
-              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
+              <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_500/v1771493361/ChatGPT_Image_2_feb_2026_08_14_49_1_2_a6tbrc.png" alt="Instructora practicando en centro de yoga" className="intro-2-img" />
             </div>
 
           </div>
