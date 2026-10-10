@@ -11,7 +11,7 @@
 
 .viajes-intro-img {
   width: 100%;
-  height: 98vh;
+  height: 98svh;
   object-fit: cover;
   opacity: 0.9;
   filter: brightness(0.7);
@@ -283,7 +283,7 @@
 
 .viajes-imagen-fondo {
   width: 100%;
-  height: 98vh;
+  height: 98svh;
   object-fit: cover;
   object-position: center;
   padding: 0.3rem;
@@ -295,7 +295,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 98vh;
+  height: 98svh;
   background: transparent;
   z-index: 2;
 }

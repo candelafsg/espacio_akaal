@@ -246,7 +246,7 @@ const AkaalViajes = () => {
               filter: 'brightness(0.5)',
 
             }}
-            src="/img/sao-miguel-azores.jpg" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
+            src="/img/sao-miguel-azores.webp" alt="azores" className="viajes-imagen-fondo" loading="lazy" />
           <div className="viajes-overlay"></div>
         </div>
 
@@ -326,26 +326,6 @@ const AkaalViajes = () => {
               {/* <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p> */}
               <p className="plazas-disponibles">¡VIAJE COMPLETO!</p>
             </div>
-
-
-            {/* <div className="viajes-intro-buttons"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-
-
-
-              <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
-                RESERVA TU PLAZA
-              </WhatsAppLink>
-              <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='secondary'>
-                DESCARGAR DOSSIER
-              </PdfHandler>
-            </div> */}
           </div>
         </div>
       </section>
@@ -510,26 +490,6 @@ const AkaalViajes = () => {
           <img src="/img/capa.png" alt="Decoración" className="viajes-cards-capa" loading="lazy" />
         </div>
       </section>
-
-      {/* Sección 5: Próximo viaje India */}
-      {/* <section className="viajes-india-section">
-        <div className="viajes-india-background">
-          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1769679836/65498_l6wn3b.jpg" alt="India" className="viajes-india-img" loading="lazy" />
-          <div className="viajes-india-overlay"></div>
-        </div>
-        <div className="viajes-india-content">
-          <div className="viajes-india-text">
-            <h1 className="viajes-india-titulo">INDIA</h1>
-            <p className="viajes-india-subtitulo">Viaje espiritual al origen del yoga y la meditación</p>
-            <p className="viajes-india-proximamente">PRÓXIMAMENTE</p>
-            <div className="buttons-container-dossier"> */}
-      {/* <PdfHandler fileUrl="/dossier/INDIA.pdf" fileName="INDIA.pdf" variant='primary'>
-                DESCARGAR DOSSIER 
-              </PdfHandler> */}
-      {/* </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Sección 6: Experiencias anteriores */}
       <section className="viajes-anteriores-section">

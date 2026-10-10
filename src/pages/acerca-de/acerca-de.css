@@ -27,13 +27,13 @@
 
 .hero-image {
     width: 100%;
-    height: 98vh;
+    height: 98svh;
     position: relative;
 }
 
 .hero-image img {
     width: 100%;
-    height: 98vh;
+    height: 98svh;
     padding: 0.3rem;
     border-radius: var(--radius-img);
     object-fit: cover;
@@ -107,7 +107,7 @@
 
 .timeline-header {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     animation: fadeInDown 0.8s ease-out;
 }
 
@@ -200,18 +200,6 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    animation: slideIn 0.6s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .timeline-slide {
@@ -223,7 +211,10 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
-    transition: all 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .slide-image-container{

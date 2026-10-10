@@ -50,7 +50,7 @@ const masonryImages = [
     { id: 4, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501547/Frame_2_mdpq44.png', height: 450 },
     { id: 5, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501608/Frame_6_m6rcop.png', height: 380 },
     { id: 6, img: 'https://res.cloudinary.com/dhwd1b4be/image/upload/f_auto,q_auto,w_600/v1769501475/Frame_4_sigg5c.png', height: 320 },
-    { id: 7, img: '/img/colgante-mb.png', height: 360 }
+    { id: 7, img: '/img/colgante-mb.webp', height: 360 }
 ];
 
 

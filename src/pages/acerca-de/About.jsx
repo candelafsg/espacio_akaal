@@ -14,7 +14,7 @@ const About = () => {
       title: "El Comienzo",
       content:
         "Soy María, creadora de Espacio AKAAL. Mi camino comenzó estudiando Educación Social, una etapa que culminó en las Islas Azores durante mi Erasmus, y donde posteriormente me quedé para trabajar por primera vez como Educadora.",
-      image: "/img/azores-maria.jpg",
+      image: "/img/azores-maria.webp",
       icon: <MapPin size={24} />
     },
     {
@@ -23,7 +23,7 @@ const About = () => {
       content:
         "Para costear mis rutas descubrí el macramé. Me recorrí Sudamérica por tierra durante un año y medio, perfeccionando el arte de tejer nudos y engarzar piedras, mientras entendía que la vida podía vivirse de otra manera.",
       image:
-        "/img/sudamerica.jpg",
+        "/img/sudamerica.webp",
       icon: <Compass size={24} />
     },
     {
@@ -32,7 +32,7 @@ const About = () => {
       content:
         "El yoga llegó a mí como un refugio y una guía en un momento interior muy delicado. Me acompañó durante todo mi viaje latinoamericano, recordándome la importancia de la calma y la presencia.",
       image:
-        "/img/maria-yoga.png",
+        "/img/maria-yoga.webp",
       icon: <Flower size={24} />
     },
     {
@@ -41,7 +41,7 @@ const About = () => {
       content:
         "Viajé a la India para formarme como profesora de yoga y aprender orfebrería en plata, usando técnicas rústicas y auténticas, casi sin herramientas pero con una enorme pasión por crear con las manos.",
       image:
-        "/img/maria-yoga-2.png",
+        "/img/maria-yoga-2.webp",
       icon: <Heart size={24} />
     },
     {
@@ -93,15 +93,15 @@ const About = () => {
 
         <div className="timeline-container animate-child">
           <div className="timeline-slider">
-            <AnimatePresence mode="wait" custom={direction}>
+            <AnimatePresence custom={direction}>
               <motion.div
                 key={currentSlide}
                 className="timeline-slide"
                 custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+                initial={{ opacity: 0, x: direction > 0 ? 60 : -60 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
               >
                 <div className="slide-image-container">
                   <img
@@ -112,12 +112,7 @@ const About = () => {
                 </div>
                 <div className="slide-content">
                   <div className="slide-text">
-                    <motion.div 
-                      className="slide-header"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    >
+                    <div className="slide-header">
                       <div className="slide-icon">
                         {timeline[currentSlide].icon}
                       </div>
@@ -125,15 +120,10 @@ const About = () => {
                         <span className="slide-year">{timeline[currentSlide].year}</span>
                         <p className="slide-title">{timeline[currentSlide].title}</p>
                       </div>
-                    </motion.div>
-                    <motion.p 
-                      className="slide-description"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                    >
+                    </div>
+                    <p className="slide-description">
                       {timeline[currentSlide].content}
-                    </motion.p>
+                    </p>
                   </div>
                 </div>
               </motion.div>
