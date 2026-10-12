@@ -163,6 +163,8 @@
 
 .timeline-container {
     position: relative;
+    width: 100%;
+    max-width: 600px;
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -179,6 +181,8 @@
 
 .timeline-slider {
     position: relative;
+    width: 100%;
+    max-width: 600px;
     background: var(--primary);
     border-radius: var(--radius-img);
     overflow: hidden;
