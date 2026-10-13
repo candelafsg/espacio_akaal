@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Heart, Compass, Flower } from 'lucide-react'
 import './acerca-de.css'
@@ -7,7 +7,6 @@ const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0)
 
- 
   const timeline = [
     {
       year: "2013",
@@ -93,7 +92,7 @@ const About = () => {
 
         <div className="timeline-container animate-child">
           <div className="timeline-slider">
-            <AnimatePresence custom={direction}>
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentSlide}
                 className="timeline-slide"

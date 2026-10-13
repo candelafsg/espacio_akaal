@@ -116,8 +116,14 @@ const Inicio = () => {
                             text: 'Encuentros en la naturaleza donde transitar hacia la luz',
                             buttonText: 'Retiros',
                             to: '/retiros',
+                        },
+
+                         {
+                            text: 'Acupuntura y masaje para recuperar tu equilibrio',
+                            buttonText: 'Terapias holísticas',
+                            to: '/terapias-holisticas',
                         }
-            
+
                     ].map((card) => (
                         <CardInicio key={card.to} buttonText={card.buttonText} to={card.to}>
                             {card.text}
